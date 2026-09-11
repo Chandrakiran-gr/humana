@@ -131,6 +131,90 @@ TALLY_LABEL = {
     None: "No result produced",
 }
 
+# ---------------------------------------------------------------------------
+# Presentation of internal identifiers.
+#
+# Filenames, procedure ids and reason codes are machine handles. They are how
+# the pipeline addresses things and they belong in an artifact, not on a
+# reviewer's screen: `2026-07-30_consultant_letter.txt` and `lumbar_fusion`
+# read as debug output, and a screen full of debug output invites the reader
+# to treat the whole thing as a developer tool rather than a record they are
+# accountable for.
+#
+# The raw handle stays reachable. It is printed in the expanded passage
+# detail beside the document hash and the character offsets, which is where
+# provenance belongs, and the artifact filename stays verbatim in the mode bar
+# because that is an identifier a reviewer may need to quote.
+# ---------------------------------------------------------------------------
+
+MONTHS = ("January", "February", "March", "April", "May", "June", "July",
+          "August", "September", "October", "November", "December")
+
+# Tokens that are initialisms rather than words. Derived from the corpus
+# filenames, not guessed: `scripts/` has no document whose name contains an
+# initialism outside this set.
+INITIALISMS = {"mri", "ct", "pt", "gp", "pcp", "hie", "mdt", "cpt", "nsaid",
+               "xr", "emg", "esi", "adl", "odi", "mdm", "ed", "or"}
+
+
+def humanise(token_string: str) -> str:
+    """`consultant_letter` -> `Consultant letter`, preserving initialisms."""
+    words = [w for w in token_string.replace("-", " ").split("_") if w]
+    out = []
+    for i, w in enumerate(words):
+        if w.lower() in INITIALISMS:
+            out.append(w.upper())
+        elif w.isdigit():
+            out.append(w)
+        elif i == 0:
+            out.append(w[:1].upper() + w[1:].lower())
+        else:
+            out.append(w.lower())
+    return " ".join(out)
+
+
+def document_label(filename: str) -> str:
+    """`2026-07-30_consultant_letter.txt` -> `Consultant letter, 30 July 2026`.
+
+    A leading document code with no date, as the injection documents carry,
+    is moved to the end in brackets rather than dropped: it is the only thing
+    distinguishing those documents from one another by name.
+    """
+    import re
+    stem = filename.rsplit(".", 1)[0]
+    m = re.match(r"^(\d{4})-(\d{2})-(\d{2})[_-](.+)$", stem)
+    if m:
+        year, month, day, rest = m.groups()
+        try:
+            when = f"{int(day)} {MONTHS[int(month) - 1]} {year}"
+        except (ValueError, IndexError):
+            return humanise(stem)
+        return f"{humanise(rest)}, {when}"
+    code = re.match(r"^([A-Za-z]{2,4}-\d+)[_-](.+)$", stem)
+    if code:
+        return f"{humanise(code.group(2))} ({code.group(1).upper()})"
+    return humanise(stem)
+
+
+def reason_label(code: str) -> str:
+    """Prose for a reason code, never the code itself.
+
+    The fallback used to be the code, so an unmapped one would put
+    `MISSING_EVIDENCE` on screen. It now reads as a sentence either way.
+    """
+    return REASON_TEXT.get(code, humanise(code.lower()) + ".")
+
+
+# What a reviewer picks from when recording a disagreement. The store's own
+# keys are snake_case; these are the same five choices in words.
+DISAGREEMENT_LABEL = {
+    "status_wrong": "The clinical result does not match the record",
+    "evidence_wrong": "A cited passage does not support the row",
+    "evidence_missing": "The record contains support that was not found",
+    "citation_unusable": "The citation does not resolve to a readable place",
+    "other": "Something else",
+}
+
 REASON_TEXT = {
     "MISSING_EVIDENCE": "Nothing in the record addresses this requirement.",
     "CONFLICTING_EVIDENCE": "Passages in the record disagree. Both sides shown.",
@@ -149,45 +233,76 @@ st.set_page_config(page_title=APP_NAME, layout="wide",
 # buttons inside them keep working. The per-status edge is emitted per row in
 # the loop below, because the colour is not known until the row is.
 st.markdown(f"""<style>
+  /* Base scale. The reference HTML was authored at chat width and sized for
+     that container; in a full browser window the same numbers read small.
+     Nothing is below 12px, including the metadata. */
+  section[data-testid='stMain'] {{ font-size:15.5px; }}
+  section[data-testid='stMain'] p,
+  section[data-testid='stMain'] li {{ font-size:15.5px; line-height:1.6; }}
+  section[data-testid='stMain'] [data-testid='stCaptionContainer'] p
+      {{ font-size:12.5px; }}
+
   div[class*='st-key-row_'] {{
       background:{PANEL}; border:1px solid {RULE}; border-left:3px solid {RULE};
-      border-radius:4px; padding:13px 16px; margin-bottom:9px;
+      border-radius:4px; padding:15px 18px; margin-bottom:10px;
   }}
-  .cite-wordmark {{ font-size:21px; font-weight:600; letter-spacing:-.015em;
+
+  /* Masthead: first thing on the page, restrained enough not to dominate. */
+  .cite-title {{ font-size:22px; font-weight:600; letter-spacing:-.015em;
+      color:{NAVY}; line-height:1.15; }}
+  .cite-strap {{ font-size:14px; color:{INK_SOFT}; margin-top:2px; }}
+  .cite-notice {{ font-size:12.5px; color:{INK_FAINT}; margin-top:7px; }}
+
+  .cite-wordmark {{ font-size:19px; font-weight:600; letter-spacing:-.015em;
       color:{NAVY}; line-height:1.1; }}
-  .cite-tagline {{ font-size:12.5px; color:{INK_FAINT}; margin-top:3px;
+  .cite-tagline {{ font-size:13px; color:{INK_FAINT}; margin-top:3px;
       padding-bottom:16px; border-bottom:1px solid {RULE}; }}
-  .cite-quiet {{ font-size:12px; color:{INK_FAINT}; line-height:1.5;
-      max-width:78ch; }}
+  .cite-quiet {{ font-size:12.5px; color:{INK_FAINT}; line-height:1.55;
+      max-width:80ch; }}
   .cite-quiet b {{ color:{INK_SOFT}; font-weight:600; }}
   .cite-bar {{ background:{NAVY}; color:#fff; border-radius:6px;
-      padding:9px 14px; font-size:13px; display:flex;
+      padding:10px 15px; font-size:14px; display:flex;
       justify-content:space-between; align-items:center; gap:16px; }}
-  .cite-bar .sub {{ opacity:.72; font-size:12px; white-space:nowrap; }}
-  .cite-prov {{ font-size:12px; color:{INK_FAINT}; margin:10px 2px 16px; }}
-  .cite-tallies {{ display:flex; gap:10px; margin-bottom:16px; }}
+  .cite-bar .sub {{ opacity:.75; font-size:12.5px; white-space:nowrap; }}
+  .cite-case {{ font-size:18px; font-weight:600; color:{INK};
+      margin:14px 0 0; line-height:1.3; }}
+  .cite-case-sub {{ font-size:14px; color:{INK_SOFT}; margin:1px 0 4px; }}
+  .cite-prov {{ font-size:12.5px; color:{INK_FAINT}; margin:11px 2px 17px; }}
+  .cite-tallies {{ display:flex; gap:10px; margin-bottom:17px; }}
   .cite-tally {{ flex:1; background:{PANEL}; border:1px solid {RULE};
-      border-left:3px solid {RULE}; border-radius:4px; padding:9px 13px; }}
-  .cite-tally .n {{ font-size:21px; font-weight:600; line-height:1.2; }}
-  .cite-tally .k {{ font-size:12px; color:{INK_SOFT}; }}
+      border-left:3px solid {RULE}; border-radius:4px; padding:10px 14px; }}
+  .cite-tally .n {{ font-size:23px; font-weight:600; line-height:1.2; }}
+  .cite-tally .k {{ font-size:12.5px; color:{INK_SOFT}; }}
+
+  /* The row. Requirement and quote are the primary text of the page. */
   .cite-head {{ display:flex; justify-content:space-between;
       align-items:flex-start; gap:20px; }}
-  .cite-req {{ font-size:14px; font-weight:500; color:{INK}; }}
-  .cite-req .id {{ color:{INK_FAINT}; font-weight:400; margin-right:7px; }}
-  .cite-chip {{ flex:none; font-size:11.5px; font-weight:500; padding:2px 10px;
-      border-radius:3px; white-space:nowrap; margin-top:1px; }}
-  .cite-why {{ font-size:12.5px; margin-top:5px; }}
-  .cite-quote {{ margin-top:8px; padding-left:11px; border-left:2px solid
-      {RULE}; font-size:13.5px; color:{INK}; }}
-  .cite-source {{ margin-top:5px; font-size:11.5px; color:{INK_FAINT}; }}
+  .cite-req {{ font-size:16px; font-weight:500; color:{INK};
+      line-height:1.45; }}
+  .cite-req .id {{ color:{INK_FAINT}; font-weight:400; margin-right:8px; }}
+  .cite-chip {{ flex:none; font-size:12px; font-weight:500; padding:3px 11px;
+      border-radius:3px; white-space:nowrap; margin-top:2px; }}
+  .cite-why {{ font-size:13.5px; margin-top:6px; line-height:1.5; }}
+  .cite-quote {{ margin-top:10px; padding-left:12px; border-left:2px solid
+      {RULE}; font-size:15px; color:{INK}; line-height:1.55; }}
+  .cite-source {{ margin-top:6px; font-size:12px; color:{INK_FAINT}; }}
   .cite-source b {{ color:{INK_SOFT}; font-weight:500; }}
-  .cite-demo {{ font-size:12px; font-weight:600; color:{INK_SOFT}; }}
+  .cite-label {{ font-size:12px; color:{INK_FAINT}; font-weight:600;
+      text-transform:uppercase; letter-spacing:.05em; }}
+  .cite-demo {{ font-size:12.5px; font-weight:600; color:{INK_SOFT}; }}
+
+  /* Footer notice: always present, never the first thing read. */
+  .cite-footer {{ border-top:1px solid {RULE}; margin-top:34px;
+      padding-top:14px; font-size:12.5px; color:{INK_FAINT}; line-height:1.55;
+      max-width:80ch; }}
+  .cite-footer b {{ color:{INK_SOFT}; font-weight:600; }}
+
   /* The row expander is a quiet inline affordance, not a panel. */
   div[class*='st-key-row_'] details {{ border:none !important;
       background:transparent !important; }}
-  div[class*='st-key-row_'] summary {{ font-size:12.5px; color:{NAVY};
+  div[class*='st-key-row_'] summary {{ font-size:13.5px; color:{NAVY};
       padding-left:0 !important; }}
-  div[class*='st-key-row_'] summary p {{ font-size:12.5px !important; }}
+  div[class*='st-key-row_'] summary p {{ font-size:13.5px !important; }}
 </style>""", unsafe_allow_html=True)
 
 
@@ -263,23 +378,33 @@ def mode_bar(label: str, detail: str) -> str:
 
 # ---------------------------------------------------------------------------
 
-# No page-level title. The wordmark lives in the sidebar: a large heading on
-# every screen costs vertical space on the rows, which are the thing being
-# read. See the sidebar block below.
-#
-# The synthetic notice is quiet, secondary and permanent. It was a loud
-# warning block, which made it the first thing the eye landed on every time
-# and, being the loudest element, the easiest to stop seeing. Spec Section 10
-# requires it present and on screen, not prominent.
+# The masthead. The application names itself at the top of the content, not
+# only in the sidebar, because a reviewer looking at a screenshot or a shared
+# window should not have to find the rail to know what they are looking at.
+# Restrained at 22px: the old `st.title` dominated the rows, which are the
+# thing being read.
 st.markdown(
-    "<div class='cite-quiet'>"
+    f"<div class='cite-title'>{APP_NAME}</div>"
+    f"<div class='cite-strap'>{APP_SUBTITLE}</div>"
+    f"<div class='cite-notice'>Synthetic demonstration · no coverage "
+    f"determination produced</div>", unsafe_allow_html=True)
+
+# The full constraint notice was six lines of body text here, at the top of
+# the main column. Spec Section 10 requires it on screen; it does not require
+# it to occupy the most valuable space on the page, and as the loudest element
+# it was also the easiest to stop seeing. It now appears three ways: the line
+# above, always visible; the expander below; and a footer on every screen.
+FULL_NOTICE = (
     "<b>Synthetic demonstration.</b> All criteria are synthetic demonstration "
     "criteria modelled on published coverage determination patterns; they are "
     "<b>not Humana coverage policies</b>. All clinical records are synthetic — "
     "no real or de-identified patient data is used. This system produces no "
     "coverage determination, recommendation, or score. A licensed clinician "
-    "reviews the evidence and makes any decision."
-    "</div>", unsafe_allow_html=True)
+    "reviews the evidence and makes any decision.")
+
+with st.expander("about this demonstration"):
+    st.markdown(f"<div class='cite-quiet'>{FULL_NOTICE}</div>",
+                unsafe_allow_html=True)
 
 available = saved_runs()
 if not available:
@@ -287,11 +412,8 @@ if not available:
     st.stop()
 
 with st.sidebar:
-    st.markdown(
-        f"<div class='cite-wordmark'>{APP_NAME}</div>"
-        f"<div class='cite-tagline'>{APP_SUBTITLE}</div>",
-        unsafe_allow_html=True)
-
+    # No wordmark here. It is the masthead's job, and having both meant the
+    # name and tagline appeared twice on every screen.
     st.subheader("Mode")
     # Recorded is the default. A live run costs money, takes half a minute and
     # can fail in front of an audience; none of that should happen because
@@ -389,7 +511,7 @@ def stage_row(criterion_id: str, stage: str, result=None) -> str:
             # Visible at the moment Step 4 rejects it, not only at the end.
             note = (f" <span style='color:#9A3E1E;font-weight:600'>"
                     f"· {rejected} quote(s) failed verification</span>")
-    return (f"<div style='font-family:ui-monospace,monospace;font-size:0.9rem;"
+    return (f"<div style='font-family:ui-monospace,monospace;font-size:13.5px;"
             f"padding:3px 0;{dim}'><span style='color:{colour}'>{mark}</span> "
             f"<b>{criterion_id}</b> <span style='color:{colour}'>{text}</span>"
             f"{note}</div>")
@@ -431,9 +553,8 @@ if live_mode:
         board = st.container(border=True)
         with board:
             st.markdown(
-                f"<div style='font-size:.68rem;text-transform:uppercase;"
-                f"letter-spacing:.07em;color:{INK_FAINT};font-weight:600;"
-                f"margin-bottom:6px'>Processing</div>", unsafe_allow_html=True)
+                f"<div class='cite-label' style='margin-bottom:7px'>"
+                f"Processing</div>", unsafe_allow_html=True)
             slots = {cid: st.empty() for cid in criteria_set.criterion_ids}
         state = {cid: (STAGE_PENDING, None) for cid in criteria_set.criterion_ids}
 
@@ -546,18 +667,23 @@ if injection is not None:
 # of the screen before any requirement appeared. Provenance has to be
 # recoverable, not prominent: a reviewer reads it once when something looks
 # wrong, and never otherwise. One line, with the version strings behind it.
+# The case is what the reviewer is looking at, so it is a heading. The
+# procedure carries its own proper name in the criteria set — there is no need
+# to derive one from `lumbar_fusion`. Criteria version, configuration and
+# document count are provenance and have moved into the expander below; on the
+# same line as the case name they turned it into one grey debug string.
 st.markdown(
-    f"<div class='cite-prov'>"
-    f"{criteria_set.procedure_id.replace('_', ' ')} · CPT {criteria_set.cpt}"
-    f" · criteria {criteria_set.version} · configuration "
-    f"{extraction.get('configuration', '?')} · "
-    f"{len(packet.usable)} of {len(packet.documents)} documents read"
-    f"</div>", unsafe_allow_html=True)
+    f"<div class='cite-case'>Case {case_id}</div>"
+    f"<div class='cite-case-sub'>{criteria_set.procedure_name} · CPT "
+    f"{criteria_set.cpt}</div>", unsafe_allow_html=True)
 
 with st.expander("run provenance"):
     st.markdown(
         f"<div class='cite-quiet'>"
-        f"model <code>{extraction.get('model')}</code> · prompt "
+        f"criteria set <code>{criteria_set.version}</code> · configuration "
+        f"<code>{extraction.get('configuration', '?')}</code> · "
+        f"{len(packet.usable)} of {len(packet.documents)} documents read"
+        f"<br>model <code>{extraction.get('model')}</code> · prompt "
         f"<code>{extraction.get('prompt_version')}</code> · settings "
         f"<code>{extraction.get('settings_version', 'unversioned')}</code> · "
         f"parser <code>{extraction.get('parser_version', 'unversioned')}</code>"
@@ -565,6 +691,7 @@ with st.expander("run provenance"):
         f"</code>"
         + (f" · split <code>{data['score']['split']}</code>"
            if data.get("score", {}).get("split") else "")
+        + f"<br>procedure id <code>{criteria_set.procedure_id}</code>"
         + f"</div>", unsafe_allow_html=True)
 
 # --- the evidence map ------------------------------------------------------
@@ -581,9 +708,13 @@ def preview(text: str, width: int = 78) -> str:
 
 
 def filename_for(document_id: str) -> str:
-    """Filenames are for scanning; ids belong in the detail with the hash."""
+    """A readable document name. The raw filename and id stay in the detail.
+
+    A document id is the last resort: it means the cited document is not in
+    this packet, which is itself the finding worth showing.
+    """
     try:
-        return packet.by_id(document_id).filename
+        return document_label(packet.by_id(document_id).filename)
     except KeyError:
         return document_id
 
@@ -627,7 +758,7 @@ for result in verification["results"]:
                    f"{'. ' + detail if detail else ''} No clinical result was "
                    f"reached.</div>")
         elif result["reason_codes"] and clinical != "MET":
-            codes = " ".join(REASON_TEXT.get(c, c) for c in result["reason_codes"])
+            codes = " ".join(reason_label(c) for c in result["reason_codes"])
             if result.get("downgraded"):
                 codes += (f" Downgraded from {result.get('extracted_status')} "
                           f"during verification.")
@@ -669,9 +800,8 @@ for result in verification["results"]:
                     # list is a wall.
                     if len(by_role) > 1:
                         st.markdown(
-                            f"<div style='font-size:11px;color:{INK_FAINT};"
-                            f"font-weight:600;text-transform:uppercase;"
-                            f"letter-spacing:.05em;margin:10px 0 4px'>"
+                            f"<div class='cite-label' "
+                            f"style='margin:12px 0 5px'>"
                             f"{role} · {len(items)}</div>",
                             unsafe_allow_html=True)
                     for item in items:
@@ -694,8 +824,11 @@ for result in verification["results"]:
                         before = doc.canonical[max(0, start - pad):start]
                         cited = doc.canonical[start:end]
                         after = doc.canonical[end:end + pad]
+                        # Provenance, in full. The readable name is above;
+                        # this is where the raw handle belongs.
                         st.caption(
-                            f"{doc.filename} · `{item['document_id']}` · "
+                            f"{document_label(doc.filename)} · file "
+                            f"`{doc.filename}` · `{item['document_id']}` · "
                             f"characters {start} to {end} · sha256 "
                             f"{span.get('content_sha256', '')[:12]}")
                         # The surrounding density is realistic and stays. The
@@ -704,7 +837,7 @@ for result in verification["results"]:
                             f"<div style='background:{PAPER};border:1px solid "
                             f"{RULE};padding:14px;border-radius:4px;"
                             f"white-space:pre-wrap;font-family:ui-monospace,"
-                            f"monospace;font-size:12px;line-height:1.55;"
+                            f"monospace;font-size:12.5px;line-height:1.6;"
                             f"color:{INK_SOFT}'>"
                             f"<span style='color:{INK_FAINT}'>…{before}</span>"
                             f"<mark style='background:#FFD84D;color:{INK};"
@@ -715,10 +848,8 @@ for result in verification["results"]:
 
                 if result["explanation"]:
                     st.markdown(
-                        f"<div style='font-size:11px;color:{INK_FAINT};"
-                        f"font-weight:600;text-transform:uppercase;"
-                        f"letter-spacing:.05em;margin:14px 0 4px'>Explanation"
-                        f"</div>", unsafe_allow_html=True)
+                        f"<div class='cite-label' "
+                        f"style='margin:16px 0 5px'>Explanation</div>", unsafe_allow_html=True)
                     st.markdown(result["explanation"])
                     st.caption(f"Satisfied by: {criterion.satisfied_by}")
 
@@ -735,15 +866,18 @@ for result in verification["results"]:
         for c in prior:
             st.markdown(
                 f":small[:blue[Reviewer note · {c.recorded_at} · "
-                f"**{c.kind}**] — {c.reason}]")
+                f"**{DISAGREEMENT_LABEL.get(c.kind, humanise(c.kind))}**] "
+                f"— {c.reason}]")
 
         with st.expander("record a disagreement"):
             st.caption(
                 "Stored separately from the system's output and from the "
                 "reference labels. Nothing here overwrites either, and the "
                 "evaluation cannot read it.")
-            kind = st.selectbox("What is wrong", corrections.DISAGREEMENT_KINDS,
-                                key=f"k{criterion_id}")
+            kind = st.selectbox(
+                "What is wrong", corrections.DISAGREEMENT_KINDS,
+                format_func=lambda k: DISAGREEMENT_LABEL.get(k, humanise(k)),
+                key=f"k{criterion_id}")
             reason = st.text_area("Why", key=f"r{criterion_id}",
                                   placeholder="What a colleague would need to "
                                               "understand the disagreement.")
@@ -757,10 +891,13 @@ for result in verification["results"]:
                 except ValueError as exc:
                     st.error(str(exc))
 
-st.divider()
+# --- footer: the constraint notice, on every screen, unconditionally ------
+# Not behind the expander alone. An expander can be left closed, and Spec
+# Section 10 requires the notice on screen rather than available on request.
 totals = corrections.summary()
-st.caption(
+st.markdown(
+    f"<div class='cite-footer'>{FULL_NOTICE}<br><br>"
     f"Correction store: {totals['total']} recorded across "
-    f"{len(totals['cases'])} case(s). Written to `corrections/`, append only, "
-    f"never read by the scorer."
-)
+    f"{len(totals['cases'])} case(s). Written to <code>corrections/</code>, "
+    f"append only, never read by the scorer.</div>",
+    unsafe_allow_html=True)

@@ -8,6 +8,7 @@ erodes through a well-meaning label change rather than a deliberate one.
 """
 
 import ast
+import re
 import sys
 import unittest
 from pathlib import Path
@@ -16,6 +17,7 @@ PROJECT_ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(PROJECT_ROOT))
 
 APP = PROJECT_ROOT / "app.py"
+APP_SUBTITLE_TEXT = "Evidence mapping for utilization management"
 
 
 def code_only(path: Path) -> str:
@@ -296,6 +298,29 @@ def hsv(hex_colour: str) -> tuple[float, float, float]:
     return hue * 360, s, v
 
 
+def render_calls(needle: str) -> list[str]:
+    """Unparsed `st.markdown(...)` calls that mention `needle`.
+
+    Searching the whole file for a class name finds the stylesheet rule that
+    defines it, which is not evidence that anything renders with it. Two
+    mutations — deleting the masthead, and dropping the notice out of the
+    footer — both survived tests that did exactly that. These assertions look
+    at render calls only.
+    """
+    tree = ast.parse(APP.read_text())
+    out = []
+    for node in ast.walk(tree):
+        if (isinstance(node, ast.Call)
+                and isinstance(node.func, ast.Attribute)
+                and node.func.attr == "markdown"):
+            text = ast.unparse(node)
+            if "<style>" in text:
+                continue          # the stylesheet, not a render
+            if needle in text:
+                out.append(text)
+    return out
+
+
 def _lab(hex_colour: str) -> tuple[float, float, float]:
     h = hex_colour.lstrip("#")
     r, g, b = (int(h[i:i + 2], 16) / 255 for i in (0, 2, 4))
@@ -439,23 +464,121 @@ class ChromeTests(unittest.TestCase):
         self.assertIn("Evidence mapping for utilization management", code)
         self.assertNotIn("UM Evidence Map", code)
 
-    def test_the_wordmark_is_in_the_sidebar_not_a_page_heading(self) -> None:
-        """A large page title on every screen costs vertical space on the
-        rows, which are what is being read."""
+    def test_the_masthead_names_the_application_in_the_main_column(self) -> None:
+        """A reviewer looking at a screenshot or a shared window should not
+        have to find the sidebar to know what they are looking at.
+
+        `st.title` stays out: it dominated the rows, which are the thing
+        being read. The masthead is a restrained 22px instead.
+        """
         code = code_only(APP)
         self.assertNotIn("st.title(", code)
-        i = code.index("with st.sidebar:")
-        self.assertIn("cite-wordmark", code[i:i + 600],
-                      "the wordmark must sit at the top of the sidebar")
+        calls = render_calls("cite-title")
+        self.assertTrue(calls,
+                        "cite-title appears only in the stylesheet; nothing "
+                        "renders the masthead")
+        self.assertIn("APP_NAME", calls[0])
+        self.assertIn("APP_SUBTITLE", " ".join(calls))
+        css = APP.read_text()
+        i = css.index(".cite-title {{")
+        size = re.search(r"font-size:(\d+(?:\.\d+)?)px", css[i:i + 120])
+        self.assertIsNotNone(size)
+        self.assertLessEqual(float(size.group(1)), 24,
+                             "the masthead must not dominate the rows")
+        self.assertGreaterEqual(float(size.group(1)), 20)
 
-    def test_the_synthetic_notice_is_quiet_but_present(self) -> None:
-        """Spec Section 10 requires it on screen, not requiring it to shout.
-        It was a warning block, which made it the loudest thing on the page
-        and therefore the easiest to stop seeing."""
+    def test_the_name_is_rendered_once_not_in_both_columns(self) -> None:
+        """The wordmark used to appear in the sidebar as well, so the name and
+        tagline were on screen twice."""
+        calls = render_calls("APP_NAME")
+        self.assertEqual(len(calls), 1,
+                         f"APP_NAME is rendered {len(calls)} times; it belongs "
+                         f"in the masthead only")
+        tree = ast.parse(APP.read_text())
+        sidebar = [ast.unparse(n) for n in ast.walk(tree)
+                   if isinstance(n, ast.With)
+                   and "st.sidebar" in ast.unparse(n.items[0])]
+        self.assertTrue(sidebar, "no sidebar block found")
+        self.assertNotIn("APP_NAME", sidebar[0])
+        self.assertNotIn("cite-wordmark", sidebar[0])
+
+    def test_the_case_is_a_heading_not_a_metadata_string(self) -> None:
+        """The case and procedure are what the reviewer is looking at.
+
+        Criteria version, configuration and document count read as debug
+        output beside them, so they moved into the provenance expander.
+        """
+        code = code_only(APP)
+        heading = render_calls("cite-case")
+        self.assertTrue(heading, "the case heading is not rendered")
+        head = heading[0]
+        self.assertIn("case_id", head)
+        self.assertIn("procedure_name", head,
+                      "the procedure's proper name, not its id")
+        for provenance in ("criteria_set.version", "configuration",
+                           "documents read"):
+            self.assertNotIn(provenance, head,
+                             f"{provenance} belongs in the provenance "
+                             f"expander, not the case heading")
+
+    def test_the_procedure_uses_its_proper_name_not_its_id(self) -> None:
+        code = code_only(APP)
+        self.assertIn("criteria_set.procedure_name", code)
+        self.assertNotIn("procedure_id.replace", code,
+                         "derive nothing from the id; the set carries a name")
+
+    def test_the_masthead_is_the_first_thing_in_the_main_column(self) -> None:
+        """It must precede the mode bar, the tallies and the rows."""
+        code = code_only(APP)
+        first = code.index("cite-title")
+        for later in ("cite-bar", "cite-tallies", "summary_strip",
+                      "for result in verification['results']:"):
+            self.assertLess(first, code.index(later),
+                            f"the masthead must come before {later}")
+
+    def test_the_synthetic_notice_is_permanently_visible(self) -> None:
+        """Spec Section 10 requires it on screen. Not on request.
+
+        It appears three ways: a one-line summary under the masthead, an
+        expander carrying the full text, and a footer rendered
+        unconditionally. The footer is the one that satisfies the
+        requirement, because an expander can be left closed and would make a
+        mandatory notice opt-in.
+        """
         code = code_only(APP)
         self.assertIn("Synthetic demonstration", code)
         self.assertIn("not Humana coverage policies", code)
-        self.assertNotIn("st.warning(\n    '**Synthetic", code)
+        self.assertTrue(render_calls("cite-notice"),
+                        "nothing renders the short notice line")
+        footer = render_calls("cite-footer")
+        self.assertTrue(footer, "nothing renders the footer")
+        self.assertIn("FULL_NOTICE", footer[0],
+                      "the footer renders but does not carry the constraint "
+                      "notice, which is the only reason it exists")
+
+        # The footer must not sit inside a conditional or an expander.
+        tree = ast.parse(APP.read_text())
+        footer = [n for n in tree.body
+                  if isinstance(n, ast.Expr) and "cite-footer" in ast.unparse(n)]
+        self.assertTrue(footer,
+                        "the footer must be at module scope, not nested in a "
+                        "branch or a `with st.expander` block")
+
+    def test_the_notice_no_longer_occupies_the_top_of_the_column(self) -> None:
+        """Six lines of legal text was the first thing a reviewer read, in
+        the most valuable space on the page. The short line stands in for it
+        there; the full text sits below the fold."""
+        code = code_only(APP)
+        self.assertLess(code.index("cite-title"), code.index("FULL_NOTICE"),
+                        "the masthead must precede the full notice")
+        # The full text must not be rendered above the evidence map.
+        first_full = code.index("FULL_NOTICE =")
+        rendered = [i for i in range(len(code))
+                    if code.startswith("cite-footer", i)]
+        self.assertTrue(rendered)
+        self.assertGreater(rendered[-1],
+                           code.index("for result in verification['results']:"),
+                           "the full notice belongs below the rows")
 
     def test_the_mode_bar_states_every_mode(self) -> None:
         for kind in ("Recorded run · not live", "Live run · in progress",
@@ -543,6 +666,72 @@ class ChromeTests(unittest.TestCase):
         loop = code[code.index("for result in verification['results']:"):]
         self.assertNotIn("result.get('stage')", loop,
                          "the evidence map renders finished results only")
+
+
+class TypeScaleTests(unittest.TestCase):
+    """Sizes are a legibility property, not a preference.
+
+    The reference design was authored at chat width and sized for that
+    container. In a full browser window the same numbers read small, and the
+    text that suffered most was the criterion title and the quote — the two
+    things a reviewer actually has to read.
+    """
+
+    FLOOR_PX = 12.0
+
+    def sizes(self):
+        """Every font-size in the file, in px, with its context."""
+        code = APP.read_text()
+        out = []
+        for m in re.finditer(r"font-size:\s*([0-9.]+)(px|rem)", code):
+            v = float(m.group(1))
+            out.append((v if m.group(2) == "px" else v * 16,
+                        code[max(0, m.start() - 90):m.start()].splitlines()[-1]))
+        return out
+
+    def rule_px(self, selector):
+        code = APP.read_text()
+        i = code.index(selector)
+        m = re.search(r"font-size:\s*([0-9.]+)px", code[i:i + 200])
+        self.assertIsNotNone(m, f"no font-size found for {selector}")
+        return float(m.group(1))
+
+    def test_nothing_is_smaller_than_twelve_pixels(self) -> None:
+        small = [(px, ctx.strip()) for px, ctx in self.sizes()
+                 if px < self.FLOOR_PX]
+        self.assertEqual(
+            small, [],
+            "sizes below the 12px floor: "
+            + "; ".join(f"{px:g}px near {ctx!r}" for px, ctx in small))
+
+    def test_the_floor_check_reads_rem_as_well_as_px(self) -> None:
+        """A `.68rem` slipped past an earlier eye because it is not spelled
+        in pixels. The check converts rather than pattern-matching on px."""
+        found = [px for px, _ in self.sizes()]
+        self.assertTrue(found, "no sizes parsed; the check would be a no-op")
+
+    def test_criterion_titles_are_sixteen_pixels(self) -> None:
+        self.assertGreaterEqual(self.rule_px(".cite-req {{"), 16)
+
+    def test_quotes_are_fifteen_pixels(self) -> None:
+        self.assertGreaterEqual(self.rule_px(".cite-quote {{"), 15)
+
+    def test_body_text_is_at_least_fifteen_pixels(self) -> None:
+        """Base scale, set on the main container rather than per element."""
+        code = APP.read_text()
+        self.assertIn("section[data-testid='stMain']", code)
+        i = code.index("section[data-testid='stMain'] {{")
+        m = re.search(r"font-size:\s*([0-9.]+)px", code[i:i + 120])
+        self.assertIsNotNone(m, "no base font size set on the main container")
+        self.assertGreaterEqual(float(m.group(1)), 15)
+
+    def test_the_requirement_is_larger_than_its_metadata(self) -> None:
+        """Hierarchy, not just absolute size: the requirement must outrank
+        the filename and passage count beneath it."""
+        self.assertGreater(self.rule_px(".cite-req {{"),
+                           self.rule_px(".cite-source {{"))
+        self.assertGreater(self.rule_px(".cite-quote {{"),
+                           self.rule_px(".cite-source {{"))
 
 
 class ModeAndScopeTests(unittest.TestCase):
@@ -680,3 +869,216 @@ class ModeAndScopeTests(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class IdentifierLeakTests(unittest.TestCase):
+    """No internal handle reaches a user-facing label.
+
+    Filenames, procedure ids, reason codes and correction kinds are how the
+    pipeline addresses things. On screen they read as debug output, and a
+    screen of debug output invites a reviewer to treat the record as a
+    developer tool rather than something they are accountable for.
+
+    Two things are deliberately exempt, and both are checked to still be
+    present rather than merely allowed:
+
+    - the **artifact filename** in the mode bar, which is an identifier a
+      reviewer may need to quote
+    - the **passage detail**, where the raw filename sits beside the document
+      id, the character offsets and the content hash, because that is where
+      provenance belongs
+
+    The scan runs over rendered output rather than source, because the defect
+    is about what reaches a screen. It renders with no API key, in recorded
+    mode, which is the path a reader without credentials sees.
+    """
+
+    # Both cases. The first version matched lowercase only, and every enum
+    # in this system — reason codes, statuses, failure kinds — is UPPER_SNAKE.
+    # A mutation putting raw reason codes on the row survived because of it.
+    SNAKE = re.compile(r"\b[A-Za-z][A-Za-z0-9]*(?:_[A-Za-z0-9]+)+\b")
+    ISO_FILE = re.compile(r"\b\d{4}-\d{2}-\d{2}[_-][A-Za-z0-9_]+")
+
+    @classmethod
+    def model_prose(cls) -> set:
+        """Every explanation string in any committed artifact.
+
+        Model-written explanations reference the status vocabulary — one says
+        "NOT_MET" in the course of reasoning about it. That is the model's
+        own words, and rewriting them to look tidier would misrepresent
+        output the rest of this project treats as evidence. It is exempted as
+        *content*, matched verbatim, rather than by excluding the region it
+        renders in, so a genuine label leaking into the same block is still
+        caught.
+        """
+        import json
+        out = set()
+        for path in (PROJECT_ROOT / "runs").glob("*.json"):
+            try:
+                data = json.loads(path.read_text())
+            except (json.JSONDecodeError, OSError):
+                continue
+            for case in data.get("cases", []):
+                for section in ("extraction", "verification"):
+                    for r in case.get(section, {}).get("results", []):
+                        if r.get("explanation"):
+                            out.add(" ".join(r["explanation"].split()))
+        return out
+
+    @classmethod
+    def setUpClass(cls):
+        import os
+        os.environ.pop("ANTHROPIC_API_KEY", None)
+        try:
+            from streamlit.testing.v1 import AppTest
+        except ImportError:                                  # pragma: no cover
+            raise unittest.SkipTest("streamlit not installed")
+        cls.at = AppTest.from_file(str(APP), default_timeout=180).run()
+        if cls.at.exception:
+            raise AssertionError(f"app raised: {cls.at.exception[0].value}")
+
+    # Regions where an internal handle is the point, not a leak. Each is
+    # confirmed to still contain what it was exempted for, by
+    # `test_the_exemptions_are_actually_still_present`. An exemption nobody
+    # checks is a hole.
+    EXEMPT = (
+        "class='cite-bar'",   # mode bar: the artifact filename, quotable
+        "sha256",             # passage detail: raw filename, id, offsets, hash
+        "procedure id",       # run provenance expander
+        "<mark",              # the source excerpt is document content
+    )
+
+    def visible_labels(self) -> list[str]:
+        """Rendered text a reviewer reads, excluding the exempt regions.
+
+        Captions are collected separately from markdown by `AppTest`. An
+        earlier version of this scan read only `at.markdown` and therefore
+        never looked at the passage detail at all — it excluded a region it
+        was not reading, and its exemption check failed for the same reason.
+        """
+        blocks = [m.value for m in self.at.markdown]
+        blocks += [c.value for c in self.at.caption]
+        prose = self.model_prose()
+        out = []
+        for block in blocks:
+            if "<style>" in block or any(x in block for x in self.EXEMPT):
+                continue
+            if " ".join(block.split()) in prose:
+                continue
+            out.append(re.sub(r"<[^>]+>", " ", block))
+        out += [e.label for e in self.at.expander]
+        for widget in list(self.at.selectbox) + list(self.at.radio):
+            out.append(str(widget.label))
+            for opt in (widget.options or []):
+                out.append(str(opt))
+        return out
+
+    def test_the_scan_sees_something(self) -> None:
+        """Guard against the whole check quietly measuring nothing."""
+        labels = self.visible_labels()
+        self.assertGreater(len(labels), 20, "too few labels; scan is a no-op")
+        self.assertTrue(any("Case " in l for l in labels))
+
+    def test_no_snake_case_identifier_is_displayed(self) -> None:
+        hits = []
+        for label in self.visible_labels():
+            for m in self.SNAKE.finditer(label):
+                hits.append((m.group(0), label.strip()[:90]))
+        self.assertEqual(
+            hits, [],
+            "snake_case identifiers on screen: "
+            + "; ".join(f"{tok!r} in {ctx!r}" for tok, ctx in hits[:6]))
+
+    def test_no_raw_iso_filename_is_displayed(self) -> None:
+        hits = []
+        for label in self.visible_labels():
+            for m in self.ISO_FILE.finditer(label):
+                hits.append((m.group(0), label.strip()[:90]))
+        self.assertEqual(
+            hits, [],
+            "ISO-stamped filenames on screen: "
+            + "; ".join(f"{tok!r} in {ctx!r}" for tok, ctx in hits[:6]))
+
+    def test_the_exemptions_are_actually_still_present(self) -> None:
+        """Excluding a region is only defensible if the thing it was excluded
+        for is really there. Otherwise the exclusion hides a gap instead of
+        permitting a deliberate choice.
+
+        This failed on its first run for exactly that reason: it looked for
+        the passage detail in `at.markdown`, where captions do not appear,
+        and concluded nothing was rendered.
+        """
+        blocks = [m.value for m in self.at.markdown if "<style>" not in m.value]
+        captions = [c.value for c in self.at.caption]
+
+        bar = [b for b in blocks if "class='cite-bar'" in b]
+        self.assertTrue(bar, "no mode bar rendered")
+        self.assertRegex(" ".join(bar), r"\d{8}T\d{6}Z.*\.json",
+                         "the mode bar must still carry the artifact filename")
+
+        detail = [c for c in captions if "sha256" in c]
+        self.assertTrue(detail, "no passage detail rendered")
+        self.assertTrue(any(self.ISO_FILE.search(c) for c in detail),
+                        "the passage detail must still carry the raw filename")
+        self.assertTrue(any("characters " in c for c in detail),
+                        "the passage detail must still carry the offsets")
+
+        prov = [b for b in blocks if "procedure id" in b]
+        self.assertTrue(prov, "no run provenance block rendered")
+        self.assertTrue(any(self.SNAKE.search(b) for b in prov),
+                        "the provenance expander must still carry the "
+                        "procedure id")
+
+        self.assertTrue(self.model_prose(),
+                        "no explanations found in any artifact; the "
+                        "model-prose exemption would be silently empty")
+
+    def test_document_labels_are_readable(self) -> None:
+        """The formatter itself, on real corpus filenames."""
+        import importlib.util
+        spec = importlib.util.spec_from_file_location("cite_app", APP)
+        # Read the function out of the AST rather than importing the module,
+        # which would execute Streamlit calls.
+        tree = ast.parse(APP.read_text())
+        ns = {}
+        for node in tree.body:
+            if isinstance(node, (ast.FunctionDef, ast.Assign, ast.Import)):
+                try:
+                    exec(compile(ast.Module(body=[node], type_ignores=[]),
+                                 "<app>", "exec"), ns)
+                except Exception:
+                    pass
+        label = ns["document_label"]
+        self.assertEqual(label("2026-07-30_consultant_letter.txt"),
+                         "Consultant letter, 30 July 2026")
+        self.assertEqual(label("2026-04-22_mri_lumbar_structured_report.txt"),
+                         "MRI lumbar structured report, 22 April 2026")
+        self.assertEqual(label("INJ-01_patient_portal_message.txt"),
+                         "Patient portal message (INJ-01)")
+        # Initialisms must not be sentence-cased into words.
+        self.assertIn("PT ", label("2026-08-20_pt_progress_note.txt"))
+
+    def test_document_labels_do_not_collide_within_a_packet(self) -> None:
+        """Two documents rendering the same name would be worse than the raw
+        filenames, because a reviewer could not tell them apart at all."""
+        import json
+        from collections import Counter
+        from um_evidence import ingest_case
+        tree = ast.parse(APP.read_text())
+        ns = {}
+        for node in tree.body:
+            if isinstance(node, (ast.FunctionDef, ast.Assign, ast.Import)):
+                try:
+                    exec(compile(ast.Module(body=[node], type_ignores=[]),
+                                 "<app>", "exec"), ns)
+                except Exception:
+                    pass
+        label = ns["document_label"]
+        cases = json.loads((PROJECT_ROOT / "corpus" / "labels.json").read_text())
+        for case in cases["cases"]:
+            packet = ingest_case(case["case_id"],
+                                 PROJECT_ROOT / "corpus" / "cases")
+            names = [label(d.filename) for d in packet.documents]
+            dupes = [n for n, c in Counter(names).items() if c > 1]
+            self.assertEqual(dupes, [],
+                             f"{case['case_id']} has colliding labels: {dupes}")
