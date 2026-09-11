@@ -1,0 +1,47 @@
+Meridale Regional Spine Network
+Structured Imaging Report  ·  Template SR-XR-DYN v2
+
+Subject .................. Okpara-Lindholm, Sylvie
+Hospital No. ............. MRS 0441-7723
+Study Date ............... 06 May 2026
+Modality ................. Lumbar spine, standing lateral, flexion and
+                           extension series
+Indication as supplied ... Assess for segmental instability. Requested
+                           following supine MRI of 22 Apr 2026 which could not
+                           address dynamic alignment.
+Reporting Radiologist .... Dr T. Okonjo-Reyes
+
+Technique
+
+  Standing lateral projections in maximal voluntary flexion and maximal
+  voluntary extension. Effort assessed as good; the patient achieved a
+  satisfactory arc and the endplates are well profiled at every level from
+  L1 to S1. This study is diagnostic for the question asked.
+
+Measurements, sagittal translation, anterior vertebral body relative to the
+segment below, measured to the nearest millimetre
+
+  Level          Flexion      Extension     Difference
+  L1-2 .......   0 mm         0 mm          0 mm
+  L2-3 .......   0 mm         0 mm          0 mm
+  L3-4 .......   1 mm         0 mm          1 mm
+  L4-5 .......   1 mm         1 mm          0 mm
+  L5-S1 ......   0 mm         0 mm          0 mm
+
+Measurements, segmental angulation
+
+  No segment demonstrates angular change exceeding 4 degrees between the two
+  projections. Departmental threshold for instability is 4 mm translation or
+  10 degrees angulation.
+
+Structured impression
+
+  Listhesis .............. No spondylolisthesis is demonstrated at any level in
+                           either projection.
+  Instability ............ No segmental instability. Translation and angulation
+                           are below threshold at every level from L1 to S1.
+  Pars .................. Pars interarticularis intact bilaterally at all
+                           levels. No defect.
+  Degenerative change .... As described on the MRI of 22 Apr 2026.
+
+Verified by .............. Dr T. Okonjo-Reyes, 06 May 2026 11:41

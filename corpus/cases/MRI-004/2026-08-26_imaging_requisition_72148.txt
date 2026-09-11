@@ -1,0 +1,30 @@
+HARBORVIEW RADIOLOGY - FENWICK SITE
+IMAGING REQUISITION
+
+Requisition:  HRF-2026-20871
+Date:         08/26/2026
+Ordering:     B. Osterlund, MD
+Patient:      Delacroix, Maureen   MRN 5528310   DOB 02/14/1970
+
+EXAM:         MRI Lumbar Spine without contrast
+CPT:          72148
+Dx code:      M54.50
+Priority:     Routine
+
+CLINICAL INDICATION:
+Bilateral low back pain, mechanical pattern, no radicular features. Patient
+requests structural evaluation.
+
+SAFETY SCREENING (completed by patient at check-in)
+Cardiac device                  No
+Aneurysm clip or coil           No
+Cochlear implant                No
+Metal fragment in eye           No
+Metalworking occupation         No
+Claustrophobia                  Patient notes she "does not love small spaces"
+                                but declines sedation
+Contrast requested              No
+
+SCHEDULING
+Patient works Monday to Thursday. Fridays or after 17:00 preferred.
+Sedation not required. No interpreter needed.

@@ -1,0 +1,35 @@
+BRAEMOOR MEDICAL PRACTICE
+CARE COORDINATION NOTE
+
+Patient: Duvall, Cornelius T.   MRN 2206883
+Date: 08/28/2026
+Coordinator: T. Egwuatu
+
+SUBJECT: Physical therapy authorization, closed unused
+
+HISTORY OF THIS REQUEST
+02/14/2026  Referral to physical therapy received from Dr. Winterbourne. Entered
+            into the portal the same day.
+02/27/2026  Carrier returned the request for additional clinical documentation.
+03/09/2026  Documentation resubmitted.
+04/02/2026  Carrier denied the request. Reason given on the notice: benefit
+            category exhausted for the plan year.
+04/03/2026  Patient telephoned and advised. He was not happy and asked whether
+            he could pay for it himself. Costs provided.
+04/21/2026  Patient telephoned to say he had decided against paying privately.
+05/06/2026  Appeal lodged by this office.
+06/18/2026  Appeal declined. Same reason cited.
+
+CURRENT STATUS
+Physical therapy was never authorized under this plan and the patient did not
+begin it. No sessions were attended and none were self-funded. The referral is
+now closed on our side.
+
+The plan year resets on 01 January and the benefit will be available again from
+that date. Patient has been told this in writing.
+
+ACTION
+Closing the referral in the system. Flagging the chart so that anyone looking at
+the February referral can see it did not proceed.
+
+T. Egwuatu

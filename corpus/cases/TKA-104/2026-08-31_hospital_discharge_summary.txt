@@ -1,0 +1,46 @@
+THORNBECK GENERAL HOSPITAL
+Acute Medical Unit
+DISCHARGE SUMMARY
+
+Patient:   Lindqvist-Mbeki, Adaeze
+MRN:       4471033
+DOB:       05/14/1954
+Admitted:  08/29/2026
+Discharged: 08/31/2026
+Consultant: R. Achterberg-Nolan, MD
+
+PRESENTING COMPLAINT
+Rigors, right loin pain, and vomiting for a day and a half.
+
+COURSE
+Admitted through the emergency department. Temperature 38.9 C on arrival, pulse
+112, blood pressure 104/62. Right renal angle tenderness, marked. Urinalysis
+positive for nitrites and leucocytes.
+
+Bloods on admission: white cell count 17.4, neutrophils 15.1, CRP 188,
+creatinine 1.4 up from a baseline of 0.9.
+
+Urine culture: Escherichia coli, greater than 10 to the 5 colony forming units
+per millilitre, sensitive to co-amoxiclav and to gentamicin, resistant to
+trimethoprim.
+
+Diagnosis: acute pyelonephritis, right.
+
+Treated with intravenous co-amoxiclav from admission. Fluids. Improved over
+forty-eight hours; afebrile since the morning of 08/31, CRP falling, creatinine
+1.1 on discharge.
+
+DISCHARGE MEDICATION AND PLAN
+Discharged on oral co-amoxiclav to complete a fourteen day course in total,
+finishing 09/11/2026. She remains on treatment at discharge and the infection is
+not yet resolved.
+Repeat bloods and urine at the general practice in one week.
+Renal tract ultrasound requested as an outpatient, given the first presentation
+at her age.
+
+NOTE TO OTHER TEAMS
+I understand from the patient that she is under Orthopaedics with a knee
+replacement request in progress. I have written to Mr. Castellanos-Reid
+separately. This admission should be taken into account.
+
+R. Achterberg-Nolan, MD

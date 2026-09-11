@@ -1,0 +1,26 @@
+PENNYFIELD WALK-IN CENTRE
+IMAGING REQUEST
+
+Request:      PWC-IMG-2026-0417
+Entered:      09/05/2026 21:04
+Entered by:   D. Achebe, PA-C
+Patient:      Sorrentino, Marcus   PWC-88213   DOB 04/17/1983
+
+EXAM:         MRI Lumbar Spine without contrast
+CPT:          72148
+Priority:     Routine
+
+INDICATION:   Low back pain. Requested by patient.
+
+SAFETY SCREENING
+Not completed. Patient left before the screening questionnaire was administered.
+To be completed by the performing site before any appointment is confirmed.
+
+ADMINISTRATIVE NOTE
+This centre does not hold a registered list for this patient and has no previous
+attendance recorded for him. No records have been requested from elsewhere and
+none are held here.
+
+Request entered at the patient's insistence. Reviewing clinician should be aware
+that the encounter was brief and that the clinical detail behind this request is
+limited to what appears in the encounter record of the same date.

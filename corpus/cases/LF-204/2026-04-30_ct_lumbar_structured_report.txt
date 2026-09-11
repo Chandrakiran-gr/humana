@@ -1,0 +1,42 @@
+Meridale Regional Spine Network
+Structured Imaging Report  ·  Template SR-CT-LS v3
+
+Subject .................. Tanaka-Okonkwo, Reuben
+Hospital No. ............. MRS 0518-2264
+Date of Birth ............ 03 Dec 1971
+Study Date ............... 30 Apr 2026
+Modality ................. CT lumbar spine, thin section, with sagittal and
+                           oblique reconstructions
+Indication as supplied ... Characterise the pars and quantify the slip.
+                           Correlate with MRI of 12 Mar 2026.
+Reporting Radiologist .... Dr T. Okonjo-Reyes
+
+Segmental findings
+
+  L1-2 to L3-4 ........... Unremarkable.
+  L4-5 ................... Bilateral pars interarticularis defects, complete,
+                           with sclerotic margins indicating chronicity.
+                           Anterolisthesis of L4 on L5 measured at 7 mm,
+                           Meyerding grade I approaching grade II.
+                           Consequent foraminal stenosis, bilateral, more
+                           marked on the left, with the exiting L4 nerve root
+                           closely applied to the pedicle on the left.
+  L5-S1 .................. Pars intact. Disc height maintained. Foramina
+                           patent.
+
+  Alignment .............. Anterolisthesis at L4-5 as above. Remaining levels
+                           aligned.
+  Prior surgery .......... None. No instrumentation, no laminectomy defect, no
+                           bone graft, no evidence of previous intervention at
+                           any level.
+
+Structured impression
+
+  Principal finding ...... Bilateral L4 pars defects with grade I
+                           anterolisthesis of L4 on L5, 7 mm.
+  Classification ......... Isthmic spondylolisthesis, L4-5.
+  Stenosis ............... Bilateral L4-5 foraminal stenosis, left worse than
+                           right, affecting the exiting L4 root on the left.
+  Other .................. Nil.
+
+Verified by .............. Dr T. Okonjo-Reyes, 30 Apr 2026 14:22

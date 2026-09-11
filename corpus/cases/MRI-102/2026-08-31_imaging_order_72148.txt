@@ -1,0 +1,32 @@
+BRAEMOOR MEDICAL PRACTICE
+IMAGING ORDER FORM
+
+Order:        BMP-2026-71104
+Date:         08/31/2026
+Ordered by:   A. Winterbourne, MD
+Patient:      Duvall, Cornelius T.   MRN 2206883   DOB 11/09/1970
+
+EXAM:         MRI LUMBAR SPINE WITHOUT CONTRAST
+CPT:          72148
+Priority:     Routine
+
+CLINICAL INDICATION:
+Axial low back pain without radicular features. Evaluation prior to spine service
+consultation.
+
+PRIOR IMAGING:
+No prior lumbar imaging on file. Patient asked directly and confirms he has never
+had a scan of his back at this or any other facility. Nothing received from
+outside providers.
+
+SAFETY SCREENING
+Cardiac device                No
+Aneurysm clip or coil         No
+Metal fragment in eye         No
+Metalworking occupation       No, coach driver
+Claustrophobia                No
+Contrast requested            No
+
+SCHEDULING
+Patient drives shifts Tuesday to Saturday. Mondays preferred.
+Copy report to: A. Winterbourne, MD and P. Vanterpool, MD

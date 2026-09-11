@@ -1,0 +1,42 @@
+Meridale Regional Spine Network
+Musculoskeletal Physiotherapy  ·  Episode Outcome Summary  ·  Template PO-2
+
+Subject .................. Okpara-Lindholm, Sylvie
+Hospital No. ............. MRS 0441-7723
+Episode ref .............. PHY-25-88431
+Episode opened ........... 12 Aug 2025
+Episode closed ........... 28 Jan 2026
+Treating clinician ....... A. Sowande-Pryce, Advanced Practice Physiotherapist
+
+Attendance ............... 16 of 18 offered
+
+Intake fields, completed at episode opening
+  Occupation ............. Theatre dresser, wardrobe department
+  Smoking status ......... Never smoked
+  Alcohol ................ Occasional
+  Living situation ....... First floor flat, lift available
+  Driving ................ Yes, own vehicle
+
+Programme delivered
+  Graded motor control programme, lumbar multifidus and transversus focus.
+  Progressive loading, hip hinge retraining, and a home programme reissued at
+  each block. Hydrotherapy for the middle block at patient preference.
+
+Outcome measures
+
+  Measure                        Opening      Closing     Change
+  Oswestry Disability Index      44%          42%         -2
+  Numeric pain rating, worst     8            8           0
+  Numeric pain rating, average   6            6            0
+  Sit tolerance, minutes         12           14          +2
+  Timed up and go, seconds       11.2         10.9        -0.3
+
+  Departmental threshold for clinically meaningful change on the Oswestry
+  index is 10 points. This episode did not reach it on any measure.
+
+Episode closure
+  Closed at 16 sessions having plateaued. Discharged to independent home
+  programme. No further physiotherapy offered under this episode and the
+  patient has not re-referred.
+
+Verified by .............. A. Sowande-Pryce, 28 Jan 2026

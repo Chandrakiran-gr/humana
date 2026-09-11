@@ -1,0 +1,53 @@
+CALDER VALE SPINE SERVICE
+RED FLAG SCREENING PROFORMA
+Completed at every new assessment. File with the consultation.
+
+Patient: Rasmussen, Ottoline    MRN: 3317742
+Date: 09/01/2026
+Completed by: B. Nakagawa, MD
+
+Each item below is asked of every patient and must be answered. Do not leave
+blank. Where an item is positive, record the detail and escalate.
+
+  1  CAUDA EQUINA
+     Urinary retention or overflow incontinence ................ NO
+     Faecal incontinence or loss of anal tone .................. NO
+     Saddle or perineal sensory disturbance .................... NO
+     Bilateral leg symptoms .................................... NO
+     Detail if any positive: none
+
+  2  PROGRESSIVE NEUROLOGICAL DEFICIT
+     Any motor weakness on examination ......................... NO
+     Any sensory deficit on examination ........................ NO
+     Any reflex asymmetry ...................................... NO
+     Deterioration reported since the referral ................. NO
+     Detail if any positive: none. Full lower limb neurological
+     examination performed today and recorded in the consultation.
+
+  3  MALIGNANCY
+     Personal history of cancer of any type .................... NO
+     Unexplained weight loss ................................... NO
+     Night pain waking from sleep .............................. NO
+     Age over 50 at first presentation ......................... NO
+     Detail if any positive: none
+
+  4  SPINAL INFECTION
+     Fever, rigors or night sweats ............................. NO
+     Injecting drug use, current or previous ................... NO
+     Indwelling line, catheter or recent invasive procedure .... NO
+     Immunosuppression, including steroids ..................... NO
+     Recent bacteraemia or treated infection elsewhere ......... NO
+     Detail if any positive: none
+
+  5  SIGNIFICANT TRAUMA
+     Fall from any height ...................................... NO
+     Road traffic collision .................................... NO
+     Lifting or twisting injury ................................ NO
+     Any injury preceding or during this episode ............... NO
+     Detail if any positive: none. Onset was spontaneous.
+
+  SUMMARY
+     Number of categories positive ............................. 0 of 5
+     Escalation required ....................................... NO
+
+Signature: B. Nakagawa, MD

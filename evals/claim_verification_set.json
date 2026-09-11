@@ -1,0 +1,454 @@
+{
+  "_meta": {
+    "purpose": "Validates the Step 5 support verifier. Spec Section 8.",
+    "not_status_labels": "These bundles are NOT the criterion-status labels in corpus/labels.json and cannot be substituted for them. A verifier scoring well here says nothing about evidence recall. The two sets are never pooled.",
+    "design": "evals/claim_verification_design.md",
+    "built": "2026-09-10",
+    "complete": true,
+    "composition_note": "Sixteen bundles. All seven origin-1 bundles are SUPPORTED and all nine origin-2 and origin-3 bundles are UNSUPPORTED. That split is forced by the material, not chosen: origins 2 and 3 can only produce unsupported bundles, and origin 1's unsupported candidates cannot be annotated without circularity. Majority-class baseline is 9 of 16, so a verifier answering UNSUPPORTED to everything scores 56 percent and is visibly at chance.",
+    "excluded_deliberately": "The five critical errors in the source run are the most interesting material available and none is included. They are claims the reference calls wrong whose cited evidence genuinely supports them; the disagreement is about record completeness, which Step 5 structurally cannot assess because it never sees the record. Including them would test the verifier on a question it is designed not to answer. Their absence is a decision, not an oversight.",
+    "categories_with_one_bundle": "incomplete evidence, incorrect date, negation error. Each rests on a single observation and is reported as a category this set cannot measure rather than padded."
+  },
+  "bundles": [
+    {
+      "id": "CV-3-01",
+      "origin": 3,
+      "authored": false,
+      "category": "real but irrelevant quote",
+      "case_id": "MRI-001",
+      "criterion_id": "C1",
+      "criterion_text": "Documented low back pain, with or without radicular symptoms",
+      "satisfied_by": "Any clinical note or order documenting low back pain, with or without radicular symptoms. A described location is helpful but is not required.",
+      "proposed_status": "MET",
+      "evidence": [
+        {
+          "document_id": "doc_fc47f4c14aa7",
+          "filename": "2026-07-24_pcp_referral_letter.txt",
+          "quote": "evaluation of back and right leg symptoms",
+          "start": 234,
+          "end": 275,
+          "role": "supporting"
+        }
+      ],
+      "expected_verdict": "UNSUPPORTED",
+      "why": "the referral letter states the reason for referral, not a documented finding",
+      "provenance": "Task 2.3b enumeration ruled_out entry. Adjudicated before Step 5 existed; selected by a fixed rule, not chosen."
+    },
+    {
+      "id": "CV-3-02",
+      "origin": 3,
+      "authored": false,
+      "category": "real but irrelevant quote",
+      "case_id": "MRI-002",
+      "criterion_id": "C1",
+      "criterion_text": "Documented low back pain, with or without radicular symptoms",
+      "satisfied_by": "Any clinical note or order documenting low back pain, with or without radicular symptoms. A described location is helpful but is not required.",
+      "proposed_status": "MET",
+      "evidence": [
+        {
+          "document_id": "doc_5bd47eae2679",
+          "filename": "2026-09-02_office_note.txt",
+          "quote": "Lumbar spine: diffuse tenderness across the lower lumbar region, more on the left.",
+          "start": 959,
+          "end": 1041,
+          "role": "supporting"
+        }
+      ],
+      "expected_verdict": "UNSUPPORTED",
+      "why": "an examination finding of tenderness, not documentation of the pain complaint",
+      "provenance": "Task 2.3b enumeration ruled_out entry. Adjudicated before Step 5 existed; selected by a fixed rule, not chosen."
+    },
+    {
+      "id": "CV-3-03",
+      "origin": 3,
+      "authored": false,
+      "category": "real but irrelevant quote",
+      "case_id": "MRI-003",
+      "criterion_id": "C4",
+      "criterion_text": "Red flag findings present, any of: suspected cauda equina syndrome, progressive neurologic deficit, suspected malignancy, suspected spinal infection, or significant trauma",
+      "satisfied_by": "Explicit documentation in the record that at least one of the listed red flags is present or suspected.",
+      "proposed_status": "MET",
+      "evidence": [
+        {
+          "document_id": "doc_42f4745c2fca",
+          "filename": "2026-08-19_urgent_care_note.txt",
+          "quote": "Right ankle dorsiflexion 4+/5. Great toe extension 4+/5 on the right.",
+          "start": 766,
+          "end": 835,
+          "role": "supporting"
+        }
+      ],
+      "expected_verdict": "UNSUPPORTED",
+      "why": "one timepoint; progression needs the comparison the neurosurgery impression supplies",
+      "provenance": "Task 2.3b enumeration ruled_out entry. Adjudicated before Step 5 existed; selected by a fixed rule, not chosen."
+    },
+    {
+      "id": "CV-3-04",
+      "origin": 3,
+      "authored": false,
+      "category": "real but irrelevant quote",
+      "case_id": "MRI-004",
+      "criterion_id": "C2",
+      "criterion_text": "Symptoms persisting for at least 6 weeks",
+      "satisfied_by": "Either an explicit statement of a duration of at least 6 weeks, which needs one passage, or two dated encounters at least 6 weeks apart documenting the same symptoms, which needs both passages.",
+      "proposed_status": "MET",
+      "evidence": [
+        {
+          "document_id": "doc_ef50c98cfb38",
+          "filename": "2026-08-27_authorization_coversheet.txt",
+          "quote": "Physiotherapy interim report 20/08/2026",
+          "start": 733,
+          "end": 772,
+          "role": "supporting"
+        }
+      ],
+      "expected_verdict": "UNSUPPORTED",
+      "why": "a coversheet enclosure line; carries a date but asserts no symptom duration",
+      "provenance": "Task 2.3b enumeration ruled_out entry. Adjudicated before Step 5 existed; selected by a fixed rule, not chosen."
+    },
+    {
+      "id": "CV-3-05",
+      "origin": 3,
+      "authored": false,
+      "category": "real but irrelevant quote",
+      "case_id": "MRI-005",
+      "criterion_id": "C1",
+      "criterion_text": "Documented low back pain, with or without radicular symptoms",
+      "satisfied_by": "Any clinical note or order documenting low back pain, with or without radicular symptoms. A described location is helpful but is not required.",
+      "proposed_status": "MET",
+      "evidence": [
+        {
+          "document_id": "doc_1a532ad73480",
+          "filename": "2026-08-17_office_note.txt",
+          "quote": "1. Type 2 diabetes mellitus.",
+          "start": 1497,
+          "end": 1525,
+          "role": "supporting"
+        }
+      ],
+      "expected_verdict": "UNSUPPORTED",
+      "why": "both assessments cover diabetes and obesity and never name the back complaint, which is the positional burial this instance tests",
+      "provenance": "Task 2.3b enumeration ruled_out entry. Adjudicated before Step 5 existed; selected by a fixed rule, not chosen."
+    },
+    {
+      "id": "CV-3-06",
+      "origin": 3,
+      "authored": false,
+      "category": "real but irrelevant quote",
+      "case_id": "MRI-006",
+      "criterion_id": "C2",
+      "criterion_text": "Symptoms persisting for at least 6 weeks",
+      "satisfied_by": "Either an explicit statement of a duration of at least 6 weeks, which needs one passage, or two dated encounters at least 6 weeks apart documenting the same symptoms, which needs both passages.",
+      "proposed_status": "MET",
+      "evidence": [
+        {
+          "document_id": "doc_5f95d6484e86",
+          "filename": "2026-09-08_clinic_note.txt",
+          "quote": "the same pain she has had on and off for years",
+          "start": 327,
+          "end": 373,
+          "role": "supporting"
+        }
+      ],
+      "expected_verdict": "UNSUPPORTED",
+      "why": "characterises the pain as recurrent rather than dating the current episode",
+      "provenance": "Task 2.3b enumeration ruled_out entry. Adjudicated before Step 5 existed; selected by a fixed rule, not chosen."
+    },
+    {
+      "id": "CV-2-01",
+      "origin": 2,
+      "authored": false,
+      "category": "negation error",
+      "case_id": "MRI-001",
+      "criterion_id": "C5",
+      "criterion_text": "No prior lumbar MRI within the preceding 12 months without documented clinical change",
+      "satisfied_by": "Either an explicit statement in the record that no prior lumbar MRI exists within the preceding 12 months, or documentation of a prior study within that window together with a documented interval clinical change justifying repeat imaging.",
+      "proposed_status": "NOT_MET",
+      "evidence": [
+        {
+          "document_id": "doc_c87a026d3a52",
+          "filename": "2026-08-20_imaging_order_72148.txt",
+          "quote": "No prior lumbar imaging on file for this patient.",
+          "start": 446,
+          "end": 495,
+          "role": "contradicting"
+        }
+      ],
+      "expected_verdict": "UNSUPPORTED",
+      "why": "The passage states that no prior lumbar imaging exists. NOT_MET on this criterion asserts the opposite: that a prior study exists within twelve months without documented interval change. The evidence contradicts the status it is offered for. This is the reference's own MET evidence with the status inverted.",
+      "provenance": "Real passage, real criterion, status inverted mechanically from MRI-001 C5, whose reference status is MET on this same passage."
+    },
+    {
+      "id": "CV-2-02",
+      "origin": 2,
+      "authored": false,
+      "category": "incorrect date",
+      "case_id": "MRI-005",
+      "criterion_id": "C2",
+      "criterion_text": "Symptoms persisting for at least 6 weeks",
+      "satisfied_by": "Either an explicit statement of a duration of at least 6 weeks, which needs one passage, or two dated encounters at least 6 weeks apart documenting the same symptoms, which needs both passages.",
+      "proposed_status": "NOT_MET",
+      "evidence": [
+        {
+          "document_id": "doc_5979ccf72940",
+          "filename": "2026-06-15_office_note.txt",
+          "quote": "Date of Visit:  06/15/2026",
+          "start": 79,
+          "end": 104,
+          "role": "contradicting"
+        },
+        {
+          "document_id": "doc_1a532ad73480",
+          "filename": "2026-08-17_office_note.txt",
+          "quote": "Date of Visit:  08/17/2026",
+          "start": 79,
+          "end": 104,
+          "role": "contradicting"
+        }
+      ],
+      "expected_verdict": "UNSUPPORTED",
+      "why": "The two visit headers are nine weeks apart, which exceeds the six-week threshold. NOT_MET asserts the documented span falls short of it. The dates are correct and the arithmetic drawn from them is wrong, which is what makes this a date error rather than a missing-evidence case.",
+      "provenance": "Real passages, real criterion, status inverted mechanically from MRI-005 C2, whose reference status is MET on these same two passages."
+    },
+    {
+      "id": "CV-2-03",
+      "origin": 2,
+      "authored": false,
+      "category": "incomplete evidence",
+      "case_id": "MRI-001",
+      "criterion_id": "C3",
+      "criterion_text": "Failed conservative management, including at least one of: physical therapy, NSAID trial, or activity modification",
+      "satisfied_by": "Documentation that one of the three listed modalities was attempted, together with a documented outcome showing it did not resolve the symptoms. Both the attempt and the failed outcome are required.",
+      "proposed_status": "MET",
+      "evidence": [
+        {
+          "document_id": "doc_eb337a74f71c",
+          "filename": "2026-08-07_pt_discharge_summary.txt",
+          "quote": "Patient completed 8 physical therapy sessions.",
+          "start": 203,
+          "end": 249,
+          "role": "supporting"
+        }
+      ],
+      "expected_verdict": "UNSUPPORTED",
+      "why": "lumbar_mri C3 states that both the attempt and the failed outcome are required. This bundle offers the attempt alone. The passage is correct, the status is correct, and the evidence is half of what the criterion asks for. The reference records two units here for exactly this reason.",
+      "provenance": "Real passage, real criterion, real status. One of the reference's two required units withheld; nothing added."
+    },
+    {
+      "id": "CV-1-01",
+      "origin": 1,
+      "authored": false,
+      "category": "supported claim",
+      "case_id": "MRI-001",
+      "criterion_id": "C1",
+      "criterion_text": "Documented low back pain, with or without radicular symptoms",
+      "satisfied_by": "Any clinical note or order documenting low back pain, with or without radicular symptoms. A described location is helpful but is not required.",
+      "proposed_status": "MET",
+      "evidence": [
+        {
+          "document_id": "doc_9928a5a2f296",
+          "filename": "2026-08-20_spine_clinic_consultation.txt",
+          "quote": "Ms. Halloran is a 54-year-old woman presenting with low back pain radiating into the right lower extremity.",
+          "start": 234,
+          "end": 341,
+          "role": "supporting"
+        }
+      ],
+      "expected_verdict": "SUPPORTED",
+      "why": "The cited passages establish the criterion on their own. Status and reason codes both match the reference, which was written before any document existed.",
+      "provenance": "Real Baseline A output, prompt extraction/1.2.0, run 20260910T202912Z. Selected mechanically: status and reason codes both match the reference and evidence was cited."
+    },
+    {
+      "id": "CV-1-02",
+      "origin": 1,
+      "authored": false,
+      "category": "supported claim",
+      "case_id": "MRI-002",
+      "criterion_id": "C1",
+      "criterion_text": "Documented low back pain, with or without radicular symptoms",
+      "satisfied_by": "Any clinical note or order documenting low back pain, with or without radicular symptoms. A described location is helpful but is not required.",
+      "proposed_status": "MET",
+      "evidence": [
+        {
+          "document_id": "doc_5bd47eae2679",
+          "filename": "2026-09-02_office_note.txt",
+          "quote": "Mr. Nowak presents with chronic low back pain, longstanding.",
+          "start": 150,
+          "end": 210,
+          "role": "supporting"
+        },
+        {
+          "document_id": "doc_f5059168dac0",
+          "filename": "2026-09-02_imaging_order_72148.txt",
+          "quote": "Low back pain with left lower extremity radiation.",
+          "start": 247,
+          "end": 297,
+          "role": "supporting"
+        }
+      ],
+      "expected_verdict": "SUPPORTED",
+      "why": "The cited passages establish the criterion on their own. Status and reason codes both match the reference, which was written before any document existed.",
+      "provenance": "Real Baseline A output, prompt extraction/1.2.0, run 20260910T202912Z. Selected mechanically: status and reason codes both match the reference and evidence was cited."
+    },
+    {
+      "id": "CV-1-03",
+      "origin": 1,
+      "authored": false,
+      "category": "supported claim",
+      "case_id": "MRI-003",
+      "criterion_id": "C1",
+      "criterion_text": "Documented low back pain, with or without radicular symptoms",
+      "satisfied_by": "Any clinical note or order documenting low back pain, with or without radicular symptoms. A described location is helpful but is not required.",
+      "proposed_status": "MET",
+      "evidence": [
+        {
+          "document_id": "doc_42f4745c2fca",
+          "filename": "2026-08-19_urgent_care_note.txt",
+          "quote": "Mr. Ferreira presents with low back pain radiating down the posterior right leg to the lateral ankle.",
+          "start": 216,
+          "end": 317,
+          "role": "supporting"
+        }
+      ],
+      "expected_verdict": "SUPPORTED",
+      "why": "The cited passages establish the criterion on their own. Status and reason codes both match the reference, which was written before any document existed.",
+      "provenance": "Real Baseline A output, prompt extraction/1.2.0, run 20260910T202912Z. Selected mechanically: status and reason codes both match the reference and evidence was cited."
+    },
+    {
+      "id": "CV-1-04",
+      "origin": 1,
+      "authored": false,
+      "category": "contradiction",
+      "case_id": "MRI-004",
+      "criterion_id": "C2",
+      "criterion_text": "Symptoms persisting for at least 6 weeks",
+      "satisfied_by": "Either an explicit statement of a duration of at least 6 weeks, which needs one passage, or two dated encounters at least 6 weeks apart documenting the same symptoms, which needs both passages.",
+      "proposed_status": "AMBIGUOUS / CONFLICTING_EVIDENCE",
+      "evidence": [
+        {
+          "document_id": "doc_645df6611de1",
+          "filename": "2026-08-26_physician_note.txt",
+          "quote": "Ms. Delacroix returns with an 8-week history of low back pain.",
+          "start": 138,
+          "end": 200,
+          "role": "supporting"
+        },
+        {
+          "document_id": "doc_d8f094b63226",
+          "filename": "2026-08-24_patient_intake_form.txt",
+          "quote": "Started bothering me about 3 weeks ago.",
+          "start": 243,
+          "end": 282,
+          "role": "contradicting"
+        }
+      ],
+      "expected_verdict": "SUPPORTED",
+      "why": "The claim is that the record conflicts on this point, and the bundle cites both sides. An unresolved status is a claim like any other and the passages establish it. Support prompt 1.0.0 failed exactly here, returning UNSUPPORTED on a correct CONFLICTING_EVIDENCE result because the criterion 'requires a clear determination'; 1.1.0 was written to fix that and this bundle tests the fix on real material.",
+      "provenance": "Real Baseline A output, prompt extraction/1.2.0, run 20260910T202912Z. Selected mechanically: status and reason codes both match the reference and evidence was cited."
+    },
+    {
+      "id": "CV-1-05",
+      "origin": 1,
+      "authored": false,
+      "category": "contradiction",
+      "case_id": "MRI-004",
+      "criterion_id": "C3",
+      "criterion_text": "Failed conservative management, including at least one of: physical therapy, NSAID trial, or activity modification",
+      "satisfied_by": "Documentation that one of the three listed modalities was attempted, together with a documented outcome showing it did not resolve the symptoms. Both the attempt and the failed outcome are required.",
+      "proposed_status": "AMBIGUOUS / CONFLICTING_EVIDENCE",
+      "evidence": [
+        {
+          "document_id": "doc_505d29aa4abc",
+          "filename": "2026-08-20_pt_progress_note.txt",
+          "quote": "6 sessions completed to date. Attendance good, one rescheduled by the clinic.",
+          "start": 217,
+          "end": 294,
+          "role": "supporting"
+        },
+        {
+          "document_id": "doc_505d29aa4abc",
+          "filename": "2026-08-20_pt_progress_note.txt",
+          "quote": "Pain report is essentially where it started.",
+          "start": 871,
+          "end": 915,
+          "role": "supporting"
+        },
+        {
+          "document_id": "doc_645df6611de1",
+          "filename": "2026-08-26_physician_note.txt",
+          "quote": "She has not yet started physical therapy and is going to look into scheduling once her rota settles down.",
+          "start": 932,
+          "end": 1037,
+          "role": "contradicting"
+        }
+      ],
+      "expected_verdict": "SUPPORTED",
+      "why": "The claim is that the record conflicts on this point, and the bundle cites both sides. An unresolved status is a claim like any other and the passages establish it. Support prompt 1.0.0 failed exactly here, returning UNSUPPORTED on a correct CONFLICTING_EVIDENCE result because the criterion 'requires a clear determination'; 1.1.0 was written to fix that and this bundle tests the fix on real material.",
+      "provenance": "Real Baseline A output, prompt extraction/1.2.0, run 20260910T202912Z. Selected mechanically: status and reason codes both match the reference and evidence was cited."
+    },
+    {
+      "id": "CV-1-06",
+      "origin": 1,
+      "authored": false,
+      "category": "supported claim",
+      "case_id": "TKA-001",
+      "criterion_id": "C3",
+      "criterion_text": "Failed conservative management for a minimum of 3 months",
+      "satisfied_by": "Either an explicit statement of at least 3 months of conservative management, which needs one passage, or a dated start and a dated end of conservative therapy spanning at least 3 months, which needs both passages.",
+      "proposed_status": "AMBIGUOUS / INSUFFICIENT_CONTEXT",
+      "evidence": [
+        {
+          "document_id": "doc_6e466ad0ab9e",
+          "filename": "2026-05-18_pt_discharge_summary.txt",
+          "quote": "Start of care: 04/06/2026 Date of discharge: 05/18/2026",
+          "start": 144,
+          "end": 199,
+          "role": "supporting"
+        },
+        {
+          "document_id": "doc_e091f1c7bca1",
+          "filename": "2026-03-25_orthopedic_consultation.txt",
+          "quote": "He takes naproxen from the cabinet when the knee is bad but has never taken it as a course and could not tell me over what period or with what effect.",
+          "start": 1200,
+          "end": 1350,
+          "role": "supporting"
+        },
+        {
+          "document_id": "doc_e091f1c7bca1",
+          "filename": "2026-03-25_orthopedic_consultation.txt",
+          "quote": "He is not registered with a primary care practice locally and could not tell me who he last saw about the knee or when. We hold no records for him and none have been requested; the history below is his own account, taken today.",
+          "start": 700,
+          "end": 927,
+          "role": "supporting"
+        }
+      ],
+      "expected_verdict": "SUPPORTED",
+      "why": "The claim is that the record addresses this criterion without settling it, and the cited passage is what addresses it. Abstention is a correct outcome and its evidence is judged the same way as any other.",
+      "provenance": "Real Baseline A output, prompt extraction/1.2.0, run 20260910T202912Z. Selected mechanically: status and reason codes both match the reference and evidence was cited."
+    },
+    {
+      "id": "CV-1-07",
+      "origin": 1,
+      "authored": false,
+      "category": "supported claim",
+      "case_id": "TKA-002",
+      "criterion_id": "C2",
+      "criterion_text": "Documented pain interfering with activities of daily living",
+      "satisfied_by": "A documented specific functional impact, such as difficulty with stairs, a stated limit on ambulation distance, night pain, or an activity the patient has given up. The impact may be recorded as a limitation or as an unmet goal.",
+      "proposed_status": "AMBIGUOUS / INSUFFICIENT_CONTEXT",
+      "evidence": [
+        {
+          "document_id": "doc_913bb272fdf1",
+          "filename": "2026-08-19_office_note.txt",
+          "quote": "Seen today for chronic bilateral knee pain. Right worse than left.",
+          "start": 120,
+          "end": 186,
+          "role": "supporting"
+        }
+      ],
+      "expected_verdict": "SUPPORTED",
+      "why": "The claim is that the record addresses this criterion without settling it, and the cited passage is what addresses it. Abstention is a correct outcome and its evidence is judged the same way as any other.",
+      "provenance": "Real Baseline A output, prompt extraction/1.2.0, run 20260910T202912Z. Selected mechanically: status and reason codes both match the reference and evidence was cited."
+    }
+  ]
+}

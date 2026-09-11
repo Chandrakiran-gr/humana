@@ -1,0 +1,27 @@
+WESTGATE HEALTH NETWORK
+DIAGNOSTIC IMAGING ORDER
+
+Order:      WGN-2026-338914
+Placed:     09/02/2026 11:58
+Provider:   H. Lindqvist, MD, Westgate Neurosurgery
+Patient:    Ferreira, Anton L.   MRN 7745023   DOB 05/08/1968
+
+EXAM:       MRI LUMBAR SPINE WITHOUT CONTRAST
+CPT:        72148
+PRIORITY:   URGENT - progressive motor deficit
+
+INDICATION:
+Right L5 radiculopathy with progressive weakness. Right ankle dorsiflexion has
+declined to 3/5 with visible foot drop. Evaluate for compressive lesion at
+L4-L5.
+
+SAFETY SCREENING
+Pacemaker/ICD              No
+Neurostimulator            No
+Aneurysm clip              No
+Metal fragment history     No
+Claustrophobia             No
+Contrast requested         No
+
+Ordering provider requests direct notification of results, not routine routing.
+Contact: pager 4471 or office line.

@@ -1,0 +1,50 @@
+Meridale Regional Spine Network
+Structured Imaging Report  ·  Template SR-MRI-LS v4
+
+Subject .................. Okpara-Lindholm, Sylvie
+Hospital No. ............. MRS 0441-7723
+Date of Birth ............ 17 Feb 1968
+Study Date ............... 22 Apr 2026
+Modality ................. MRI lumbar spine, no contrast
+Requesting Service ....... Meridale Spine, Mr Halvorsen-Achike
+Reporting Radiologist .... Dr T. Okonjo-Reyes
+Report Status ............ Final
+
+Sequences acquired ....... Sagittal T1, sagittal T2, sagittal STIR, axial T2
+Diagnostic quality ....... Adequate throughout
+
+Segmental findings
+
+  L1-2 ................... Disc height maintained. No protrusion. Foramina
+                           patent. No facet change.
+  L2-3 ................... Disc height maintained. Minimal anular fissuring
+                           posteriorly. Foramina patent.
+  L3-4 ................... Moderate disc height loss. Broad posterior bulge,
+                           no focal protrusion. Mild bilateral facet
+                           hypertrophy. Foramina patent.
+  L4-5 ................... Severe disc height loss with Modic type 2 endplate
+                           change above and below. Broad posterior bulge.
+                           Moderate bilateral facet hypertrophy with mild
+                           ligamentum flavum thickening. Mild bilateral
+                           foraminal narrowing. Central canal adequate.
+  L5-S1 .................. Severe disc height loss and desiccation. Broad
+                           posterior bulge. Mild bilateral foraminal
+                           narrowing. Central canal adequate.
+
+  Alignment .............. Preserved lordosis on this supine study.
+  Vertebral bodies ....... Height and marrow signal within normal limits.
+  Conus .................. Terminates L1, signal normal.
+  Paraspinal tissues ..... Unremarkable.
+
+Structured impression
+
+  Principal finding ...... Multilevel degenerative disc disease, most marked at
+                           L4-5 and L5-S1, with Modic type 2 change at L4-5.
+  Stenosis ............... Mild foraminal narrowing bilaterally at L4-5 and
+                           L5-S1. No central canal stenosis at any level.
+  Listhesis .............. None demonstrated on this supine study. Dynamic
+                           assessment is required to exclude instability and is
+                           reported separately.
+  Other .................. Nil.
+
+Verified by .............. Dr T. Okonjo-Reyes, 22 Apr 2026 17:04

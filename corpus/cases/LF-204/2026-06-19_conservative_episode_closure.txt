@@ -1,0 +1,37 @@
+Meridale Regional Spine Network
+Conservative Episode Closure  ·  Treatment log extract
+
+Subject .................. Tanaka-Okonkwo, Reuben
+Hospital No. ............. MRS 0518-2264
+Episode ref .............. CON-25-90114
+Closed this date ......... 19 Jun 2026
+Closed by ................ A. Sowande-Pryce, Advanced Practice Physiotherapist
+
+This extract is generated from the network treatment log when a conservative
+episode is closed. Elements are listed with the outcome recorded against each
+at the time it ended. The opening date of the episode is held on the triage
+proforma and is not reproduced here.
+
+Elements delivered under this episode
+
+  Supervised physiotherapy
+      Sessions ........... 22 attended of 24 offered
+      Outcome ............ No meaningful change. Oswestry 48% at opening,
+                           46% at closure, below the 10 point threshold.
+      Closed ............. 14 Apr 2026
+  Oral anti-inflammatory
+      Agent .............. Naproxen 500 mg twice daily
+      Outcome ............ No useful analgesia. Discontinued at the patient's
+                           request after gastric discomfort despite cover.
+      Closed ............. 22 Jan 2026
+  Epidural steroid injection
+      Delivered .......... 09 Feb 2026 and 27 Apr 2026, both left L4-5
+                           transforaminal, pain service
+      Outcome ............ First injection gave three weeks of partial
+                           relief. Second gave none. No further offered.
+      Closed ............. 19 Jun 2026
+
+Episode outcome .......... Conservative management exhausted. No element
+                           produced durable benefit.
+
+Verified by .............. A. Sowande-Pryce, 19 Jun 2026

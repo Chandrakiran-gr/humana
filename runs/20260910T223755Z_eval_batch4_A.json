@@ -1,0 +1,3363 @@
+{
+  "generated": "20260910T223755Z",
+  "split": "held_out_test",
+  "configuration": "A",
+  "preflight": {
+    "model": "claude-sonnet-5",
+    "prompt_version": "extraction/1.2.0",
+    "criteria_set_version": "1.3.0"
+  },
+  "settings": {
+    "model": "claude-sonnet-5",
+    "max_attempts": 3,
+    "timeout_seconds": 120.0,
+    "support_verification": true,
+    "execution": "sequential"
+  },
+  "operational": {
+    "input_tokens": 38540,
+    "output_tokens": 8506,
+    "seconds": 122.568,
+    "per_case_seconds": [
+      {
+        "case_id": "TKA-102",
+        "extraction": 17.336,
+        "verification": 10.494,
+        "total": 27.83
+      },
+      {
+        "case_id": "TKA-103",
+        "extraction": 14.818,
+        "verification": 8.403,
+        "total": 23.221
+      },
+      {
+        "case_id": "TKA-103V",
+        "extraction": 17.63,
+        "verification": 22.542,
+        "total": 40.172
+      },
+      {
+        "case_id": "TKA-104",
+        "extraction": 19.58,
+        "verification": 11.765,
+        "total": 31.345
+      }
+    ]
+  },
+  "score": {
+    "configuration": "A",
+    "split": "held_out_test",
+    "instances_scored": 28,
+    "primary": {
+      "evidence_recall": {
+        "numerator": 25,
+        "denominator": 31,
+        "value": 0.8064516129032258
+      },
+      "evidence_precision": {
+        "numerator": 25,
+        "denominator": 51,
+        "value": 0.49019607843137253
+      },
+      "status_agreement": {
+        "numerator": 25,
+        "denominator": 28,
+        "value": 0.8928571428571429
+      },
+      "complete_processing": {
+        "numerator": 28,
+        "denominator": 28,
+        "value": 1.0
+      }
+    },
+    "critical_errors": {
+      "_note": "Counts only. evals/decision_rules.md records why neither direction is reportable as a rate at this corpus size.",
+      "reference_met_or_ambiguous_output_not_met": {
+        "count": 1,
+        "instances": [
+          "TKA-103V C4"
+        ]
+      },
+      "reference_not_met_output_met": {
+        "count": 0,
+        "instances": []
+      }
+    },
+    "reported_separately": {
+      "contract_rejections": {
+        "count": 0,
+        "instances": []
+      },
+      "citation_validity": {
+        "numerator": 51,
+        "denominator": 51,
+        "value": 1.0
+      },
+      "mean_spans_per_instance": 1.8214285714285714,
+      "mean_accepted_span_chars": 148.88,
+      "superset_rate": {
+        "numerator": 1,
+        "denominator": 28,
+        "value": 0.03571428571428571
+      }
+    },
+    "confusion": {
+      "AMBIGUOUS": {
+        "MET": 2,
+        "AMBIGUOUS": 8,
+        "NOT_MET": 1
+      },
+      "MET": {
+        "MET": 16
+      },
+      "NOT_MET": {
+        "NOT_MET": 1
+      }
+    },
+    "instances": [
+      {
+        "case_id": "TKA-102",
+        "criterion_id": "C1",
+        "split": "held_out_test",
+        "reference_status": "AMBIGUOUS",
+        "returned_status": "MET",
+        "status_match": false,
+        "failure_kind": "NONE",
+        "units": {
+          "required": 2,
+          "recovered": 1
+        },
+        "spans": {
+          "returned": 1,
+          "accepted": 1,
+          "verified": 1
+        },
+        "unenumerated_spans": []
+      },
+      {
+        "case_id": "TKA-102",
+        "criterion_id": "C2",
+        "split": "held_out_test",
+        "reference_status": "MET",
+        "returned_status": "MET",
+        "status_match": true,
+        "failure_kind": "NONE",
+        "units": {
+          "required": 1,
+          "recovered": 1
+        },
+        "spans": {
+          "returned": 1,
+          "accepted": 1,
+          "verified": 1
+        },
+        "unenumerated_spans": []
+      },
+      {
+        "case_id": "TKA-102",
+        "criterion_id": "C3",
+        "split": "held_out_test",
+        "reference_status": "MET",
+        "returned_status": "MET",
+        "status_match": true,
+        "failure_kind": "NONE",
+        "units": {
+          "required": 1,
+          "recovered": 1
+        },
+        "spans": {
+          "returned": 3,
+          "accepted": 1,
+          "verified": 3
+        },
+        "unenumerated_spans": [
+          "doc_8ea3de5a239c: Attended 14 of 16 offered appointments over this episode.",
+          "doc_8cd7bd8923ff: Meloxicam 15 mg daily. Started 03/11/2026 by Dr. Lindgren and taken every day as"
+        ]
+      },
+      {
+        "case_id": "TKA-102",
+        "criterion_id": "C4",
+        "split": "held_out_test",
+        "reference_status": "MET",
+        "returned_status": "MET",
+        "status_match": true,
+        "failure_kind": "NONE",
+        "units": {
+          "required": 4,
+          "recovered": 3
+        },
+        "spans": {
+          "returned": 3,
+          "accepted": 2,
+          "verified": 3
+        },
+        "unenumerated_spans": [
+          "doc_8ea3de5a239c: Aquatic programme twice weekly for the first block, moving to land work once he "
+        ]
+      },
+      {
+        "case_id": "TKA-102",
+        "criterion_id": "C5",
+        "split": "held_out_test",
+        "reference_status": "AMBIGUOUS",
+        "returned_status": "MET",
+        "status_match": false,
+        "failure_kind": "NONE",
+        "units": {
+          "required": 2,
+          "recovered": 1
+        },
+        "spans": {
+          "returned": 1,
+          "accepted": 1,
+          "verified": 1
+        },
+        "unenumerated_spans": []
+      },
+      {
+        "case_id": "TKA-102",
+        "criterion_id": "C6",
+        "split": "held_out_test",
+        "reference_status": "AMBIGUOUS",
+        "returned_status": "AMBIGUOUS",
+        "status_match": true,
+        "failure_kind": "NONE",
+        "units": {
+          "required": 0,
+          "recovered": 0
+        },
+        "spans": {
+          "returned": 0,
+          "accepted": 0,
+          "verified": 0
+        },
+        "unenumerated_spans": []
+      },
+      {
+        "case_id": "TKA-102",
+        "criterion_id": "C7",
+        "split": "held_out_test",
+        "reference_status": "MET",
+        "returned_status": "MET",
+        "status_match": true,
+        "failure_kind": "NONE",
+        "units": {
+          "required": 1,
+          "recovered": 1
+        },
+        "spans": {
+          "returned": 1,
+          "accepted": 1,
+          "verified": 1
+        },
+        "unenumerated_spans": []
+      },
+      {
+        "case_id": "TKA-103",
+        "criterion_id": "C1",
+        "split": "held_out_test",
+        "reference_status": "MET",
+        "returned_status": "MET",
+        "status_match": true,
+        "failure_kind": "NONE",
+        "units": {
+          "required": 1,
+          "recovered": 1
+        },
+        "spans": {
+          "returned": 2,
+          "accepted": 1,
+          "verified": 2
+        },
+        "unenumerated_spans": [
+          "doc_b2e85f83e558: Severe narrowing of the medial femorotibial compartment with bone-on-bone apposi"
+        ]
+      },
+      {
+        "case_id": "TKA-103",
+        "criterion_id": "C2",
+        "split": "held_out_test",
+        "reference_status": "MET",
+        "returned_status": "MET",
+        "status_match": true,
+        "failure_kind": "NONE",
+        "units": {
+          "required": 1,
+          "recovered": 1
+        },
+        "spans": {
+          "returned": 2,
+          "accepted": 1,
+          "verified": 2
+        },
+        "unenumerated_spans": [
+          "doc_a994a5b15d1c: She has cut her hours twice."
+        ]
+      },
+      {
+        "case_id": "TKA-103",
+        "criterion_id": "C3",
+        "split": "held_out_test",
+        "reference_status": "MET",
+        "returned_status": "MET",
+        "status_match": true,
+        "failure_kind": "NONE",
+        "units": {
+          "required": 2,
+          "recovered": 2
+        },
+        "spans": {
+          "returned": 4,
+          "accepted": 2,
+          "verified": 4
+        },
+        "unenumerated_spans": [
+          "doc_ad1b3d4bf4d0: Date: 01/19/2026",
+          "doc_a994a5b15d1c: Date: 06/22/2026"
+        ]
+      },
+      {
+        "case_id": "TKA-103",
+        "criterion_id": "C4",
+        "split": "held_out_test",
+        "reference_status": "AMBIGUOUS",
+        "returned_status": "AMBIGUOUS",
+        "status_match": true,
+        "failure_kind": "NONE",
+        "units": {
+          "required": 1,
+          "recovered": 1
+        },
+        "spans": {
+          "returned": 5,
+          "accepted": 1,
+          "verified": 5
+        },
+        "unenumerated_spans": [
+          "doc_a994a5b15d1c: Naproxen 500 mg twice daily from 19 January, taken as directed throughout, with ",
+          "doc_a994a5b15d1c: Physical therapy: declined by the patient, offered in January and again today.",
+          "doc_a994a5b15d1c: Intra-articular injection: declined by the patient, offered on both occasions.",
+          "doc_a994a5b15d1c: Weight reduction: not undertaken, and not indicated, BMI 23."
+        ]
+      },
+      {
+        "case_id": "TKA-103",
+        "criterion_id": "C5",
+        "split": "held_out_test",
+        "reference_status": "MET",
+        "returned_status": "MET",
+        "status_match": true,
+        "failure_kind": "NONE",
+        "units": {
+          "required": 1,
+          "recovered": 1
+        },
+        "spans": {
+          "returned": 1,
+          "accepted": 1,
+          "verified": 1
+        },
+        "unenumerated_spans": []
+      },
+      {
+        "case_id": "TKA-103",
+        "criterion_id": "C6",
+        "split": "held_out_test",
+        "reference_status": "AMBIGUOUS",
+        "returned_status": "AMBIGUOUS",
+        "status_match": true,
+        "failure_kind": "NONE",
+        "units": {
+          "required": 0,
+          "recovered": 0
+        },
+        "spans": {
+          "returned": 0,
+          "accepted": 0,
+          "verified": 0
+        },
+        "unenumerated_spans": []
+      },
+      {
+        "case_id": "TKA-103",
+        "criterion_id": "C7",
+        "split": "held_out_test",
+        "reference_status": "AMBIGUOUS",
+        "returned_status": "AMBIGUOUS",
+        "status_match": true,
+        "failure_kind": "NONE",
+        "units": {
+          "required": 0,
+          "recovered": 0
+        },
+        "spans": {
+          "returned": 0,
+          "accepted": 0,
+          "verified": 0
+        },
+        "unenumerated_spans": []
+      },
+      {
+        "case_id": "TKA-103V",
+        "criterion_id": "C1",
+        "split": "held_out_test",
+        "reference_status": "MET",
+        "returned_status": "MET",
+        "status_match": true,
+        "failure_kind": "NONE",
+        "units": {
+          "required": 1,
+          "recovered": 1
+        },
+        "spans": {
+          "returned": 2,
+          "accepted": 1,
+          "verified": 2
+        },
+        "unenumerated_spans": [
+          "doc_ef4cc67af102: Dense subchondral sclerosis is present on both articular surfaces. Large margina"
+        ]
+      },
+      {
+        "case_id": "TKA-103V",
+        "criterion_id": "C2",
+        "split": "held_out_test",
+        "reference_status": "MET",
+        "returned_status": "MET",
+        "status_match": true,
+        "failure_kind": "NONE",
+        "units": {
+          "required": 1,
+          "recovered": 1
+        },
+        "spans": {
+          "returned": 2,
+          "accepted": 2,
+          "verified": 2
+        },
+        "unenumerated_spans": []
+      },
+      {
+        "case_id": "TKA-103V",
+        "criterion_id": "C3",
+        "split": "held_out_test",
+        "reference_status": "MET",
+        "returned_status": "MET",
+        "status_match": true,
+        "failure_kind": "NONE",
+        "units": {
+          "required": 2,
+          "recovered": 1
+        },
+        "spans": {
+          "returned": 2,
+          "accepted": 1,
+          "verified": 2
+        },
+        "unenumerated_spans": [
+          "doc_055f9fbc786f: Naproxen 500 mg twice daily, commenced 19 January by Dr. Sowande with omeprazole"
+        ]
+      },
+      {
+        "case_id": "TKA-103V",
+        "criterion_id": "C4",
+        "split": "held_out_test",
+        "reference_status": "AMBIGUOUS",
+        "returned_status": "NOT_MET",
+        "status_match": false,
+        "failure_kind": "NONE",
+        "units": {
+          "required": 1,
+          "recovered": 0
+        },
+        "spans": {
+          "returned": 5,
+          "accepted": 0,
+          "verified": 5
+        },
+        "unenumerated_spans": [
+          "doc_055f9fbc786f: One modality tried. The remaining four were declined by her or are not applicabl",
+          "doc_11ef6c3c34c4: Physiotherapy: she does not want it.",
+          "doc_11ef6c3c34c4: Injection into the knee: she does not want it.",
+          "doc_11ef6c3c34c4: Weight reduction: nothing to be gained. Her BMI is 23 and she has been the same ",
+          "doc_11ef6c3c34c4: Activity modification: her work is standing. She cannot modify it without reduci"
+        ]
+      },
+      {
+        "case_id": "TKA-103V",
+        "criterion_id": "C5",
+        "split": "held_out_test",
+        "reference_status": "MET",
+        "returned_status": "MET",
+        "status_match": true,
+        "failure_kind": "NONE",
+        "units": {
+          "required": 1,
+          "recovered": 1
+        },
+        "spans": {
+          "returned": 1,
+          "accepted": 1,
+          "verified": 1
+        },
+        "unenumerated_spans": []
+      },
+      {
+        "case_id": "TKA-103V",
+        "criterion_id": "C6",
+        "split": "held_out_test",
+        "reference_status": "AMBIGUOUS",
+        "returned_status": "AMBIGUOUS",
+        "status_match": true,
+        "failure_kind": "NONE",
+        "units": {
+          "required": 0,
+          "recovered": 0
+        },
+        "spans": {
+          "returned": 0,
+          "accepted": 0,
+          "verified": 0
+        },
+        "unenumerated_spans": []
+      },
+      {
+        "case_id": "TKA-103V",
+        "criterion_id": "C7",
+        "split": "held_out_test",
+        "reference_status": "AMBIGUOUS",
+        "returned_status": "AMBIGUOUS",
+        "status_match": true,
+        "failure_kind": "NONE",
+        "units": {
+          "required": 0,
+          "recovered": 0
+        },
+        "spans": {
+          "returned": 1,
+          "accepted": 0,
+          "verified": 1
+        },
+        "unenumerated_spans": [
+          "doc_055f9fbc786f: Discussed total knee arthroplasty at length: what the operation involves, the re"
+        ]
+      },
+      {
+        "case_id": "TKA-104",
+        "criterion_id": "C1",
+        "split": "held_out_test",
+        "reference_status": "MET",
+        "returned_status": "MET",
+        "status_match": true,
+        "failure_kind": "NONE",
+        "units": {
+          "required": 1,
+          "recovered": 1
+        },
+        "spans": {
+          "returned": 1,
+          "accepted": 1,
+          "verified": 1
+        },
+        "unenumerated_spans": []
+      },
+      {
+        "case_id": "TKA-104",
+        "criterion_id": "C2",
+        "split": "held_out_test",
+        "reference_status": "MET",
+        "returned_status": "MET",
+        "status_match": true,
+        "failure_kind": "NONE",
+        "units": {
+          "required": 1,
+          "recovered": 1
+        },
+        "spans": {
+          "returned": 1,
+          "accepted": 1,
+          "verified": 1
+        },
+        "unenumerated_spans": []
+      },
+      {
+        "case_id": "TKA-104",
+        "criterion_id": "C3",
+        "split": "held_out_test",
+        "reference_status": "MET",
+        "returned_status": "MET",
+        "status_match": true,
+        "failure_kind": "NONE",
+        "units": {
+          "required": 1,
+          "recovered": 1
+        },
+        "spans": {
+          "returned": 1,
+          "accepted": 1,
+          "verified": 1
+        },
+        "unenumerated_spans": []
+      },
+      {
+        "case_id": "TKA-104",
+        "criterion_id": "C4",
+        "split": "held_out_test",
+        "reference_status": "AMBIGUOUS",
+        "returned_status": "AMBIGUOUS",
+        "status_match": true,
+        "failure_kind": "NONE",
+        "units": {
+          "required": 2,
+          "recovered": 1
+        },
+        "spans": {
+          "returned": 5,
+          "accepted": 1,
+          "verified": 5
+        },
+        "unenumerated_spans": [
+          "doc_6997d4825ff2: Physical therapy, completed, without benefit. The discharge summary is on file.",
+          "doc_6997d4825ff2: No injection has been performed. She has never been offered one here and there i",
+          "doc_6997d4825ff2: Her BMI is 22, so a weight programme does not arise.",
+          "doc_41afd1ff7c77: END OF EXTRACT. 33 items across the period."
+        ]
+      },
+      {
+        "case_id": "TKA-104",
+        "criterion_id": "C5",
+        "split": "held_out_test",
+        "reference_status": "MET",
+        "returned_status": "MET",
+        "status_match": true,
+        "failure_kind": "NONE",
+        "units": {
+          "required": 1,
+          "recovered": 1
+        },
+        "spans": {
+          "returned": 1,
+          "accepted": 1,
+          "verified": 1
+        },
+        "unenumerated_spans": []
+      },
+      {
+        "case_id": "TKA-104",
+        "criterion_id": "C6",
+        "split": "held_out_test",
+        "reference_status": "NOT_MET",
+        "returned_status": "NOT_MET",
+        "status_match": true,
+        "failure_kind": "NONE",
+        "units": {
+          "required": 1,
+          "recovered": 1
+        },
+        "spans": {
+          "returned": 3,
+          "accepted": 1,
+          "verified": 3
+        },
+        "unenumerated_spans": [
+          "doc_37871d036d10: She remains on treatment at discharge and the infection is not yet resolved.",
+          "doc_1b0543d108d3: she is four days into a fourteen day course of oral co-amoxiclav which finishes "
+        ]
+      },
+      {
+        "case_id": "TKA-104",
+        "criterion_id": "C7",
+        "split": "held_out_test",
+        "reference_status": "AMBIGUOUS",
+        "returned_status": "AMBIGUOUS",
+        "status_match": true,
+        "failure_kind": "NONE",
+        "units": {
+          "required": 1,
+          "recovered": 1
+        },
+        "spans": {
+          "returned": 2,
+          "accepted": 1,
+          "verified": 2
+        },
+        "unenumerated_spans": [
+          "doc_1b0543d108d3: Reassess after 09/11 and after repeat bloods and urine confirm resolution. Appoi"
+        ]
+      }
+    ]
+  },
+  "cases": [
+    {
+      "case_id": "TKA-102",
+      "extraction": {
+        "case_id": "TKA-102",
+        "configuration": "A",
+        "model": "claude-sonnet-5",
+        "prompt_version": "extraction/1.2.0",
+        "settings_version": "settings/2",
+        "parser_version": "parser/2",
+        "processing_status": "COMPLETE",
+        "calls": 1,
+        "input_tokens": 9518,
+        "output_tokens": 2024,
+        "seconds": 17.336,
+        "failures": {
+          "CONTRACT_REJECTION": 0,
+          "NO_RESPONSE": 0,
+          "NOT_ATTEMPTED": 0
+        },
+        "results": [
+          {
+            "criterion_id": "C1",
+            "clinical_status": "MET",
+            "processing_status": "COMPLETE",
+            "reason_codes": [],
+            "evidence": [
+              {
+                "document_id": "doc_635d785a5886",
+                "quote": "IMPRESSION: End-stage medial compartment degenerative disease of the right knee with bone-on-bone apposition, subchondral sclerosis, and varus deformity.",
+                "role": "supporting"
+              }
+            ],
+            "explanation": "The 07/23/2026 radiograph documents end-stage (advanced) degenerative change with bone-on-bone apposition, subchondral sclerosis, and osteophytes, satisfying the requirement despite an earlier report describing only mild change.",
+            "detail": "",
+            "failure_kind": "NONE",
+            "rejected_payload": null
+          },
+          {
+            "criterion_id": "C2",
+            "clinical_status": "MET",
+            "processing_status": "COMPLETE",
+            "reason_codes": [],
+            "evidence": [
+              {
+                "document_id": "doc_cd0a21deb3f7",
+                "quote": "Night pain wakes him nightly. He has not had an unbroken night since the spring and looks it. He cannot kneel or squat, which is the substance of his trade, and he has been putting the tiling work out to a younger man and taking the money for supervising, which he describes as galling.",
+                "role": "supporting"
+              }
+            ],
+            "explanation": "The surgical opinion note documents night pain and specific loss of occupational function (inability to kneel/squat, giving up his trade work), which constitute documented functional impact on daily activities.",
+            "detail": "",
+            "failure_kind": "NONE",
+            "rejected_payload": null
+          },
+          {
+            "criterion_id": "C3",
+            "clinical_status": "MET",
+            "processing_status": "COMPLETE",
+            "reason_codes": [],
+            "evidence": [
+              {
+                "document_id": "doc_cd0a21deb3f7",
+                "quote": "He dates the onset of the right knee trouble to June 2025 and has therefore had fourteen months of conservative care, which is documented across his primary care record and the therapy episode he completed in May.",
+                "role": "supporting"
+              },
+              {
+                "document_id": "doc_8ea3de5a239c",
+                "quote": "Attended 14 of 16 offered appointments over this episode.",
+                "role": "supporting"
+              },
+              {
+                "document_id": "doc_8cd7bd8923ff",
+                "quote": "Meloxicam 15 mg daily. Started 03/11/2026 by Dr. Lindgren and taken every day as directed until he stopped it on 07/30/2026.",
+                "role": "supporting"
+              }
+            ],
+            "explanation": "The Meloxicam course alone spans 03/11/2026 to 07/30/2026, a dated start and end exceeding 3 months, and is corroborated by the surgeon's note referencing an extended course of conservative care and the completed PT episode.",
+            "detail": "",
+            "failure_kind": "NONE",
+            "rejected_payload": null
+          },
+          {
+            "criterion_id": "C4",
+            "clinical_status": "MET",
+            "processing_status": "COMPLETE",
+            "reason_codes": [],
+            "evidence": [
+              {
+                "document_id": "doc_8ea3de5a239c",
+                "quote": "Aquatic programme twice weekly for the first block, moving to land work once he tolerated it. Isometric quadriceps holds, sit-to-stand progression, and a short walking programme he logged on paper.",
+                "role": "supporting"
+              },
+              {
+                "document_id": "doc_8ea3de5a239c",
+                "quote": "No sustained benefit. He would report a good week and then lose it again, and by the last four visits there was no measurable change from where he started.",
+                "role": "supporting"
+              },
+              {
+                "document_id": "doc_8cd7bd8923ff",
+                "quote": "Meloxicam 15 mg daily. Started 03/11/2026 by Dr. Lindgren and taken every day as directed until he stopped it on 07/30/2026. He reports no benefit at all across that whole period and stopped because he saw no point continuing it.",
+                "role": "supporting"
+              }
+            ],
+            "explanation": "Both physical therapy (with a documented lack of sustained benefit as outcome) and an NSAID (meloxicam, trialed for months with a documented lack of benefit as outcome) are documented as actually attempted with outcomes, satisfying two distinct modalities.",
+            "detail": "",
+            "failure_kind": "NONE",
+            "rejected_payload": null
+          },
+          {
+            "criterion_id": "C5",
+            "clinical_status": "MET",
+            "processing_status": "COMPLETE",
+            "reason_codes": [],
+            "evidence": [
+              {
+                "document_id": "doc_cd0a21deb3f7",
+                "quote": "Gait: antalgic on the right, shortened stance phase, visible from the corridor. Right knee: range of motion 15 to 90 degrees. Fixed flexion of 15 degrees. Varus alignment. Medial joint line tenderness. Coarse crepitus through range.",
+                "role": "supporting"
+              }
+            ],
+            "explanation": "The surgeon's examination documents an antalgic gait and a measured range-of-motion deficit with fixed flexion contracture, both of which are functional limitations of the knee.",
+            "detail": "",
+            "failure_kind": "NONE",
+            "rejected_payload": null
+          },
+          {
+            "criterion_id": "C6",
+            "clinical_status": "AMBIGUOUS",
+            "processing_status": "COMPLETE",
+            "reason_codes": [
+              "MISSING_EVIDENCE"
+            ],
+            "evidence": [],
+            "explanation": "No passage in the record documents an examination, investigation, or explicit statement addressing infection status of the knee or systemically; the nursing intake notes 'No effusion' but does not address infection specifically.",
+            "detail": "",
+            "failure_kind": "NONE",
+            "rejected_payload": null
+          },
+          {
+            "criterion_id": "C7",
+            "clinical_status": "MET",
+            "processing_status": "COMPLETE",
+            "reason_codes": [],
+            "evidence": [
+              {
+                "document_id": "doc_c3590a9d6df4",
+                "quote": "CONCLUSION I see nothing that would bar him from this operation. Anaesthetic risk is low and I am content for him to proceed on that basis. ASA II.",
+                "role": "supporting"
+              }
+            ],
+            "explanation": "The preoperative anaesthetic assessment explicitly concludes no contraindication bars the operation and clears the patient to proceed, satisfying the candidacy requirement.",
+            "detail": "",
+            "failure_kind": "NONE",
+            "rejected_payload": null
+          }
+        ],
+        "prompts": [
+          {
+            "prompt_version": "extraction/1.2.0",
+            "criterion_ids": [
+              "C1",
+              "C2",
+              "C3",
+              "C4",
+              "C5",
+              "C6",
+              "C7"
+            ],
+            "system_chars": 6313,
+            "criteria_chars": 13519,
+            "record_chars": 7307
+          }
+        ],
+        "attempts": [
+          {
+            "index": 1,
+            "seconds": 17.335,
+            "input_tokens": 9518,
+            "output_tokens": 2024,
+            "error": "",
+            "parse_error": "",
+            "retryable": true,
+            "stop_reason": "end_turn",
+            "preamble": false,
+            "raw_text": "```json\n{\n  \"results\": [\n    {\n      \"criterion_id\": \"C1\",\n      \"clinical_status\": \"MET\",\n      \"reason_codes\": [],\n      \"evidence\": [\n        {\n          \"document_id\": \"doc_635d785a5886\",\n          \"quote\": \"IMPRESSION: End-stage medial compartment degenerative disease of the right knee with bone-on-bone apposition, subchondral sclerosis, and varus deformity.\",\n          \"role\": \"supporting\"\n        }\n      ],\n      \"explanation\": \"The 07/23/2026 radiograph documents end-stage (advanced) degenerative change with bone-on-bone apposition, subchondral sclerosis, and osteophytes, satisfying the requirement despite an earlier report describing only mild change.\"\n    },\n    {\n      \"criterion_id\": \"C2\",\n      \"clinical_status\": \"MET\",\n      \"reason_codes\": [],\n      \"evidence\": [\n        {\n          \"document_id\": \"doc_cd0a21deb3f7\",\n          \"quote\": \"Night pain wakes him nightly. He has not had an unbroken night since the spring and looks it. He cannot kneel or squat, which is the substance of his trade, and he has been putting the tiling work out to a younger man and taking the money for supervising, which he describes as galling.\",\n          \"role\": \"supporting\"\n        }\n      ],\n      \"explanation\": \"The surgical opinion note documents night pain and specific loss of occupational function (inability to kneel/squat, giving up his trade work), which constitute documented functional impact on daily activities.\"\n    },\n    {\n      \"criterion_id\": \"C3\",\n      \"clinical_status\": \"MET\",\n      \"reason_codes\": [],\n      \"evidence\": [\n        {\n          \"document_id\": \"doc_cd0a21deb3f7\",\n          \"quote\": \"He dates the onset of the right knee trouble to June 2025 and has therefore had fourteen months of conservative care, which is documented across his primary care record and the therapy episode he completed in May.\",\n          \"role\": \"supporting\"\n        },\n        {\n          \"document_id\": \"doc_8ea3de5a239c\",\n          \"quote\": \"Attended 14 of 16 offered appointments over this episode.\",\n          \"role\": \"supporting\"\n        },\n        {\n          \"document_id\": \"doc_8cd7bd8923ff\",\n          \"quote\": \"Meloxicam 15 mg daily. Started 03/11/2026 by Dr. Lindgren and taken every day as directed until he stopped it on 07/30/2026.\",\n          \"role\": \"supporting\"\n        }\n      ],\n      \"explanation\": \"The Meloxicam course alone spans 03/11/2026 to 07/30/2026, a dated start and end exceeding 3 months, and is corroborated by the surgeon's note referencing an extended course of conservative care and the completed PT episode.\"\n    },\n    {\n      \"criterion_id\": \"C4\",\n      \"clinical_status\": \"MET\",\n      \"reason_codes\": [],\n      \"evidence\": [\n        {\n          \"document_id\": \"doc_8ea3de5a239c\",\n          \"quote\": \"Aquatic programme twice weekly for the first block, moving to land work once he tolerated it. Isometric quadriceps holds, sit-to-stand progression, and a short walking programme he logged on paper.\",\n          \"role\": \"supporting\"\n        },\n        {\n          \"document_id\": \"doc_8ea3de5a239c\",\n          \"quote\": \"No sustained benefit. He would report a good week and then lose it again, and by the last four visits there was no measurable change from where he started.\",\n          \"role\": \"supporting\"\n        },\n        {\n          \"document_id\": \"doc_8cd7bd8923ff\",\n          \"quote\": \"Meloxicam 15 mg daily. Started 03/11/2026 by Dr. Lindgren and taken every day as directed until he stopped it on 07/30/2026. He reports no benefit at all across that whole period and stopped because he saw no point continuing it.\",\n          \"role\": \"supporting\"\n        }\n      ],\n      \"explanation\": \"Both physical therapy (with a documented lack of sustained benefit as outcome) and an NSAID (meloxicam, trialed for months with a documented lack of benefit as outcome) are documented as actually attempted with outcomes, satisfying two distinct modalities.\"\n    },\n    {\n      \"criterion_id\": \"C5\",\n      \"clinical_status\": \"MET\",\n      \"reason_codes\": [],\n      \"evidence\": [\n        {\n          \"document_id\": \"doc_cd0a21deb3f7\",\n          \"quote\": \"Gait: antalgic on the right, shortened stance phase, visible from the corridor. Right knee: range of motion 15 to 90 degrees. Fixed flexion of 15 degrees. Varus alignment. Medial joint line tenderness. Coarse crepitus through range.\",\n          \"role\": \"supporting\"\n        }\n      ],\n      \"explanation\": \"The surgeon's examination documents an antalgic gait and a measured range-of-motion deficit with fixed flexion contracture, both of which are functional limitations of the knee.\"\n    },\n    {\n      \"criterion_id\": \"C6\",\n      \"clinical_status\": \"AMBIGUOUS\",\n      \"reason_codes\": [\"MISSING_EVIDENCE\"],\n      \"evidence\": [],\n      \"explanation\": \"No passage in the record documents an examination, investigation, or explicit statement addressing infection status of the knee or systemically; the nursing intake notes 'No effusion' but does not address infection specifically.\"\n    },\n    {\n      \"criterion_id\": \"C7\",\n      \"clinical_status\": \"MET\",\n      \"reason_codes\": [],\n      \"evidence\": [\n        {\n          \"document_id\": \"doc_c3590a9d6df4\",\n          \"quote\": \"CONCLUSION I see nothing that would bar him from this operation. Anaesthetic risk is low and I am content for him to proceed on that basis. ASA II.\",\n          \"role\": \"supporting\"\n        }\n      ],\n      \"explanation\": \"The preoperative anaesthetic assessment explicitly concludes no contraindication bars the operation and clears the patient to proceed, satisfying the candidacy requirement.\"\n    }\n  ]\n}\n```"
+          }
+        ]
+      },
+      "verification": {
+        "case_id": "TKA-102",
+        "configuration": "A",
+        "processing_status": "COMPLETE",
+        "returned_spans": 10,
+        "verified_spans": 10,
+        "citation_validity": 1.0,
+        "downgraded": 0,
+        "support_outcomes": {
+          "SUPPORTED": 6,
+          "UNSUPPORTED": 0,
+          "INCONCLUSIVE": 0,
+          "SKIPPED": 1,
+          "FAILED": 0
+        },
+        "seconds": 10.494,
+        "results": [
+          {
+            "criterion_id": "C1",
+            "clinical_status": "MET",
+            "processing_status": "COMPLETE",
+            "reason_codes": [],
+            "evidence": [
+              {
+                "document_id": "doc_635d785a5886",
+                "quote": "IMPRESSION: End-stage medial compartment degenerative disease of the right knee with bone-on-bone apposition, subchondral sclerosis, and varus deformity.",
+                "role": "supporting",
+                "verified": true,
+                "span": {
+                  "document_id": "doc_635d785a5886",
+                  "content_sha256": "8bc381a193ff2c5b469d94d505c5de93a356c44b30158757f41b36ff2f96886d",
+                  "start": 749,
+                  "end": 902
+                },
+                "detail": "",
+                "ambiguous_locations": 0
+              }
+            ],
+            "explanation": "The 07/23/2026 radiograph documents end-stage (advanced) degenerative change with bone-on-bone apposition, subchondral sclerosis, and osteophytes, satisfying the requirement despite an earlier report describing only mild change.",
+            "detail": "",
+            "failure_kind": "NONE",
+            "extracted_status": "MET",
+            "downgraded": false,
+            "downgrade_reason": "",
+            "verification": {
+              "quote_check": {
+                "returned": 1,
+                "verified": 1,
+                "rejected": 0
+              },
+              "support_check": {
+                "ran": true,
+                "outcome": "SUPPORTED",
+                "detail": "The cited radiology impression explicitly documents end-stage (advanced) degenerative disease with subchondral sclerosis and bone-on-bone changes, directly satisfying the alternative criteria for advanced degenerative joint disease."
+              }
+            }
+          },
+          {
+            "criterion_id": "C2",
+            "clinical_status": "MET",
+            "processing_status": "COMPLETE",
+            "reason_codes": [],
+            "evidence": [
+              {
+                "document_id": "doc_cd0a21deb3f7",
+                "quote": "Night pain wakes him nightly. He has not had an unbroken night since the spring and looks it. He cannot kneel or squat, which is the substance of his trade, and he has been putting the tiling work out to a younger man and taking the money for supervising, which he describes as galling.",
+                "role": "supporting",
+                "verified": true,
+                "span": {
+                  "document_id": "doc_cd0a21deb3f7",
+                  "content_sha256": "adfa9fb7549cf261e0c495130d36e8bb724243122147909f13651c1180db1dbb",
+                  "start": 394,
+                  "end": 680
+                },
+                "detail": "",
+                "ambiguous_locations": 0
+              }
+            ],
+            "explanation": "The surgical opinion note documents night pain and specific loss of occupational function (inability to kneel/squat, giving up his trade work), which constitute documented functional impact on daily activities.",
+            "detail": "",
+            "failure_kind": "NONE",
+            "extracted_status": "MET",
+            "downgraded": false,
+            "downgrade_reason": "",
+            "verification": {
+              "quote_check": {
+                "returned": 1,
+                "verified": 1,
+                "rejected": 0
+              },
+              "support_check": {
+                "ran": true,
+                "outcome": "SUPPORTED",
+                "detail": "The passage documents night pain, inability to kneel/squat, and giving up his trade work to a younger man, all specific documented functional impacts on daily activity."
+              }
+            }
+          },
+          {
+            "criterion_id": "C3",
+            "clinical_status": "MET",
+            "processing_status": "COMPLETE",
+            "reason_codes": [],
+            "evidence": [
+              {
+                "document_id": "doc_cd0a21deb3f7",
+                "quote": "He dates the onset of the right knee trouble to June 2025 and has therefore had fourteen months of conservative care, which is documented across his primary care record and the therapy episode he completed in May.",
+                "role": "supporting",
+                "verified": true,
+                "span": {
+                  "document_id": "doc_cd0a21deb3f7",
+                  "content_sha256": "adfa9fb7549cf261e0c495130d36e8bb724243122147909f13651c1180db1dbb",
+                  "start": 180,
+                  "end": 393
+                },
+                "detail": "",
+                "ambiguous_locations": 0
+              },
+              {
+                "document_id": "doc_8ea3de5a239c",
+                "quote": "Attended 14 of 16 offered appointments over this episode.",
+                "role": "supporting",
+                "verified": true,
+                "span": {
+                  "document_id": "doc_8ea3de5a239c",
+                  "content_sha256": "36cbb460d335f99e28d41cea674d94fba57628f319f6cc22fcf9f1a76a58a3fd",
+                  "start": 219,
+                  "end": 276
+                },
+                "detail": "",
+                "ambiguous_locations": 0
+              },
+              {
+                "document_id": "doc_8cd7bd8923ff",
+                "quote": "Meloxicam 15 mg daily. Started 03/11/2026 by Dr. Lindgren and taken every day as directed until he stopped it on 07/30/2026.",
+                "role": "supporting",
+                "verified": true,
+                "span": {
+                  "document_id": "doc_8cd7bd8923ff",
+                  "content_sha256": "aa768ac07b2a8949246bac705db9eaf2162b73f381b3459f0a26ed38ac16ad5b",
+                  "start": 368,
+                  "end": 492
+                },
+                "detail": "",
+                "ambiguous_locations": 0
+              }
+            ],
+            "explanation": "The Meloxicam course alone spans 03/11/2026 to 07/30/2026, a dated start and end exceeding 3 months, and is corroborated by the surgeon's note referencing an extended course of conservative care and the completed PT episode.",
+            "detail": "",
+            "failure_kind": "NONE",
+            "extracted_status": "MET",
+            "downgraded": false,
+            "downgrade_reason": "",
+            "verification": {
+              "quote_check": {
+                "returned": 3,
+                "verified": 3,
+                "rejected": 0
+              },
+              "support_check": {
+                "ran": true,
+                "outcome": "SUPPORTED",
+                "detail": "Passage 3 gives a dated start (03/11/2026) and end (07/30/2026) of Meloxicam therapy spanning over 4 months, satisfying the requirement's alternative pathway of a dated start and end spanning at least 3 months."
+              }
+            }
+          },
+          {
+            "criterion_id": "C4",
+            "clinical_status": "MET",
+            "processing_status": "COMPLETE",
+            "reason_codes": [],
+            "evidence": [
+              {
+                "document_id": "doc_8ea3de5a239c",
+                "quote": "Aquatic programme twice weekly for the first block, moving to land work once he tolerated it. Isometric quadriceps holds, sit-to-stand progression, and a short walking programme he logged on paper.",
+                "role": "supporting",
+                "verified": true,
+                "span": {
+                  "document_id": "doc_8ea3de5a239c",
+                  "content_sha256": "36cbb460d335f99e28d41cea674d94fba57628f319f6cc22fcf9f1a76a58a3fd",
+                  "start": 287,
+                  "end": 484
+                },
+                "detail": "",
+                "ambiguous_locations": 0
+              },
+              {
+                "document_id": "doc_8ea3de5a239c",
+                "quote": "No sustained benefit. He would report a good week and then lose it again, and by the last four visits there was no measurable change from where he started.",
+                "role": "supporting",
+                "verified": true,
+                "span": {
+                  "document_id": "doc_8ea3de5a239c",
+                  "content_sha256": "36cbb460d335f99e28d41cea674d94fba57628f319f6cc22fcf9f1a76a58a3fd",
+                  "start": 494,
+                  "end": 649
+                },
+                "detail": "",
+                "ambiguous_locations": 0
+              },
+              {
+                "document_id": "doc_8cd7bd8923ff",
+                "quote": "Meloxicam 15 mg daily. Started 03/11/2026 by Dr. Lindgren and taken every day as directed until he stopped it on 07/30/2026. He reports no benefit at all across that whole period and stopped because he saw no point continuing it.",
+                "role": "supporting",
+                "verified": true,
+                "span": {
+                  "document_id": "doc_8cd7bd8923ff",
+                  "content_sha256": "aa768ac07b2a8949246bac705db9eaf2162b73f381b3459f0a26ed38ac16ad5b",
+                  "start": 368,
+                  "end": 597
+                },
+                "detail": "",
+                "ambiguous_locations": 0
+              }
+            ],
+            "explanation": "Both physical therapy (with a documented lack of sustained benefit as outcome) and an NSAID (meloxicam, trialed for months with a documented lack of benefit as outcome) are documented as actually attempted with outcomes, satisfying two distinct modalities.",
+            "detail": "",
+            "failure_kind": "NONE",
+            "extracted_status": "MET",
+            "downgraded": false,
+            "downgrade_reason": "",
+            "verification": {
+              "quote_check": {
+                "returned": 3,
+                "verified": 3,
+                "rejected": 0
+              },
+              "support_check": {
+                "ran": true,
+                "outcome": "SUPPORTED",
+                "detail": "The passages document physical therapy (aquatic/land program) with a stated outcome of no sustained benefit and meloxicam trialed daily for months with a documented outcome of no benefit, satisfying two distinct conservative modalities with outcomes."
+              }
+            }
+          },
+          {
+            "criterion_id": "C5",
+            "clinical_status": "MET",
+            "processing_status": "COMPLETE",
+            "reason_codes": [],
+            "evidence": [
+              {
+                "document_id": "doc_cd0a21deb3f7",
+                "quote": "Gait: antalgic on the right, shortened stance phase, visible from the corridor. Right knee: range of motion 15 to 90 degrees. Fixed flexion of 15 degrees. Varus alignment. Medial joint line tenderness. Coarse crepitus through range.",
+                "role": "supporting",
+                "verified": true,
+                "span": {
+                  "document_id": "doc_cd0a21deb3f7",
+                  "content_sha256": "adfa9fb7549cf261e0c495130d36e8bb724243122147909f13651c1180db1dbb",
+                  "start": 729,
+                  "end": 961
+                },
+                "detail": "",
+                "ambiguous_locations": 0
+              }
+            ],
+            "explanation": "The surgeon's examination documents an antalgic gait and a measured range-of-motion deficit with fixed flexion contracture, both of which are functional limitations of the knee.",
+            "detail": "",
+            "failure_kind": "NONE",
+            "extracted_status": "MET",
+            "downgraded": false,
+            "downgrade_reason": "",
+            "verification": {
+              "quote_check": {
+                "returned": 1,
+                "verified": 1,
+                "rejected": 0
+              },
+              "support_check": {
+                "ran": true,
+                "outcome": "SUPPORTED",
+                "detail": "The passage documents both an antalgic gait and a measured range-of-motion deficit (15-90 degrees with fixed flexion contracture) of the knee, satisfying the alternative criteria for functional limitation on exam."
+              }
+            }
+          },
+          {
+            "criterion_id": "C6",
+            "clinical_status": "AMBIGUOUS",
+            "processing_status": "COMPLETE",
+            "reason_codes": [
+              "MISSING_EVIDENCE"
+            ],
+            "evidence": [],
+            "explanation": "No passage in the record documents an examination, investigation, or explicit statement addressing infection status of the knee or systemically; the nursing intake notes 'No effusion' but does not address infection specifically.",
+            "detail": "",
+            "failure_kind": "NONE",
+            "extracted_status": "AMBIGUOUS",
+            "downgraded": false,
+            "downgrade_reason": "",
+            "verification": {
+              "quote_check": {
+                "returned": 0,
+                "verified": 0,
+                "rejected": 0
+              },
+              "support_check": {
+                "ran": false,
+                "outcome": "SKIPPED",
+                "detail": "no affirmative claim resting on verified evidence; nothing for the verifier to check"
+              }
+            }
+          },
+          {
+            "criterion_id": "C7",
+            "clinical_status": "MET",
+            "processing_status": "COMPLETE",
+            "reason_codes": [],
+            "evidence": [
+              {
+                "document_id": "doc_c3590a9d6df4",
+                "quote": "CONCLUSION I see nothing that would bar him from this operation. Anaesthetic risk is low and I am content for him to proceed on that basis. ASA II.",
+                "role": "supporting",
+                "verified": true,
+                "span": {
+                  "document_id": "doc_c3590a9d6df4",
+                  "content_sha256": "f4a42b044323dac3673336ff92f0fdc8a1f45a818076c691cbb5673661d31420",
+                  "start": 1252,
+                  "end": 1399
+                },
+                "detail": "",
+                "ambiguous_locations": 0
+              }
+            ],
+            "explanation": "The preoperative anaesthetic assessment explicitly concludes no contraindication bars the operation and clears the patient to proceed, satisfying the candidacy requirement.",
+            "detail": "",
+            "failure_kind": "NONE",
+            "extracted_status": "MET",
+            "downgraded": false,
+            "downgrade_reason": "",
+            "verification": {
+              "quote_check": {
+                "returned": 1,
+                "verified": 1,
+                "rejected": 0
+              },
+              "support_check": {
+                "ran": true,
+                "outcome": "SUPPORTED",
+                "detail": "The cited passage is an explicit clinician conclusion that no contraindication bars the operation and clearance to proceed, directly satisfying the candidacy requirement."
+              }
+            }
+          }
+        ],
+        "support_attempts": [
+          {
+            "index": 1,
+            "seconds": 1.811,
+            "input_tokens": 1180,
+            "output_tokens": 99,
+            "error": "",
+            "parse_error": "",
+            "retryable": true,
+            "stop_reason": "end_turn",
+            "preamble": false,
+            "raw_text": "{\"outcome\": \"SUPPORTED\", \"detail\": \"The cited radiology impression explicitly documents end-stage (advanced) degenerative disease with subchondral sclerosis and bone-on-bone changes, directly satisfying the alternative criteria for advanced degenerative joint disease.\"}"
+          },
+          {
+            "index": 1,
+            "seconds": 1.552,
+            "input_tokens": 1165,
+            "output_tokens": 72,
+            "error": "",
+            "parse_error": "",
+            "retryable": true,
+            "stop_reason": "end_turn",
+            "preamble": false,
+            "raw_text": "{\"outcome\": \"SUPPORTED\", \"detail\": \"The passage documents night pain, inability to kneel/squat, and giving up his trade work to a younger man, all specific documented functional impacts on daily activity.\"}"
+          },
+          {
+            "index": 1,
+            "seconds": 1.78,
+            "input_tokens": 1298,
+            "output_tokens": 104,
+            "error": "",
+            "parse_error": "",
+            "retryable": true,
+            "stop_reason": "end_turn",
+            "preamble": false,
+            "raw_text": "{\"outcome\": \"SUPPORTED\", \"detail\": \"Passage 3 gives a dated start (03/11/2026) and end (07/30/2026) of Meloxicam therapy spanning over 4 months, satisfying the requirement's alternative pathway of a dated start and end spanning at least 3 months.\"}"
+          },
+          {
+            "index": 1,
+            "seconds": 2.075,
+            "input_tokens": 1334,
+            "output_tokens": 102,
+            "error": "",
+            "parse_error": "",
+            "retryable": true,
+            "stop_reason": "end_turn",
+            "preamble": false,
+            "raw_text": "{\"outcome\": \"SUPPORTED\", \"detail\": \"The passages document physical therapy (aquatic/land program) with a stated outcome of no sustained benefit and meloxicam trialed daily for months with a documented outcome of no benefit, satisfying two distinct conservative modalities with outcomes.\"}"
+          },
+          {
+            "index": 1,
+            "seconds": 1.704,
+            "input_tokens": 1166,
+            "output_tokens": 94,
+            "error": "",
+            "parse_error": "",
+            "retryable": true,
+            "stop_reason": "end_turn",
+            "preamble": false,
+            "raw_text": "{\"outcome\": \"SUPPORTED\", \"detail\": \"The passage documents both an antalgic gait and a measured range-of-motion deficit (15-90 degrees with fixed flexion contracture) of the knee, satisfying the alternative criteria for functional limitation on exam.\"}"
+          },
+          {
+            "index": 1,
+            "seconds": 1.572,
+            "input_tokens": 1222,
+            "output_tokens": 75,
+            "error": "",
+            "parse_error": "",
+            "retryable": true,
+            "stop_reason": "end_turn",
+            "preamble": false,
+            "raw_text": "{\"outcome\": \"SUPPORTED\", \"detail\": \"The cited passage is an explicit clinician conclusion that no contraindication bars the operation and clearance to proceed, directly satisfying the candidacy requirement.\"}"
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "TKA-103",
+      "extraction": {
+        "case_id": "TKA-103",
+        "configuration": "A",
+        "model": "claude-sonnet-5",
+        "prompt_version": "extraction/1.2.0",
+        "settings_version": "settings/2",
+        "parser_version": "parser/2",
+        "processing_status": "COMPLETE",
+        "calls": 1,
+        "input_tokens": 7628,
+        "output_tokens": 1986,
+        "seconds": 14.818,
+        "failures": {
+          "CONTRACT_REJECTION": 0,
+          "NO_RESPONSE": 0,
+          "NOT_ATTEMPTED": 0
+        },
+        "results": [
+          {
+            "criterion_id": "C1",
+            "clinical_status": "MET",
+            "processing_status": "COMPLETE",
+            "reason_codes": [],
+            "evidence": [
+              {
+                "document_id": "doc_b2e85f83e558",
+                "quote": "Severe narrowing of the medial femorotibial compartment with bone-on-bone apposition and dense subchondral sclerosis.",
+                "role": "supporting"
+              },
+              {
+                "document_id": "doc_b2e85f83e558",
+                "quote": "IMPRESSION: Severe tricompartmental degenerative change, right knee.",
+                "role": "supporting"
+              }
+            ],
+            "explanation": "The radiology report describes severe joint space narrowing, subchondral sclerosis, and osteophytes in the right knee, meeting the requirement for advanced degenerative change.",
+            "detail": "",
+            "failure_kind": "NONE",
+            "rejected_payload": null
+          },
+          {
+            "criterion_id": "C2",
+            "clinical_status": "MET",
+            "processing_status": "COMPLETE",
+            "reason_codes": [],
+            "evidence": [
+              {
+                "document_id": "doc_a994a5b15d1c",
+                "quote": "She cannot complete a work shift standing, which is what her job requires, and pain limits her walking to under 200 metres.",
+                "role": "supporting"
+              },
+              {
+                "document_id": "doc_a994a5b15d1c",
+                "quote": "She has cut her hours twice.",
+                "role": "supporting"
+              }
+            ],
+            "explanation": "Specific functional impacts are documented: inability to complete a work shift, limited ambulation distance, and reduced work hours due to pain.",
+            "detail": "",
+            "failure_kind": "NONE",
+            "rejected_payload": null
+          },
+          {
+            "criterion_id": "C3",
+            "clinical_status": "MET",
+            "processing_status": "COMPLETE",
+            "reason_codes": [],
+            "evidence": [
+              {
+                "document_id": "doc_ad1b3d4bf4d0",
+                "quote": "Starting conservative management from today. Naproxen 500 mg twice daily with omeprazole cover.",
+                "role": "supporting"
+              },
+              {
+                "document_id": "doc_ad1b3d4bf4d0",
+                "quote": "Date: 01/19/2026",
+                "role": "supporting"
+              },
+              {
+                "document_id": "doc_a994a5b15d1c",
+                "quote": "CONSERVATIVE COURSE, CONCLUDED TODAY Naproxen 500 mg twice daily from 19 January, taken as directed throughout, with no useful benefit.",
+                "role": "supporting"
+              },
+              {
+                "document_id": "doc_a994a5b15d1c",
+                "quote": "Date: 06/22/2026",
+                "role": "supporting"
+              }
+            ],
+            "explanation": "Conservative management (naproxen) began 01/19/2026 and was concluded 06/22/2026, a span exceeding 3 months, with dated start and end documented in both encounters.",
+            "detail": "",
+            "failure_kind": "NONE",
+            "rejected_payload": null
+          },
+          {
+            "criterion_id": "C4",
+            "clinical_status": "AMBIGUOUS",
+            "processing_status": "COMPLETE",
+            "reason_codes": [
+              "INSUFFICIENT_CONTEXT"
+            ],
+            "evidence": [
+              {
+                "document_id": "doc_a994a5b15d1c",
+                "quote": "Naproxen 500 mg twice daily from 19 January, taken as directed throughout, with no useful benefit.",
+                "role": "supporting"
+              },
+              {
+                "document_id": "doc_a994a5b15d1c",
+                "quote": "Physical therapy: declined by the patient, offered in January and again today.",
+                "role": "contradicting"
+              },
+              {
+                "document_id": "doc_a994a5b15d1c",
+                "quote": "Intra-articular injection: declined by the patient, offered on both occasions.",
+                "role": "contradicting"
+              },
+              {
+                "document_id": "doc_a994a5b15d1c",
+                "quote": "Weight reduction: not undertaken, and not indicated, BMI 23.",
+                "role": "contradicting"
+              },
+              {
+                "document_id": "doc_a994a5b15d1c",
+                "quote": "Activity modification: not attempted; her work does not permit it and she is not willing to reduce further.",
+                "role": "contradicting"
+              }
+            ],
+            "explanation": "Only one modality (NSAID/analgesic, naproxen) is documented as actually attempted with an outcome (no useful benefit); physical therapy and injection were declined/offered rather than attempted, weight reduction was not undertaken, and activity modification was not attempted, so only one of the required two modalities is documented as attempted.",
+            "detail": "",
+            "failure_kind": "NONE",
+            "rejected_payload": null
+          },
+          {
+            "criterion_id": "C5",
+            "clinical_status": "MET",
+            "processing_status": "COMPLETE",
+            "reason_codes": [],
+            "evidence": [
+              {
+                "document_id": "doc_a994a5b15d1c",
+                "quote": "Exam: range of motion 10 to 90 degrees with a fixed flexion contracture of 10 degrees. Varus. Medial joint line tenderness. Crepitus.",
+                "role": "supporting"
+              }
+            ],
+            "explanation": "The physical examination documents a measured range of motion deficit and a fixed flexion contracture, constituting a functional limitation of the knee.",
+            "detail": "",
+            "failure_kind": "NONE",
+            "rejected_payload": null
+          },
+          {
+            "criterion_id": "C6",
+            "clinical_status": "AMBIGUOUS",
+            "processing_status": "COMPLETE",
+            "reason_codes": [
+              "MISSING_EVIDENCE"
+            ],
+            "evidence": [],
+            "explanation": "No passage in the record addresses infection status, either by explicit statement or by examination/investigation findings regarding infection.",
+            "detail": "",
+            "failure_kind": "NONE",
+            "rejected_payload": null
+          },
+          {
+            "criterion_id": "C7",
+            "clinical_status": "AMBIGUOUS",
+            "processing_status": "COMPLETE",
+            "reason_codes": [
+              "MISSING_EVIDENCE"
+            ],
+            "evidence": [],
+            "explanation": "No preoperative assessment or explicit clinician statement addressing candidacy for surgery or absence of absolute contraindication is present; the note only documents shared decision making about proceeding to surgery.",
+            "detail": "",
+            "failure_kind": "NONE",
+            "rejected_payload": null
+          }
+        ],
+        "prompts": [
+          {
+            "prompt_version": "extraction/1.2.0",
+            "criterion_ids": [
+              "C1",
+              "C2",
+              "C3",
+              "C4",
+              "C5",
+              "C6",
+              "C7"
+            ],
+            "system_chars": 6313,
+            "criteria_chars": 13519,
+            "record_chars": 3081
+          }
+        ],
+        "attempts": [
+          {
+            "index": 1,
+            "seconds": 14.817,
+            "input_tokens": 7628,
+            "output_tokens": 1986,
+            "error": "",
+            "parse_error": "",
+            "retryable": true,
+            "stop_reason": "end_turn",
+            "preamble": false,
+            "raw_text": "{\n  \"results\": [\n    {\n      \"criterion_id\": \"C1\",\n      \"clinical_status\": \"MET\",\n      \"reason_codes\": [],\n      \"evidence\": [\n        {\n          \"document_id\": \"doc_b2e85f83e558\",\n          \"quote\": \"Severe narrowing of the medial femorotibial compartment with bone-on-bone apposition and dense subchondral sclerosis.\",\n          \"role\": \"supporting\"\n        },\n        {\n          \"document_id\": \"doc_b2e85f83e558\",\n          \"quote\": \"IMPRESSION: Severe tricompartmental degenerative change, right knee.\",\n          \"role\": \"supporting\"\n        }\n      ],\n      \"explanation\": \"The radiology report describes severe joint space narrowing, subchondral sclerosis, and osteophytes in the right knee, meeting the requirement for advanced degenerative change.\"\n    },\n    {\n      \"criterion_id\": \"C2\",\n      \"clinical_status\": \"MET\",\n      \"reason_codes\": [],\n      \"evidence\": [\n        {\n          \"document_id\": \"doc_a994a5b15d1c\",\n          \"quote\": \"She cannot complete a work shift standing, which is what her job requires, and pain limits her walking to under 200 metres.\",\n          \"role\": \"supporting\"\n        },\n        {\n          \"document_id\": \"doc_a994a5b15d1c\",\n          \"quote\": \"She has cut her hours twice.\",\n          \"role\": \"supporting\"\n        }\n      ],\n      \"explanation\": \"Specific functional impacts are documented: inability to complete a work shift, limited ambulation distance, and reduced work hours due to pain.\"\n    },\n    {\n      \"criterion_id\": \"C3\",\n      \"clinical_status\": \"MET\",\n      \"reason_codes\": [],\n      \"evidence\": [\n        {\n          \"document_id\": \"doc_ad1b3d4bf4d0\",\n          \"quote\": \"Starting conservative management from today. Naproxen 500 mg twice daily with omeprazole cover.\",\n          \"role\": \"supporting\"\n        },\n        {\n          \"document_id\": \"doc_ad1b3d4bf4d0\",\n          \"quote\": \"Date: 01/19/2026\",\n          \"role\": \"supporting\"\n        },\n        {\n          \"document_id\": \"doc_a994a5b15d1c\",\n          \"quote\": \"CONSERVATIVE COURSE, CONCLUDED TODAY Naproxen 500 mg twice daily from 19 January, taken as directed throughout, with no useful benefit.\",\n          \"role\": \"supporting\"\n        },\n        {\n          \"document_id\": \"doc_a994a5b15d1c\",\n          \"quote\": \"Date: 06/22/2026\",\n          \"role\": \"supporting\"\n        }\n      ],\n      \"explanation\": \"Conservative management (naproxen) began 01/19/2026 and was concluded 06/22/2026, a span exceeding 3 months, with dated start and end documented in both encounters.\"\n    },\n    {\n      \"criterion_id\": \"C4\",\n      \"clinical_status\": \"AMBIGUOUS\",\n      \"reason_codes\": [\"INSUFFICIENT_CONTEXT\"],\n      \"evidence\": [\n        {\n          \"document_id\": \"doc_a994a5b15d1c\",\n          \"quote\": \"Naproxen 500 mg twice daily from 19 January, taken as directed throughout, with no useful benefit.\",\n          \"role\": \"supporting\"\n        },\n        {\n          \"document_id\": \"doc_a994a5b15d1c\",\n          \"quote\": \"Physical therapy: declined by the patient, offered in January and again today.\",\n          \"role\": \"contradicting\"\n        },\n        {\n          \"document_id\": \"doc_a994a5b15d1c\",\n          \"quote\": \"Intra-articular injection: declined by the patient, offered on both occasions.\",\n          \"role\": \"contradicting\"\n        },\n        {\n          \"document_id\": \"doc_a994a5b15d1c\",\n          \"quote\": \"Weight reduction: not undertaken, and not indicated, BMI 23.\",\n          \"role\": \"contradicting\"\n        },\n        {\n          \"document_id\": \"doc_a994a5b15d1c\",\n          \"quote\": \"Activity modification: not attempted; her work does not permit it and she is not willing to reduce further.\",\n          \"role\": \"contradicting\"\n        }\n      ],\n      \"explanation\": \"Only one modality (NSAID/analgesic, naproxen) is documented as actually attempted with an outcome (no useful benefit); physical therapy and injection were declined/offered rather than attempted, weight reduction was not undertaken, and activity modification was not attempted, so only one of the required two modalities is documented as attempted.\"\n    },\n    {\n      \"criterion_id\": \"C5\",\n      \"clinical_status\": \"MET\",\n      \"reason_codes\": [],\n      \"evidence\": [\n        {\n          \"document_id\": \"doc_a994a5b15d1c\",\n          \"quote\": \"Exam: range of motion 10 to 90 degrees with a fixed flexion contracture of 10 degrees. Varus. Medial joint line tenderness. Crepitus.\",\n          \"role\": \"supporting\"\n        }\n      ],\n      \"explanation\": \"The physical examination documents a measured range of motion deficit and a fixed flexion contracture, constituting a functional limitation of the knee.\"\n    },\n    {\n      \"criterion_id\": \"C6\",\n      \"clinical_status\": \"AMBIGUOUS\",\n      \"reason_codes\": [\"MISSING_EVIDENCE\"],\n      \"evidence\": [],\n      \"explanation\": \"No passage in the record addresses infection status, either by explicit statement or by examination/investigation findings regarding infection.\"\n    },\n    {\n      \"criterion_id\": \"C7\",\n      \"clinical_status\": \"AMBIGUOUS\",\n      \"reason_codes\": [\"MISSING_EVIDENCE\"],\n      \"evidence\": [],\n      \"explanation\": \"No preoperative assessment or explicit clinician statement addressing candidacy for surgery or absence of absolute contraindication is present; the note only documents shared decision making about proceeding to surgery.\"\n    }\n  ]\n}"
+          }
+        ]
+      },
+      "verification": {
+        "case_id": "TKA-103",
+        "configuration": "A",
+        "processing_status": "COMPLETE",
+        "returned_spans": 14,
+        "verified_spans": 14,
+        "citation_validity": 1.0,
+        "downgraded": 0,
+        "support_outcomes": {
+          "SUPPORTED": 4,
+          "UNSUPPORTED": 1,
+          "INCONCLUSIVE": 0,
+          "SKIPPED": 2,
+          "FAILED": 0
+        },
+        "seconds": 8.403,
+        "results": [
+          {
+            "criterion_id": "C1",
+            "clinical_status": "MET",
+            "processing_status": "COMPLETE",
+            "reason_codes": [],
+            "evidence": [
+              {
+                "document_id": "doc_b2e85f83e558",
+                "quote": "Severe narrowing of the medial femorotibial compartment with bone-on-bone apposition and dense subchondral sclerosis.",
+                "role": "supporting",
+                "verified": true,
+                "span": {
+                  "document_id": "doc_b2e85f83e558",
+                  "content_sha256": "f45c81a6998ac2cb7debdbbf973fc61b8bafcd70707e4fb39814a5589401ebe7",
+                  "start": 186,
+                  "end": 303
+                },
+                "detail": "",
+                "ambiguous_locations": 0
+              },
+              {
+                "document_id": "doc_b2e85f83e558",
+                "quote": "IMPRESSION: Severe tricompartmental degenerative change, right knee.",
+                "role": "supporting",
+                "verified": true,
+                "span": {
+                  "document_id": "doc_b2e85f83e558",
+                  "content_sha256": "f45c81a6998ac2cb7debdbbf973fc61b8bafcd70707e4fb39814a5589401ebe7",
+                  "start": 567,
+                  "end": 635
+                },
+                "detail": "",
+                "ambiguous_locations": 0
+              }
+            ],
+            "explanation": "The radiology report describes severe joint space narrowing, subchondral sclerosis, and osteophytes in the right knee, meeting the requirement for advanced degenerative change.",
+            "detail": "",
+            "failure_kind": "NONE",
+            "extracted_status": "MET",
+            "downgraded": false,
+            "downgrade_reason": "",
+            "verification": {
+              "quote_check": {
+                "returned": 2,
+                "verified": 2,
+                "rejected": 0
+              },
+              "support_check": {
+                "ran": true,
+                "outcome": "SUPPORTED",
+                "detail": "Both passages describe severe joint space narrowing with subchondral sclerosis and an impression of severe degenerative change in the right knee, satisfying the advanced DJD criterion."
+              }
+            }
+          },
+          {
+            "criterion_id": "C2",
+            "clinical_status": "MET",
+            "processing_status": "COMPLETE",
+            "reason_codes": [],
+            "evidence": [
+              {
+                "document_id": "doc_a994a5b15d1c",
+                "quote": "She cannot complete a work shift standing, which is what her job requires, and pain limits her walking to under 200 metres.",
+                "role": "supporting",
+                "verified": true,
+                "span": {
+                  "document_id": "doc_a994a5b15d1c",
+                  "content_sha256": "07552fc3c8b37382a5b1987ff0b37a432139530e296d72824e8f3e14916454fb",
+                  "start": 177,
+                  "end": 300
+                },
+                "detail": "",
+                "ambiguous_locations": 0
+              },
+              {
+                "document_id": "doc_a994a5b15d1c",
+                "quote": "She has cut her hours twice.",
+                "role": "supporting",
+                "verified": true,
+                "span": {
+                  "document_id": "doc_a994a5b15d1c",
+                  "content_sha256": "07552fc3c8b37382a5b1987ff0b37a432139530e296d72824e8f3e14916454fb",
+                  "start": 301,
+                  "end": 329
+                },
+                "detail": "",
+                "ambiguous_locations": 0
+              }
+            ],
+            "explanation": "Specific functional impacts are documented: inability to complete a work shift, limited ambulation distance, and reduced work hours due to pain.",
+            "detail": "",
+            "failure_kind": "NONE",
+            "extracted_status": "MET",
+            "downgraded": false,
+            "downgrade_reason": "",
+            "verification": {
+              "quote_check": {
+                "returned": 2,
+                "verified": 2,
+                "rejected": 0
+              },
+              "support_check": {
+                "ran": true,
+                "outcome": "SUPPORTED",
+                "detail": "The evidence documents specific functional impacts\u2014inability to complete a standing work shift, ambulation limited to under 200 metres, and reduced work hours\u2014directly satisfying the requirement for documented functional impact from pain."
+              }
+            }
+          },
+          {
+            "criterion_id": "C3",
+            "clinical_status": "MET",
+            "processing_status": "COMPLETE",
+            "reason_codes": [],
+            "evidence": [
+              {
+                "document_id": "doc_ad1b3d4bf4d0",
+                "quote": "Starting conservative management from today. Naproxen 500 mg twice daily with omeprazole cover.",
+                "role": "supporting",
+                "verified": true,
+                "span": {
+                  "document_id": "doc_ad1b3d4bf4d0",
+                  "content_sha256": "8fc2a25a4da6fd90dd26b0f042a4fe4bb7755f9cbf37dcf284b84bf954640f87",
+                  "start": 186,
+                  "end": 281
+                },
+                "detail": "",
+                "ambiguous_locations": 0
+              },
+              {
+                "document_id": "doc_ad1b3d4bf4d0",
+                "quote": "Date: 01/19/2026",
+                "role": "supporting",
+                "verified": true,
+                "span": {
+                  "document_id": "doc_ad1b3d4bf4d0",
+                  "content_sha256": "8fc2a25a4da6fd90dd26b0f042a4fe4bb7755f9cbf37dcf284b84bf954640f87",
+                  "start": 72,
+                  "end": 88
+                },
+                "detail": "",
+                "ambiguous_locations": 0
+              },
+              {
+                "document_id": "doc_a994a5b15d1c",
+                "quote": "CONSERVATIVE COURSE, CONCLUDED TODAY Naproxen 500 mg twice daily from 19 January, taken as directed throughout, with no useful benefit.",
+                "role": "supporting",
+                "verified": true,
+                "span": {
+                  "document_id": "doc_a994a5b15d1c",
+                  "content_sha256": "07552fc3c8b37382a5b1987ff0b37a432139530e296d72824e8f3e14916454fb",
+                  "start": 330,
+                  "end": 465
+                },
+                "detail": "",
+                "ambiguous_locations": 0
+              },
+              {
+                "document_id": "doc_a994a5b15d1c",
+                "quote": "Date: 06/22/2026",
+                "role": "supporting",
+                "verified": true,
+                "span": {
+                  "document_id": "doc_a994a5b15d1c",
+                  "content_sha256": "07552fc3c8b37382a5b1987ff0b37a432139530e296d72824e8f3e14916454fb",
+                  "start": 91,
+                  "end": 107
+                },
+                "detail": "",
+                "ambiguous_locations": 0
+              }
+            ],
+            "explanation": "Conservative management (naproxen) began 01/19/2026 and was concluded 06/22/2026, a span exceeding 3 months, with dated start and end documented in both encounters.",
+            "detail": "",
+            "failure_kind": "NONE",
+            "extracted_status": "MET",
+            "downgraded": false,
+            "downgrade_reason": "",
+            "verification": {
+              "quote_check": {
+                "returned": 4,
+                "verified": 4,
+                "rejected": 0
+              },
+              "support_check": {
+                "ran": true,
+                "outcome": "SUPPORTED",
+                "detail": "Passages establish a dated start (01/19/2026) and dated end (06/22/2026) of continuous naproxen conservative therapy, spanning just over 5 months, satisfying the composite requirement."
+              }
+            }
+          },
+          {
+            "criterion_id": "C4",
+            "clinical_status": "AMBIGUOUS",
+            "processing_status": "COMPLETE",
+            "reason_codes": [
+              "INSUFFICIENT_CONTEXT"
+            ],
+            "evidence": [
+              {
+                "document_id": "doc_a994a5b15d1c",
+                "quote": "Naproxen 500 mg twice daily from 19 January, taken as directed throughout, with no useful benefit.",
+                "role": "supporting",
+                "verified": true,
+                "span": {
+                  "document_id": "doc_a994a5b15d1c",
+                  "content_sha256": "07552fc3c8b37382a5b1987ff0b37a432139530e296d72824e8f3e14916454fb",
+                  "start": 367,
+                  "end": 465
+                },
+                "detail": "",
+                "ambiguous_locations": 0
+              },
+              {
+                "document_id": "doc_a994a5b15d1c",
+                "quote": "Physical therapy: declined by the patient, offered in January and again today.",
+                "role": "contradicting",
+                "verified": true,
+                "span": {
+                  "document_id": "doc_a994a5b15d1c",
+                  "content_sha256": "07552fc3c8b37382a5b1987ff0b37a432139530e296d72824e8f3e14916454fb",
+                  "start": 529,
+                  "end": 607
+                },
+                "detail": "",
+                "ambiguous_locations": 0
+              },
+              {
+                "document_id": "doc_a994a5b15d1c",
+                "quote": "Intra-articular injection: declined by the patient, offered on both occasions.",
+                "role": "contradicting",
+                "verified": true,
+                "span": {
+                  "document_id": "doc_a994a5b15d1c",
+                  "content_sha256": "07552fc3c8b37382a5b1987ff0b37a432139530e296d72824e8f3e14916454fb",
+                  "start": 608,
+                  "end": 686
+                },
+                "detail": "",
+                "ambiguous_locations": 0
+              },
+              {
+                "document_id": "doc_a994a5b15d1c",
+                "quote": "Weight reduction: not undertaken, and not indicated, BMI 23.",
+                "role": "contradicting",
+                "verified": true,
+                "span": {
+                  "document_id": "doc_a994a5b15d1c",
+                  "content_sha256": "07552fc3c8b37382a5b1987ff0b37a432139530e296d72824e8f3e14916454fb",
+                  "start": 687,
+                  "end": 747
+                },
+                "detail": "",
+                "ambiguous_locations": 0
+              },
+              {
+                "document_id": "doc_a994a5b15d1c",
+                "quote": "Activity modification: not attempted; her work does not permit it and she is not willing to reduce further.",
+                "role": "contradicting",
+                "verified": true,
+                "span": {
+                  "document_id": "doc_a994a5b15d1c",
+                  "content_sha256": "07552fc3c8b37382a5b1987ff0b37a432139530e296d72824e8f3e14916454fb",
+                  "start": 748,
+                  "end": 855
+                },
+                "detail": "",
+                "ambiguous_locations": 0
+              }
+            ],
+            "explanation": "Only one modality (NSAID/analgesic, naproxen) is documented as actually attempted with an outcome (no useful benefit); physical therapy and injection were declined/offered rather than attempted, weight reduction was not undertaken, and activity modification was not attempted, so only one of the required two modalities is documented as attempted.",
+            "detail": "",
+            "failure_kind": "NONE",
+            "extracted_status": "AMBIGUOUS",
+            "downgraded": false,
+            "downgrade_reason": "",
+            "verification": {
+              "quote_check": {
+                "returned": 5,
+                "verified": 5,
+                "rejected": 0
+              },
+              "support_check": {
+                "ran": true,
+                "outcome": "UNSUPPORTED",
+                "detail": "The passages actually show only one modality attempted with all other candidate modalities explicitly declined, not undertaken, or not attempted, which per the requirement's rules means the two-modality criterion is definitively unmet (UNSATISFIED), not merely ambiguous due to insufficient context."
+              }
+            }
+          },
+          {
+            "criterion_id": "C5",
+            "clinical_status": "MET",
+            "processing_status": "COMPLETE",
+            "reason_codes": [],
+            "evidence": [
+              {
+                "document_id": "doc_a994a5b15d1c",
+                "quote": "Exam: range of motion 10 to 90 degrees with a fixed flexion contracture of 10 degrees. Varus. Medial joint line tenderness. Crepitus.",
+                "role": "supporting",
+                "verified": true,
+                "span": {
+                  "document_id": "doc_a994a5b15d1c",
+                  "content_sha256": "07552fc3c8b37382a5b1987ff0b37a432139530e296d72824e8f3e14916454fb",
+                  "start": 913,
+                  "end": 1046
+                },
+                "detail": "",
+                "ambiguous_locations": 0
+              }
+            ],
+            "explanation": "The physical examination documents a measured range of motion deficit and a fixed flexion contracture, constituting a functional limitation of the knee.",
+            "detail": "",
+            "failure_kind": "NONE",
+            "extracted_status": "MET",
+            "downgraded": false,
+            "downgrade_reason": "",
+            "verification": {
+              "quote_check": {
+                "returned": 1,
+                "verified": 1,
+                "rejected": 0
+              },
+              "support_check": {
+                "ran": true,
+                "outcome": "SUPPORTED",
+                "detail": "The exam finding documents a measured range of motion deficit (10-90 degrees) with a fixed flexion contracture, which is a functional limitation of the knee satisfying the requirement."
+              }
+            }
+          },
+          {
+            "criterion_id": "C6",
+            "clinical_status": "AMBIGUOUS",
+            "processing_status": "COMPLETE",
+            "reason_codes": [
+              "MISSING_EVIDENCE"
+            ],
+            "evidence": [],
+            "explanation": "No passage in the record addresses infection status, either by explicit statement or by examination/investigation findings regarding infection.",
+            "detail": "",
+            "failure_kind": "NONE",
+            "extracted_status": "AMBIGUOUS",
+            "downgraded": false,
+            "downgrade_reason": "",
+            "verification": {
+              "quote_check": {
+                "returned": 0,
+                "verified": 0,
+                "rejected": 0
+              },
+              "support_check": {
+                "ran": false,
+                "outcome": "SKIPPED",
+                "detail": "no affirmative claim resting on verified evidence; nothing for the verifier to check"
+              }
+            }
+          },
+          {
+            "criterion_id": "C7",
+            "clinical_status": "AMBIGUOUS",
+            "processing_status": "COMPLETE",
+            "reason_codes": [
+              "MISSING_EVIDENCE"
+            ],
+            "evidence": [],
+            "explanation": "No preoperative assessment or explicit clinician statement addressing candidacy for surgery or absence of absolute contraindication is present; the note only documents shared decision making about proceeding to surgery.",
+            "detail": "",
+            "failure_kind": "NONE",
+            "extracted_status": "AMBIGUOUS",
+            "downgraded": false,
+            "downgrade_reason": "",
+            "verification": {
+              "quote_check": {
+                "returned": 0,
+                "verified": 0,
+                "rejected": 0
+              },
+              "support_check": {
+                "ran": false,
+                "outcome": "SKIPPED",
+                "detail": "no affirmative claim resting on verified evidence; nothing for the verifier to check"
+              }
+            }
+          }
+        ],
+        "support_attempts": [
+          {
+            "index": 1,
+            "seconds": 1.715,
+            "input_tokens": 1178,
+            "output_tokens": 81,
+            "error": "",
+            "parse_error": "",
+            "retryable": true,
+            "stop_reason": "end_turn",
+            "preamble": false,
+            "raw_text": "{\"outcome\": \"SUPPORTED\", \"detail\": \"Both passages describe severe joint space narrowing with subchondral sclerosis and an impression of severe degenerative change in the right knee, satisfying the advanced DJD criterion.\"}"
+          },
+          {
+            "index": 1,
+            "seconds": 1.604,
+            "input_tokens": 1119,
+            "output_tokens": 92,
+            "error": "",
+            "parse_error": "",
+            "retryable": true,
+            "stop_reason": "end_turn",
+            "preamble": false,
+            "raw_text": "{\"outcome\": \"SUPPORTED\", \"detail\": \"The evidence documents specific functional impacts\u2014inability to complete a standing work shift, ambulation limited to under 200 metres, and reduced work hours\u2014directly satisfying the requirement for documented functional impact from pain.\"}"
+          },
+          {
+            "index": 1,
+            "seconds": 1.741,
+            "input_tokens": 1266,
+            "output_tokens": 88,
+            "error": "",
+            "parse_error": "",
+            "retryable": true,
+            "stop_reason": "end_turn",
+            "preamble": false,
+            "raw_text": "{\"outcome\": \"SUPPORTED\", \"detail\": \"Passages establish a dated start (01/19/2026) and dated end (06/22/2026) of continuous naproxen conservative therapy, spanning just over 5 months, satisfying the composite requirement.\"}"
+          },
+          {
+            "index": 1,
+            "seconds": 1.763,
+            "input_tokens": 1346,
+            "output_tokens": 117,
+            "error": "",
+            "parse_error": "",
+            "retryable": true,
+            "stop_reason": "end_turn",
+            "preamble": false,
+            "raw_text": "{\"outcome\": \"UNSUPPORTED\", \"detail\": \"The passages actually show only one modality attempted with all other candidate modalities explicitly declined, not undertaken, or not attempted, which per the requirement's rules means the two-modality criterion is definitively unmet (UNSATISFIED), not merely ambiguous due to insufficient context.\"}"
+          },
+          {
+            "index": 1,
+            "seconds": 1.58,
+            "input_tokens": 1120,
+            "output_tokens": 82,
+            "error": "",
+            "parse_error": "",
+            "retryable": true,
+            "stop_reason": "end_turn",
+            "preamble": false,
+            "raw_text": "{\"outcome\": \"SUPPORTED\", \"detail\": \"The exam finding documents a measured range of motion deficit (10-90 degrees) with a fixed flexion contracture, which is a functional limitation of the knee satisfying the requirement.\"}"
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "TKA-103V",
+      "extraction": {
+        "case_id": "TKA-103V",
+        "configuration": "A",
+        "model": "claude-sonnet-5",
+        "prompt_version": "extraction/1.2.0",
+        "settings_version": "settings/2",
+        "parser_version": "parser/2",
+        "processing_status": "COMPLETE",
+        "calls": 1,
+        "input_tokens": 10623,
+        "output_tokens": 2164,
+        "seconds": 17.63,
+        "failures": {
+          "CONTRACT_REJECTION": 0,
+          "NO_RESPONSE": 0,
+          "NOT_ATTEMPTED": 0
+        },
+        "results": [
+          {
+            "criterion_id": "C1",
+            "clinical_status": "MET",
+            "processing_status": "COMPLETE",
+            "reason_codes": [],
+            "evidence": [
+              {
+                "document_id": "doc_ef4cc67af102",
+                "quote": "Severe tricompartmental degenerative change of the right knee, with bone-on-bone apposition medially, severe lateral compartment narrowing, severe patellofemoral narrowing, and varus deformity.",
+                "role": "supporting"
+              },
+              {
+                "document_id": "doc_ef4cc67af102",
+                "quote": "Dense subchondral sclerosis is present on both articular surfaces. Large marginal osteophytes arise from the medial femoral condyle and the medial tibial margin.",
+                "role": "supporting"
+              }
+            ],
+            "explanation": "The radiology report explicitly describes severe tricompartmental degenerative change with joint space narrowing, subchondral sclerosis, and osteophyte formation of the right knee, satisfying the requirement for advanced disease.",
+            "detail": "",
+            "failure_kind": "NONE",
+            "rejected_payload": null
+          },
+          {
+            "criterion_id": "C2",
+            "clinical_status": "MET",
+            "processing_status": "COMPLETE",
+            "reason_codes": [],
+            "evidence": [
+              {
+                "document_id": "doc_055f9fbc786f",
+                "quote": "Pain limits her walking to under 200 metres, which is why the walk to her mother is now broken in two.",
+                "role": "supporting"
+              },
+              {
+                "document_id": "doc_055f9fbc786f",
+                "quote": "She cannot complete a work shift standing. She has cut her hours twice, first from full time to thirty hours and then to twenty-four,",
+                "role": "supporting"
+              }
+            ],
+            "explanation": "The record documents a specific functional impact of pain: a limited ambulation distance and an inability to complete a work shift, resulting in reduced work hours.",
+            "detail": "",
+            "failure_kind": "NONE",
+            "rejected_payload": null
+          },
+          {
+            "criterion_id": "C3",
+            "clinical_status": "MET",
+            "processing_status": "COMPLETE",
+            "reason_codes": [],
+            "evidence": [
+              {
+                "document_id": "doc_11ef6c3c34c4",
+                "quote": "STARTING CONSERVATIVE MANAGEMENT FROM TODAY Naproxen 500 mg twice daily with omeprazole 20 mg for gastric cover.",
+                "role": "supporting"
+              },
+              {
+                "document_id": "doc_055f9fbc786f",
+                "quote": "Naproxen 500 mg twice daily, commenced 19 January by Dr. Sowande with omeprazole cover, taken as directed throughout the intervening period without interruption, and with no useful benefit at any point. I am stopping it today.",
+                "role": "supporting"
+              }
+            ],
+            "explanation": "Conservative management (naproxen) began 01/19/2026 and was stopped 06/22/2026, a span of just over five months, exceeding the required three-month minimum, established by two dated passages within the record.",
+            "detail": "",
+            "failure_kind": "NONE",
+            "rejected_payload": null
+          },
+          {
+            "criterion_id": "C4",
+            "clinical_status": "NOT_MET",
+            "processing_status": "COMPLETE",
+            "reason_codes": [],
+            "evidence": [
+              {
+                "document_id": "doc_055f9fbc786f",
+                "quote": "One modality tried. The remaining four were declined by her or are not applicable to her circumstances.",
+                "role": "contradicting"
+              },
+              {
+                "document_id": "doc_11ef6c3c34c4",
+                "quote": "Physiotherapy: she does not want it.",
+                "role": "contradicting"
+              },
+              {
+                "document_id": "doc_11ef6c3c34c4",
+                "quote": "Injection into the knee: she does not want it.",
+                "role": "contradicting"
+              },
+              {
+                "document_id": "doc_11ef6c3c34c4",
+                "quote": "Weight reduction: nothing to be gained. Her BMI is 23 and she has been the same weight for twenty years.",
+                "role": "contradicting"
+              },
+              {
+                "document_id": "doc_11ef6c3c34c4",
+                "quote": "Activity modification: her work is standing. She cannot modify it without reducing her hours, which she is not prepared to do while her daughter is at university.",
+                "role": "contradicting"
+              }
+            ],
+            "explanation": "Both the primary care and orthopedic notes, made contemporaneously by the treating clinicians (Route B), affirmatively state that only naproxen (one modality) was actually attempted, while physical therapy and injection were declined, weight reduction was not indicated/undertaken, and activity modification was not attempted; this affirmatively contradicts the requirement for two or more attempted modalities.",
+            "detail": "",
+            "failure_kind": "NONE",
+            "rejected_payload": null
+          },
+          {
+            "criterion_id": "C5",
+            "clinical_status": "MET",
+            "processing_status": "COMPLETE",
+            "reason_codes": [],
+            "evidence": [
+              {
+                "document_id": "doc_055f9fbc786f",
+                "quote": "Gait: antalgic on the right. Right knee: range of motion 10 to 90 degrees with a fixed flexion contracture of 10 degrees.",
+                "role": "supporting"
+              }
+            ],
+            "explanation": "The orthopedic exam documents an antalgic gait and a reduced range of motion with fixed flexion contracture of the right knee, both functional limitations of the affected knee.",
+            "detail": "",
+            "failure_kind": "NONE",
+            "rejected_payload": null
+          },
+          {
+            "criterion_id": "C6",
+            "clinical_status": "AMBIGUOUS",
+            "processing_status": "COMPLETE",
+            "reason_codes": [
+              "MISSING_EVIDENCE"
+            ],
+            "evidence": [],
+            "explanation": "No passage in the record explicitly addresses infection status of the knee or systemically; the examination notes describe no effusion but do not address infection specifically, so this remains unaddressed.",
+            "detail": "",
+            "failure_kind": "NONE",
+            "rejected_payload": null
+          },
+          {
+            "criterion_id": "C7",
+            "clinical_status": "AMBIGUOUS",
+            "processing_status": "COMPLETE",
+            "reason_codes": [
+              "INSUFFICIENT_CONTEXT"
+            ],
+            "evidence": [
+              {
+                "document_id": "doc_055f9fbc786f",
+                "quote": "Discussed total knee arthroplasty at length: what the operation involves, the recovery, the realistic timescale for returning to a standing job, and the fact that the decision is hers. She asked good questions and wishes to proceed.",
+                "role": "supporting"
+              }
+            ],
+            "explanation": "This passage documents shared decision making about the procedure rather than a clinician's explicit conclusion that no absolute contraindication to surgery exists, so candidacy is raised but not settled.",
+            "detail": "",
+            "failure_kind": "NONE",
+            "rejected_payload": null
+          }
+        ],
+        "prompts": [
+          {
+            "prompt_version": "extraction/1.2.0",
+            "criterion_ids": [
+              "C1",
+              "C2",
+              "C3",
+              "C4",
+              "C5",
+              "C6",
+              "C7"
+            ],
+            "system_chars": 6313,
+            "criteria_chars": 13519,
+            "record_chars": 11201
+          }
+        ],
+        "attempts": [
+          {
+            "index": 1,
+            "seconds": 17.63,
+            "input_tokens": 10623,
+            "output_tokens": 2164,
+            "error": "",
+            "parse_error": "",
+            "retryable": true,
+            "stop_reason": "end_turn",
+            "preamble": false,
+            "raw_text": "{\n  \"results\": [\n    {\n      \"criterion_id\": \"C1\",\n      \"clinical_status\": \"MET\",\n      \"reason_codes\": [],\n      \"evidence\": [\n        {\n          \"document_id\": \"doc_ef4cc67af102\",\n          \"quote\": \"Severe tricompartmental degenerative change of the right knee, with bone-on-bone apposition medially, severe lateral compartment narrowing, severe patellofemoral narrowing, and varus deformity.\",\n          \"role\": \"supporting\"\n        },\n        {\n          \"document_id\": \"doc_ef4cc67af102\",\n          \"quote\": \"Dense subchondral sclerosis is present on both articular surfaces. Large marginal osteophytes arise from the medial femoral condyle and the medial tibial margin.\",\n          \"role\": \"supporting\"\n        }\n      ],\n      \"explanation\": \"The radiology report explicitly describes severe tricompartmental degenerative change with joint space narrowing, subchondral sclerosis, and osteophyte formation of the right knee, satisfying the requirement for advanced disease.\"\n    },\n    {\n      \"criterion_id\": \"C2\",\n      \"clinical_status\": \"MET\",\n      \"reason_codes\": [],\n      \"evidence\": [\n        {\n          \"document_id\": \"doc_055f9fbc786f\",\n          \"quote\": \"Pain limits her walking to under 200 metres, which is why the walk to her mother is now broken in two.\",\n          \"role\": \"supporting\"\n        },\n        {\n          \"document_id\": \"doc_055f9fbc786f\",\n          \"quote\": \"She cannot complete a work shift standing. She has cut her hours twice, first from full time to thirty hours and then to twenty-four,\",\n          \"role\": \"supporting\"\n        }\n      ],\n      \"explanation\": \"The record documents a specific functional impact of pain: a limited ambulation distance and an inability to complete a work shift, resulting in reduced work hours.\"\n    },\n    {\n      \"criterion_id\": \"C3\",\n      \"clinical_status\": \"MET\",\n      \"reason_codes\": [],\n      \"evidence\": [\n        {\n          \"document_id\": \"doc_11ef6c3c34c4\",\n          \"quote\": \"STARTING CONSERVATIVE MANAGEMENT FROM TODAY Naproxen 500 mg twice daily with omeprazole 20 mg for gastric cover.\",\n          \"role\": \"supporting\"\n        },\n        {\n          \"document_id\": \"doc_055f9fbc786f\",\n          \"quote\": \"Naproxen 500 mg twice daily, commenced 19 January by Dr. Sowande with omeprazole cover, taken as directed throughout the intervening period without interruption, and with no useful benefit at any point. I am stopping it today.\",\n          \"role\": \"supporting\"\n        }\n      ],\n      \"explanation\": \"Conservative management (naproxen) began 01/19/2026 and was stopped 06/22/2026, a span of just over five months, exceeding the required three-month minimum, established by two dated passages within the record.\"\n    },\n    {\n      \"criterion_id\": \"C4\",\n      \"clinical_status\": \"NOT_MET\",\n      \"reason_codes\": [],\n      \"evidence\": [\n        {\n          \"document_id\": \"doc_055f9fbc786f\",\n          \"quote\": \"One modality tried. The remaining four were declined by her or are not applicable to her circumstances.\",\n          \"role\": \"contradicting\"\n        },\n        {\n          \"document_id\": \"doc_11ef6c3c34c4\",\n          \"quote\": \"Physiotherapy: she does not want it.\",\n          \"role\": \"contradicting\"\n        },\n        {\n          \"document_id\": \"doc_11ef6c3c34c4\",\n          \"quote\": \"Injection into the knee: she does not want it.\",\n          \"role\": \"contradicting\"\n        },\n        {\n          \"document_id\": \"doc_11ef6c3c34c4\",\n          \"quote\": \"Weight reduction: nothing to be gained. Her BMI is 23 and she has been the same weight for twenty years.\",\n          \"role\": \"contradicting\"\n        },\n        {\n          \"document_id\": \"doc_11ef6c3c34c4\",\n          \"quote\": \"Activity modification: her work is standing. She cannot modify it without reducing her hours, which she is not prepared to do while her daughter is at university.\",\n          \"role\": \"contradicting\"\n        }\n      ],\n      \"explanation\": \"Both the primary care and orthopedic notes, made contemporaneously by the treating clinicians (Route B), affirmatively state that only naproxen (one modality) was actually attempted, while physical therapy and injection were declined, weight reduction was not indicated/undertaken, and activity modification was not attempted; this affirmatively contradicts the requirement for two or more attempted modalities.\"\n    },\n    {\n      \"criterion_id\": \"C5\",\n      \"clinical_status\": \"MET\",\n      \"reason_codes\": [],\n      \"evidence\": [\n        {\n          \"document_id\": \"doc_055f9fbc786f\",\n          \"quote\": \"Gait: antalgic on the right. Right knee: range of motion 10 to 90 degrees with a fixed flexion contracture of 10 degrees.\",\n          \"role\": \"supporting\"\n        }\n      ],\n      \"explanation\": \"The orthopedic exam documents an antalgic gait and a reduced range of motion with fixed flexion contracture of the right knee, both functional limitations of the affected knee.\"\n    },\n    {\n      \"criterion_id\": \"C6\",\n      \"clinical_status\": \"AMBIGUOUS\",\n      \"reason_codes\": [\"MISSING_EVIDENCE\"],\n      \"evidence\": [],\n      \"explanation\": \"No passage in the record explicitly addresses infection status of the knee or systemically; the examination notes describe no effusion but do not address infection specifically, so this remains unaddressed.\"\n    },\n    {\n      \"criterion_id\": \"C7\",\n      \"clinical_status\": \"AMBIGUOUS\",\n      \"reason_codes\": [\"INSUFFICIENT_CONTEXT\"],\n      \"evidence\": [\n        {\n          \"document_id\": \"doc_055f9fbc786f\",\n          \"quote\": \"Discussed total knee arthroplasty at length: what the operation involves, the recovery, the realistic timescale for returning to a standing job, and the fact that the decision is hers. She asked good questions and wishes to proceed.\",\n          \"role\": \"supporting\"\n        }\n      ],\n      \"explanation\": \"This passage documents shared decision making about the procedure rather than a clinician's explicit conclusion that no absolute contraindication to surgery exists, so candidacy is raised but not settled.\"\n    }\n  ]\n}"
+          }
+        ]
+      },
+      "verification": {
+        "case_id": "TKA-103V",
+        "configuration": "A",
+        "processing_status": "COMPLETE",
+        "returned_spans": 13,
+        "verified_spans": 13,
+        "citation_validity": 1.0,
+        "downgraded": 0,
+        "support_outcomes": {
+          "SUPPORTED": 4,
+          "UNSUPPORTED": 1,
+          "INCONCLUSIVE": 0,
+          "SKIPPED": 1,
+          "FAILED": 1
+        },
+        "seconds": 22.542,
+        "results": [
+          {
+            "criterion_id": "C1",
+            "clinical_status": "MET",
+            "processing_status": "COMPLETE",
+            "reason_codes": [],
+            "evidence": [
+              {
+                "document_id": "doc_ef4cc67af102",
+                "quote": "Severe tricompartmental degenerative change of the right knee, with bone-on-bone apposition medially, severe lateral compartment narrowing, severe patellofemoral narrowing, and varus deformity.",
+                "role": "supporting",
+                "verified": true,
+                "span": {
+                  "document_id": "doc_ef4cc67af102",
+                  "content_sha256": "6b6898b2fb990b8c36bf12855058b64768c3c26bfc11dda20c7853786d56c367",
+                  "start": 2535,
+                  "end": 2728
+                },
+                "detail": "",
+                "ambiguous_locations": 0
+              },
+              {
+                "document_id": "doc_ef4cc67af102",
+                "quote": "Dense subchondral sclerosis is present on both articular surfaces. Large marginal osteophytes arise from the medial femoral condyle and the medial tibial margin.",
+                "role": "supporting",
+                "verified": true,
+                "span": {
+                  "document_id": "doc_ef4cc67af102",
+                  "content_sha256": "6b6898b2fb990b8c36bf12855058b64768c3c26bfc11dda20c7853786d56c367",
+                  "start": 1399,
+                  "end": 1560
+                },
+                "detail": "",
+                "ambiguous_locations": 0
+              }
+            ],
+            "explanation": "The radiology report explicitly describes severe tricompartmental degenerative change with joint space narrowing, subchondral sclerosis, and osteophyte formation of the right knee, satisfying the requirement for advanced disease.",
+            "detail": "",
+            "failure_kind": "NONE",
+            "extracted_status": "MET",
+            "downgraded": false,
+            "downgrade_reason": "",
+            "verification": {
+              "quote_check": {
+                "returned": 2,
+                "verified": 2,
+                "rejected": 0
+              },
+              "support_check": {
+                "ran": true,
+                "outcome": "SUPPORTED",
+                "detail": "The passages describe severe tricompartmental degenerative disease with joint space narrowing, subchondral sclerosis, and osteophyte formation in the right knee, directly satisfying the alternative criteria for advanced disease."
+              }
+            }
+          },
+          {
+            "criterion_id": "C2",
+            "clinical_status": "MET",
+            "processing_status": "COMPLETE",
+            "reason_codes": [],
+            "evidence": [
+              {
+                "document_id": "doc_055f9fbc786f",
+                "quote": "Pain limits her walking to under 200 metres, which is why the walk to her mother is now broken in two.",
+                "role": "supporting",
+                "verified": true,
+                "span": {
+                  "document_id": "doc_055f9fbc786f",
+                  "content_sha256": "b21a30170a2e6fab9cf92a4ae7571fd8c9bc146ef805aab617540850e92d8428",
+                  "start": 1169,
+                  "end": 1271
+                },
+                "detail": "",
+                "ambiguous_locations": 0
+              },
+              {
+                "document_id": "doc_055f9fbc786f",
+                "quote": "She cannot complete a work shift standing. She has cut her hours twice, first from full time to thirty hours and then to twenty-four,",
+                "role": "supporting",
+                "verified": true,
+                "span": {
+                  "document_id": "doc_055f9fbc786f",
+                  "content_sha256": "b21a30170a2e6fab9cf92a4ae7571fd8c9bc146ef805aab617540850e92d8428",
+                  "start": 953,
+                  "end": 1086
+                },
+                "detail": "",
+                "ambiguous_locations": 0
+              }
+            ],
+            "explanation": "The record documents a specific functional impact of pain: a limited ambulation distance and an inability to complete a work shift, resulting in reduced work hours.",
+            "detail": "",
+            "failure_kind": "NONE",
+            "extracted_status": "MET",
+            "downgraded": false,
+            "downgrade_reason": "",
+            "verification": {
+              "quote_check": {
+                "returned": 2,
+                "verified": 2,
+                "rejected": 0
+              },
+              "support_check": {
+                "ran": true,
+                "outcome": "SUPPORTED",
+                "detail": "Both passages document specific functional impacts of pain (limited ambulation distance under 200 metres and inability to complete work shifts leading to reduced hours), satisfying the ALTERNATIVE evidence requirement for documented functional impact."
+              }
+            }
+          },
+          {
+            "criterion_id": "C3",
+            "clinical_status": "MET",
+            "processing_status": "COMPLETE",
+            "reason_codes": [],
+            "evidence": [
+              {
+                "document_id": "doc_11ef6c3c34c4",
+                "quote": "STARTING CONSERVATIVE MANAGEMENT FROM TODAY Naproxen 500 mg twice daily with omeprazole 20 mg for gastric cover.",
+                "role": "supporting",
+                "verified": true,
+                "span": {
+                  "document_id": "doc_11ef6c3c34c4",
+                  "content_sha256": "b45ef6b14ec1b6a3ec28303336b657df5f43b31ce54abeda904d48aa11ac18bb",
+                  "start": 1210,
+                  "end": 1322
+                },
+                "detail": "",
+                "ambiguous_locations": 0
+              },
+              {
+                "document_id": "doc_055f9fbc786f",
+                "quote": "Naproxen 500 mg twice daily, commenced 19 January by Dr. Sowande with omeprazole cover, taken as directed throughout the intervening period without interruption, and with no useful benefit at any point. I am stopping it today.",
+                "role": "supporting",
+                "verified": true,
+                "span": {
+                  "document_id": "doc_055f9fbc786f",
+                  "content_sha256": "b21a30170a2e6fab9cf92a4ae7571fd8c9bc146ef805aab617540850e92d8428",
+                  "start": 1744,
+                  "end": 1970
+                },
+                "detail": "",
+                "ambiguous_locations": 0
+              }
+            ],
+            "explanation": "Conservative management (naproxen) began 01/19/2026 and was stopped 06/22/2026, a span of just over five months, exceeding the required three-month minimum, established by two dated passages within the record.",
+            "detail": "",
+            "failure_kind": "NONE",
+            "extracted_status": "MET",
+            "downgraded": false,
+            "downgrade_reason": "",
+            "verification": {
+              "quote_check": {
+                "returned": 2,
+                "verified": 2,
+                "rejected": 0
+              },
+              "support_check": {
+                "ran": false,
+                "outcome": "FAILED",
+                "detail": "support check did not complete: not valid JSON: Expecting value: line 1 column 1 (char 0)"
+              }
+            }
+          },
+          {
+            "criterion_id": "C4",
+            "clinical_status": "NOT_MET",
+            "processing_status": "COMPLETE",
+            "reason_codes": [],
+            "evidence": [
+              {
+                "document_id": "doc_055f9fbc786f",
+                "quote": "One modality tried. The remaining four were declined by her or are not applicable to her circumstances.",
+                "role": "contradicting",
+                "verified": true,
+                "span": {
+                  "document_id": "doc_055f9fbc786f",
+                  "content_sha256": "b21a30170a2e6fab9cf92a4ae7571fd8c9bc146ef805aab617540850e92d8428",
+                  "start": 2508,
+                  "end": 2611
+                },
+                "detail": "",
+                "ambiguous_locations": 0
+              },
+              {
+                "document_id": "doc_11ef6c3c34c4",
+                "quote": "Physiotherapy: she does not want it.",
+                "role": "contradicting",
+                "verified": true,
+                "span": {
+                  "document_id": "doc_11ef6c3c34c4",
+                  "content_sha256": "b45ef6b14ec1b6a3ec28303336b657df5f43b31ce54abeda904d48aa11ac18bb",
+                  "start": 1632,
+                  "end": 1668
+                },
+                "detail": "",
+                "ambiguous_locations": 0
+              },
+              {
+                "document_id": "doc_11ef6c3c34c4",
+                "quote": "Injection into the knee: she does not want it.",
+                "role": "contradicting",
+                "verified": true,
+                "span": {
+                  "document_id": "doc_11ef6c3c34c4",
+                  "content_sha256": "b45ef6b14ec1b6a3ec28303336b657df5f43b31ce54abeda904d48aa11ac18bb",
+                  "start": 1852,
+                  "end": 1898
+                },
+                "detail": "",
+                "ambiguous_locations": 0
+              },
+              {
+                "document_id": "doc_11ef6c3c34c4",
+                "quote": "Weight reduction: nothing to be gained. Her BMI is 23 and she has been the same weight for twenty years.",
+                "role": "contradicting",
+                "verified": true,
+                "span": {
+                  "document_id": "doc_11ef6c3c34c4",
+                  "content_sha256": "b45ef6b14ec1b6a3ec28303336b657df5f43b31ce54abeda904d48aa11ac18bb",
+                  "start": 1969,
+                  "end": 2073
+                },
+                "detail": "",
+                "ambiguous_locations": 0
+              },
+              {
+                "document_id": "doc_11ef6c3c34c4",
+                "quote": "Activity modification: her work is standing. She cannot modify it without reducing her hours, which she is not prepared to do while her daughter is at university.",
+                "role": "contradicting",
+                "verified": true,
+                "span": {
+                  "document_id": "doc_11ef6c3c34c4",
+                  "content_sha256": "b45ef6b14ec1b6a3ec28303336b657df5f43b31ce54abeda904d48aa11ac18bb",
+                  "start": 2074,
+                  "end": 2236
+                },
+                "detail": "",
+                "ambiguous_locations": 0
+              }
+            ],
+            "explanation": "Both the primary care and orthopedic notes, made contemporaneously by the treating clinicians (Route B), affirmatively state that only naproxen (one modality) was actually attempted, while physical therapy and injection were declined, weight reduction was not indicated/undertaken, and activity modification was not attempted; this affirmatively contradicts the requirement for two or more attempted modalities.",
+            "detail": "",
+            "failure_kind": "NONE",
+            "extracted_status": "NOT_MET",
+            "downgraded": false,
+            "downgrade_reason": "",
+            "verification": {
+              "quote_check": {
+                "returned": 5,
+                "verified": 5,
+                "rejected": 0
+              },
+              "support_check": {
+                "ran": true,
+                "outcome": "SUPPORTED",
+                "detail": "The passages consistently show only one modality (naproxen) was actually attempted while physical therapy and injection were declined and weight reduction/activity modification were not undertaken, affirmatively establishing that fewer than two modalities were attempted."
+              }
+            }
+          },
+          {
+            "criterion_id": "C5",
+            "clinical_status": "MET",
+            "processing_status": "COMPLETE",
+            "reason_codes": [],
+            "evidence": [
+              {
+                "document_id": "doc_055f9fbc786f",
+                "quote": "Gait: antalgic on the right. Right knee: range of motion 10 to 90 degrees with a fixed flexion contracture of 10 degrees.",
+                "role": "supporting",
+                "verified": true,
+                "span": {
+                  "document_id": "doc_055f9fbc786f",
+                  "content_sha256": "b21a30170a2e6fab9cf92a4ae7571fd8c9bc146ef805aab617540850e92d8428",
+                  "start": 2920,
+                  "end": 3041
+                },
+                "detail": "",
+                "ambiguous_locations": 0
+              }
+            ],
+            "explanation": "The orthopedic exam documents an antalgic gait and a reduced range of motion with fixed flexion contracture of the right knee, both functional limitations of the affected knee.",
+            "detail": "",
+            "failure_kind": "NONE",
+            "extracted_status": "MET",
+            "downgraded": false,
+            "downgrade_reason": "",
+            "verification": {
+              "quote_check": {
+                "returned": 1,
+                "verified": 1,
+                "rejected": 0
+              },
+              "support_check": {
+                "ran": true,
+                "outcome": "SUPPORTED",
+                "detail": "The cited exam note directly documents an antalgic gait and a reduced right knee range of motion with fixed flexion contracture, both explicit functional limitations satisfying the alternative criteria."
+              }
+            }
+          },
+          {
+            "criterion_id": "C6",
+            "clinical_status": "AMBIGUOUS",
+            "processing_status": "COMPLETE",
+            "reason_codes": [
+              "MISSING_EVIDENCE"
+            ],
+            "evidence": [],
+            "explanation": "No passage in the record explicitly addresses infection status of the knee or systemically; the examination notes describe no effusion but do not address infection specifically, so this remains unaddressed.",
+            "detail": "",
+            "failure_kind": "NONE",
+            "extracted_status": "AMBIGUOUS",
+            "downgraded": false,
+            "downgrade_reason": "",
+            "verification": {
+              "quote_check": {
+                "returned": 0,
+                "verified": 0,
+                "rejected": 0
+              },
+              "support_check": {
+                "ran": false,
+                "outcome": "SKIPPED",
+                "detail": "no affirmative claim resting on verified evidence; nothing for the verifier to check"
+              }
+            }
+          },
+          {
+            "criterion_id": "C7",
+            "clinical_status": "AMBIGUOUS",
+            "processing_status": "COMPLETE",
+            "reason_codes": [
+              "INSUFFICIENT_CONTEXT"
+            ],
+            "evidence": [
+              {
+                "document_id": "doc_055f9fbc786f",
+                "quote": "Discussed total knee arthroplasty at length: what the operation involves, the recovery, the realistic timescale for returning to a standing job, and the fact that the decision is hers. She asked good questions and wishes to proceed.",
+                "role": "supporting",
+                "verified": true,
+                "span": {
+                  "document_id": "doc_055f9fbc786f",
+                  "content_sha256": "b21a30170a2e6fab9cf92a4ae7571fd8c9bc146ef805aab617540850e92d8428",
+                  "start": 3764,
+                  "end": 3996
+                },
+                "detail": "",
+                "ambiguous_locations": 0
+              }
+            ],
+            "explanation": "This passage documents shared decision making about the procedure rather than a clinician's explicit conclusion that no absolute contraindication to surgery exists, so candidacy is raised but not settled.",
+            "detail": "",
+            "failure_kind": "NONE",
+            "extracted_status": "AMBIGUOUS",
+            "downgraded": false,
+            "downgrade_reason": "",
+            "verification": {
+              "quote_check": {
+                "returned": 1,
+                "verified": 1,
+                "rejected": 0
+              },
+              "support_check": {
+                "ran": true,
+                "outcome": "UNSUPPORTED",
+                "detail": "The passage describes only shared decision making (discussion of risks/benefits and patient's choice to proceed), which the requirement explicitly excludes as raising candidacy; since candidacy is not raised at all here, the correct status per the note would be MISSING_EVIDENCE, not INSUFFICIENT_CONTEXT."
+              }
+            }
+          }
+        ],
+        "support_attempts": [
+          {
+            "index": 1,
+            "seconds": 1.596,
+            "input_tokens": 1246,
+            "output_tokens": 95,
+            "error": "",
+            "parse_error": "",
+            "retryable": true,
+            "stop_reason": "end_turn",
+            "preamble": false,
+            "raw_text": "{\"outcome\": \"SUPPORTED\", \"detail\": \"The passages describe severe tricompartmental degenerative disease with joint space narrowing, subchondral sclerosis, and osteophyte formation in the right knee, directly satisfying the alternative criteria for advanced disease.\"}"
+          },
+          {
+            "index": 1,
+            "seconds": 1.851,
+            "input_tokens": 1152,
+            "output_tokens": 100,
+            "error": "",
+            "parse_error": "",
+            "retryable": true,
+            "stop_reason": "end_turn",
+            "preamble": false,
+            "raw_text": "{\"outcome\": \"SUPPORTED\", \"detail\": \"Both passages document specific functional impacts of pain (limited ambulation distance under 200 metres and inability to complete work shifts leading to reduced hours), satisfying the ALTERNATIVE evidence requirement for documented functional impact.\"}"
+          },
+          {
+            "index": 1,
+            "seconds": 4.922,
+            "input_tokens": 1276,
+            "output_tokens": 342,
+            "error": "",
+            "parse_error": "not valid JSON: Expecting value: line 1 column 1 (char 0)",
+            "retryable": true,
+            "stop_reason": "end_turn",
+            "preamble": false,
+            "raw_text": "Looking at this evidence, passage 1 shows conservative management starting \"today\" but does not contain a date - there's no year or specific date shown for when \"today\" is. Passage 2 shows naproxen commenced \"19 January\" and being stopped \"today\" but also lacks a stated date for when this second note was written, and lacks a year for \"19 January.\"\n\nThe proposed status asserts specific dates (01/19/2026 start, 06/22/2026 end) that are not evidenced in the passages themselves - these dates do not appear anywhere in the quoted text. Without dates actually stated in the passages, there is no way to verify a span of \"just over five months\" or any span at all. The passages reference a start (\"19 January\") and a stop (\"today\"), but the actual calendar dates needed to compute the interval are absent from the evidence provided.\n\n{\"outcome\": \"UNSUPPORTED\", \"detail\": \"The passages contain no explicit dates (only 'today' and '19 January' with no year), so the specific dates and five-month span asserted in the proposed status are not established by the evidence shown.\"}"
+          },
+          {
+            "index": 2,
+            "seconds": 4.249,
+            "input_tokens": 1276,
+            "output_tokens": 309,
+            "error": "",
+            "parse_error": "not valid JSON: Expecting value: line 1 column 1 (char 0)",
+            "retryable": true,
+            "stop_reason": "end_turn",
+            "preamble": false,
+            "raw_text": "Looking at the passages: Passage 1 states conservative management started \"today\" but has no date attached in the excerpt itself. Passage 2 states naproxen was \"commenced 19 January\" and \"stopping it today\" - but the date of \"today\" for passage 2 is not established as 06/22/2026 within the passage itself.\n\nThe explanation asserts specific dates (01/19/2026 start, 06/22/2026 stop) that are not actually visible in the passages provided - the passages only say \"19 January\" and \"today\" without a year or a specific stop date being shown. Without a stated document date for passage 2, the span cannot be verified as spanning at least 3 months from these passages alone.\n\n{\"outcome\": \"UNSUPPORTED\", \"detail\": \"The passages show a start date of '19 January' and an undated 'today' stop, but neither passage establishes the specific dates (01/19/2026 and 06/22/2026) or year needed to confirm a span of at least three months.\"}"
+          },
+          {
+            "index": 3,
+            "seconds": 4.914,
+            "input_tokens": 1276,
+            "output_tokens": 362,
+            "error": "",
+            "parse_error": "not valid JSON: Expecting value: line 1 column 1 (char 0)",
+            "retryable": true,
+            "stop_reason": "end_turn",
+            "preamble": false,
+            "raw_text": "Looking at this evidence, neither passage contains a date that would establish the \"today\" of the stop note. Passage 1 says \"STARTING CONSERVATIVE MANAGEMENT FROM TODAY\" but has no date shown. Passage 2 says naproxen was \"commenced 19 January\" and \"I am stopping it today\" \u2014 but the date of \"today\" for passage 2 is not given in the passage text itself.\n\nThe proposed status asserts specific dates (01/19/2026 start, 06/22/2026 stop) and computes a span of \"just over five months,\" but the evidence provided does not actually display these dates. Only \"19 January\" appears as a start date; no stop date is shown in the passages themselves. Without a dated end point visible in the evidence, the span cannot be verified from these passages alone.\n\n{\"outcome\": \"UNSUPPORTED\", \"detail\": \"The passages show a start date ('19 January') and an undated stop event ('stopping it today'), but no dated end point is shown in the evidence itself, so the claimed 01/19/2026\u201306/22/2026 span and five-month duration cannot be verified from these passages.\"}"
+          },
+          {
+            "index": 1,
+            "seconds": 1.508,
+            "input_tokens": 1347,
+            "output_tokens": 98,
+            "error": "",
+            "parse_error": "",
+            "retryable": true,
+            "stop_reason": "end_turn",
+            "preamble": false,
+            "raw_text": "{\"outcome\": \"SUPPORTED\", \"detail\": \"The passages consistently show only one modality (naproxen) was actually attempted while physical therapy and injection were declined and weight reduction/activity modification were not undertaken, affirmatively establishing that fewer than two modalities were attempted.\"}"
+          },
+          {
+            "index": 1,
+            "seconds": 1.596,
+            "input_tokens": 1124,
+            "output_tokens": 84,
+            "error": "",
+            "parse_error": "",
+            "retryable": true,
+            "stop_reason": "end_turn",
+            "preamble": false,
+            "raw_text": "{\"outcome\": \"SUPPORTED\", \"detail\": \"The cited exam note directly documents an antalgic gait and a reduced right knee range of motion with fixed flexion contracture, both explicit functional limitations satisfying the alternative criteria.\"}"
+          },
+          {
+            "index": 1,
+            "seconds": 1.903,
+            "input_tokens": 1269,
+            "output_tokens": 131,
+            "error": "",
+            "parse_error": "",
+            "retryable": true,
+            "stop_reason": "end_turn",
+            "preamble": false,
+            "raw_text": "{\"outcome\": \"UNSUPPORTED\", \"detail\": \"The passage describes only shared decision making (discussion of risks/benefits and patient's choice to proceed), which the requirement explicitly excludes as raising candidacy; since candidacy is not raised at all here, the correct status per the note would be MISSING_EVIDENCE, not INSUFFICIENT_CONTEXT.\"}"
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "TKA-104",
+      "extraction": {
+        "case_id": "TKA-104",
+        "configuration": "A",
+        "model": "claude-sonnet-5",
+        "prompt_version": "extraction/1.2.0",
+        "settings_version": "settings/2",
+        "parser_version": "parser/2",
+        "processing_status": "COMPLETE",
+        "calls": 1,
+        "input_tokens": 10771,
+        "output_tokens": 2332,
+        "seconds": 19.58,
+        "failures": {
+          "CONTRACT_REJECTION": 0,
+          "NO_RESPONSE": 0,
+          "NOT_ATTEMPTED": 0
+        },
+        "results": [
+          {
+            "criterion_id": "C1",
+            "clinical_status": "MET",
+            "processing_status": "COMPLETE",
+            "reason_codes": [],
+            "evidence": [
+              {
+                "document_id": "doc_e0f557d48e5a",
+                "quote": "Severe medial compartment degenerative change of the right knee with subchondral sclerosis, osteophyte formation and varus alignment.",
+                "role": "supporting"
+              }
+            ],
+            "explanation": "The radiology report describes severe degenerative change of the right knee with subchondral sclerosis and osteophyte formation, satisfying the requirement for advanced disease with at least one qualifying finding.",
+            "detail": "",
+            "failure_kind": "NONE",
+            "rejected_payload": null
+          },
+          {
+            "criterion_id": "C2",
+            "clinical_status": "MET",
+            "processing_status": "COMPLETE",
+            "reason_codes": [],
+            "evidence": [
+              {
+                "document_id": "doc_6997d4825ff2",
+                "quote": "She cannot manage the stairs to her flat without stopping halfway on the landing, and she has moved her bed into the sitting room because of it.",
+                "role": "supporting"
+              }
+            ],
+            "explanation": "The orthopedic note documents a specific functional impact of the knee pain, namely inability to manage stairs and having to relocate her bed, which satisfies the requirement.",
+            "detail": "",
+            "failure_kind": "NONE",
+            "rejected_payload": null
+          },
+          {
+            "criterion_id": "C3",
+            "clinical_status": "MET",
+            "processing_status": "COMPLETE",
+            "reason_codes": [],
+            "evidence": [
+              {
+                "document_id": "doc_6997d4825ff2",
+                "quote": "Mrs. Lindqvist-Mbeki is 72 and has had eleven months of conservative management for the right knee, starting 20 September 2025 when she first came to me.",
+                "role": "supporting"
+              }
+            ],
+            "explanation": "The surgeon's note explicitly states eleven months of conservative management, well exceeding the 3-month minimum.",
+            "detail": "",
+            "failure_kind": "NONE",
+            "rejected_payload": null
+          },
+          {
+            "criterion_id": "C4",
+            "clinical_status": "AMBIGUOUS",
+            "processing_status": "COMPLETE",
+            "reason_codes": [
+              "INSUFFICIENT_CONTEXT"
+            ],
+            "evidence": [
+              {
+                "document_id": "doc_c48803e4305a",
+                "quote": "Range of motion 15 to 95 degrees at discharge, unchanged from the initial assessment. Quadriceps 4/5, up from 3+/5, which is a real gain and the only one. Stair negotiation unchanged; she still stops on the landing.",
+                "role": "supporting"
+              },
+              {
+                "document_id": "doc_6997d4825ff2",
+                "quote": "Physical therapy, completed, without benefit. The discharge summary is on file.",
+                "role": "supporting"
+              },
+              {
+                "document_id": "doc_6997d4825ff2",
+                "quote": "No injection has been performed. She has never been offered one here and there is no procedure record anywhere in her file.",
+                "role": "contradicting"
+              },
+              {
+                "document_id": "doc_6997d4825ff2",
+                "quote": "Her BMI is 22, so a weight programme does not arise.",
+                "role": "contradicting"
+              },
+              {
+                "document_id": "doc_41afd1ff7c77",
+                "quote": "END OF EXTRACT. 33 items across the period.",
+                "role": "supporting"
+              }
+            ],
+            "explanation": "Physical therapy is documented as attempted with a clear outcome (unchanged ROM and stair difficulty, modest quadriceps gain), satisfying one modality. The pharmacy dispensing record shows no NSAID or analgesic dispensed during the period, only levothyroxine, amlodipine, and vitamin D, so medication is not established as attempted for the knee. Injection was explicitly not performed, and weight reduction and activity modification are not documented as attempted (BMI stated as not relevant, and no activity modification trial is described), leaving only one clearly established modality with a documented outcome, so a second modality cannot be confirmed.",
+            "detail": "",
+            "failure_kind": "NONE",
+            "rejected_payload": null
+          },
+          {
+            "criterion_id": "C5",
+            "clinical_status": "MET",
+            "processing_status": "COMPLETE",
+            "reason_codes": [],
+            "evidence": [
+              {
+                "document_id": "doc_6997d4825ff2",
+                "quote": "Right knee: fixed flexion deformity, range of motion 15 to 95 degrees. Varus. Medial joint line tenderness. Crepitus. No effusion. Stable.",
+                "role": "supporting"
+              }
+            ],
+            "explanation": "The physician's examination documents a measured range of motion deficit and a fixed flexion deformity of the right knee, which constitutes a functional limitation on physical exam.",
+            "detail": "",
+            "failure_kind": "NONE",
+            "rejected_payload": null
+          },
+          {
+            "criterion_id": "C6",
+            "clinical_status": "NOT_MET",
+            "processing_status": "COMPLETE",
+            "reason_codes": [],
+            "evidence": [
+              {
+                "document_id": "doc_37871d036d10",
+                "quote": "Diagnosis: acute pyelonephritis, right. Treated with intravenous co-amoxiclav from admission.",
+                "role": "contradicting"
+              },
+              {
+                "document_id": "doc_37871d036d10",
+                "quote": "She remains on treatment at discharge and the infection is not yet resolved.",
+                "role": "contradicting"
+              },
+              {
+                "document_id": "doc_1b0543d108d3",
+                "quote": "she is four days into a fourteen day course of oral co-amoxiclav which finishes on 11 September. Her inflammatory markers were still falling at discharge and have not been rechecked.",
+                "role": "contradicting"
+              }
+            ],
+            "explanation": "The hospital discharge summary and the subsequent preoperative assessment note both affirmatively document an active systemic infection (acute pyelonephritis) still being treated as of the most recent record; the hospital record is a first-hand contemporaneous account of the admitting team (Route B) and is corroborated by the anesthesiologist's independent contemporaneous note (Route C), establishing that the infection remains unresolved.",
+            "detail": "",
+            "failure_kind": "NONE",
+            "rejected_payload": null
+          },
+          {
+            "criterion_id": "C7",
+            "clinical_status": "AMBIGUOUS",
+            "processing_status": "COMPLETE",
+            "reason_codes": [
+              "INSUFFICIENT_CONTEXT"
+            ],
+            "evidence": [
+              {
+                "document_id": "doc_1b0543d108d3",
+                "quote": "I am not able to complete this assessment or to give an opinion on her fitness today, and I have not done so.",
+                "role": "contradicting"
+              },
+              {
+                "document_id": "doc_1b0543d108d3",
+                "quote": "Reassess after 09/11 and after repeat bloods and urine confirm resolution. Appointment to be arranged for the week of 09/21.",
+                "role": "contradicting"
+              }
+            ],
+            "explanation": "The anesthesiology preoperative assessment was explicitly suspended without a conclusion on surgical candidacy, pending resolution of the active infection and a rescheduled reassessment, so candidacy is raised but left open rather than resolved.",
+            "detail": "",
+            "failure_kind": "NONE",
+            "rejected_payload": null
+          }
+        ],
+        "prompts": [
+          {
+            "prompt_version": "extraction/1.2.0",
+            "criterion_ids": [
+              "C1",
+              "C2",
+              "C3",
+              "C4",
+              "C5",
+              "C6",
+              "C7"
+            ],
+            "system_chars": 6313,
+            "criteria_chars": 13519,
+            "record_chars": 9904
+          }
+        ],
+        "attempts": [
+          {
+            "index": 1,
+            "seconds": 19.579,
+            "input_tokens": 10771,
+            "output_tokens": 2332,
+            "error": "",
+            "parse_error": "",
+            "retryable": true,
+            "stop_reason": "end_turn",
+            "preamble": false,
+            "raw_text": "{\n  \"results\": [\n    {\n      \"criterion_id\": \"C1\",\n      \"clinical_status\": \"MET\",\n      \"reason_codes\": [],\n      \"evidence\": [\n        {\n          \"document_id\": \"doc_e0f557d48e5a\",\n          \"quote\": \"Severe medial compartment degenerative change of the right knee with subchondral sclerosis, osteophyte formation and varus alignment.\",\n          \"role\": \"supporting\"\n        }\n      ],\n      \"explanation\": \"The radiology report describes severe degenerative change of the right knee with subchondral sclerosis and osteophyte formation, satisfying the requirement for advanced disease with at least one qualifying finding.\"\n    },\n    {\n      \"criterion_id\": \"C2\",\n      \"clinical_status\": \"MET\",\n      \"reason_codes\": [],\n      \"evidence\": [\n        {\n          \"document_id\": \"doc_6997d4825ff2\",\n          \"quote\": \"She cannot manage the stairs to her flat without stopping halfway on the landing, and she has moved her bed into the sitting room because of it.\",\n          \"role\": \"supporting\"\n        }\n      ],\n      \"explanation\": \"The orthopedic note documents a specific functional impact of the knee pain, namely inability to manage stairs and having to relocate her bed, which satisfies the requirement.\"\n    },\n    {\n      \"criterion_id\": \"C3\",\n      \"clinical_status\": \"MET\",\n      \"reason_codes\": [],\n      \"evidence\": [\n        {\n          \"document_id\": \"doc_6997d4825ff2\",\n          \"quote\": \"Mrs. Lindqvist-Mbeki is 72 and has had eleven months of conservative management for the right knee, starting 20 September 2025 when she first came to me.\",\n          \"role\": \"supporting\"\n        }\n      ],\n      \"explanation\": \"The surgeon's note explicitly states eleven months of conservative management, well exceeding the 3-month minimum.\"\n    },\n    {\n      \"criterion_id\": \"C4\",\n      \"clinical_status\": \"AMBIGUOUS\",\n      \"reason_codes\": [\"INSUFFICIENT_CONTEXT\"],\n      \"evidence\": [\n        {\n          \"document_id\": \"doc_c48803e4305a\",\n          \"quote\": \"Range of motion 15 to 95 degrees at discharge, unchanged from the initial assessment. Quadriceps 4/5, up from 3+/5, which is a real gain and the only one. Stair negotiation unchanged; she still stops on the landing.\",\n          \"role\": \"supporting\"\n        },\n        {\n          \"document_id\": \"doc_6997d4825ff2\",\n          \"quote\": \"Physical therapy, completed, without benefit. The discharge summary is on file.\",\n          \"role\": \"supporting\"\n        },\n        {\n          \"document_id\": \"doc_6997d4825ff2\",\n          \"quote\": \"No injection has been performed. She has never been offered one here and there is no procedure record anywhere in her file.\",\n          \"role\": \"contradicting\"\n        },\n        {\n          \"document_id\": \"doc_6997d4825ff2\",\n          \"quote\": \"Her BMI is 22, so a weight programme does not arise.\",\n          \"role\": \"contradicting\"\n        },\n        {\n          \"document_id\": \"doc_41afd1ff7c77\",\n          \"quote\": \"END OF EXTRACT. 33 items across the period.\",\n          \"role\": \"supporting\"\n        }\n      ],\n      \"explanation\": \"Physical therapy is documented as attempted with a clear outcome (unchanged ROM and stair difficulty, modest quadriceps gain), satisfying one modality. The pharmacy dispensing record shows no NSAID or analgesic dispensed during the period, only levothyroxine, amlodipine, and vitamin D, so medication is not established as attempted for the knee. Injection was explicitly not performed, and weight reduction and activity modification are not documented as attempted (BMI stated as not relevant, and no activity modification trial is described), leaving only one clearly established modality with a documented outcome, so a second modality cannot be confirmed.\"\n    },\n    {\n      \"criterion_id\": \"C5\",\n      \"clinical_status\": \"MET\",\n      \"reason_codes\": [],\n      \"evidence\": [\n        {\n          \"document_id\": \"doc_6997d4825ff2\",\n          \"quote\": \"Right knee: fixed flexion deformity, range of motion 15 to 95 degrees. Varus. Medial joint line tenderness. Crepitus. No effusion. Stable.\",\n          \"role\": \"supporting\"\n        }\n      ],\n      \"explanation\": \"The physician's examination documents a measured range of motion deficit and a fixed flexion deformity of the right knee, which constitutes a functional limitation on physical exam.\"\n    },\n    {\n      \"criterion_id\": \"C6\",\n      \"clinical_status\": \"NOT_MET\",\n      \"reason_codes\": [],\n      \"evidence\": [\n        {\n          \"document_id\": \"doc_37871d036d10\",\n          \"quote\": \"Diagnosis: acute pyelonephritis, right. Treated with intravenous co-amoxiclav from admission.\",\n          \"role\": \"contradicting\"\n        },\n        {\n          \"document_id\": \"doc_37871d036d10\",\n          \"quote\": \"She remains on treatment at discharge and the infection is not yet resolved.\",\n          \"role\": \"contradicting\"\n        },\n        {\n          \"document_id\": \"doc_1b0543d108d3\",\n          \"quote\": \"she is four days into a fourteen day course of oral co-amoxiclav which finishes on 11 September. Her inflammatory markers were still falling at discharge and have not been rechecked.\",\n          \"role\": \"contradicting\"\n        }\n      ],\n      \"explanation\": \"The hospital discharge summary and the subsequent preoperative assessment note both affirmatively document an active systemic infection (acute pyelonephritis) still being treated as of the most recent record; the hospital record is a first-hand contemporaneous account of the admitting team (Route B) and is corroborated by the anesthesiologist's independent contemporaneous note (Route C), establishing that the infection remains unresolved.\"\n    },\n    {\n      \"criterion_id\": \"C7\",\n      \"clinical_status\": \"AMBIGUOUS\",\n      \"reason_codes\": [\"INSUFFICIENT_CONTEXT\"],\n      \"evidence\": [\n        {\n          \"document_id\": \"doc_1b0543d108d3\",\n          \"quote\": \"I am not able to complete this assessment or to give an opinion on her fitness today, and I have not done so.\",\n          \"role\": \"contradicting\"\n        },\n        {\n          \"document_id\": \"doc_1b0543d108d3\",\n          \"quote\": \"Reassess after 09/11 and after repeat bloods and urine confirm resolution. Appointment to be arranged for the week of 09/21.\",\n          \"role\": \"contradicting\"\n        }\n      ],\n      \"explanation\": \"The anesthesiology preoperative assessment was explicitly suspended without a conclusion on surgical candidacy, pending resolution of the active infection and a rescheduled reassessment, so candidacy is raised but left open rather than resolved.\"\n    }\n  ]\n}"
+          }
+        ]
+      },
+      "verification": {
+        "case_id": "TKA-104",
+        "configuration": "A",
+        "processing_status": "COMPLETE",
+        "returned_spans": 14,
+        "verified_spans": 14,
+        "citation_validity": 1.0,
+        "downgraded": 0,
+        "support_outcomes": {
+          "SUPPORTED": 7,
+          "UNSUPPORTED": 0,
+          "INCONCLUSIVE": 0,
+          "SKIPPED": 0,
+          "FAILED": 0
+        },
+        "seconds": 11.765,
+        "results": [
+          {
+            "criterion_id": "C1",
+            "clinical_status": "MET",
+            "processing_status": "COMPLETE",
+            "reason_codes": [],
+            "evidence": [
+              {
+                "document_id": "doc_e0f557d48e5a",
+                "quote": "Severe medial compartment degenerative change of the right knee with subchondral sclerosis, osteophyte formation and varus alignment.",
+                "role": "supporting",
+                "verified": true,
+                "span": {
+                  "document_id": "doc_e0f557d48e5a",
+                  "content_sha256": "6a454d7de54f2f017dbdd6601cd2d5b5190d0c3f296885bba2e16fe5d94de551",
+                  "start": 696,
+                  "end": 829
+                },
+                "detail": "",
+                "ambiguous_locations": 0
+              }
+            ],
+            "explanation": "The radiology report describes severe degenerative change of the right knee with subchondral sclerosis and osteophyte formation, satisfying the requirement for advanced disease with at least one qualifying finding.",
+            "detail": "",
+            "failure_kind": "NONE",
+            "extracted_status": "MET",
+            "downgraded": false,
+            "downgrade_reason": "",
+            "verification": {
+              "quote_check": {
+                "returned": 1,
+                "verified": 1,
+                "rejected": 0
+              },
+              "support_check": {
+                "ran": true,
+                "outcome": "SUPPORTED",
+                "detail": "The radiology passage explicitly describes severe degenerative change of the right knee with subchondral sclerosis and osteophyte formation, satisfying the advanced-disease criterion via alternative qualifying findings."
+              }
+            }
+          },
+          {
+            "criterion_id": "C2",
+            "clinical_status": "MET",
+            "processing_status": "COMPLETE",
+            "reason_codes": [],
+            "evidence": [
+              {
+                "document_id": "doc_6997d4825ff2",
+                "quote": "She cannot manage the stairs to her flat without stopping halfway on the landing, and she has moved her bed into the sitting room because of it.",
+                "role": "supporting",
+                "verified": true,
+                "span": {
+                  "document_id": "doc_6997d4825ff2",
+                  "content_sha256": "f9e3df5b090fd5581b99d9ba85f4f571f191edcc7f0ab39c2761595556596e57",
+                  "start": 294,
+                  "end": 438
+                },
+                "detail": "",
+                "ambiguous_locations": 0
+              }
+            ],
+            "explanation": "The orthopedic note documents a specific functional impact of the knee pain, namely inability to manage stairs and having to relocate her bed, which satisfies the requirement.",
+            "detail": "",
+            "failure_kind": "NONE",
+            "extracted_status": "MET",
+            "downgraded": false,
+            "downgrade_reason": "",
+            "verification": {
+              "quote_check": {
+                "returned": 1,
+                "verified": 1,
+                "rejected": 0
+              },
+              "support_check": {
+                "ran": true,
+                "outcome": "SUPPORTED",
+                "detail": "The passage documents specific functional impacts (inability to manage stairs without stopping, and relocating her bed), directly satisfying the requirement for documented pain interfering with daily activities."
+              }
+            }
+          },
+          {
+            "criterion_id": "C3",
+            "clinical_status": "MET",
+            "processing_status": "COMPLETE",
+            "reason_codes": [],
+            "evidence": [
+              {
+                "document_id": "doc_6997d4825ff2",
+                "quote": "Mrs. Lindqvist-Mbeki is 72 and has had eleven months of conservative management for the right knee, starting 20 September 2025 when she first came to me.",
+                "role": "supporting",
+                "verified": true,
+                "span": {
+                  "document_id": "doc_6997d4825ff2",
+                  "content_sha256": "f9e3df5b090fd5581b99d9ba85f4f571f191edcc7f0ab39c2761595556596e57",
+                  "start": 140,
+                  "end": 293
+                },
+                "detail": "",
+                "ambiguous_locations": 0
+              }
+            ],
+            "explanation": "The surgeon's note explicitly states eleven months of conservative management, well exceeding the 3-month minimum.",
+            "detail": "",
+            "failure_kind": "NONE",
+            "extracted_status": "MET",
+            "downgraded": false,
+            "downgrade_reason": "",
+            "verification": {
+              "quote_check": {
+                "returned": 1,
+                "verified": 1,
+                "rejected": 0
+              },
+              "support_check": {
+                "ran": true,
+                "outcome": "SUPPORTED",
+                "detail": "The single passage explicitly states eleven months of conservative management, which is a direct statement exceeding the 3-month minimum as required."
+              }
+            }
+          },
+          {
+            "criterion_id": "C4",
+            "clinical_status": "AMBIGUOUS",
+            "processing_status": "COMPLETE",
+            "reason_codes": [
+              "INSUFFICIENT_CONTEXT"
+            ],
+            "evidence": [
+              {
+                "document_id": "doc_c48803e4305a",
+                "quote": "Range of motion 15 to 95 degrees at discharge, unchanged from the initial assessment. Quadriceps 4/5, up from 3+/5, which is a real gain and the only one. Stair negotiation unchanged; she still stops on the landing.",
+                "role": "supporting",
+                "verified": true,
+                "span": {
+                  "document_id": "doc_c48803e4305a",
+                  "content_sha256": "d954bb39038780ce8bcd8b6df03e7125d771c9d519d8b9495deba49a1eafb519",
+                  "start": 715,
+                  "end": 930
+                },
+                "detail": "",
+                "ambiguous_locations": 0
+              },
+              {
+                "document_id": "doc_6997d4825ff2",
+                "quote": "Physical therapy, completed, without benefit. The discharge summary is on file.",
+                "role": "supporting",
+                "verified": true,
+                "span": {
+                  "document_id": "doc_6997d4825ff2",
+                  "content_sha256": "f9e3df5b090fd5581b99d9ba85f4f571f191edcc7f0ab39c2761595556596e57",
+                  "start": 606,
+                  "end": 685
+                },
+                "detail": "",
+                "ambiguous_locations": 0
+              },
+              {
+                "document_id": "doc_6997d4825ff2",
+                "quote": "No injection has been performed. She has never been offered one here and there is no procedure record anywhere in her file.",
+                "role": "contradicting",
+                "verified": true,
+                "span": {
+                  "document_id": "doc_6997d4825ff2",
+                  "content_sha256": "f9e3df5b090fd5581b99d9ba85f4f571f191edcc7f0ab39c2761595556596e57",
+                  "start": 962,
+                  "end": 1085
+                },
+                "detail": "",
+                "ambiguous_locations": 0
+              },
+              {
+                "document_id": "doc_6997d4825ff2",
+                "quote": "Her BMI is 22, so a weight programme does not arise.",
+                "role": "contradicting",
+                "verified": true,
+                "span": {
+                  "document_id": "doc_6997d4825ff2",
+                  "content_sha256": "f9e3df5b090fd5581b99d9ba85f4f571f191edcc7f0ab39c2761595556596e57",
+                  "start": 1086,
+                  "end": 1138
+                },
+                "detail": "",
+                "ambiguous_locations": 0
+              },
+              {
+                "document_id": "doc_41afd1ff7c77",
+                "quote": "END OF EXTRACT. 33 items across the period.",
+                "role": "supporting",
+                "verified": true,
+                "span": {
+                  "document_id": "doc_41afd1ff7c77",
+                  "content_sha256": "0493d1ca37c5ab86caa742e8e07c87c7a26a404eaeadaf33d557fd424117349c",
+                  "start": 2282,
+                  "end": 2325
+                },
+                "detail": "",
+                "ambiguous_locations": 0
+              }
+            ],
+            "explanation": "Physical therapy is documented as attempted with a clear outcome (unchanged ROM and stair difficulty, modest quadriceps gain), satisfying one modality. The pharmacy dispensing record shows no NSAID or analgesic dispensed during the period, only levothyroxine, amlodipine, and vitamin D, so medication is not established as attempted for the knee. Injection was explicitly not performed, and weight reduction and activity modification are not documented as attempted (BMI stated as not relevant, and no activity modification trial is described), leaving only one clearly established modality with a documented outcome, so a second modality cannot be confirmed.",
+            "detail": "",
+            "failure_kind": "NONE",
+            "extracted_status": "AMBIGUOUS",
+            "downgraded": false,
+            "downgrade_reason": "",
+            "verification": {
+              "quote_check": {
+                "returned": 5,
+                "verified": 5,
+                "rejected": 0
+              },
+              "support_check": {
+                "ran": true,
+                "outcome": "SUPPORTED",
+                "detail": "The passages show physical therapy attempted with an outcome, but explicitly rule out injection and weight reduction and give no evidence of an attempted NSAID/analgesic or activity modification trial, leaving only one confirmed modality and genuine insufficiency to confirm a second."
+              }
+            }
+          },
+          {
+            "criterion_id": "C5",
+            "clinical_status": "MET",
+            "processing_status": "COMPLETE",
+            "reason_codes": [],
+            "evidence": [
+              {
+                "document_id": "doc_6997d4825ff2",
+                "quote": "Right knee: fixed flexion deformity, range of motion 15 to 95 degrees. Varus. Medial joint line tenderness. Crepitus. No effusion. Stable.",
+                "role": "supporting",
+                "verified": true,
+                "span": {
+                  "document_id": "doc_6997d4825ff2",
+                  "content_sha256": "f9e3df5b090fd5581b99d9ba85f4f571f191edcc7f0ab39c2761595556596e57",
+                  "start": 1151,
+                  "end": 1289
+                },
+                "detail": "",
+                "ambiguous_locations": 0
+              }
+            ],
+            "explanation": "The physician's examination documents a measured range of motion deficit and a fixed flexion deformity of the right knee, which constitutes a functional limitation on physical exam.",
+            "detail": "",
+            "failure_kind": "NONE",
+            "extracted_status": "MET",
+            "downgraded": false,
+            "downgrade_reason": "",
+            "verification": {
+              "quote_check": {
+                "returned": 1,
+                "verified": 1,
+                "rejected": 0
+              },
+              "support_check": {
+                "ran": true,
+                "outcome": "SUPPORTED",
+                "detail": "The cited exam finding documents a measured range of motion of 15-95 degrees with fixed flexion deformity of the right knee, which is a clinician-recorded functional limitation satisfying the requirement."
+              }
+            }
+          },
+          {
+            "criterion_id": "C6",
+            "clinical_status": "NOT_MET",
+            "processing_status": "COMPLETE",
+            "reason_codes": [],
+            "evidence": [
+              {
+                "document_id": "doc_37871d036d10",
+                "quote": "Diagnosis: acute pyelonephritis, right. Treated with intravenous co-amoxiclav from admission.",
+                "role": "contradicting",
+                "verified": true,
+                "span": {
+                  "document_id": "doc_37871d036d10",
+                  "content_sha256": "f6bd92a3188ac48c87c30aa2a037b42e8e6e55cc9ca7a4147f920bffc9463648",
+                  "start": 769,
+                  "end": 862
+                },
+                "detail": "",
+                "ambiguous_locations": 0
+              },
+              {
+                "document_id": "doc_37871d036d10",
+                "quote": "She remains on treatment at discharge and the infection is not yet resolved.",
+                "role": "contradicting",
+                "verified": true,
+                "span": {
+                  "document_id": "doc_37871d036d10",
+                  "content_sha256": "f6bd92a3188ac48c87c30aa2a037b42e8e6e55cc9ca7a4147f920bffc9463648",
+                  "start": 1111,
+                  "end": 1187
+                },
+                "detail": "",
+                "ambiguous_locations": 0
+              },
+              {
+                "document_id": "doc_1b0543d108d3",
+                "quote": "she is four days into a fourteen day course of oral co-amoxiclav which finishes on 11 September. Her inflammatory markers were still falling at discharge and have not been rechecked.",
+                "role": "contradicting",
+                "verified": true,
+                "span": {
+                  "document_id": "doc_1b0543d108d3",
+                  "content_sha256": "74c7a9f29c53cb6a6b3a10923665a7bf997670c137c51421f7386ce53b2b198b",
+                  "start": 1064,
+                  "end": 1246
+                },
+                "detail": "",
+                "ambiguous_locations": 0
+              }
+            ],
+            "explanation": "The hospital discharge summary and the subsequent preoperative assessment note both affirmatively document an active systemic infection (acute pyelonephritis) still being treated as of the most recent record; the hospital record is a first-hand contemporaneous account of the admitting team (Route B) and is corroborated by the anesthesiologist's independent contemporaneous note (Route C), establishing that the infection remains unresolved.",
+            "detail": "",
+            "failure_kind": "NONE",
+            "extracted_status": "NOT_MET",
+            "downgraded": false,
+            "downgrade_reason": "",
+            "verification": {
+              "quote_check": {
+                "returned": 3,
+                "verified": 3,
+                "rejected": 0
+              },
+              "support_check": {
+                "ran": true,
+                "outcome": "SUPPORTED",
+                "detail": "The passages explicitly document an unresolved active systemic infection (acute pyelonephritis) still under treatment at the most recent record, which directly satisfies the NOT_MET criterion for documented active infection."
+              }
+            }
+          },
+          {
+            "criterion_id": "C7",
+            "clinical_status": "AMBIGUOUS",
+            "processing_status": "COMPLETE",
+            "reason_codes": [
+              "INSUFFICIENT_CONTEXT"
+            ],
+            "evidence": [
+              {
+                "document_id": "doc_1b0543d108d3",
+                "quote": "I am not able to complete this assessment or to give an opinion on her fitness today, and I have not done so.",
+                "role": "contradicting",
+                "verified": true,
+                "span": {
+                  "document_id": "doc_1b0543d108d3",
+                  "content_sha256": "74c7a9f29c53cb6a6b3a10923665a7bf997670c137c51421f7386ce53b2b198b",
+                  "start": 850,
+                  "end": 959
+                },
+                "detail": "",
+                "ambiguous_locations": 0
+              },
+              {
+                "document_id": "doc_1b0543d108d3",
+                "quote": "Reassess after 09/11 and after repeat bloods and urine confirm resolution. Appointment to be arranged for the week of 09/21.",
+                "role": "contradicting",
+                "verified": true,
+                "span": {
+                  "document_id": "doc_1b0543d108d3",
+                  "content_sha256": "74c7a9f29c53cb6a6b3a10923665a7bf997670c137c51421f7386ce53b2b198b",
+                  "start": 1575,
+                  "end": 1699
+                },
+                "detail": "",
+                "ambiguous_locations": 0
+              }
+            ],
+            "explanation": "The anesthesiology preoperative assessment was explicitly suspended without a conclusion on surgical candidacy, pending resolution of the active infection and a rescheduled reassessment, so candidacy is raised but left open rather than resolved.",
+            "detail": "",
+            "failure_kind": "NONE",
+            "extracted_status": "AMBIGUOUS",
+            "downgraded": false,
+            "downgrade_reason": "",
+            "verification": {
+              "quote_check": {
+                "returned": 2,
+                "verified": 2,
+                "rejected": 0
+              },
+              "support_check": {
+                "ran": true,
+                "outcome": "SUPPORTED",
+                "detail": "The passages show an anesthesiologist explicitly declining to give a fitness opinion and deferring reassessment to a later date, matching the criterion's definition of candidacy raised but left open (AMBIGUOUS/INSUFFICIENT_CONTEXT)."
+              }
+            }
+          }
+        ],
+        "support_attempts": [
+          {
+            "index": 1,
+            "seconds": 1.606,
+            "input_tokens": 1149,
+            "output_tokens": 91,
+            "error": "",
+            "parse_error": "",
+            "retryable": true,
+            "stop_reason": "end_turn",
+            "preamble": false,
+            "raw_text": "{\"outcome\": \"SUPPORTED\", \"detail\": \"The radiology passage explicitly describes severe degenerative change of the right knee with subchondral sclerosis and osteophyte formation, satisfying the advanced-disease criterion via alternative qualifying findings.\"}"
+          },
+          {
+            "index": 1,
+            "seconds": 1.556,
+            "input_tokens": 1117,
+            "output_tokens": 81,
+            "error": "",
+            "parse_error": "",
+            "retryable": true,
+            "stop_reason": "end_turn",
+            "preamble": false,
+            "raw_text": "{\"outcome\": \"SUPPORTED\", \"detail\": \"The passage documents specific functional impacts (inability to manage stairs without stopping, and relocating her bed), directly satisfying the requirement for documented pain interfering with daily activities.\"}"
+          },
+          {
+            "index": 1,
+            "seconds": 1.537,
+            "input_tokens": 1156,
+            "output_tokens": 64,
+            "error": "",
+            "parse_error": "",
+            "retryable": true,
+            "stop_reason": "end_turn",
+            "preamble": false,
+            "raw_text": "{\"outcome\": \"SUPPORTED\", \"detail\": \"The single passage explicitly states eleven months of conservative management, which is a direct statement exceeding the 3-month minimum as required.\"}"
+          },
+          {
+            "index": 1,
+            "seconds": 2.08,
+            "input_tokens": 1487,
+            "output_tokens": 112,
+            "error": "",
+            "parse_error": "",
+            "retryable": true,
+            "stop_reason": "end_turn",
+            "preamble": false,
+            "raw_text": "{\"outcome\": \"SUPPORTED\", \"detail\": \"The passages show physical therapy attempted with an outcome, but explicitly rule out injection and weight reduction and give no evidence of an attempted NSAID/analgesic or activity modification trial, leaving only one confirmed modality and genuine insufficiency to confirm a second.\"}"
+          },
+          {
+            "index": 1,
+            "seconds": 1.601,
+            "input_tokens": 1131,
+            "output_tokens": 88,
+            "error": "",
+            "parse_error": "",
+            "retryable": true,
+            "stop_reason": "end_turn",
+            "preamble": false,
+            "raw_text": "{\"outcome\": \"SUPPORTED\", \"detail\": \"The cited exam finding documents a measured range of motion of 15-95 degrees with fixed flexion deformity of the right knee, which is a clinician-recorded functional limitation satisfying the requirement.\"}"
+          },
+          {
+            "index": 1,
+            "seconds": 1.613,
+            "input_tokens": 1287,
+            "output_tokens": 89,
+            "error": "",
+            "parse_error": "",
+            "retryable": true,
+            "stop_reason": "end_turn",
+            "preamble": false,
+            "raw_text": "{\"outcome\": \"SUPPORTED\", \"detail\": \"The passages explicitly document an unresolved active systemic infection (acute pyelonephritis) still under treatment at the most recent record, which directly satisfies the NOT_MET criterion for documented active infection.\"}"
+          },
+          {
+            "index": 1,
+            "seconds": 1.77,
+            "input_tokens": 1305,
+            "output_tokens": 111,
+            "error": "",
+            "parse_error": "",
+            "retryable": true,
+            "stop_reason": "end_turn",
+            "preamble": false,
+            "raw_text": "{\"outcome\": \"SUPPORTED\", \"detail\": \"The passages show an anesthesiologist explicitly declining to give a fitness opinion and deferring reassessment to a later date, matching the criterion's definition of candidacy raised but left open (AMBIGUOUS/INSUFFICIENT_CONTEXT).\"}"
+          }
+        ]
+      }
+    }
+  ]
+}

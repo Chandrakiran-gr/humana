@@ -1,0 +1,57 @@
+KERRIGAN AND SONS PHARMACY
+Thornbeck Road
+
+DISPENSING HISTORY
+
+Patient:        Lindqvist-Mbeki, Adaeze
+Date of birth:  05/14/1954
+Requested by:   P. Castellanos-Reid, MD, Thornbeck Orthopaedics
+Period covered: 09/01/2025 to 08/18/2026, inclusive
+Produced:       08/18/2026
+Produced by:    N. Kerrigan, MPharm, Superintendent Pharmacist
+
+This is a complete extract of every item dispensed to this patient by this
+pharmacy across the period stated. This patient is registered with us for
+delivery and we hold no record of her using another pharmacy. Items supplied by
+a hospital during an inpatient stay would not appear here and are not covered by
+this extract.
+
+ITEM                              STRENGTH   QTY   DATE        SCRIPT
+Levothyroxine sodium              50 mcg     28    09/04/2025  R-441902
+Amlodipine besilate               5 mg       28    09/04/2025  R-441902
+Levothyroxine sodium              50 mcg     28    10/02/2025  R-448117
+Amlodipine besilate               5 mg       28    10/02/2025  R-448117
+Levothyroxine sodium              50 mcg     28    10/30/2025  R-455230
+Amlodipine besilate               5 mg       28    10/30/2025  R-455230
+Colecalciferol                    800 IU     30    10/30/2025  R-455230
+Levothyroxine sodium              50 mcg     28    11/27/2025  R-462588
+Amlodipine besilate               5 mg       28    11/27/2025  R-462588
+Levothyroxine sodium              50 mcg     28    12/24/2025  R-470114
+Amlodipine besilate               5 mg       28    12/24/2025  R-470114
+Colecalciferol                    800 IU     30    12/24/2025  R-470114
+Levothyroxine sodium              50 mcg     28    01/22/2026  R-478003
+Amlodipine besilate               5 mg       28    01/22/2026  R-478003
+Levothyroxine sodium              50 mcg     28    02/19/2026  R-485440
+Amlodipine besilate               5 mg       28    02/19/2026  R-485440
+Colecalciferol                    800 IU     30    02/19/2026  R-485440
+Chloramphenicol eye ointment      1%         4 g   03/06/2026  R-489217
+Levothyroxine sodium              50 mcg     28    03/19/2026  R-492886
+Amlodipine besilate               5 mg       28    03/19/2026  R-492886
+Levothyroxine sodium              50 mcg     28    04/16/2026  R-500431
+Amlodipine besilate               5 mg       28    04/16/2026  R-500431
+Colecalciferol                    800 IU     30    04/16/2026  R-500431
+Levothyroxine sodium              50 mcg     28    05/14/2026  R-508009
+Amlodipine besilate               5 mg       28    05/14/2026  R-508009
+Levothyroxine sodium              50 mcg     28    06/11/2026  R-515772
+Amlodipine besilate               5 mg       28    06/11/2026  R-515772
+Colecalciferol                    800 IU     30    06/11/2026  R-515772
+Levothyroxine sodium              50 mcg     28    07/09/2026  R-523640
+Amlodipine besilate               5 mg       28    07/09/2026  R-523640
+Levothyroxine sodium              50 mcg     28    08/06/2026  R-531518
+Amlodipine besilate               5 mg       28    08/06/2026  R-531518
+Colecalciferol                    800 IU     30    08/06/2026  R-531518
+
+END OF EXTRACT.  33 items across the period.
+
+Counter sales are not recorded against a patient record and do not appear above.
+Query this extract on 555-0188 quoting the produced date.

@@ -1,0 +1,12 @@
+# Minimum bounds. Replace with exact pins from `pip freeze` after the first
+# successful install, so runs stay reproducible.
+#
+# Deliberately small. Spec Section 14 excludes vector retrieval, graph
+# infrastructure, agent frameworks, fine-tuning, and OCR, so none of their
+# dependencies belong here.
+
+anthropic>=0.40.0        # Steps 3 and 5. One model version throughout.
+python-dotenv>=1.0.0     # Loads .env. Keys never enter source or artifacts.
+pypdf>=5.0.0             # Step 2, text-based PDF only. No OCR.
+streamlit>=1.40.0        # Task 3.3 reviewer interface.
+pytest>=8.0.0            # tests/

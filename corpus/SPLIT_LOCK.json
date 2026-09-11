@@ -1,0 +1,161 @@
+{
+  "_meta": {
+    "purpose": "Content lock for the held-out and transfer splits, per BUILD_SEQUENCE Task 1.3. These splits are closed after the manual check and are not reopened until Stage 3.",
+    "locked_on": "2026-09-10",
+    "locked_splits": [
+      "held_out_test",
+      "transfer"
+    ],
+    "reason": "Relock after Task 2.3b acceptable_evidence enumeration. Every scorable instance in all three splits now carries the passages that satisfy it, resolved to canonical spans and validated to resolve to exactly one span within the document named. No clinical status, reason code, evidence count, or packet changed in any split: this records the evidence the existing labels already asserted, so that evidence recall and precision can be computed at all. Done before any model run touched held-out or transfer.",
+    "enforced_by": "tests/test_split_lock.py",
+    "how_to_change": "Do not edit a locked packet or label. If Stage 3 findings require a change, record why, rerun with --lock and --reason, and disclose in results that the test split was modified after locking and when.",
+    "cases": 14,
+    "documents": 60
+  },
+  "locked": {
+    "MRI-101": {
+      "split": "held_out_test",
+      "label_sha256": "e546548771cbb4138e834c3c1fb85707dcc8d4783a5309da0cded4b49c184e57",
+      "documents": {
+        "2026-04-08_radiology_lumbar_mri.txt": "734ca6d7625c89808dc117446f3aa2cea433bf0008a5b5e3dea7a94bca28db09",
+        "2026-06-01_office_note.txt": "38fe1202bf559a9213b3e8cf06c6d3f2c9d8a70beb7f80d9d05bafd24f327561",
+        "2026-06-01_physiotherapy_referral_form.txt": "8df1abb4e61b1c1153e5acb8f0a531b8503a3155fa956915f091d544fd2c5a0f",
+        "2026-08-17_office_note.txt": "71bbc4eb1d0c7f7655130de82525730bd6f5e2f125fc0a48d13c29e1f81475f1"
+      }
+    },
+    "MRI-102": {
+      "split": "held_out_test",
+      "label_sha256": "d34369b7372626581c9aa1dc433f4047101cb539c5949b05c2a7c07c37c03511",
+      "documents": {
+        "2026-08-26_office_note.txt": "0e221f5ff09fb79ce942366048dc8bf32225e48facc5cfdacfaa8a52aa085c7a",
+        "2026-08-28_care_coordination_note.txt": "5e9ce283d3d200abf719cb83539d6bc215e01da787bc25cbdb09af4dfe46066a",
+        "2026-08-31_imaging_order_72148.txt": "836be9975f6c75eebaeb16db0ac536ea5c2c26051eee7855ef0187df984fe149",
+        "2026-08-31_referral_letter.txt": "a5d468d63e25337e89677a3a370cd73a724d8b7d33a4b85018caa5a71db0d1f5"
+      }
+    },
+    "MRI-103": {
+      "split": "held_out_test",
+      "label_sha256": "7cdf38fc2eba234e69031679e59091aa1bed188b74c8c415daf974bd666c3197",
+      "documents": {
+        "2026-09-01_nurse_telephone_note.txt": "e958663809e3d7ec38c32d8ab13b065141ee99c4e5d83f46b2a41975c064dd4e",
+        "2026-09-04_imaging_order_72148.txt": "d183caeb39db84811785fbaa81a413e2af70f1ee21fbf42884696d77e7152059",
+        "2026-09-04_oncology_clinic_note.txt": "dd29fe460ebb08c1329f324ba5f74c7692117746e23b3a6d0b0d6ac53bd4d34d"
+      }
+    },
+    "MRI-104": {
+      "split": "held_out_test",
+      "label_sha256": "d878d0e2c7db015d9f3f2ad92788c7438949eccbab83d346dab5338516ea84f3",
+      "documents": {
+        "2026-09-05_imaging_request_72148.txt": "ad91e053063c650742badf030ecc6b13ae20529280d65ee7c6dba0ab6acf6252",
+        "2026-09-05_registration_form.txt": "de45509cfe6eb27ca99e13c91c9d90af825b085e93d1f22adfc0c0f5f68bc836",
+        "2026-09-05_urgent_care_note.txt": "31260a2caa5ee3324b949fb80214c5ac54e39a756ff03774aef5fb796d90d1e4"
+      }
+    },
+    "TKA-101": {
+      "split": "held_out_test",
+      "label_sha256": "00153df22487aa515aafc14e00299a898806800e350b255e5c46eea7283d86b8",
+      "documents": {
+        "2026-05-19_radiology_left_knee.txt": "079c31c02501625eb59fb706ac0a80390c2249b7ccb7e506ae067f2287d4e16f",
+        "2026-06-02_orthopedic_note.txt": "8643ebb913a48ca9fab5d76ce18f3eb60b4ddb29f304003442e7f3d24f2d554b",
+        "2026-08-25_pt_discharge_summary.txt": "d53dbc85f15f24854fbc95d539bcd9a00dbc7856d1d74524f6966ead4c72f611",
+        "2026-08-28_medication_list.txt": "1107e4d35cdf898dade40ee35d8b384e4e24c1fa81e280283be6c04ac71b5c36"
+      }
+    },
+    "TKA-102": {
+      "split": "held_out_test",
+      "label_sha256": "5c70c610741f1d0da2752d47b77b33e4786221819ba70d07b99a9b83a5b87749",
+      "documents": {
+        "2026-05-20_pt_discharge_summary.txt": "36cbb460d335f99e28d41cea674d94fba57628f319f6cc22fcf9f1a76a58a3fd",
+        "2026-07-02_radiology_right_knee.txt": "faa4a0caa9650f8e60bee35bc27a6c534d8d0084fd7f8d23ae484f42f58c515f",
+        "2026-07-23_radiology_right_knee.txt": "8bc381a193ff2c5b469d94d505c5de93a356c44b30158757f41b36ff2f96886d",
+        "2026-08-14_nursing_intake_note.txt": "aa768ac07b2a8949246bac705db9eaf2162b73f381b3459f0a26ed38ac16ad5b",
+        "2026-08-14_orthopedic_note.txt": "adfa9fb7549cf261e0c495130d36e8bb724243122147909f13651c1180db1dbb",
+        "2026-08-27_preoperative_assessment.txt": "f4a42b044323dac3673336ff92f0fdc8a1f45a818076c691cbb5673661d31420"
+      }
+    },
+    "TKA-103": {
+      "split": "held_out_test",
+      "label_sha256": "b9fbbbe737cd2948c9b65a094ae940fe4e466799b8c270cff53b952dbbabd52f",
+      "documents": {
+        "2026-01-19_primary_care_note.txt": "8fc2a25a4da6fd90dd26b0f042a4fe4bb7755f9cbf37dcf284b84bf954640f87",
+        "2026-06-15_radiograph_report.txt": "f45c81a6998ac2cb7debdbbf973fc61b8bafcd70707e4fb39814a5589401ebe7",
+        "2026-06-22_orthopedic_note.txt": "07552fc3c8b37382a5b1987ff0b37a432139530e296d72824e8f3e14916454fb"
+      }
+    },
+    "TKA-103V": {
+      "split": "held_out_test",
+      "label_sha256": "293b2815ec84256ebf3a5c41226119787df9a6dde288777c05a14aabb1cd4a94",
+      "documents": {
+        "2026-01-19_primary_care_note.txt": "b45ef6b14ec1b6a3ec28303336b657df5f43b31ce54abeda904d48aa11ac18bb",
+        "2026-06-15_radiology_report.txt": "6b6898b2fb990b8c36bf12855058b64768c3c26bfc11dda20c7853786d56c367",
+        "2026-06-22_medication_list.txt": "0fcd91bbd2213326ff82d4b934abd638b06c88fe4dca67d6ffc08cfbf533b671",
+        "2026-06-22_orthopedic_note.txt": "b21a30170a2e6fab9cf92a4ae7571fd8c9bc146ef805aab617540850e92d8428"
+      }
+    },
+    "TKA-104": {
+      "split": "held_out_test",
+      "label_sha256": "7bf13a51a9a6725cbb11f90d0f3eb6fddc03f78708c91d8c6375ae266d042239",
+      "documents": {
+        "2026-06-30_pt_discharge_summary.txt": "d954bb39038780ce8bcd8b6df03e7125d771c9d519d8b9495deba49a1eafb519",
+        "2026-08-03_radiology_right_knee.txt": "6a454d7de54f2f017dbdd6601cd2d5b5190d0c3f296885bba2e16fe5d94de551",
+        "2026-08-18_pharmacy_dispensing_history.txt": "0493d1ca37c5ab86caa742e8e07c87c7a26a404eaeadaf33d557fd424117349c",
+        "2026-08-19_orthopedic_note.txt": "f9e3df5b090fd5581b99d9ba85f4f571f191edcc7f0ab39c2761595556596e57",
+        "2026-08-31_hospital_discharge_summary.txt": "f6bd92a3188ac48c87c30aa2a037b42e8e6e55cc9ca7a4147f920bffc9463648",
+        "2026-09-03_preoperative_assessment.txt": "74c7a9f29c53cb6a6b3a10923665a7bf997670c137c51421f7386ce53b2b198b"
+      }
+    },
+    "LF-201": {
+      "split": "transfer",
+      "label_sha256": "fef55850d8583ae2f1ad479227132224555caddf92fafb986287705797e7694a",
+      "documents": {
+        "2026-01-28_physiotherapy_outcome_measures.txt": "2f351d0f8f4e8eb70ffa061edd638e474b15736e061726d702e956c9f239e908",
+        "2026-03-04_pain_service_procedure_record.txt": "c5177936d377c89902b9291a4035cdb8b88281ef7b685bfb1206e75609d00a38",
+        "2026-04-22_mri_lumbar_structured_report.txt": "63f534f9df385d91062ef45c7536a2db5e5d35054ef479119cd3c00b59d5db57",
+        "2026-05-06_flexion_extension_series.txt": "5bcf4b4752051fc213c2523caa8a88481c390f31368434381594009fbcb8483d",
+        "2026-06-18_spine_service_summary_letter.txt": "ec2bc6812891fa17dba34836d5e2c26195a3290752ea3f064c7ddf8dcf3a9ac4"
+      }
+    },
+    "LF-202": {
+      "split": "transfer",
+      "label_sha256": "e272122d61a7e22ec0b72b75e21665bf5d02fbdc928e2112a2ee1e1025d1e55a",
+      "documents": {
+        "2026-01-15_spine_service_triage_proforma.txt": "79838487d59cc14b703eb20a0c6ee2d494685c067f600ec5fb448ff0c521de8c",
+        "2026-02-02_pain_service_procedure_record.txt": "c30903b01f60d942b6a2c9896c0cba2ecb8a409f39b2fa0e127fc1d763abe2f1",
+        "2026-03-11_spine_service_review_proforma.txt": "3c1ea5a9bac61f05817c4ff652824d0b6b8da36c4c9414e0e8f31d14f44efccc",
+        "2026-05-20_mdt_meeting_record.txt": "0e63e12120d2f997656b0486fdce3d78d23148cd75e1b9924ddedc730a2790a9",
+        "2026-06-02_preoperative_screening_summary.txt": "b3384f5a2090bee4c12604f3f650b47a448179cc03a17a436fc00561c7b4a208"
+      }
+    },
+    "LF-203": {
+      "split": "transfer",
+      "label_sha256": "572549ce4b771b341679d5a1553db7db7a9a98be9c8e0453d38f0a9bef0d72a6",
+      "documents": {
+        "2026-05-08_physiotherapy_discharge_record.txt": "d38062ad2006969667704e79ba815c30332dd1c194658d3f967d6b39a996d849",
+        "2026-06-11_mri_lumbar_structured_report.txt": "27773311d5b93cca4c4c5e4c943baf476d99864ea47b668a91d624014dbeeda4",
+        "2026-07-14_medication_summary_printout.txt": "41ad9973e677747362ae6bb852e9c73df5b79fdca1f025d630396ddd2eea211e",
+        "2026-07-30_consultant_letter.txt": "2b70aaedfdd27b9d6990708754c362c2082950b978f28cb568a641d5d9721308"
+      }
+    },
+    "LF-204": {
+      "split": "transfer",
+      "label_sha256": "f54af0585942b3a9365f5acecddcb4b9043f6d152a34811d80f2c9d2fc77c23a",
+      "documents": {
+        "2025-11-03_spine_service_triage_proforma.txt": "224ab5e8c2dcbfabc4e4dc412674a21a326d5f79751df07cba71121807a16f10",
+        "2026-04-30_ct_lumbar_structured_report.txt": "006d1ccbff751d6190dc4a8b5aae5ec6eeeb134d6b2f2a3c68da74b1e01d15b0",
+        "2026-06-19_conservative_episode_closure.txt": "7d7d767eb3c207c18967420e681384ba5dce40d8918da4bebdb0ffc138163912",
+        "2026-07-08_spine_service_review_proforma.txt": "58f9e3958c0f1fc86fc544d00481ff7eca8c8d100a152a7c9062099524713113",
+        "2026-07-22_health_psychology_assessment.txt": "d43c99628a4a860c7277f4fb7c45be404f90a9101889c767cebb87e8fb6c9127",
+        "2026-07-29_preoperative_screening_summary.txt": "ff17e17fd188b9a12fab8f0b3e839da349605dbc68c016e8fec8e01c12709498"
+      }
+    },
+    "LF-205": {
+      "split": "transfer",
+      "label_sha256": "0c461d6e752b93a2fc126907dd064d3395214152a2723fac5787f7b969d1a74a",
+      "documents": {
+        "2026-08-05_mri_lumbar_structured_report.txt": "13e9c1a3341ad3c0ea9f046716647dc7bbaaec0c4a4d2683e8f093fe38718554",
+        "2026-09-02_funding_request_form.txt": "f755c5bd9847cca6be6b78ce6c652cfef194e63944de1919c971472b943bfbb1",
+        "2026-09-02_records_transmittal.txt": "0aa99ec4a81f09cfe1b045348f49daad617a9da280e9bf31b54a9f2c02ab456c"
+      }
+    }
+  }
+}

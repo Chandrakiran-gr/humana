@@ -1,0 +1,4227 @@
+{
+  "generated": "20260910T205411Z",
+  "split": "development",
+  "configuration": "A",
+  "preflight": {
+    "model": "claude-sonnet-5",
+    "prompt_version": "extraction/1.2.0",
+    "criteria_set_version": "1.3.0"
+  },
+  "settings": {
+    "model": "claude-sonnet-5",
+    "max_attempts": 3,
+    "timeout_seconds": 120.0,
+    "support_verification": true,
+    "execution": "sequential"
+  },
+  "operational": {
+    "input_tokens": 65529,
+    "output_tokens": 43881,
+    "seconds": 436.76,
+    "per_case_seconds": [
+      {
+        "case_id": "MRI-001",
+        "extraction": 66.089,
+        "verification": 11.814,
+        "total": 77.903
+      },
+      {
+        "case_id": "MRI-002",
+        "extraction": 11.392,
+        "verification": 4.827,
+        "total": 16.219
+      },
+      {
+        "case_id": "MRI-003",
+        "extraction": 15.898,
+        "verification": 8.341,
+        "total": 24.238
+      },
+      {
+        "case_id": "MRI-004",
+        "extraction": 36.676,
+        "verification": 10.758,
+        "total": 47.434
+      },
+      {
+        "case_id": "MRI-005",
+        "extraction": 19.114,
+        "verification": 6.553,
+        "total": 25.667
+      },
+      {
+        "case_id": "MRI-006",
+        "extraction": 26.011,
+        "verification": 13.63,
+        "total": 39.641
+      },
+      {
+        "case_id": "MRI-007",
+        "extraction": 119.156,
+        "verification": 0.0,
+        "total": 119.156
+      },
+      {
+        "case_id": "MRI-008",
+        "extraction": 79.58,
+        "verification": 6.922,
+        "total": 86.501
+      }
+    ]
+  },
+  "score": {
+    "configuration": "A",
+    "split": "development",
+    "instances_scored": 38,
+    "primary": {
+      "evidence_recall": {
+        "numerator": 34,
+        "denominator": 44,
+        "value": 0.7727272727272727
+      },
+      "evidence_precision": {
+        "numerator": 43,
+        "denominator": 49,
+        "value": 0.8775510204081632
+      },
+      "status_agreement": {
+        "numerator": 33,
+        "denominator": 38,
+        "value": 0.868421052631579
+      },
+      "complete_processing": {
+        "numerator": 33,
+        "denominator": 38,
+        "value": 0.868421052631579
+      }
+    },
+    "critical_errors": {
+      "_note": "Counts only. evals/decision_rules.md records why neither direction is reportable as a rate at this corpus size.",
+      "reference_met_or_ambiguous_output_not_met": {
+        "count": 0,
+        "instances": []
+      },
+      "reference_not_met_output_met": {
+        "count": 0,
+        "instances": []
+      }
+    },
+    "reported_separately": {
+      "contract_rejections": {
+        "count": 0,
+        "instances": []
+      },
+      "citation_validity": {
+        "numerator": 49,
+        "denominator": 49,
+        "value": 1.0
+      },
+      "mean_spans_per_instance": 1.2894736842105263,
+      "mean_accepted_span_chars": 101.23255813953489,
+      "superset_rate": {
+        "numerator": 8,
+        "denominator": 38,
+        "value": 0.21052631578947367
+      }
+    },
+    "confusion": {
+      "MET": {
+        "MET": 17,
+        "none": 2
+      },
+      "AMBIGUOUS": {
+        "AMBIGUOUS": 15,
+        "none": 3
+      },
+      "NOT_MET": {
+        "NOT_MET": 1
+      }
+    },
+    "instances": [
+      {
+        "case_id": "MRI-001",
+        "criterion_id": "C1",
+        "split": "development",
+        "reference_status": "MET",
+        "returned_status": "MET",
+        "status_match": true,
+        "failure_kind": "NONE",
+        "units": {
+          "required": 1,
+          "recovered": 1
+        },
+        "spans": {
+          "returned": 1,
+          "accepted": 1,
+          "verified": 1
+        },
+        "unenumerated_spans": []
+      },
+      {
+        "case_id": "MRI-001",
+        "criterion_id": "C2",
+        "split": "development",
+        "reference_status": "MET",
+        "returned_status": "MET",
+        "status_match": true,
+        "failure_kind": "NONE",
+        "units": {
+          "required": 1,
+          "recovered": 1
+        },
+        "spans": {
+          "returned": 1,
+          "accepted": 1,
+          "verified": 1
+        },
+        "unenumerated_spans": []
+      },
+      {
+        "case_id": "MRI-001",
+        "criterion_id": "C3",
+        "split": "development",
+        "reference_status": "MET",
+        "returned_status": "MET",
+        "status_match": true,
+        "failure_kind": "NONE",
+        "units": {
+          "required": 2,
+          "recovered": 2
+        },
+        "spans": {
+          "returned": 3,
+          "accepted": 3,
+          "verified": 3
+        },
+        "unenumerated_spans": []
+      },
+      {
+        "case_id": "MRI-001",
+        "criterion_id": "C4",
+        "split": "development",
+        "reference_status": "AMBIGUOUS",
+        "returned_status": "AMBIGUOUS",
+        "status_match": true,
+        "failure_kind": "NONE",
+        "units": {
+          "required": 5,
+          "recovered": 5
+        },
+        "spans": {
+          "returned": 7,
+          "accepted": 7,
+          "verified": 7
+        },
+        "unenumerated_spans": []
+      },
+      {
+        "case_id": "MRI-001",
+        "criterion_id": "C5",
+        "split": "development",
+        "reference_status": "MET",
+        "returned_status": "MET",
+        "status_match": true,
+        "failure_kind": "NONE",
+        "units": {
+          "required": 1,
+          "recovered": 1
+        },
+        "spans": {
+          "returned": 1,
+          "accepted": 1,
+          "verified": 1
+        },
+        "unenumerated_spans": []
+      },
+      {
+        "case_id": "MRI-002",
+        "criterion_id": "C1",
+        "split": "development",
+        "reference_status": "MET",
+        "returned_status": "MET",
+        "status_match": true,
+        "failure_kind": "NONE",
+        "units": {
+          "required": 1,
+          "recovered": 1
+        },
+        "spans": {
+          "returned": 2,
+          "accepted": 2,
+          "verified": 2
+        },
+        "unenumerated_spans": []
+      },
+      {
+        "case_id": "MRI-002",
+        "criterion_id": "C2",
+        "split": "development",
+        "reference_status": "AMBIGUOUS",
+        "returned_status": "AMBIGUOUS",
+        "status_match": true,
+        "failure_kind": "NONE",
+        "units": {
+          "required": 1,
+          "recovered": 1
+        },
+        "spans": {
+          "returned": 1,
+          "accepted": 1,
+          "verified": 1
+        },
+        "unenumerated_spans": []
+      },
+      {
+        "case_id": "MRI-002",
+        "criterion_id": "C3",
+        "split": "development",
+        "reference_status": "MET",
+        "returned_status": "MET",
+        "status_match": true,
+        "failure_kind": "NONE",
+        "units": {
+          "required": 2,
+          "recovered": 2
+        },
+        "spans": {
+          "returned": 1,
+          "accepted": 1,
+          "verified": 1
+        },
+        "unenumerated_spans": []
+      },
+      {
+        "case_id": "MRI-002",
+        "criterion_id": "C4",
+        "split": "development",
+        "reference_status": "AMBIGUOUS",
+        "returned_status": "AMBIGUOUS",
+        "status_match": true,
+        "failure_kind": "NONE",
+        "units": {
+          "required": 0,
+          "recovered": 0
+        },
+        "spans": {
+          "returned": 0,
+          "accepted": 0,
+          "verified": 0
+        },
+        "unenumerated_spans": []
+      },
+      {
+        "case_id": "MRI-002",
+        "criterion_id": "C5",
+        "split": "development",
+        "reference_status": "AMBIGUOUS",
+        "returned_status": "AMBIGUOUS",
+        "status_match": true,
+        "failure_kind": "NONE",
+        "units": {
+          "required": 0,
+          "recovered": 0
+        },
+        "spans": {
+          "returned": 0,
+          "accepted": 0,
+          "verified": 0
+        },
+        "unenumerated_spans": []
+      },
+      {
+        "case_id": "MRI-003",
+        "criterion_id": "C1",
+        "split": "development",
+        "reference_status": "MET",
+        "returned_status": "MET",
+        "status_match": true,
+        "failure_kind": "NONE",
+        "units": {
+          "required": 1,
+          "recovered": 1
+        },
+        "spans": {
+          "returned": 2,
+          "accepted": 1,
+          "verified": 2
+        },
+        "unenumerated_spans": [
+          "doc_92bc49dfc6d5: Right L5 radiculopathy with progressive motor deficit."
+        ]
+      },
+      {
+        "case_id": "MRI-003",
+        "criterion_id": "C4",
+        "split": "development",
+        "reference_status": "MET",
+        "returned_status": "MET",
+        "status_match": true,
+        "failure_kind": "NONE",
+        "units": {
+          "required": 1,
+          "recovered": 1
+        },
+        "spans": {
+          "returned": 2,
+          "accepted": 1,
+          "verified": 2
+        },
+        "unenumerated_spans": [
+          "doc_ea6b3ad461bc: PRIORITY: URGENT - progressive motor deficit"
+        ]
+      },
+      {
+        "case_id": "MRI-003",
+        "criterion_id": "C5",
+        "split": "development",
+        "reference_status": "MET",
+        "returned_status": "MET",
+        "status_match": true,
+        "failure_kind": "NONE",
+        "units": {
+          "required": 1,
+          "recovered": 1
+        },
+        "spans": {
+          "returned": 1,
+          "accepted": 1,
+          "verified": 1
+        },
+        "unenumerated_spans": []
+      },
+      {
+        "case_id": "MRI-004",
+        "criterion_id": "C1",
+        "split": "development",
+        "reference_status": "MET",
+        "returned_status": "MET",
+        "status_match": true,
+        "failure_kind": "NONE",
+        "units": {
+          "required": 1,
+          "recovered": 1
+        },
+        "spans": {
+          "returned": 2,
+          "accepted": 2,
+          "verified": 2
+        },
+        "unenumerated_spans": []
+      },
+      {
+        "case_id": "MRI-004",
+        "criterion_id": "C2",
+        "split": "development",
+        "reference_status": "AMBIGUOUS",
+        "returned_status": "AMBIGUOUS",
+        "status_match": true,
+        "failure_kind": "NONE",
+        "units": {
+          "required": 2,
+          "recovered": 2
+        },
+        "spans": {
+          "returned": 2,
+          "accepted": 2,
+          "verified": 2
+        },
+        "unenumerated_spans": []
+      },
+      {
+        "case_id": "MRI-004",
+        "criterion_id": "C3",
+        "split": "development",
+        "reference_status": "AMBIGUOUS",
+        "returned_status": "AMBIGUOUS",
+        "status_match": true,
+        "failure_kind": "NONE",
+        "units": {
+          "required": 2,
+          "recovered": 1
+        },
+        "spans": {
+          "returned": 2,
+          "accepted": 2,
+          "verified": 2
+        },
+        "unenumerated_spans": []
+      },
+      {
+        "case_id": "MRI-004",
+        "criterion_id": "C4",
+        "split": "development",
+        "reference_status": "AMBIGUOUS",
+        "returned_status": "AMBIGUOUS",
+        "status_match": true,
+        "failure_kind": "NONE",
+        "units": {
+          "required": 0,
+          "recovered": 0
+        },
+        "spans": {
+          "returned": 0,
+          "accepted": 0,
+          "verified": 0
+        },
+        "unenumerated_spans": []
+      },
+      {
+        "case_id": "MRI-004",
+        "criterion_id": "C5",
+        "split": "development",
+        "reference_status": "AMBIGUOUS",
+        "returned_status": "AMBIGUOUS",
+        "status_match": true,
+        "failure_kind": "NONE",
+        "units": {
+          "required": 0,
+          "recovered": 0
+        },
+        "spans": {
+          "returned": 0,
+          "accepted": 0,
+          "verified": 0
+        },
+        "unenumerated_spans": []
+      },
+      {
+        "case_id": "MRI-005",
+        "criterion_id": "C1",
+        "split": "development",
+        "reference_status": "MET",
+        "returned_status": "MET",
+        "status_match": true,
+        "failure_kind": "NONE",
+        "units": {
+          "required": 1,
+          "recovered": 1
+        },
+        "spans": {
+          "returned": 2,
+          "accepted": 2,
+          "verified": 2
+        },
+        "unenumerated_spans": []
+      },
+      {
+        "case_id": "MRI-005",
+        "criterion_id": "C2",
+        "split": "development",
+        "reference_status": "MET",
+        "returned_status": "MET",
+        "status_match": true,
+        "failure_kind": "NONE",
+        "units": {
+          "required": 2,
+          "recovered": 2
+        },
+        "spans": {
+          "returned": 4,
+          "accepted": 4,
+          "verified": 4
+        },
+        "unenumerated_spans": []
+      },
+      {
+        "case_id": "MRI-005",
+        "criterion_id": "C3",
+        "split": "development",
+        "reference_status": "MET",
+        "returned_status": "MET",
+        "status_match": true,
+        "failure_kind": "NONE",
+        "units": {
+          "required": 2,
+          "recovered": 2
+        },
+        "spans": {
+          "returned": 2,
+          "accepted": 2,
+          "verified": 2
+        },
+        "unenumerated_spans": []
+      },
+      {
+        "case_id": "MRI-005",
+        "criterion_id": "C4",
+        "split": "development",
+        "reference_status": "AMBIGUOUS",
+        "returned_status": "AMBIGUOUS",
+        "status_match": true,
+        "failure_kind": "NONE",
+        "units": {
+          "required": 0,
+          "recovered": 0
+        },
+        "spans": {
+          "returned": 1,
+          "accepted": 0,
+          "verified": 1
+        },
+        "unenumerated_spans": [
+          "doc_1a532ad73480: though she cannot say it is worse exactly. No change in the character of it."
+        ]
+      },
+      {
+        "case_id": "MRI-005",
+        "criterion_id": "C5",
+        "split": "development",
+        "reference_status": "AMBIGUOUS",
+        "returned_status": "AMBIGUOUS",
+        "status_match": true,
+        "failure_kind": "NONE",
+        "units": {
+          "required": 0,
+          "recovered": 0
+        },
+        "spans": {
+          "returned": 0,
+          "accepted": 0,
+          "verified": 0
+        },
+        "unenumerated_spans": []
+      },
+      {
+        "case_id": "MRI-006",
+        "criterion_id": "C1",
+        "split": "development",
+        "reference_status": "MET",
+        "returned_status": "MET",
+        "status_match": true,
+        "failure_kind": "NONE",
+        "units": {
+          "required": 1,
+          "recovered": 1
+        },
+        "spans": {
+          "returned": 2,
+          "accepted": 2,
+          "verified": 2
+        },
+        "unenumerated_spans": []
+      },
+      {
+        "case_id": "MRI-006",
+        "criterion_id": "C2",
+        "split": "development",
+        "reference_status": "AMBIGUOUS",
+        "returned_status": "AMBIGUOUS",
+        "status_match": true,
+        "failure_kind": "NONE",
+        "units": {
+          "required": 1,
+          "recovered": 1
+        },
+        "spans": {
+          "returned": 2,
+          "accepted": 2,
+          "verified": 2
+        },
+        "unenumerated_spans": []
+      },
+      {
+        "case_id": "MRI-006",
+        "criterion_id": "C3",
+        "split": "development",
+        "reference_status": "MET",
+        "returned_status": "MET",
+        "status_match": true,
+        "failure_kind": "NONE",
+        "units": {
+          "required": 2,
+          "recovered": 2
+        },
+        "spans": {
+          "returned": 1,
+          "accepted": 1,
+          "verified": 1
+        },
+        "unenumerated_spans": []
+      },
+      {
+        "case_id": "MRI-006",
+        "criterion_id": "C4",
+        "split": "development",
+        "reference_status": "AMBIGUOUS",
+        "returned_status": "AMBIGUOUS",
+        "status_match": true,
+        "failure_kind": "NONE",
+        "units": {
+          "required": 1,
+          "recovered": 0
+        },
+        "spans": {
+          "returned": 0,
+          "accepted": 0,
+          "verified": 0
+        },
+        "unenumerated_spans": []
+      },
+      {
+        "case_id": "MRI-006",
+        "criterion_id": "C5",
+        "split": "development",
+        "reference_status": "NOT_MET",
+        "returned_status": "NOT_MET",
+        "status_match": true,
+        "failure_kind": "NONE",
+        "units": {
+          "required": 2,
+          "recovered": 2
+        },
+        "spans": {
+          "returned": 2,
+          "accepted": 2,
+          "verified": 2
+        },
+        "unenumerated_spans": []
+      },
+      {
+        "case_id": "MRI-007",
+        "criterion_id": "C1",
+        "split": "development",
+        "reference_status": "AMBIGUOUS",
+        "returned_status": null,
+        "status_match": false,
+        "failure_kind": "NO_RESPONSE",
+        "units": {
+          "required": 1,
+          "recovered": 0
+        },
+        "spans": {
+          "returned": 0,
+          "accepted": 0,
+          "verified": 0
+        },
+        "unenumerated_spans": []
+      },
+      {
+        "case_id": "MRI-007",
+        "criterion_id": "C2",
+        "split": "development",
+        "reference_status": "MET",
+        "returned_status": null,
+        "status_match": false,
+        "failure_kind": "NO_RESPONSE",
+        "units": {
+          "required": 1,
+          "recovered": 0
+        },
+        "spans": {
+          "returned": 0,
+          "accepted": 0,
+          "verified": 0
+        },
+        "unenumerated_spans": []
+      },
+      {
+        "case_id": "MRI-007",
+        "criterion_id": "C3",
+        "split": "development",
+        "reference_status": "AMBIGUOUS",
+        "returned_status": null,
+        "status_match": false,
+        "failure_kind": "NO_RESPONSE",
+        "units": {
+          "required": 1,
+          "recovered": 0
+        },
+        "spans": {
+          "returned": 0,
+          "accepted": 0,
+          "verified": 0
+        },
+        "unenumerated_spans": []
+      },
+      {
+        "case_id": "MRI-007",
+        "criterion_id": "C4",
+        "split": "development",
+        "reference_status": "AMBIGUOUS",
+        "returned_status": null,
+        "status_match": false,
+        "failure_kind": "NO_RESPONSE",
+        "units": {
+          "required": 2,
+          "recovered": 0
+        },
+        "spans": {
+          "returned": 0,
+          "accepted": 0,
+          "verified": 0
+        },
+        "unenumerated_spans": []
+      },
+      {
+        "case_id": "MRI-007",
+        "criterion_id": "C5",
+        "split": "development",
+        "reference_status": "MET",
+        "returned_status": null,
+        "status_match": false,
+        "failure_kind": "NO_RESPONSE",
+        "units": {
+          "required": 1,
+          "recovered": 0
+        },
+        "spans": {
+          "returned": 0,
+          "accepted": 0,
+          "verified": 0
+        },
+        "unenumerated_spans": []
+      },
+      {
+        "case_id": "MRI-008",
+        "criterion_id": "C1",
+        "split": "development",
+        "reference_status": "AMBIGUOUS",
+        "returned_status": "AMBIGUOUS",
+        "status_match": true,
+        "failure_kind": "NONE",
+        "units": {
+          "required": 1,
+          "recovered": 1
+        },
+        "spans": {
+          "returned": 2,
+          "accepted": 1,
+          "verified": 2
+        },
+        "unenumerated_spans": [
+          "doc_5ad40457ac4f: Specifically she has asked for her back to be scanned, because her aunt had a sc"
+        ]
+      },
+      {
+        "case_id": "MRI-008",
+        "criterion_id": "C2",
+        "split": "development",
+        "reference_status": "MET",
+        "returned_status": "MET",
+        "status_match": true,
+        "failure_kind": "NONE",
+        "units": {
+          "required": 1,
+          "recovered": 0
+        },
+        "spans": {
+          "returned": 1,
+          "accepted": 0,
+          "verified": 1
+        },
+        "unenumerated_spans": [
+          "doc_f68354a02bef: It has been present for over two years and she can date the start to the winter "
+        ]
+      },
+      {
+        "case_id": "MRI-008",
+        "criterion_id": "C3",
+        "split": "development",
+        "reference_status": "AMBIGUOUS",
+        "returned_status": "AMBIGUOUS",
+        "status_match": true,
+        "failure_kind": "NONE",
+        "units": {
+          "required": 1,
+          "recovered": 0
+        },
+        "spans": {
+          "returned": 1,
+          "accepted": 0,
+          "verified": 1
+        },
+        "unenumerated_spans": [
+          "doc_f68354a02bef: Nothing else has been tried."
+        ]
+      },
+      {
+        "case_id": "MRI-008",
+        "criterion_id": "C4",
+        "split": "development",
+        "reference_status": "AMBIGUOUS",
+        "returned_status": "AMBIGUOUS",
+        "status_match": true,
+        "failure_kind": "NONE",
+        "units": {
+          "required": 0,
+          "recovered": 0
+        },
+        "spans": {
+          "returned": 0,
+          "accepted": 0,
+          "verified": 0
+        },
+        "unenumerated_spans": []
+      },
+      {
+        "case_id": "MRI-008",
+        "criterion_id": "C5",
+        "split": "development",
+        "reference_status": "MET",
+        "returned_status": "MET",
+        "status_match": true,
+        "failure_kind": "NONE",
+        "units": {
+          "required": 1,
+          "recovered": 1
+        },
+        "spans": {
+          "returned": 1,
+          "accepted": 1,
+          "verified": 1
+        },
+        "unenumerated_spans": []
+      }
+    ]
+  },
+  "cases": [
+    {
+      "case_id": "MRI-001",
+      "extraction": {
+        "case_id": "MRI-001",
+        "configuration": "A",
+        "model": "claude-sonnet-5",
+        "prompt_version": "extraction/1.2.0",
+        "processing_status": "COMPLETE",
+        "calls": 1,
+        "input_tokens": 8874,
+        "output_tokens": 7099,
+        "seconds": 66.089,
+        "failures": {
+          "CONTRACT_REJECTION": 0,
+          "NO_RESPONSE": 0,
+          "NOT_ATTEMPTED": 0
+        },
+        "results": [
+          {
+            "criterion_id": "C1",
+            "clinical_status": "MET",
+            "processing_status": "COMPLETE",
+            "reason_codes": [],
+            "evidence": [
+              {
+                "document_id": "doc_9928a5a2f296",
+                "quote": "Ms. Halloran is a 54-year-old woman presenting with low back pain radiating into the right lower extremity.",
+                "role": "supporting"
+              }
+            ],
+            "explanation": "The consultation note explicitly documents low back pain with radicular (right lower extremity) symptoms, satisfying the requirement.",
+            "detail": "",
+            "failure_kind": "NONE",
+            "rejected_payload": null
+          },
+          {
+            "criterion_id": "C2",
+            "clinical_status": "MET",
+            "processing_status": "COMPLETE",
+            "reason_codes": [],
+            "evidence": [
+              {
+                "document_id": "doc_9928a5a2f296",
+                "quote": "Symptoms have been present for 10 weeks.",
+                "role": "supporting"
+              }
+            ],
+            "explanation": "An explicit duration of 10 weeks, which exceeds the required 6-week minimum, is stated directly in the consultation note.",
+            "detail": "",
+            "failure_kind": "NONE",
+            "rejected_payload": null
+          },
+          {
+            "criterion_id": "C3",
+            "clinical_status": "MET",
+            "processing_status": "COMPLETE",
+            "reason_codes": [],
+            "evidence": [
+              {
+                "document_id": "doc_eb337a74f71c",
+                "quote": "Patient completed 8 physical therapy sessions.",
+                "role": "supporting"
+              },
+              {
+                "document_id": "doc_eb337a74f71c",
+                "quote": "No meaningful improvement. Numeric pain rating unchanged from intake at 6 of 10 at worst. Right lower extremity symptoms unchanged in distribution and frequency.",
+                "role": "supporting"
+              },
+              {
+                "document_id": "doc_eb337a74f71c",
+                "quote": "Discharged. Skilled therapy has not produced functional gain and continued skilled intervention is not indicated at this time.",
+                "role": "supporting"
+              }
+            ],
+            "explanation": "The PT discharge summary, authored first-hand by the treating therapist, documents that a course of physical therapy was completed and that it failed to produce meaningful improvement in pain, symptom distribution, or function, satisfying both the attempt and failed-outcome elements.",
+            "detail": "",
+            "failure_kind": "NONE",
+            "rejected_payload": null
+          },
+          {
+            "criterion_id": "C4",
+            "clinical_status": "AMBIGUOUS",
+            "processing_status": "COMPLETE",
+            "reason_codes": [
+              "INSUFFICIENT_CONTEXT"
+            ],
+            "evidence": [
+              {
+                "document_id": "doc_9928a5a2f296",
+                "quote": "Genitourinary: No urinary retention, no incontinence, no difficulty initiating the stream.",
+                "role": "supporting"
+              },
+              {
+                "document_id": "doc_9928a5a2f296",
+                "quote": "Gastrointestinal: No bowel incontinence, no constipation, no perianal or saddle numbness.",
+                "role": "supporting"
+              },
+              {
+                "document_id": "doc_9928a5a2f296",
+                "quote": "Oncologic: No personal history of malignancy. No prior chemotherapy or radiation. Family history reviewed, no first-degree relative with cancer.",
+                "role": "supporting"
+              },
+              {
+                "document_id": "doc_9928a5a2f296",
+                "quote": "Infectious: No recent infection, no intravenous drug use, no indwelling lines, no recent invasive procedure, no immunosuppression.",
+                "role": "supporting"
+              },
+              {
+                "document_id": "doc_9928a5a2f296",
+                "quote": "Trauma: No fall, no motor vehicle collision, no lifting injury, no other significant trauma at any point preceding or during this episode.",
+                "role": "supporting"
+              },
+              {
+                "document_id": "doc_9928a5a2f296",
+                "quote": "Motor: 5/5 bilaterally throughout. Hip flexion, knee extension, ankle dorsiflexion, great toe extension, and ankle plantarflexion all 5/5 on the right and on the left. No drift, no atrophy.",
+                "role": "supporting"
+              },
+              {
+                "document_id": "doc_9928a5a2f296",
+                "quote": "Sensory: Intact to light touch and pinprick in all lumbosacral dermatomes bilaterally, including L4, L5, and S1. Perianal sensation intact.",
+                "role": "supporting"
+              }
+            ],
+            "explanation": "All five red-flag categories are named and addressed with negative findings, but for cauda equina syndrome, malignancy, infection, and trauma the negation rests primarily on patient-reported review of systems (unremarkable negative history) rather than an examination, prior record, or bounded search that could independently corroborate completeness; only the progressive-neurologic-deficit category is fully supported by first-hand exam findings (motor/sensory testing). Because the record does not establish completeness on the other four categories under the required routes, the criterion cannot be affirmatively resolved as NOT_MET, and remains unsettled.",
+            "detail": "",
+            "failure_kind": "NONE",
+            "rejected_payload": null
+          },
+          {
+            "criterion_id": "C5",
+            "clinical_status": "MET",
+            "processing_status": "COMPLETE",
+            "reason_codes": [],
+            "evidence": [
+              {
+                "document_id": "doc_c87a026d3a52",
+                "quote": "PRIOR IMAGING: No prior lumbar imaging on file for this patient. No outside studies reported by the patient and none received.",
+                "role": "supporting"
+              }
+            ],
+            "explanation": "The imaging order contains an explicit statement that no prior lumbar imaging exists for this patient, which satisfies the requirement that no prior lumbar MRI within 12 months is documented.",
+            "detail": "",
+            "failure_kind": "NONE",
+            "rejected_payload": null
+          }
+        ],
+        "prompts": [
+          {
+            "prompt_version": "extraction/1.2.0",
+            "criterion_ids": [
+              "C1",
+              "C2",
+              "C3",
+              "C4",
+              "C5"
+            ],
+            "system_chars": 6313,
+            "criteria_chars": 12193,
+            "record_chars": 7044
+          }
+        ],
+        "attempts": [
+          {
+            "index": 1,
+            "seconds": 66.089,
+            "input_tokens": 8874,
+            "output_tokens": 7099,
+            "error": "",
+            "parse_error": "",
+            "retryable": true,
+            "stop_reason": "end_turn",
+            "raw_text": "{\n  \"results\": [\n    {\n      \"criterion_id\": \"C1\",\n      \"clinical_status\": \"MET\",\n      \"reason_codes\": [],\n      \"evidence\": [\n        {\n          \"document_id\": \"doc_9928a5a2f296\",\n          \"quote\": \"Ms. Halloran is a 54-year-old woman presenting with low back pain radiating into the right lower extremity.\",\n          \"role\": \"supporting\"\n        }\n      ],\n      \"explanation\": \"The consultation note explicitly documents low back pain with radicular (right lower extremity) symptoms, satisfying the requirement.\"\n    },\n    {\n      \"criterion_id\": \"C2\",\n      \"clinical_status\": \"MET\",\n      \"reason_codes\": [],\n      \"evidence\": [\n        {\n          \"document_id\": \"doc_9928a5a2f296\",\n          \"quote\": \"Symptoms have been present for 10 weeks.\",\n          \"role\": \"supporting\"\n        }\n      ],\n      \"explanation\": \"An explicit duration of 10 weeks, which exceeds the required 6-week minimum, is stated directly in the consultation note.\"\n    },\n    {\n      \"criterion_id\": \"C3\",\n      \"clinical_status\": \"MET\",\n      \"reason_codes\": [],\n      \"evidence\": [\n        {\n          \"document_id\": \"doc_eb337a74f71c\",\n          \"quote\": \"Patient completed 8 physical therapy sessions.\",\n          \"role\": \"supporting\"\n        },\n        {\n          \"document_id\": \"doc_eb337a74f71c\",\n          \"quote\": \"No meaningful improvement. Numeric pain rating unchanged from intake at 6 of 10 at worst. Right lower extremity symptoms unchanged in distribution and frequency.\",\n          \"role\": \"supporting\"\n        },\n        {\n          \"document_id\": \"doc_eb337a74f71c\",\n          \"quote\": \"Discharged. Skilled therapy has not produced functional gain and continued skilled intervention is not indicated at this time.\",\n          \"role\": \"supporting\"\n        }\n      ],\n      \"explanation\": \"The PT discharge summary, authored first-hand by the treating therapist, documents that a course of physical therapy was completed and that it failed to produce meaningful improvement in pain, symptom distribution, or function, satisfying both the attempt and failed-outcome elements.\"\n    },\n    {\n      \"criterion_id\": \"C4\",\n      \"clinical_status\": \"AMBIGUOUS\",\n      \"reason_codes\": [\"INSUFFICIENT_CONTEXT\"],\n      \"evidence\": [\n        {\n          \"document_id\": \"doc_9928a5a2f296\",\n          \"quote\": \"Genitourinary: No urinary retention, no incontinence, no difficulty initiating the stream.\",\n          \"role\": \"supporting\"\n        },\n        {\n          \"document_id\": \"doc_9928a5a2f296\",\n          \"quote\": \"Gastrointestinal: No bowel incontinence, no constipation, no perianal or saddle numbness.\",\n          \"role\": \"supporting\"\n        },\n        {\n          \"document_id\": \"doc_9928a5a2f296\",\n          \"quote\": \"Oncologic: No personal history of malignancy. No prior chemotherapy or radiation. Family history reviewed, no first-degree relative with cancer.\",\n          \"role\": \"supporting\"\n        },\n        {\n          \"document_id\": \"doc_9928a5a2f296\",\n          \"quote\": \"Infectious: No recent infection, no intravenous drug use, no indwelling lines, no recent invasive procedure, no immunosuppression.\",\n          \"role\": \"supporting\"\n        },\n        {\n          \"document_id\": \"doc_9928a5a2f296\",\n          \"quote\": \"Trauma: No fall, no motor vehicle collision, no lifting injury, no other significant trauma at any point preceding or during this episode.\",\n          \"role\": \"supporting\"\n        },\n        {\n          \"document_id\": \"doc_9928a5a2f296\",\n          \"quote\": \"Motor: 5/5 bilaterally throughout. Hip flexion, knee extension, ankle dorsiflexion, great toe extension, and ankle plantarflexion all 5/5 on the right and on the left. No drift, no atrophy.\",\n          \"role\": \"supporting\"\n        },\n        {\n          \"document_id\": \"doc_9928a5a2f296\",\n          \"quote\": \"Sensory: Intact to light touch and pinprick in all lumbosacral dermatomes bilaterally, including L4, L5, and S1. Perianal sensation intact.\",\n          \"role\": \"supporting\"\n        }\n      ],\n      \"explanation\": \"All five red-flag categories are named and addressed with negative findings, but for cauda equina syndrome, malignancy, infection, and trauma the negation rests primarily on patient-reported review of systems (unremarkable negative history) rather than an examination, prior record, or bounded search that could independently corroborate completeness; only the progressive-neurologic-deficit category is fully supported by first-hand exam findings (motor/sensory testing). Because the record does not establish completeness on the other four categories under the required routes, the criterion cannot be affirmatively resolved as NOT_MET, and remains unsettled.\"\n    },\n    {\n      \"criterion_id\": \"C5\",\n      \"clinical_status\": \"MET\",\n      \"reason_codes\": [],\n      \"evidence\": [\n        {\n          \"document_id\": \"doc_c87a026d3a52\",\n          \"quote\": \"PRIOR IMAGING: No prior lumbar imaging on file for this patient. No outside studies reported by the patient and none received.\",\n          \"role\": \"supporting\"\n        }\n      ],\n      \"explanation\": \"The imaging order contains an explicit statement that no prior lumbar imaging exists for this patient, which satisfies the requirement that no prior lumbar MRI within 12 months is documented.\"\n    }\n  ]\n}"
+          }
+        ]
+      },
+      "verification": {
+        "case_id": "MRI-001",
+        "configuration": "A",
+        "processing_status": "COMPLETE",
+        "returned_spans": 13,
+        "verified_spans": 13,
+        "citation_validity": 1.0,
+        "downgraded": 0,
+        "support_outcomes": {
+          "SUPPORTED": 4,
+          "UNSUPPORTED": 1,
+          "INCONCLUSIVE": 0,
+          "SKIPPED": 0,
+          "FAILED": 0
+        },
+        "seconds": 11.814,
+        "results": [
+          {
+            "criterion_id": "C1",
+            "clinical_status": "MET",
+            "processing_status": "COMPLETE",
+            "reason_codes": [],
+            "evidence": [
+              {
+                "document_id": "doc_9928a5a2f296",
+                "quote": "Ms. Halloran is a 54-year-old woman presenting with low back pain radiating into the right lower extremity.",
+                "role": "supporting",
+                "verified": true,
+                "span": {
+                  "document_id": "doc_9928a5a2f296",
+                  "content_sha256": "28b59eacf7eebff4cfa832b0bc92df54b006d6c7cdf00d5f6d3864c5793d8582",
+                  "start": 234,
+                  "end": 341
+                },
+                "detail": "",
+                "ambiguous_locations": 0
+              }
+            ],
+            "explanation": "The consultation note explicitly documents low back pain with radicular (right lower extremity) symptoms, satisfying the requirement.",
+            "detail": "",
+            "failure_kind": "NONE",
+            "extracted_status": "MET",
+            "downgraded": false,
+            "downgrade_reason": "",
+            "verification": {
+              "quote_check": {
+                "returned": 1,
+                "verified": 1,
+                "rejected": 0
+              },
+              "support_check": {
+                "ran": true,
+                "outcome": "SUPPORTED",
+                "detail": "The evidence explicitly documents low back pain with radicular symptoms into the right lower extremity, directly satisfying C1."
+              }
+            }
+          },
+          {
+            "criterion_id": "C2",
+            "clinical_status": "MET",
+            "processing_status": "COMPLETE",
+            "reason_codes": [],
+            "evidence": [
+              {
+                "document_id": "doc_9928a5a2f296",
+                "quote": "Symptoms have been present for 10 weeks.",
+                "role": "supporting",
+                "verified": true,
+                "span": {
+                  "document_id": "doc_9928a5a2f296",
+                  "content_sha256": "28b59eacf7eebff4cfa832b0bc92df54b006d6c7cdf00d5f6d3864c5793d8582",
+                  "start": 342,
+                  "end": 382
+                },
+                "detail": "",
+                "ambiguous_locations": 0
+              }
+            ],
+            "explanation": "An explicit duration of 10 weeks, which exceeds the required 6-week minimum, is stated directly in the consultation note.",
+            "detail": "",
+            "failure_kind": "NONE",
+            "extracted_status": "MET",
+            "downgraded": false,
+            "downgrade_reason": "",
+            "verification": {
+              "quote_check": {
+                "returned": 1,
+                "verified": 1,
+                "rejected": 0
+              },
+              "support_check": {
+                "ran": true,
+                "outcome": "SUPPORTED",
+                "detail": "The passage explicitly states a duration of 10 weeks, which meets the requirement of at least 6 weeks without needing a second passage."
+              }
+            }
+          },
+          {
+            "criterion_id": "C3",
+            "clinical_status": "MET",
+            "processing_status": "COMPLETE",
+            "reason_codes": [],
+            "evidence": [
+              {
+                "document_id": "doc_eb337a74f71c",
+                "quote": "Patient completed 8 physical therapy sessions.",
+                "role": "supporting",
+                "verified": true,
+                "span": {
+                  "document_id": "doc_eb337a74f71c",
+                  "content_sha256": "abd14cce8244e0b0e36d349bf50e9ed6cbaf73638f5f2e5a6f684ca979ee86f1",
+                  "start": 203,
+                  "end": 249
+                },
+                "detail": "",
+                "ambiguous_locations": 0
+              },
+              {
+                "document_id": "doc_eb337a74f71c",
+                "quote": "No meaningful improvement. Numeric pain rating unchanged from intake at 6 of 10 at worst. Right lower extremity symptoms unchanged in distribution and frequency.",
+                "role": "supporting",
+                "verified": true,
+                "span": {
+                  "document_id": "doc_eb337a74f71c",
+                  "content_sha256": "abd14cce8244e0b0e36d349bf50e9ed6cbaf73638f5f2e5a6f684ca979ee86f1",
+                  "start": 495,
+                  "end": 656
+                },
+                "detail": "",
+                "ambiguous_locations": 0
+              },
+              {
+                "document_id": "doc_eb337a74f71c",
+                "quote": "Discharged. Skilled therapy has not produced functional gain and continued skilled intervention is not indicated at this time.",
+                "role": "supporting",
+                "verified": true,
+                "span": {
+                  "document_id": "doc_eb337a74f71c",
+                  "content_sha256": "abd14cce8244e0b0e36d349bf50e9ed6cbaf73638f5f2e5a6f684ca979ee86f1",
+                  "start": 1089,
+                  "end": 1215
+                },
+                "detail": "",
+                "ambiguous_locations": 0
+              }
+            ],
+            "explanation": "The PT discharge summary, authored first-hand by the treating therapist, documents that a course of physical therapy was completed and that it failed to produce meaningful improvement in pain, symptom distribution, or function, satisfying both the attempt and failed-outcome elements.",
+            "detail": "",
+            "failure_kind": "NONE",
+            "extracted_status": "MET",
+            "downgraded": false,
+            "downgrade_reason": "",
+            "verification": {
+              "quote_check": {
+                "returned": 3,
+                "verified": 3,
+                "rejected": 0
+              },
+              "support_check": {
+                "ran": true,
+                "outcome": "SUPPORTED",
+                "detail": "The passages document that PT was actually completed (8 sessions) and explicitly show a failed outcome (no improvement in pain or symptoms, no functional gain), satisfying both the attempt and failed-outcome requirements."
+              }
+            }
+          },
+          {
+            "criterion_id": "C4",
+            "clinical_status": "AMBIGUOUS",
+            "processing_status": "COMPLETE",
+            "reason_codes": [
+              "INSUFFICIENT_CONTEXT"
+            ],
+            "evidence": [
+              {
+                "document_id": "doc_9928a5a2f296",
+                "quote": "Genitourinary: No urinary retention, no incontinence, no difficulty initiating the stream.",
+                "role": "supporting",
+                "verified": true,
+                "span": {
+                  "document_id": "doc_9928a5a2f296",
+                  "content_sha256": "28b59eacf7eebff4cfa832b0bc92df54b006d6c7cdf00d5f6d3864c5793d8582",
+                  "start": 989,
+                  "end": 1079
+                },
+                "detail": "",
+                "ambiguous_locations": 0
+              },
+              {
+                "document_id": "doc_9928a5a2f296",
+                "quote": "Gastrointestinal: No bowel incontinence, no constipation, no perianal or saddle numbness.",
+                "role": "supporting",
+                "verified": true,
+                "span": {
+                  "document_id": "doc_9928a5a2f296",
+                  "content_sha256": "28b59eacf7eebff4cfa832b0bc92df54b006d6c7cdf00d5f6d3864c5793d8582",
+                  "start": 1080,
+                  "end": 1169
+                },
+                "detail": "",
+                "ambiguous_locations": 0
+              },
+              {
+                "document_id": "doc_9928a5a2f296",
+                "quote": "Oncologic: No personal history of malignancy. No prior chemotherapy or radiation. Family history reviewed, no first-degree relative with cancer.",
+                "role": "supporting",
+                "verified": true,
+                "span": {
+                  "document_id": "doc_9928a5a2f296",
+                  "content_sha256": "28b59eacf7eebff4cfa832b0bc92df54b006d6c7cdf00d5f6d3864c5793d8582",
+                  "start": 1170,
+                  "end": 1314
+                },
+                "detail": "",
+                "ambiguous_locations": 0
+              },
+              {
+                "document_id": "doc_9928a5a2f296",
+                "quote": "Infectious: No recent infection, no intravenous drug use, no indwelling lines, no recent invasive procedure, no immunosuppression.",
+                "role": "supporting",
+                "verified": true,
+                "span": {
+                  "document_id": "doc_9928a5a2f296",
+                  "content_sha256": "28b59eacf7eebff4cfa832b0bc92df54b006d6c7cdf00d5f6d3864c5793d8582",
+                  "start": 1315,
+                  "end": 1445
+                },
+                "detail": "",
+                "ambiguous_locations": 0
+              },
+              {
+                "document_id": "doc_9928a5a2f296",
+                "quote": "Trauma: No fall, no motor vehicle collision, no lifting injury, no other significant trauma at any point preceding or during this episode.",
+                "role": "supporting",
+                "verified": true,
+                "span": {
+                  "document_id": "doc_9928a5a2f296",
+                  "content_sha256": "28b59eacf7eebff4cfa832b0bc92df54b006d6c7cdf00d5f6d3864c5793d8582",
+                  "start": 1446,
+                  "end": 1584
+                },
+                "detail": "",
+                "ambiguous_locations": 0
+              },
+              {
+                "document_id": "doc_9928a5a2f296",
+                "quote": "Motor: 5/5 bilaterally throughout. Hip flexion, knee extension, ankle dorsiflexion, great toe extension, and ankle plantarflexion all 5/5 on the right and on the left. No drift, no atrophy.",
+                "role": "supporting",
+                "verified": true,
+                "span": {
+                  "document_id": "doc_9928a5a2f296",
+                  "content_sha256": "28b59eacf7eebff4cfa832b0bc92df54b006d6c7cdf00d5f6d3864c5793d8582",
+                  "start": 2173,
+                  "end": 2362
+                },
+                "detail": "",
+                "ambiguous_locations": 0
+              },
+              {
+                "document_id": "doc_9928a5a2f296",
+                "quote": "Sensory: Intact to light touch and pinprick in all lumbosacral dermatomes bilaterally, including L4, L5, and S1. Perianal sensation intact.",
+                "role": "supporting",
+                "verified": true,
+                "span": {
+                  "document_id": "doc_9928a5a2f296",
+                  "content_sha256": "28b59eacf7eebff4cfa832b0bc92df54b006d6c7cdf00d5f6d3864c5793d8582",
+                  "start": 2363,
+                  "end": 2502
+                },
+                "detail": "",
+                "ambiguous_locations": 0
+              }
+            ],
+            "explanation": "All five red-flag categories are named and addressed with negative findings, but for cauda equina syndrome, malignancy, infection, and trauma the negation rests primarily on patient-reported review of systems (unremarkable negative history) rather than an examination, prior record, or bounded search that could independently corroborate completeness; only the progressive-neurologic-deficit category is fully supported by first-hand exam findings (motor/sensory testing). Because the record does not establish completeness on the other four categories under the required routes, the criterion cannot be affirmatively resolved as NOT_MET, and remains unsettled.",
+            "detail": "",
+            "failure_kind": "NONE",
+            "extracted_status": "AMBIGUOUS",
+            "downgraded": false,
+            "downgrade_reason": "",
+            "verification": {
+              "quote_check": {
+                "returned": 7,
+                "verified": 7,
+                "rejected": 0
+              },
+              "support_check": {
+                "ran": true,
+                "outcome": "UNSUPPORTED",
+                "detail": "The passages show all five red-flag categories addressed with explicit negative findings, which would support NOT_MET rather than AMBIGUOUS, and the proposed distinction between 'exam-based' versus 'history-based' negations is not established by the passages themselves, which present all findings uniformly as part of the documented evaluation."
+              }
+            }
+          },
+          {
+            "criterion_id": "C5",
+            "clinical_status": "MET",
+            "processing_status": "COMPLETE",
+            "reason_codes": [],
+            "evidence": [
+              {
+                "document_id": "doc_c87a026d3a52",
+                "quote": "PRIOR IMAGING: No prior lumbar imaging on file for this patient. No outside studies reported by the patient and none received.",
+                "role": "supporting",
+                "verified": true,
+                "span": {
+                  "document_id": "doc_c87a026d3a52",
+                  "content_sha256": "3a0706588b4db64888826e775748b3176e6f53d46df3b9a6e927b7c808c0c0ca",
+                  "start": 431,
+                  "end": 557
+                },
+                "detail": "",
+                "ambiguous_locations": 0
+              }
+            ],
+            "explanation": "The imaging order contains an explicit statement that no prior lumbar imaging exists for this patient, which satisfies the requirement that no prior lumbar MRI within 12 months is documented.",
+            "detail": "",
+            "failure_kind": "NONE",
+            "extracted_status": "MET",
+            "downgraded": false,
+            "downgrade_reason": "",
+            "verification": {
+              "quote_check": {
+                "returned": 1,
+                "verified": 1,
+                "rejected": 0
+              },
+              "support_check": {
+                "ran": true,
+                "outcome": "SUPPORTED",
+                "detail": "The passage explicitly states no prior lumbar imaging exists, satisfying the requirement's first alternative pathway."
+              }
+            }
+          }
+        ],
+        "support_attempts": [
+          {
+            "index": 1,
+            "seconds": 1.652,
+            "input_tokens": 1070,
+            "output_tokens": 63,
+            "error": "",
+            "parse_error": "",
+            "retryable": true,
+            "stop_reason": "end_turn",
+            "raw_text": "{\"outcome\": \"SUPPORTED\", \"detail\": \"The evidence explicitly documents low back pain with radicular symptoms into the right lower extremity, directly satisfying C1.\"}"
+          },
+          {
+            "index": 1,
+            "seconds": 1.44,
+            "input_tokens": 1183,
+            "output_tokens": 66,
+            "error": "",
+            "parse_error": "",
+            "retryable": true,
+            "stop_reason": "end_turn",
+            "raw_text": "{\"outcome\": \"SUPPORTED\", \"detail\": \"The passage explicitly states a duration of 10 weeks, which meets the requirement of at least 6 weeks without needing a second passage.\"}"
+          },
+          {
+            "index": 1,
+            "seconds": 1.672,
+            "input_tokens": 1301,
+            "output_tokens": 94,
+            "error": "",
+            "parse_error": "",
+            "retryable": true,
+            "stop_reason": "end_turn",
+            "raw_text": "{\"outcome\": \"SUPPORTED\", \"detail\": \"The passages document that PT was actually completed (8 sessions) and explicitly show a failed outcome (no improvement in pain or symptoms, no functional gain), satisfying both the attempt and failed-outcome requirements.\"}"
+          },
+          {
+            "index": 1,
+            "seconds": 5.548,
+            "input_tokens": 1791,
+            "output_tokens": 530,
+            "error": "",
+            "parse_error": "",
+            "retryable": true,
+            "stop_reason": "end_turn",
+            "raw_text": "{\"outcome\": \"UNSUPPORTED\", \"detail\": \"The passages show all five red-flag categories addressed with explicit negative findings, which would support NOT_MET rather than AMBIGUOUS, and the proposed distinction between 'exam-based' versus 'history-based' negations is not established by the passages themselves, which present all findings uniformly as part of the documented evaluation.\"}"
+          },
+          {
+            "index": 1,
+            "seconds": 1.499,
+            "input_tokens": 1249,
+            "output_tokens": 61,
+            "error": "",
+            "parse_error": "",
+            "retryable": true,
+            "stop_reason": "end_turn",
+            "raw_text": "{\"outcome\": \"SUPPORTED\", \"detail\": \"The passage explicitly states no prior lumbar imaging exists, satisfying the requirement's first alternative pathway.\"}"
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "MRI-002",
+      "extraction": {
+        "case_id": "MRI-002",
+        "configuration": "A",
+        "model": "claude-sonnet-5",
+        "prompt_version": "extraction/1.2.0",
+        "processing_status": "COMPLETE",
+        "calls": 1,
+        "input_tokens": 7254,
+        "output_tokens": 1352,
+        "seconds": 11.392,
+        "failures": {
+          "CONTRACT_REJECTION": 0,
+          "NO_RESPONSE": 0,
+          "NOT_ATTEMPTED": 0
+        },
+        "results": [
+          {
+            "criterion_id": "C1",
+            "clinical_status": "MET",
+            "processing_status": "COMPLETE",
+            "reason_codes": [],
+            "evidence": [
+              {
+                "document_id": "doc_5bd47eae2679",
+                "quote": "Low back pain with intermittent left leg symptoms.",
+                "role": "supporting"
+              },
+              {
+                "document_id": "doc_f5059168dac0",
+                "quote": "Low back pain with left lower extremity radiation.",
+                "role": "supporting"
+              }
+            ],
+            "explanation": "Both the office note assessment and the imaging order explicitly document low back pain with radicular (leg) symptoms.",
+            "detail": "",
+            "failure_kind": "NONE",
+            "rejected_payload": null
+          },
+          {
+            "criterion_id": "C2",
+            "clinical_status": "AMBIGUOUS",
+            "processing_status": "COMPLETE",
+            "reason_codes": [
+              "VAGUE_DURATION"
+            ],
+            "evidence": [
+              {
+                "document_id": "doc_5bd47eae2679",
+                "quote": "chronic low back pain, longstanding. He states it has been part of his life for as long as he can remember",
+                "role": "supporting"
+              }
+            ],
+            "explanation": "The only duration information given is a vague, undated characterization ('chronic', 'longstanding') without a countable duration or two dated encounters at least 6 weeks apart, so the 6-week threshold cannot be confirmed.",
+            "detail": "",
+            "failure_kind": "NONE",
+            "rejected_payload": null
+          },
+          {
+            "criterion_id": "C3",
+            "clinical_status": "MET",
+            "processing_status": "COMPLETE",
+            "reason_codes": [],
+            "evidence": [
+              {
+                "document_id": "doc_5bd47eae2679",
+                "quote": "He has taken ibuprofen for it. Says he took it regularly for a stretch, up to 600 mg three times a day as directed, and it did nothing for him.",
+                "role": "supporting"
+              }
+            ],
+            "explanation": "The note documents an actual NSAID trial (ibuprofen taken regularly as directed) along with a documented failed outcome ('it did nothing for him'), satisfying both the attempt and failure elements for this modality.",
+            "detail": "",
+            "failure_kind": "NONE",
+            "rejected_payload": null
+          },
+          {
+            "criterion_id": "C4",
+            "clinical_status": "AMBIGUOUS",
+            "processing_status": "COMPLETE",
+            "reason_codes": [
+              "MISSING_EVIDENCE"
+            ],
+            "evidence": [],
+            "explanation": "None of the five red-flag categories (cauda equina, progressive neurologic deficit, malignancy, infection, significant trauma) are named or addressed anywhere in the record.",
+            "detail": "",
+            "failure_kind": "NONE",
+            "rejected_payload": null
+          },
+          {
+            "criterion_id": "C5",
+            "clinical_status": "AMBIGUOUS",
+            "processing_status": "COMPLETE",
+            "reason_codes": [
+              "MISSING_EVIDENCE"
+            ],
+            "evidence": [],
+            "explanation": "The record contains no statement about a prior lumbar MRI, whether present or absent, so prior imaging status within the preceding 12 months cannot be determined.",
+            "detail": "",
+            "failure_kind": "NONE",
+            "rejected_payload": null
+          }
+        ],
+        "prompts": [
+          {
+            "prompt_version": "extraction/1.2.0",
+            "criterion_ids": [
+              "C1",
+              "C2",
+              "C3",
+              "C4",
+              "C5"
+            ],
+            "system_chars": 6313,
+            "criteria_chars": 12193,
+            "record_chars": 3098
+          }
+        ],
+        "attempts": [
+          {
+            "index": 1,
+            "seconds": 11.392,
+            "input_tokens": 7254,
+            "output_tokens": 1352,
+            "error": "",
+            "parse_error": "",
+            "retryable": true,
+            "stop_reason": "end_turn",
+            "raw_text": "{\n  \"results\": [\n    {\n      \"criterion_id\": \"C1\",\n      \"clinical_status\": \"MET\",\n      \"reason_codes\": [],\n      \"evidence\": [\n        {\n          \"document_id\": \"doc_5bd47eae2679\",\n          \"quote\": \"Low back pain with intermittent left leg symptoms.\",\n          \"role\": \"supporting\"\n        },\n        {\n          \"document_id\": \"doc_f5059168dac0\",\n          \"quote\": \"Low back pain with left lower extremity radiation.\",\n          \"role\": \"supporting\"\n        }\n      ],\n      \"explanation\": \"Both the office note assessment and the imaging order explicitly document low back pain with radicular (leg) symptoms.\"\n    },\n    {\n      \"criterion_id\": \"C2\",\n      \"clinical_status\": \"AMBIGUOUS\",\n      \"reason_codes\": [\"VAGUE_DURATION\"],\n      \"evidence\": [\n        {\n          \"document_id\": \"doc_5bd47eae2679\",\n          \"quote\": \"chronic low back pain, longstanding. He states it has been part of his life for as long as he can remember\",\n          \"role\": \"supporting\"\n        }\n      ],\n      \"explanation\": \"The only duration information given is a vague, undated characterization ('chronic', 'longstanding') without a countable duration or two dated encounters at least 6 weeks apart, so the 6-week threshold cannot be confirmed.\"\n    },\n    {\n      \"criterion_id\": \"C3\",\n      \"clinical_status\": \"MET\",\n      \"reason_codes\": [],\n      \"evidence\": [\n        {\n          \"document_id\": \"doc_5bd47eae2679\",\n          \"quote\": \"He has taken ibuprofen for it. Says he took it regularly for a stretch, up to 600 mg three times a day as directed, and it did nothing for him.\",\n          \"role\": \"supporting\"\n        }\n      ],\n      \"explanation\": \"The note documents an actual NSAID trial (ibuprofen taken regularly as directed) along with a documented failed outcome ('it did nothing for him'), satisfying both the attempt and failure elements for this modality.\"\n    },\n    {\n      \"criterion_id\": \"C4\",\n      \"clinical_status\": \"AMBIGUOUS\",\n      \"reason_codes\": [\"MISSING_EVIDENCE\"],\n      \"evidence\": [],\n      \"explanation\": \"None of the five red-flag categories (cauda equina, progressive neurologic deficit, malignancy, infection, significant trauma) are named or addressed anywhere in the record.\"\n    },\n    {\n      \"criterion_id\": \"C5\",\n      \"clinical_status\": \"AMBIGUOUS\",\n      \"reason_codes\": [\"MISSING_EVIDENCE\"],\n      \"evidence\": [],\n      \"explanation\": \"The record contains no statement about a prior lumbar MRI, whether present or absent, so prior imaging status within the preceding 12 months cannot be determined.\"\n    }\n  ]\n}"
+          }
+        ]
+      },
+      "verification": {
+        "case_id": "MRI-002",
+        "configuration": "A",
+        "processing_status": "COMPLETE",
+        "returned_spans": 4,
+        "verified_spans": 4,
+        "citation_validity": 1.0,
+        "downgraded": 0,
+        "support_outcomes": {
+          "SUPPORTED": 3,
+          "UNSUPPORTED": 0,
+          "INCONCLUSIVE": 0,
+          "SKIPPED": 2,
+          "FAILED": 0
+        },
+        "seconds": 4.827,
+        "results": [
+          {
+            "criterion_id": "C1",
+            "clinical_status": "MET",
+            "processing_status": "COMPLETE",
+            "reason_codes": [],
+            "evidence": [
+              {
+                "document_id": "doc_5bd47eae2679",
+                "quote": "Low back pain with intermittent left leg symptoms.",
+                "role": "supporting",
+                "verified": true,
+                "span": {
+                  "document_id": "doc_5bd47eae2679",
+                  "content_sha256": "04bd3f9acebe300396b878f73da8e831a6704ddc08e7fd7e4c3bf7a1a90aa7dc",
+                  "start": 1095,
+                  "end": 1145
+                },
+                "detail": "",
+                "ambiguous_locations": 0
+              },
+              {
+                "document_id": "doc_f5059168dac0",
+                "quote": "Low back pain with left lower extremity radiation.",
+                "role": "supporting",
+                "verified": true,
+                "span": {
+                  "document_id": "doc_f5059168dac0",
+                  "content_sha256": "42c4a8cd947e2b77174d496b4881508e0d4fd20bafaea140a0692924828ca0c9",
+                  "start": 247,
+                  "end": 297
+                },
+                "detail": "",
+                "ambiguous_locations": 0
+              }
+            ],
+            "explanation": "Both the office note assessment and the imaging order explicitly document low back pain with radicular (leg) symptoms.",
+            "detail": "",
+            "failure_kind": "NONE",
+            "extracted_status": "MET",
+            "downgraded": false,
+            "downgrade_reason": "",
+            "verification": {
+              "quote_check": {
+                "returned": 2,
+                "verified": 2,
+                "rejected": 0
+              },
+              "support_check": {
+                "ran": true,
+                "outcome": "SUPPORTED",
+                "detail": "Both passages explicitly document low back pain with radicular (leg) symptoms, satisfying C1."
+              }
+            }
+          },
+          {
+            "criterion_id": "C2",
+            "clinical_status": "AMBIGUOUS",
+            "processing_status": "COMPLETE",
+            "reason_codes": [
+              "VAGUE_DURATION"
+            ],
+            "evidence": [
+              {
+                "document_id": "doc_5bd47eae2679",
+                "quote": "chronic low back pain, longstanding. He states it has been part of his life for as long as he can remember",
+                "role": "supporting",
+                "verified": true,
+                "span": {
+                  "document_id": "doc_5bd47eae2679",
+                  "content_sha256": "04bd3f9acebe300396b878f73da8e831a6704ddc08e7fd7e4c3bf7a1a90aa7dc",
+                  "start": 174,
+                  "end": 280
+                },
+                "detail": "",
+                "ambiguous_locations": 0
+              }
+            ],
+            "explanation": "The only duration information given is a vague, undated characterization ('chronic', 'longstanding') without a countable duration or two dated encounters at least 6 weeks apart, so the 6-week threshold cannot be confirmed.",
+            "detail": "",
+            "failure_kind": "NONE",
+            "extracted_status": "AMBIGUOUS",
+            "downgraded": false,
+            "downgrade_reason": "",
+            "verification": {
+              "quote_check": {
+                "returned": 1,
+                "verified": 1,
+                "rejected": 0
+              },
+              "support_check": {
+                "ran": true,
+                "outcome": "SUPPORTED",
+                "detail": "The single passage only describes the pain as chronic/longstanding without dates or a countable duration, matching the VAGUE_DURATION criterion."
+              }
+            }
+          },
+          {
+            "criterion_id": "C3",
+            "clinical_status": "MET",
+            "processing_status": "COMPLETE",
+            "reason_codes": [],
+            "evidence": [
+              {
+                "document_id": "doc_5bd47eae2679",
+                "quote": "He has taken ibuprofen for it. Says he took it regularly for a stretch, up to 600 mg three times a day as directed, and it did nothing for him.",
+                "role": "supporting",
+                "verified": true,
+                "span": {
+                  "document_id": "doc_5bd47eae2679",
+                  "content_sha256": "04bd3f9acebe300396b878f73da8e831a6704ddc08e7fd7e4c3bf7a1a90aa7dc",
+                  "start": 607,
+                  "end": 750
+                },
+                "detail": "",
+                "ambiguous_locations": 0
+              }
+            ],
+            "explanation": "The note documents an actual NSAID trial (ibuprofen taken regularly as directed) along with a documented failed outcome ('it did nothing for him'), satisfying both the attempt and failure elements for this modality.",
+            "detail": "",
+            "failure_kind": "NONE",
+            "extracted_status": "MET",
+            "downgraded": false,
+            "downgrade_reason": "",
+            "verification": {
+              "quote_check": {
+                "returned": 1,
+                "verified": 1,
+                "rejected": 0
+              },
+              "support_check": {
+                "ran": true,
+                "outcome": "SUPPORTED",
+                "detail": "The passage documents an actual NSAID trial (ibuprofen 600mg three times daily as directed) with a clearly stated failed outcome ('it did nothing for him'), satisfying both the attempt and failure requirements for C3."
+              }
+            }
+          },
+          {
+            "criterion_id": "C4",
+            "clinical_status": "AMBIGUOUS",
+            "processing_status": "COMPLETE",
+            "reason_codes": [
+              "MISSING_EVIDENCE"
+            ],
+            "evidence": [],
+            "explanation": "None of the five red-flag categories (cauda equina, progressive neurologic deficit, malignancy, infection, significant trauma) are named or addressed anywhere in the record.",
+            "detail": "",
+            "failure_kind": "NONE",
+            "extracted_status": "AMBIGUOUS",
+            "downgraded": false,
+            "downgrade_reason": "",
+            "verification": {
+              "quote_check": {
+                "returned": 0,
+                "verified": 0,
+                "rejected": 0
+              },
+              "support_check": {
+                "ran": false,
+                "outcome": "SKIPPED",
+                "detail": "no affirmative claim resting on verified evidence; nothing for the verifier to check"
+              }
+            }
+          },
+          {
+            "criterion_id": "C5",
+            "clinical_status": "AMBIGUOUS",
+            "processing_status": "COMPLETE",
+            "reason_codes": [
+              "MISSING_EVIDENCE"
+            ],
+            "evidence": [],
+            "explanation": "The record contains no statement about a prior lumbar MRI, whether present or absent, so prior imaging status within the preceding 12 months cannot be determined.",
+            "detail": "",
+            "failure_kind": "NONE",
+            "extracted_status": "AMBIGUOUS",
+            "downgraded": false,
+            "downgrade_reason": "",
+            "verification": {
+              "quote_check": {
+                "returned": 0,
+                "verified": 0,
+                "rejected": 0
+              },
+              "support_check": {
+                "ran": false,
+                "outcome": "SKIPPED",
+                "detail": "no affirmative claim resting on verified evidence; nothing for the verifier to check"
+              }
+            }
+          }
+        ],
+        "support_attempts": [
+          {
+            "index": 1,
+            "seconds": 1.511,
+            "input_tokens": 1070,
+            "output_tokens": 56,
+            "error": "",
+            "parse_error": "",
+            "retryable": true,
+            "stop_reason": "end_turn",
+            "raw_text": "{\"outcome\": \"SUPPORTED\", \"detail\": \"Both passages explicitly document low back pain with radicular (leg) symptoms, satisfying C1.\"}"
+          },
+          {
+            "index": 1,
+            "seconds": 1.68,
+            "input_tokens": 1247,
+            "output_tokens": 69,
+            "error": "",
+            "parse_error": "",
+            "retryable": true,
+            "stop_reason": "end_turn",
+            "raw_text": "{\"outcome\": \"SUPPORTED\", \"detail\": \"The single passage only describes the pain as chronic/longstanding without dates or a countable duration, matching the VAGUE_DURATION criterion.\"}"
+          },
+          {
+            "index": 1,
+            "seconds": 1.635,
+            "input_tokens": 1203,
+            "output_tokens": 98,
+            "error": "",
+            "parse_error": "",
+            "retryable": true,
+            "stop_reason": "end_turn",
+            "raw_text": "{\"outcome\": \"SUPPORTED\", \"detail\": \"The passage documents an actual NSAID trial (ibuprofen 600mg three times daily as directed) with a clearly stated failed outcome ('it did nothing for him'), satisfying both the attempt and failure requirements for C3.\"}"
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "MRI-003",
+      "extraction": {
+        "case_id": "MRI-003",
+        "configuration": "A",
+        "model": "claude-sonnet-5",
+        "prompt_version": "extraction/1.2.0",
+        "processing_status": "COMPLETE",
+        "calls": 1,
+        "input_tokens": 8563,
+        "output_tokens": 1892,
+        "seconds": 15.898,
+        "failures": {
+          "CONTRACT_REJECTION": 0,
+          "NO_RESPONSE": 0,
+          "NOT_ATTEMPTED": 0
+        },
+        "results": [
+          {
+            "criterion_id": "C1",
+            "clinical_status": "MET",
+            "processing_status": "COMPLETE",
+            "reason_codes": [],
+            "evidence": [
+              {
+                "document_id": "doc_42f4745c2fca",
+                "quote": "Mr. Ferreira presents with low back pain radiating down the posterior right leg to the lateral ankle.",
+                "role": "supporting"
+              },
+              {
+                "document_id": "doc_92bc49dfc6d5",
+                "quote": "Right L5 radiculopathy with progressive motor deficit.",
+                "role": "supporting"
+              }
+            ],
+            "explanation": "Multiple clinical notes document low back pain with radicular symptoms into the right leg/foot, satisfying the criterion.",
+            "detail": "",
+            "failure_kind": "NONE",
+            "rejected_payload": null
+          },
+          {
+            "criterion_id": "C2",
+            "clinical_status": "NOT_APPLICABLE",
+            "processing_status": "COMPLETE",
+            "reason_codes": [],
+            "evidence": [],
+            "explanation": "C4 (progressive neurologic deficit) is MET, triggering the exception pathway that waives C2.",
+            "detail": "",
+            "failure_kind": "NONE",
+            "rejected_payload": null
+          },
+          {
+            "criterion_id": "C3",
+            "clinical_status": "NOT_APPLICABLE",
+            "processing_status": "COMPLETE",
+            "reason_codes": [],
+            "evidence": [],
+            "explanation": "C4 (progressive neurologic deficit) is MET, triggering the exception pathway that waives C3.",
+            "detail": "",
+            "failure_kind": "NONE",
+            "rejected_payload": null
+          },
+          {
+            "criterion_id": "C4",
+            "clinical_status": "MET",
+            "processing_status": "COMPLETE",
+            "reason_codes": [],
+            "evidence": [
+              {
+                "document_id": "doc_92bc49dfc6d5",
+                "quote": "Right L5 radiculopathy with progressive motor deficit. Dorsiflexion has declined from 4+/5 at the urgent care assessment to 3/5 today, and there is now a visible foot drop that was not present at that visit. This is a deteriorating motor picture over a short interval.",
+                "role": "supporting"
+              },
+              {
+                "document_id": "doc_ea6b3ad461bc",
+                "quote": "PRIORITY: URGENT - progressive motor deficit",
+                "role": "supporting"
+              }
+            ],
+            "explanation": "The neurosurgery clinic note explicitly documents a progressive motor deficit (dorsiflexion declining from 4+/5 to 3/5 with new visible foot drop), and the imaging order likewise flags progressive motor deficit as the indication, satisfying the red-flag trigger.",
+            "detail": "",
+            "failure_kind": "NONE",
+            "rejected_payload": null
+          },
+          {
+            "criterion_id": "C5",
+            "clinical_status": "MET",
+            "processing_status": "COMPLETE",
+            "reason_codes": [],
+            "evidence": [
+              {
+                "document_id": "doc_92bc49dfc6d5",
+                "quote": "He had an MRI of the lumbar spine in 2024 at Bayview when he had a different episode involving the left leg; that resolved without intervention and he did not require surgery.",
+                "role": "supporting"
+              }
+            ],
+            "explanation": "The prior lumbar MRI is dated 2024, more than 12 months before the current 09/02/2026 encounter, so the prior-imaging window requirement is satisfied by the dated interval alone.",
+            "detail": "",
+            "failure_kind": "NONE",
+            "rejected_payload": null
+          }
+        ],
+        "prompts": [
+          {
+            "prompt_version": "extraction/1.2.0",
+            "criterion_ids": [
+              "C1",
+              "C2",
+              "C3",
+              "C4",
+              "C5"
+            ],
+            "system_chars": 6313,
+            "criteria_chars": 12193,
+            "record_chars": 6209
+          }
+        ],
+        "attempts": [
+          {
+            "index": 1,
+            "seconds": 15.897,
+            "input_tokens": 8563,
+            "output_tokens": 1892,
+            "error": "",
+            "parse_error": "",
+            "retryable": true,
+            "stop_reason": "end_turn",
+            "raw_text": "{\n  \"results\": [\n    {\n      \"criterion_id\": \"C1\",\n      \"clinical_status\": \"MET\",\n      \"reason_codes\": [],\n      \"evidence\": [\n        {\n          \"document_id\": \"doc_42f4745c2fca\",\n          \"quote\": \"Mr. Ferreira presents with low back pain radiating down the posterior right leg to the lateral ankle.\",\n          \"role\": \"supporting\"\n        },\n        {\n          \"document_id\": \"doc_92bc49dfc6d5\",\n          \"quote\": \"Right L5 radiculopathy with progressive motor deficit.\",\n          \"role\": \"supporting\"\n        }\n      ],\n      \"explanation\": \"Multiple clinical notes document low back pain with radicular symptoms into the right leg/foot, satisfying the criterion.\"\n    },\n    {\n      \"criterion_id\": \"C2\",\n      \"clinical_status\": \"NOT_APPLICABLE\",\n      \"reason_codes\": [],\n      \"evidence\": [],\n      \"explanation\": \"C4 (progressive neurologic deficit) is MET, triggering the exception pathway that waives C2.\"\n    },\n    {\n      \"criterion_id\": \"C3\",\n      \"clinical_status\": \"NOT_APPLICABLE\",\n      \"reason_codes\": [],\n      \"evidence\": [],\n      \"explanation\": \"C4 (progressive neurologic deficit) is MET, triggering the exception pathway that waives C3.\"\n    },\n    {\n      \"criterion_id\": \"C4\",\n      \"clinical_status\": \"MET\",\n      \"reason_codes\": [],\n      \"evidence\": [\n        {\n          \"document_id\": \"doc_92bc49dfc6d5\",\n          \"quote\": \"Right L5 radiculopathy with progressive motor deficit. Dorsiflexion has declined from 4+/5 at the urgent care assessment to 3/5 today, and there is now a visible foot drop that was not present at that visit. This is a deteriorating motor picture over a short interval.\",\n          \"role\": \"supporting\"\n        },\n        {\n          \"document_id\": \"doc_ea6b3ad461bc\",\n          \"quote\": \"PRIORITY: URGENT - progressive motor deficit\",\n          \"role\": \"supporting\"\n        }\n      ],\n      \"explanation\": \"The neurosurgery clinic note explicitly documents a progressive motor deficit (dorsiflexion declining from 4+/5 to 3/5 with new visible foot drop), and the imaging order likewise flags progressive motor deficit as the indication, satisfying the red-flag trigger.\"\n    },\n    {\n      \"criterion_id\": \"C5\",\n      \"clinical_status\": \"MET\",\n      \"reason_codes\": [],\n      \"evidence\": [\n        {\n          \"document_id\": \"doc_92bc49dfc6d5\",\n          \"quote\": \"He had an MRI of the lumbar spine in 2024 at Bayview when he had a different episode involving the left leg; that resolved without intervention and he did not require surgery.\",\n          \"role\": \"supporting\"\n        }\n      ],\n      \"explanation\": \"The prior lumbar MRI is dated 2024, more than 12 months before the current 09/02/2026 encounter, so the prior-imaging window requirement is satisfied by the dated interval alone.\"\n    }\n  ]\n}"
+          }
+        ]
+      },
+      "verification": {
+        "case_id": "MRI-003",
+        "configuration": "A",
+        "processing_status": "COMPLETE",
+        "returned_spans": 5,
+        "verified_spans": 5,
+        "citation_validity": 1.0,
+        "downgraded": 0,
+        "support_outcomes": {
+          "SUPPORTED": 3,
+          "UNSUPPORTED": 0,
+          "INCONCLUSIVE": 0,
+          "SKIPPED": 2,
+          "FAILED": 0
+        },
+        "seconds": 8.341,
+        "results": [
+          {
+            "criterion_id": "C1",
+            "clinical_status": "MET",
+            "processing_status": "COMPLETE",
+            "reason_codes": [],
+            "evidence": [
+              {
+                "document_id": "doc_42f4745c2fca",
+                "quote": "Mr. Ferreira presents with low back pain radiating down the posterior right leg to the lateral ankle.",
+                "role": "supporting",
+                "verified": true,
+                "span": {
+                  "document_id": "doc_42f4745c2fca",
+                  "content_sha256": "2329c599f97606cd1cd11a6aed47177c3f34296294dafd00fb3c6017153b9dd7",
+                  "start": 216,
+                  "end": 317
+                },
+                "detail": "",
+                "ambiguous_locations": 0
+              },
+              {
+                "document_id": "doc_92bc49dfc6d5",
+                "quote": "Right L5 radiculopathy with progressive motor deficit.",
+                "role": "supporting",
+                "verified": true,
+                "span": {
+                  "document_id": "doc_92bc49dfc6d5",
+                  "content_sha256": "6b111ad6098bc636927117de53d8159a95567a3dce7990b8a2a388eb34976dd7",
+                  "start": 1483,
+                  "end": 1537
+                },
+                "detail": "",
+                "ambiguous_locations": 0
+              }
+            ],
+            "explanation": "Multiple clinical notes document low back pain with radicular symptoms into the right leg/foot, satisfying the criterion.",
+            "detail": "",
+            "failure_kind": "NONE",
+            "extracted_status": "MET",
+            "downgraded": false,
+            "downgrade_reason": "",
+            "verification": {
+              "quote_check": {
+                "returned": 2,
+                "verified": 2,
+                "rejected": 0
+              },
+              "support_check": {
+                "ran": true,
+                "outcome": "SUPPORTED",
+                "detail": "The first passage directly documents low back pain with radicular symptoms into the right leg, satisfying C1's requirement."
+              }
+            }
+          },
+          {
+            "criterion_id": "C2",
+            "clinical_status": "NOT_APPLICABLE",
+            "processing_status": "COMPLETE",
+            "reason_codes": [],
+            "evidence": [],
+            "explanation": "C4 (progressive neurologic deficit) is MET, triggering the exception pathway that waives C2.",
+            "detail": "",
+            "failure_kind": "NONE",
+            "extracted_status": "NOT_APPLICABLE",
+            "downgraded": false,
+            "downgrade_reason": "",
+            "verification": {
+              "quote_check": {
+                "returned": 0,
+                "verified": 0,
+                "rejected": 0
+              },
+              "support_check": {
+                "ran": false,
+                "outcome": "SKIPPED",
+                "detail": "no affirmative claim resting on verified evidence; nothing for the verifier to check"
+              }
+            }
+          },
+          {
+            "criterion_id": "C3",
+            "clinical_status": "NOT_APPLICABLE",
+            "processing_status": "COMPLETE",
+            "reason_codes": [],
+            "evidence": [],
+            "explanation": "C4 (progressive neurologic deficit) is MET, triggering the exception pathway that waives C3.",
+            "detail": "",
+            "failure_kind": "NONE",
+            "extracted_status": "NOT_APPLICABLE",
+            "downgraded": false,
+            "downgrade_reason": "",
+            "verification": {
+              "quote_check": {
+                "returned": 0,
+                "verified": 0,
+                "rejected": 0
+              },
+              "support_check": {
+                "ran": false,
+                "outcome": "SKIPPED",
+                "detail": "no affirmative claim resting on verified evidence; nothing for the verifier to check"
+              }
+            }
+          },
+          {
+            "criterion_id": "C4",
+            "clinical_status": "MET",
+            "processing_status": "COMPLETE",
+            "reason_codes": [],
+            "evidence": [
+              {
+                "document_id": "doc_92bc49dfc6d5",
+                "quote": "Right L5 radiculopathy with progressive motor deficit. Dorsiflexion has declined from 4+/5 at the urgent care assessment to 3/5 today, and there is now a visible foot drop that was not present at that visit. This is a deteriorating motor picture over a short interval.",
+                "role": "supporting",
+                "verified": true,
+                "span": {
+                  "document_id": "doc_92bc49dfc6d5",
+                  "content_sha256": "6b111ad6098bc636927117de53d8159a95567a3dce7990b8a2a388eb34976dd7",
+                  "start": 1483,
+                  "end": 1751
+                },
+                "detail": "",
+                "ambiguous_locations": 0
+              },
+              {
+                "document_id": "doc_ea6b3ad461bc",
+                "quote": "PRIORITY: URGENT - progressive motor deficit",
+                "role": "supporting",
+                "verified": true,
+                "span": {
+                  "document_id": "doc_ea6b3ad461bc",
+                  "content_sha256": "a6b1a944e36092c0ad12f7fe3c2a2fb26fbeea2b1b06f062c5fcb15f076646bb",
+                  "start": 253,
+                  "end": 297
+                },
+                "detail": "",
+                "ambiguous_locations": 0
+              }
+            ],
+            "explanation": "The neurosurgery clinic note explicitly documents a progressive motor deficit (dorsiflexion declining from 4+/5 to 3/5 with new visible foot drop), and the imaging order likewise flags progressive motor deficit as the indication, satisfying the red-flag trigger.",
+            "detail": "",
+            "failure_kind": "NONE",
+            "extracted_status": "MET",
+            "downgraded": false,
+            "downgrade_reason": "",
+            "verification": {
+              "quote_check": {
+                "returned": 2,
+                "verified": 2,
+                "rejected": 0
+              },
+              "support_check": {
+                "ran": true,
+                "outcome": "SUPPORTED",
+                "detail": "The passages explicitly document a progressive motor deficit (dorsiflexion decline with new foot drop) and flag it as urgent, directly satisfying the C4 red-flag trigger."
+              }
+            }
+          },
+          {
+            "criterion_id": "C5",
+            "clinical_status": "MET",
+            "processing_status": "COMPLETE",
+            "reason_codes": [],
+            "evidence": [
+              {
+                "document_id": "doc_92bc49dfc6d5",
+                "quote": "He had an MRI of the lumbar spine in 2024 at Bayview when he had a different episode involving the left leg; that resolved without intervention and he did not require surgery.",
+                "role": "supporting",
+                "verified": true,
+                "span": {
+                  "document_id": "doc_92bc49dfc6d5",
+                  "content_sha256": "6b111ad6098bc636927117de53d8159a95567a3dce7990b8a2a388eb34976dd7",
+                  "start": 750,
+                  "end": 925
+                },
+                "detail": "",
+                "ambiguous_locations": 0
+              }
+            ],
+            "explanation": "The prior lumbar MRI is dated 2024, more than 12 months before the current 09/02/2026 encounter, so the prior-imaging window requirement is satisfied by the dated interval alone.",
+            "detail": "",
+            "failure_kind": "NONE",
+            "extracted_status": "MET",
+            "downgraded": false,
+            "downgrade_reason": "",
+            "verification": {
+              "quote_check": {
+                "returned": 1,
+                "verified": 1,
+                "rejected": 0
+              },
+              "support_check": {
+                "ran": true,
+                "outcome": "SUPPORTED",
+                "detail": "The passage documents a prior lumbar MRI in 2024, and since even the latest possible 2024 date is more than 12 months before the 09/02/2026 encounter, the study falls outside the 12-month window, satisfying C5 without needing documented clinical change."
+              }
+            }
+          }
+        ],
+        "support_attempts": [
+          {
+            "index": 1,
+            "seconds": 1.568,
+            "input_tokens": 1097,
+            "output_tokens": 60,
+            "error": "",
+            "parse_error": "",
+            "retryable": true,
+            "stop_reason": "end_turn",
+            "raw_text": "{\"outcome\": \"SUPPORTED\", \"detail\": \"The first passage directly documents low back pain with radicular symptoms into the right leg, satisfying C1's requirement.\"}"
+          },
+          {
+            "index": 1,
+            "seconds": 1.539,
+            "input_tokens": 1391,
+            "output_tokens": 84,
+            "error": "",
+            "parse_error": "",
+            "retryable": true,
+            "stop_reason": "end_turn",
+            "raw_text": "{\"outcome\": \"SUPPORTED\", \"detail\": \"The passages explicitly document a progressive motor deficit (dorsiflexion decline with new foot drop) and flag it as urgent, directly satisfying the C4 red-flag trigger.\"}"
+          },
+          {
+            "index": 1,
+            "seconds": 5.233,
+            "input_tokens": 1265,
+            "output_tokens": 464,
+            "error": "",
+            "parse_error": "",
+            "retryable": true,
+            "stop_reason": "end_turn",
+            "raw_text": "{\"outcome\": \"SUPPORTED\", \"detail\": \"The passage documents a prior lumbar MRI in 2024, and since even the latest possible 2024 date is more than 12 months before the 09/02/2026 encounter, the study falls outside the 12-month window, satisfying C5 without needing documented clinical change.\"}"
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "MRI-004",
+      "extraction": {
+        "case_id": "MRI-004",
+        "configuration": "A",
+        "model": "claude-sonnet-5",
+        "prompt_version": "extraction/1.2.0",
+        "processing_status": "COMPLETE",
+        "calls": 1,
+        "input_tokens": 8542,
+        "output_tokens": 4109,
+        "seconds": 36.676,
+        "failures": {
+          "CONTRACT_REJECTION": 0,
+          "NO_RESPONSE": 0,
+          "NOT_ATTEMPTED": 0
+        },
+        "results": [
+          {
+            "criterion_id": "C1",
+            "clinical_status": "MET",
+            "processing_status": "COMPLETE",
+            "reason_codes": [],
+            "evidence": [
+              {
+                "document_id": "doc_645df6611de1",
+                "quote": "Ms. Delacroix returns with an 8-week history of low back pain.",
+                "role": "supporting"
+              },
+              {
+                "document_id": "doc_e14e2cfdeefb",
+                "quote": "Bilateral low back pain, mechanical pattern, no radicular features.",
+                "role": "supporting"
+              }
+            ],
+            "explanation": "Both the physician office note and the imaging requisition document low back pain, satisfying the requirement regardless of the noted absence of radicular features.",
+            "detail": "",
+            "failure_kind": "NONE",
+            "rejected_payload": null
+          },
+          {
+            "criterion_id": "C2",
+            "clinical_status": "AMBIGUOUS",
+            "processing_status": "COMPLETE",
+            "reason_codes": [
+              "CONFLICTING_EVIDENCE"
+            ],
+            "evidence": [
+              {
+                "document_id": "doc_645df6611de1",
+                "quote": "Ms. Delacroix returns with an 8-week history of low back pain.",
+                "role": "supporting"
+              },
+              {
+                "document_id": "doc_d8f094b63226",
+                "quote": "Started bothering me about 3 weeks ago. Comes and goes but mostly it is there.",
+                "role": "contradicting"
+              }
+            ],
+            "explanation": "The physician's note states an 8-week history (meeting the 6-week threshold), but the patient's own intake form completed only two days earlier reports onset about 3 weeks prior, directly conflicting on the duration of the same symptom episode.",
+            "detail": "",
+            "failure_kind": "NONE",
+            "rejected_payload": null
+          },
+          {
+            "criterion_id": "C3",
+            "clinical_status": "AMBIGUOUS",
+            "processing_status": "COMPLETE",
+            "reason_codes": [
+              "CONFLICTING_EVIDENCE"
+            ],
+            "evidence": [
+              {
+                "document_id": "doc_505d29aa4abc",
+                "quote": "Pain report is essentially where it started.",
+                "role": "supporting"
+              },
+              {
+                "document_id": "doc_645df6611de1",
+                "quote": "She has not yet started physical therapy and is going to look into scheduling once her rota settles down.",
+                "role": "contradicting"
+              }
+            ],
+            "explanation": "A physiotherapy progress note dated before the physician's visit documents six completed sessions with pain unchanged (an attempted-and-failed PT trial), yet the physician's note from a later date states the patient has not yet started physical therapy, creating an unresolved conflict about whether PT was actually attempted.",
+            "detail": "",
+            "failure_kind": "NONE",
+            "rejected_payload": null
+          },
+          {
+            "criterion_id": "C4",
+            "clinical_status": "AMBIGUOUS",
+            "processing_status": "COMPLETE",
+            "reason_codes": [
+              "MISSING_EVIDENCE"
+            ],
+            "evidence": [],
+            "explanation": "No passage in the record names or addresses cauda equina syndrome, progressive neurologic deficit, suspected malignancy, suspected spinal infection, or significant trauma, so none of the five red-flag categories are addressed.",
+            "detail": "",
+            "failure_kind": "NONE",
+            "rejected_payload": null
+          },
+          {
+            "criterion_id": "C5",
+            "clinical_status": "AMBIGUOUS",
+            "processing_status": "COMPLETE",
+            "reason_codes": [
+              "MISSING_EVIDENCE"
+            ],
+            "evidence": [],
+            "explanation": "The record contains no mention of any prior lumbar MRI or imaging history, so the requirement cannot be evaluated.",
+            "detail": "",
+            "failure_kind": "NONE",
+            "rejected_payload": null
+          }
+        ],
+        "prompts": [
+          {
+            "prompt_version": "extraction/1.2.0",
+            "criterion_ids": [
+              "C1",
+              "C2",
+              "C3",
+              "C4",
+              "C5"
+            ],
+            "system_chars": 6313,
+            "criteria_chars": 12193,
+            "record_chars": 6329
+          }
+        ],
+        "attempts": [
+          {
+            "index": 1,
+            "seconds": 36.676,
+            "input_tokens": 8542,
+            "output_tokens": 4109,
+            "error": "",
+            "parse_error": "",
+            "retryable": true,
+            "stop_reason": "end_turn",
+            "raw_text": "{\n  \"results\": [\n    {\n      \"criterion_id\": \"C1\",\n      \"clinical_status\": \"MET\",\n      \"reason_codes\": [],\n      \"evidence\": [\n        {\n          \"document_id\": \"doc_645df6611de1\",\n          \"quote\": \"Ms. Delacroix returns with an 8-week history of low back pain.\",\n          \"role\": \"supporting\"\n        },\n        {\n          \"document_id\": \"doc_e14e2cfdeefb\",\n          \"quote\": \"Bilateral low back pain, mechanical pattern, no radicular features.\",\n          \"role\": \"supporting\"\n        }\n      ],\n      \"explanation\": \"Both the physician office note and the imaging requisition document low back pain, satisfying the requirement regardless of the noted absence of radicular features.\"\n    },\n    {\n      \"criterion_id\": \"C2\",\n      \"clinical_status\": \"AMBIGUOUS\",\n      \"reason_codes\": [\"CONFLICTING_EVIDENCE\"],\n      \"evidence\": [\n        {\n          \"document_id\": \"doc_645df6611de1\",\n          \"quote\": \"Ms. Delacroix returns with an 8-week history of low back pain.\",\n          \"role\": \"supporting\"\n        },\n        {\n          \"document_id\": \"doc_d8f094b63226\",\n          \"quote\": \"Started bothering me about 3 weeks ago. Comes and goes but mostly it is there.\",\n          \"role\": \"contradicting\"\n        }\n      ],\n      \"explanation\": \"The physician's note states an 8-week history (meeting the 6-week threshold), but the patient's own intake form completed only two days earlier reports onset about 3 weeks prior, directly conflicting on the duration of the same symptom episode.\"\n    },\n    {\n      \"criterion_id\": \"C3\",\n      \"clinical_status\": \"AMBIGUOUS\",\n      \"reason_codes\": [\"CONFLICTING_EVIDENCE\"],\n      \"evidence\": [\n        {\n          \"document_id\": \"doc_505d29aa4abc\",\n          \"quote\": \"Pain report is essentially where it started.\",\n          \"role\": \"supporting\"\n        },\n        {\n          \"document_id\": \"doc_645df6611de1\",\n          \"quote\": \"She has not yet started physical therapy and is going to look into scheduling once her rota settles down.\",\n          \"role\": \"contradicting\"\n        }\n      ],\n      \"explanation\": \"A physiotherapy progress note dated before the physician's visit documents six completed sessions with pain unchanged (an attempted-and-failed PT trial), yet the physician's note from a later date states the patient has not yet started physical therapy, creating an unresolved conflict about whether PT was actually attempted.\"\n    },\n    {\n      \"criterion_id\": \"C4\",\n      \"clinical_status\": \"AMBIGUOUS\",\n      \"reason_codes\": [\"MISSING_EVIDENCE\"],\n      \"evidence\": [],\n      \"explanation\": \"No passage in the record names or addresses cauda equina syndrome, progressive neurologic deficit, suspected malignancy, suspected spinal infection, or significant trauma, so none of the five red-flag categories are addressed.\"\n    },\n    {\n      \"criterion_id\": \"C5\",\n      \"clinical_status\": \"AMBIGUOUS\",\n      \"reason_codes\": [\"MISSING_EVIDENCE\"],\n      \"evidence\": [],\n      \"explanation\": \"The record contains no mention of any prior lumbar MRI or imaging history, so the requirement cannot be evaluated.\"\n    }\n  ]\n}"
+          }
+        ]
+      },
+      "verification": {
+        "case_id": "MRI-004",
+        "configuration": "A",
+        "processing_status": "COMPLETE",
+        "returned_spans": 6,
+        "verified_spans": 6,
+        "citation_validity": 1.0,
+        "downgraded": 0,
+        "support_outcomes": {
+          "SUPPORTED": 2,
+          "UNSUPPORTED": 1,
+          "INCONCLUSIVE": 0,
+          "SKIPPED": 2,
+          "FAILED": 0
+        },
+        "seconds": 10.758,
+        "results": [
+          {
+            "criterion_id": "C1",
+            "clinical_status": "MET",
+            "processing_status": "COMPLETE",
+            "reason_codes": [],
+            "evidence": [
+              {
+                "document_id": "doc_645df6611de1",
+                "quote": "Ms. Delacroix returns with an 8-week history of low back pain.",
+                "role": "supporting",
+                "verified": true,
+                "span": {
+                  "document_id": "doc_645df6611de1",
+                  "content_sha256": "7b3eeb5b3f8c68deb722fef593bb6aec2ca614dfbb3458eecf6350756a97ef02",
+                  "start": 138,
+                  "end": 200
+                },
+                "detail": "",
+                "ambiguous_locations": 0
+              },
+              {
+                "document_id": "doc_e14e2cfdeefb",
+                "quote": "Bilateral low back pain, mechanical pattern, no radicular features.",
+                "role": "supporting",
+                "verified": true,
+                "span": {
+                  "document_id": "doc_e14e2cfdeefb",
+                  "content_sha256": "dfb5ac96e06df15a79d39d86d4837d422ab81e373b1aeb03b6b4b0e70f8d8eca",
+                  "start": 289,
+                  "end": 356
+                },
+                "detail": "",
+                "ambiguous_locations": 0
+              }
+            ],
+            "explanation": "Both the physician office note and the imaging requisition document low back pain, satisfying the requirement regardless of the noted absence of radicular features.",
+            "detail": "",
+            "failure_kind": "NONE",
+            "extracted_status": "MET",
+            "downgraded": false,
+            "downgrade_reason": "",
+            "verification": {
+              "quote_check": {
+                "returned": 2,
+                "verified": 2,
+                "rejected": 0
+              },
+              "support_check": {
+                "ran": true,
+                "outcome": "SUPPORTED",
+                "detail": "Both passages explicitly document low back pain, which satisfies C1's requirement regardless of radicular status."
+              }
+            }
+          },
+          {
+            "criterion_id": "C2",
+            "clinical_status": "AMBIGUOUS",
+            "processing_status": "COMPLETE",
+            "reason_codes": [
+              "CONFLICTING_EVIDENCE"
+            ],
+            "evidence": [
+              {
+                "document_id": "doc_645df6611de1",
+                "quote": "Ms. Delacroix returns with an 8-week history of low back pain.",
+                "role": "supporting",
+                "verified": true,
+                "span": {
+                  "document_id": "doc_645df6611de1",
+                  "content_sha256": "7b3eeb5b3f8c68deb722fef593bb6aec2ca614dfbb3458eecf6350756a97ef02",
+                  "start": 138,
+                  "end": 200
+                },
+                "detail": "",
+                "ambiguous_locations": 0
+              },
+              {
+                "document_id": "doc_d8f094b63226",
+                "quote": "Started bothering me about 3 weeks ago. Comes and goes but mostly it is there.",
+                "role": "contradicting",
+                "verified": true,
+                "span": {
+                  "document_id": "doc_d8f094b63226",
+                  "content_sha256": "a7fbc93c87403d37a195b32ec242fad447f7be5777a6f4bdbd66a6366c86e270",
+                  "start": 243,
+                  "end": 321
+                },
+                "detail": "",
+                "ambiguous_locations": 0
+              }
+            ],
+            "explanation": "The physician's note states an 8-week history (meeting the 6-week threshold), but the patient's own intake form completed only two days earlier reports onset about 3 weeks prior, directly conflicting on the duration of the same symptom episode.",
+            "detail": "",
+            "failure_kind": "NONE",
+            "extracted_status": "AMBIGUOUS",
+            "downgraded": false,
+            "downgrade_reason": "",
+            "verification": {
+              "quote_check": {
+                "returned": 2,
+                "verified": 2,
+                "rejected": 0
+              },
+              "support_check": {
+                "ran": true,
+                "outcome": "SUPPORTED",
+                "detail": "The two passages give conflicting durations (8 weeks vs. 3 weeks) for the same symptom, which genuinely supports AMBIGUOUS with CONFLICTING_EVIDENCE."
+              }
+            }
+          },
+          {
+            "criterion_id": "C3",
+            "clinical_status": "AMBIGUOUS",
+            "processing_status": "COMPLETE",
+            "reason_codes": [
+              "CONFLICTING_EVIDENCE"
+            ],
+            "evidence": [
+              {
+                "document_id": "doc_505d29aa4abc",
+                "quote": "Pain report is essentially where it started.",
+                "role": "supporting",
+                "verified": true,
+                "span": {
+                  "document_id": "doc_505d29aa4abc",
+                  "content_sha256": "665672f4f262016c2e9b4a40d47214d8aea95e6fb0240413d8e9bea4c90f1bb2",
+                  "start": 871,
+                  "end": 915
+                },
+                "detail": "",
+                "ambiguous_locations": 0
+              },
+              {
+                "document_id": "doc_645df6611de1",
+                "quote": "She has not yet started physical therapy and is going to look into scheduling once her rota settles down.",
+                "role": "contradicting",
+                "verified": true,
+                "span": {
+                  "document_id": "doc_645df6611de1",
+                  "content_sha256": "7b3eeb5b3f8c68deb722fef593bb6aec2ca614dfbb3458eecf6350756a97ef02",
+                  "start": 932,
+                  "end": 1037
+                },
+                "detail": "",
+                "ambiguous_locations": 0
+              }
+            ],
+            "explanation": "A physiotherapy progress note dated before the physician's visit documents six completed sessions with pain unchanged (an attempted-and-failed PT trial), yet the physician's note from a later date states the patient has not yet started physical therapy, creating an unresolved conflict about whether PT was actually attempted.",
+            "detail": "",
+            "failure_kind": "NONE",
+            "extracted_status": "AMBIGUOUS",
+            "downgraded": false,
+            "downgrade_reason": "",
+            "verification": {
+              "quote_check": {
+                "returned": 2,
+                "verified": 2,
+                "rejected": 0
+              },
+              "support_check": {
+                "ran": true,
+                "outcome": "UNSUPPORTED",
+                "detail": "The 'supporting' passage never mentions physical therapy or session counts, so the two quotes do not actually establish a conflict about the same modality being both completed and not started."
+              }
+            }
+          },
+          {
+            "criterion_id": "C4",
+            "clinical_status": "AMBIGUOUS",
+            "processing_status": "COMPLETE",
+            "reason_codes": [
+              "MISSING_EVIDENCE"
+            ],
+            "evidence": [],
+            "explanation": "No passage in the record names or addresses cauda equina syndrome, progressive neurologic deficit, suspected malignancy, suspected spinal infection, or significant trauma, so none of the five red-flag categories are addressed.",
+            "detail": "",
+            "failure_kind": "NONE",
+            "extracted_status": "AMBIGUOUS",
+            "downgraded": false,
+            "downgrade_reason": "",
+            "verification": {
+              "quote_check": {
+                "returned": 0,
+                "verified": 0,
+                "rejected": 0
+              },
+              "support_check": {
+                "ran": false,
+                "outcome": "SKIPPED",
+                "detail": "no affirmative claim resting on verified evidence; nothing for the verifier to check"
+              }
+            }
+          },
+          {
+            "criterion_id": "C5",
+            "clinical_status": "AMBIGUOUS",
+            "processing_status": "COMPLETE",
+            "reason_codes": [
+              "MISSING_EVIDENCE"
+            ],
+            "evidence": [],
+            "explanation": "The record contains no mention of any prior lumbar MRI or imaging history, so the requirement cannot be evaluated.",
+            "detail": "",
+            "failure_kind": "NONE",
+            "extracted_status": "AMBIGUOUS",
+            "downgraded": false,
+            "downgrade_reason": "",
+            "verification": {
+              "quote_check": {
+                "returned": 0,
+                "verified": 0,
+                "rejected": 0
+              },
+              "support_check": {
+                "ran": false,
+                "outcome": "SKIPPED",
+                "detail": "no affirmative claim resting on verified evidence; nothing for the verifier to check"
+              }
+            }
+          }
+        ],
+        "support_attempts": [
+          {
+            "index": 1,
+            "seconds": 1.417,
+            "input_tokens": 1092,
+            "output_tokens": 57,
+            "error": "",
+            "parse_error": "",
+            "retryable": true,
+            "stop_reason": "end_turn",
+            "raw_text": "{\"outcome\": \"SUPPORTED\", \"detail\": \"Both passages explicitly document low back pain, which satisfies C1's requirement regardless of radicular status.\"}"
+          },
+          {
+            "index": 1,
+            "seconds": 1.778,
+            "input_tokens": 1289,
+            "output_tokens": 90,
+            "error": "",
+            "parse_error": "",
+            "retryable": true,
+            "stop_reason": "end_turn",
+            "raw_text": "{\"outcome\": \"SUPPORTED\", \"detail\": \"The two passages give conflicting durations (8 weeks vs. 3 weeks) for the same symptom, which genuinely supports AMBIGUOUS with CONFLICTING_EVIDENCE.\"}"
+          },
+          {
+            "index": 1,
+            "seconds": 7.562,
+            "input_tokens": 1255,
+            "output_tokens": 635,
+            "error": "",
+            "parse_error": "",
+            "retryable": true,
+            "stop_reason": "end_turn",
+            "raw_text": "{\"outcome\": \"UNSUPPORTED\", \"detail\": \"The 'supporting' passage never mentions physical therapy or session counts, so the two quotes do not actually establish a conflict about the same modality being both completed and not started.\"}"
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "MRI-005",
+      "extraction": {
+        "case_id": "MRI-005",
+        "configuration": "A",
+        "model": "claude-sonnet-5",
+        "prompt_version": "extraction/1.2.0",
+        "processing_status": "COMPLETE",
+        "calls": 1,
+        "input_tokens": 8293,
+        "output_tokens": 2237,
+        "seconds": 19.114,
+        "failures": {
+          "CONTRACT_REJECTION": 0,
+          "NO_RESPONSE": 0,
+          "NOT_ATTEMPTED": 0
+        },
+        "results": [
+          {
+            "criterion_id": "C1",
+            "clinical_status": "MET",
+            "processing_status": "COMPLETE",
+            "reason_codes": [],
+            "evidence": [
+              {
+                "document_id": "doc_5979ccf72940",
+                "quote": "She also brings up low back pain, right side, low, sort of across the belt line.",
+                "role": "supporting"
+              },
+              {
+                "document_id": "doc_1a532ad73480",
+                "quote": "Same right low back pain across the belt line that she brought up at her last visit.",
+                "role": "supporting"
+              }
+            ],
+            "explanation": "Multiple notes document low back pain with associated right thigh heaviness, satisfying the requirement.",
+            "detail": "",
+            "failure_kind": "NONE",
+            "rejected_payload": null
+          },
+          {
+            "criterion_id": "C2",
+            "clinical_status": "MET",
+            "processing_status": "COMPLETE",
+            "reason_codes": [],
+            "evidence": [
+              {
+                "document_id": "doc_5979ccf72940",
+                "quote": "Date of Visit: 06/15/2026",
+                "role": "supporting"
+              },
+              {
+                "document_id": "doc_5979ccf72940",
+                "quote": "She also brings up low back pain, right side, low, sort of across the belt line.",
+                "role": "supporting"
+              },
+              {
+                "document_id": "doc_1a532ad73480",
+                "quote": "Date of Visit: 08/17/2026",
+                "role": "supporting"
+              },
+              {
+                "document_id": "doc_1a532ad73480",
+                "quote": "Same right low back pain across the belt line that she brought up at her last visit.",
+                "role": "supporting"
+              }
+            ],
+            "explanation": "The same low back pain (with thigh heaviness) is documented at two encounters dated 06/15/2026 and 08/17/2026, approximately nine weeks apart, satisfying the two-encounter pathway for duration of at least 6 weeks.",
+            "detail": "",
+            "failure_kind": "NONE",
+            "rejected_payload": null
+          },
+          {
+            "criterion_id": "C3",
+            "clinical_status": "MET",
+            "processing_status": "COMPLETE",
+            "reason_codes": [],
+            "evidence": [
+              {
+                "document_id": "doc_4dfd8c4ef30a",
+                "quote": "Meloxicam 15 mg oral daily trial completed, no relief",
+                "role": "supporting"
+              },
+              {
+                "document_id": "doc_4dfd8c4ef30a",
+                "quote": "Meloxicam bottle empty, she reports finishing it as directed and says it made no difference to the back.",
+                "role": "supporting"
+              }
+            ],
+            "explanation": "An NSAID (meloxicam) trial was completed and documented as producing no relief of the back pain, meeting both the attempt and failed-outcome elements.",
+            "detail": "",
+            "failure_kind": "NONE",
+            "rejected_payload": null
+          },
+          {
+            "criterion_id": "C4",
+            "clinical_status": "AMBIGUOUS",
+            "processing_status": "COMPLETE",
+            "reason_codes": [
+              "INSUFFICIENT_CONTEXT"
+            ],
+            "evidence": [
+              {
+                "document_id": "doc_1a532ad73480",
+                "quote": "though she cannot say it is worse exactly. No change in the character of it.",
+                "role": "supporting"
+              }
+            ],
+            "explanation": "The record addresses progression of the thigh symptom and negates it (no worsening/change), but does not mention cauda equina syndrome, suspected malignancy, suspected spinal infection, or significant trauma at all, so the compound red-flag criterion is only partially addressed.",
+            "detail": "",
+            "failure_kind": "NONE",
+            "rejected_payload": null
+          },
+          {
+            "criterion_id": "C5",
+            "clinical_status": "AMBIGUOUS",
+            "processing_status": "COMPLETE",
+            "reason_codes": [
+              "MISSING_EVIDENCE"
+            ],
+            "evidence": [],
+            "explanation": "Nothing in the record addresses whether a prior lumbar MRI exists within the preceding 12 months.",
+            "detail": "",
+            "failure_kind": "NONE",
+            "rejected_payload": null
+          }
+        ],
+        "prompts": [
+          {
+            "prompt_version": "extraction/1.2.0",
+            "criterion_ids": [
+              "C1",
+              "C2",
+              "C3",
+              "C4",
+              "C5"
+            ],
+            "system_chars": 6313,
+            "criteria_chars": 12193,
+            "record_chars": 5535
+          }
+        ],
+        "attempts": [
+          {
+            "index": 1,
+            "seconds": 19.114,
+            "input_tokens": 8293,
+            "output_tokens": 2237,
+            "error": "",
+            "parse_error": "",
+            "retryable": true,
+            "stop_reason": "end_turn",
+            "raw_text": "{\n  \"results\": [\n    {\n      \"criterion_id\": \"C1\",\n      \"clinical_status\": \"MET\",\n      \"reason_codes\": [],\n      \"evidence\": [\n        {\n          \"document_id\": \"doc_5979ccf72940\",\n          \"quote\": \"She also brings up low back pain, right side, low, sort of across the belt line.\",\n          \"role\": \"supporting\"\n        },\n        {\n          \"document_id\": \"doc_1a532ad73480\",\n          \"quote\": \"Same right low back pain across the belt line that she brought up at her last visit.\",\n          \"role\": \"supporting\"\n        }\n      ],\n      \"explanation\": \"Multiple notes document low back pain with associated right thigh heaviness, satisfying the requirement.\"\n    },\n    {\n      \"criterion_id\": \"C2\",\n      \"clinical_status\": \"MET\",\n      \"reason_codes\": [],\n      \"evidence\": [\n        {\n          \"document_id\": \"doc_5979ccf72940\",\n          \"quote\": \"Date of Visit: 06/15/2026\",\n          \"role\": \"supporting\"\n        },\n        {\n          \"document_id\": \"doc_5979ccf72940\",\n          \"quote\": \"She also brings up low back pain, right side, low, sort of across the belt line.\",\n          \"role\": \"supporting\"\n        },\n        {\n          \"document_id\": \"doc_1a532ad73480\",\n          \"quote\": \"Date of Visit: 08/17/2026\",\n          \"role\": \"supporting\"\n        },\n        {\n          \"document_id\": \"doc_1a532ad73480\",\n          \"quote\": \"Same right low back pain across the belt line that she brought up at her last visit.\",\n          \"role\": \"supporting\"\n        }\n      ],\n      \"explanation\": \"The same low back pain (with thigh heaviness) is documented at two encounters dated 06/15/2026 and 08/17/2026, approximately nine weeks apart, satisfying the two-encounter pathway for duration of at least 6 weeks.\"\n    },\n    {\n      \"criterion_id\": \"C3\",\n      \"clinical_status\": \"MET\",\n      \"reason_codes\": [],\n      \"evidence\": [\n        {\n          \"document_id\": \"doc_4dfd8c4ef30a\",\n          \"quote\": \"Meloxicam 15 mg oral daily trial completed, no relief\",\n          \"role\": \"supporting\"\n        },\n        {\n          \"document_id\": \"doc_4dfd8c4ef30a\",\n          \"quote\": \"Meloxicam bottle empty, she reports finishing it as directed and says it made no difference to the back.\",\n          \"role\": \"supporting\"\n        }\n      ],\n      \"explanation\": \"An NSAID (meloxicam) trial was completed and documented as producing no relief of the back pain, meeting both the attempt and failed-outcome elements.\"\n    },\n    {\n      \"criterion_id\": \"C4\",\n      \"clinical_status\": \"AMBIGUOUS\",\n      \"reason_codes\": [\"INSUFFICIENT_CONTEXT\"],\n      \"evidence\": [\n        {\n          \"document_id\": \"doc_1a532ad73480\",\n          \"quote\": \"though she cannot say it is worse exactly. No change in the character of it.\",\n          \"role\": \"supporting\"\n        }\n      ],\n      \"explanation\": \"The record addresses progression of the thigh symptom and negates it (no worsening/change), but does not mention cauda equina syndrome, suspected malignancy, suspected spinal infection, or significant trauma at all, so the compound red-flag criterion is only partially addressed.\"\n    },\n    {\n      \"criterion_id\": \"C5\",\n      \"clinical_status\": \"AMBIGUOUS\",\n      \"reason_codes\": [\"MISSING_EVIDENCE\"],\n      \"evidence\": [],\n      \"explanation\": \"Nothing in the record addresses whether a prior lumbar MRI exists within the preceding 12 months.\"\n    }\n  ]\n}"
+          }
+        ]
+      },
+      "verification": {
+        "case_id": "MRI-005",
+        "configuration": "A",
+        "processing_status": "COMPLETE",
+        "returned_spans": 9,
+        "verified_spans": 9,
+        "citation_validity": 1.0,
+        "downgraded": 0,
+        "support_outcomes": {
+          "SUPPORTED": 4,
+          "UNSUPPORTED": 0,
+          "INCONCLUSIVE": 0,
+          "SKIPPED": 1,
+          "FAILED": 0
+        },
+        "seconds": 6.553,
+        "results": [
+          {
+            "criterion_id": "C1",
+            "clinical_status": "MET",
+            "processing_status": "COMPLETE",
+            "reason_codes": [],
+            "evidence": [
+              {
+                "document_id": "doc_5979ccf72940",
+                "quote": "She also brings up low back pain, right side, low, sort of across the belt line.",
+                "role": "supporting",
+                "verified": true,
+                "span": {
+                  "document_id": "doc_5979ccf72940",
+                  "content_sha256": "39923b3f000ed05d64414606aea1b6e7067f71b5525108d6f17edfc2674380b1",
+                  "start": 644,
+                  "end": 724
+                },
+                "detail": "",
+                "ambiguous_locations": 0
+              },
+              {
+                "document_id": "doc_1a532ad73480",
+                "quote": "Same right low back pain across the belt line that she brought up at her last visit.",
+                "role": "supporting",
+                "verified": true,
+                "span": {
+                  "document_id": "doc_1a532ad73480",
+                  "content_sha256": "90c50a47d49cc675cfcfd6ba87f66b92ff9bc24fc7f5776b5aacf3572b7a62ce",
+                  "start": 248,
+                  "end": 332
+                },
+                "detail": "",
+                "ambiguous_locations": 0
+              }
+            ],
+            "explanation": "Multiple notes document low back pain with associated right thigh heaviness, satisfying the requirement.",
+            "detail": "",
+            "failure_kind": "NONE",
+            "extracted_status": "MET",
+            "downgraded": false,
+            "downgrade_reason": "",
+            "verification": {
+              "quote_check": {
+                "returned": 2,
+                "verified": 2,
+                "rejected": 0
+              },
+              "support_check": {
+                "ran": true,
+                "outcome": "SUPPORTED",
+                "detail": "Both passages explicitly document low back pain (with location), satisfying the ALTERNATIVE evidence requirement for C1."
+              }
+            }
+          },
+          {
+            "criterion_id": "C2",
+            "clinical_status": "MET",
+            "processing_status": "COMPLETE",
+            "reason_codes": [],
+            "evidence": [
+              {
+                "document_id": "doc_5979ccf72940",
+                "quote": "Date of Visit: 06/15/2026",
+                "role": "supporting",
+                "verified": true,
+                "span": {
+                  "document_id": "doc_5979ccf72940",
+                  "content_sha256": "39923b3f000ed05d64414606aea1b6e7067f71b5525108d6f17edfc2674380b1",
+                  "start": 79,
+                  "end": 104
+                },
+                "detail": "",
+                "ambiguous_locations": 0
+              },
+              {
+                "document_id": "doc_5979ccf72940",
+                "quote": "She also brings up low back pain, right side, low, sort of across the belt line.",
+                "role": "supporting",
+                "verified": true,
+                "span": {
+                  "document_id": "doc_5979ccf72940",
+                  "content_sha256": "39923b3f000ed05d64414606aea1b6e7067f71b5525108d6f17edfc2674380b1",
+                  "start": 644,
+                  "end": 724
+                },
+                "detail": "",
+                "ambiguous_locations": 0
+              },
+              {
+                "document_id": "doc_1a532ad73480",
+                "quote": "Date of Visit: 08/17/2026",
+                "role": "supporting",
+                "verified": true,
+                "span": {
+                  "document_id": "doc_1a532ad73480",
+                  "content_sha256": "90c50a47d49cc675cfcfd6ba87f66b92ff9bc24fc7f5776b5aacf3572b7a62ce",
+                  "start": 79,
+                  "end": 104
+                },
+                "detail": "",
+                "ambiguous_locations": 0
+              },
+              {
+                "document_id": "doc_1a532ad73480",
+                "quote": "Same right low back pain across the belt line that she brought up at her last visit.",
+                "role": "supporting",
+                "verified": true,
+                "span": {
+                  "document_id": "doc_1a532ad73480",
+                  "content_sha256": "90c50a47d49cc675cfcfd6ba87f66b92ff9bc24fc7f5776b5aacf3572b7a62ce",
+                  "start": 248,
+                  "end": 332
+                },
+                "detail": "",
+                "ambiguous_locations": 0
+              }
+            ],
+            "explanation": "The same low back pain (with thigh heaviness) is documented at two encounters dated 06/15/2026 and 08/17/2026, approximately nine weeks apart, satisfying the two-encounter pathway for duration of at least 6 weeks.",
+            "detail": "",
+            "failure_kind": "NONE",
+            "extracted_status": "MET",
+            "downgraded": false,
+            "downgrade_reason": "",
+            "verification": {
+              "quote_check": {
+                "returned": 4,
+                "verified": 4,
+                "rejected": 0
+              },
+              "support_check": {
+                "ran": true,
+                "outcome": "SUPPORTED",
+                "detail": "The passages show two dated encounters (06/15/2026 and 08/17/2026, ~9 weeks apart) documenting the same right low back pain symptom, satisfying the two-encounter pathway for C2."
+              }
+            }
+          },
+          {
+            "criterion_id": "C3",
+            "clinical_status": "MET",
+            "processing_status": "COMPLETE",
+            "reason_codes": [],
+            "evidence": [
+              {
+                "document_id": "doc_4dfd8c4ef30a",
+                "quote": "Meloxicam 15 mg oral daily trial completed, no relief",
+                "role": "supporting",
+                "verified": true,
+                "span": {
+                  "document_id": "doc_4dfd8c4ef30a",
+                  "content_sha256": "f34a96d28be960ac40aefaebb66fb4a99a4925680e5bebad24afb3b783e5b27f",
+                  "start": 357,
+                  "end": 410
+                },
+                "detail": "",
+                "ambiguous_locations": 0
+              },
+              {
+                "document_id": "doc_4dfd8c4ef30a",
+                "quote": "Meloxicam bottle empty, she reports finishing it as directed and says it made no difference to the back.",
+                "role": "supporting",
+                "verified": true,
+                "span": {
+                  "document_id": "doc_4dfd8c4ef30a",
+                  "content_sha256": "f34a96d28be960ac40aefaebb66fb4a99a4925680e5bebad24afb3b783e5b27f",
+                  "start": 624,
+                  "end": 728
+                },
+                "detail": "",
+                "ambiguous_locations": 0
+              }
+            ],
+            "explanation": "An NSAID (meloxicam) trial was completed and documented as producing no relief of the back pain, meeting both the attempt and failed-outcome elements.",
+            "detail": "",
+            "failure_kind": "NONE",
+            "extracted_status": "MET",
+            "downgraded": false,
+            "downgrade_reason": "",
+            "verification": {
+              "quote_check": {
+                "returned": 2,
+                "verified": 2,
+                "rejected": 0
+              },
+              "support_check": {
+                "ran": true,
+                "outcome": "SUPPORTED",
+                "detail": "Both passages document that a meloxicam (NSAID) trial was completed as directed and produced no relief of back pain, satisfying both the attempt and failed-outcome elements of C3."
+              }
+            }
+          },
+          {
+            "criterion_id": "C4",
+            "clinical_status": "AMBIGUOUS",
+            "processing_status": "COMPLETE",
+            "reason_codes": [
+              "INSUFFICIENT_CONTEXT"
+            ],
+            "evidence": [
+              {
+                "document_id": "doc_1a532ad73480",
+                "quote": "though she cannot say it is worse exactly. No change in the character of it.",
+                "role": "supporting",
+                "verified": true,
+                "span": {
+                  "document_id": "doc_1a532ad73480",
+                  "content_sha256": "90c50a47d49cc675cfcfd6ba87f66b92ff9bc24fc7f5776b5aacf3572b7a62ce",
+                  "start": 512,
+                  "end": 588
+                },
+                "detail": "",
+                "ambiguous_locations": 0
+              }
+            ],
+            "explanation": "The record addresses progression of the thigh symptom and negates it (no worsening/change), but does not mention cauda equina syndrome, suspected malignancy, suspected spinal infection, or significant trauma at all, so the compound red-flag criterion is only partially addressed.",
+            "detail": "",
+            "failure_kind": "NONE",
+            "extracted_status": "AMBIGUOUS",
+            "downgraded": false,
+            "downgrade_reason": "",
+            "verification": {
+              "quote_check": {
+                "returned": 1,
+                "verified": 1,
+                "rejected": 0
+              },
+              "support_check": {
+                "ran": true,
+                "outcome": "SUPPORTED",
+                "detail": "The passage addresses only progressive neurologic deficit (negating it) and says nothing about the other four red-flag categories, matching the AMBIGUOUS/INSUFFICIENT_CONTEXT criterion for partial coverage."
+              }
+            }
+          },
+          {
+            "criterion_id": "C5",
+            "clinical_status": "AMBIGUOUS",
+            "processing_status": "COMPLETE",
+            "reason_codes": [
+              "MISSING_EVIDENCE"
+            ],
+            "evidence": [],
+            "explanation": "Nothing in the record addresses whether a prior lumbar MRI exists within the preceding 12 months.",
+            "detail": "",
+            "failure_kind": "NONE",
+            "extracted_status": "AMBIGUOUS",
+            "downgraded": false,
+            "downgrade_reason": "",
+            "verification": {
+              "quote_check": {
+                "returned": 0,
+                "verified": 0,
+                "rejected": 0
+              },
+              "support_check": {
+                "ran": false,
+                "outcome": "SKIPPED",
+                "detail": "no affirmative claim resting on verified evidence; nothing for the verifier to check"
+              }
+            }
+          }
+        ],
+        "support_attempts": [
+          {
+            "index": 1,
+            "seconds": 1.593,
+            "input_tokens": 1079,
+            "output_tokens": 64,
+            "error": "",
+            "parse_error": "",
+            "retryable": true,
+            "stop_reason": "end_turn",
+            "raw_text": "{\"outcome\": \"SUPPORTED\", \"detail\": \"Both passages explicitly document low back pain (with location), satisfying the ALTERNATIVE evidence requirement for C1.\"}"
+          },
+          {
+            "index": 1,
+            "seconds": 1.637,
+            "input_tokens": 1310,
+            "output_tokens": 91,
+            "error": "",
+            "parse_error": "",
+            "retryable": true,
+            "stop_reason": "end_turn",
+            "raw_text": "{\"outcome\": \"SUPPORTED\", \"detail\": \"The passages show two dated encounters (06/15/2026 and 08/17/2026, ~9 weeks apart) documenting the same right low back pain symptom, satisfying the two-encounter pathway for C2.\"}"
+          },
+          {
+            "index": 1,
+            "seconds": 1.582,
+            "input_tokens": 1199,
+            "output_tokens": 82,
+            "error": "",
+            "parse_error": "",
+            "retryable": true,
+            "stop_reason": "end_turn",
+            "raw_text": "{\"outcome\": \"SUPPORTED\", \"detail\": \"Both passages document that a meloxicam (NSAID) trial was completed as directed and produced no relief of back pain, satisfying both the attempt and failed-outcome elements of C3.\"}"
+          },
+          {
+            "index": 1,
+            "seconds": 1.739,
+            "input_tokens": 1306,
+            "output_tokens": 100,
+            "error": "",
+            "parse_error": "",
+            "retryable": true,
+            "stop_reason": "end_turn",
+            "raw_text": "{\"outcome\": \"SUPPORTED\", \"detail\": \"The passage addresses only progressive neurologic deficit (negating it) and says nothing about the other four red-flag categories, matching the AMBIGUOUS/INSUFFICIENT_CONTEXT criterion for partial coverage.\"}"
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "MRI-006",
+      "extraction": {
+        "case_id": "MRI-006",
+        "configuration": "A",
+        "model": "claude-sonnet-5",
+        "prompt_version": "extraction/1.2.0",
+        "processing_status": "COMPLETE",
+        "calls": 1,
+        "input_tokens": 7701,
+        "output_tokens": 2906,
+        "seconds": 26.011,
+        "failures": {
+          "CONTRACT_REJECTION": 0,
+          "NO_RESPONSE": 0,
+          "NOT_ATTEMPTED": 0
+        },
+        "results": [
+          {
+            "criterion_id": "C1",
+            "clinical_status": "MET",
+            "processing_status": "COMPLETE",
+            "reason_codes": [],
+            "evidence": [
+              {
+                "document_id": "doc_5f95d6484e86",
+                "quote": "Low back pain, non-radicular.",
+                "role": "supporting"
+              },
+              {
+                "document_id": "doc_4bf829152c37",
+                "quote": "INDICATION: Low back pain, non-radicular. Repeat study requested by patient.",
+                "role": "supporting"
+              }
+            ],
+            "explanation": "Low back pain, non-radicular, is documented in both the clinic note assessment and the imaging order indication.",
+            "detail": "",
+            "failure_kind": "NONE",
+            "rejected_payload": null
+          },
+          {
+            "criterion_id": "C2",
+            "clinical_status": "AMBIGUOUS",
+            "processing_status": "COMPLETE",
+            "reason_codes": [
+              "VAGUE_DURATION"
+            ],
+            "evidence": [
+              {
+                "document_id": "doc_5f95d6484e86",
+                "quote": "She reports the current flare has been going on for approximately 5 weeks.",
+                "role": "supporting"
+              },
+              {
+                "document_id": "doc_5f95d6484e86",
+                "quote": "the same pain she has had on and off for years rather than anything new in character.",
+                "role": "supporting"
+              }
+            ],
+            "explanation": "The current flare is explicitly stated as approximately 5 weeks, below the 6-week threshold, but the note also indicates the pain is part of a longstanding 'on and off for years' pattern without a countable duration, so the overall duration cannot be resolved from the record.",
+            "detail": "",
+            "failure_kind": "NONE",
+            "rejected_payload": null
+          },
+          {
+            "criterion_id": "C3",
+            "clinical_status": "MET",
+            "processing_status": "COMPLETE",
+            "reason_codes": [],
+            "evidence": [
+              {
+                "document_id": "doc_5f95d6484e86",
+                "quote": "She stopped her volunteer shifts at the charity shop, which involve a good deal of standing and reaching to the high rails, and she has been keeping to seated work at the till instead. She has kept that up for the last month or so and says it has made no real difference to the pain, which disappointed her because it worked the last time.",
+                "role": "supporting"
+              }
+            ],
+            "explanation": "Activity modification (stopping standing/reaching volunteer work for seated work) was attempted for about a month and documented as producing no real improvement, satisfying both the attempt and failed-outcome elements of this criterion.",
+            "detail": "",
+            "failure_kind": "NONE",
+            "rejected_payload": null
+          },
+          {
+            "criterion_id": "C4",
+            "clinical_status": "AMBIGUOUS",
+            "processing_status": "COMPLETE",
+            "reason_codes": [
+              "MISSING_EVIDENCE"
+            ],
+            "evidence": [],
+            "explanation": "No passage in the record names or addresses cauda equina syndrome, progressive neurologic deficit, suspected malignancy, suspected spinal infection, or significant trauma, so none of the five red-flag categories are addressed.",
+            "detail": "",
+            "failure_kind": "NONE",
+            "rejected_payload": null
+          },
+          {
+            "criterion_id": "C5",
+            "clinical_status": "NOT_MET",
+            "processing_status": "COMPLETE",
+            "reason_codes": [],
+            "evidence": [
+              {
+                "document_id": "doc_2fb3497f6ea8",
+                "quote": "EXAM DATE: 05/12/2026",
+                "role": "contradicting"
+              },
+              {
+                "document_id": "doc_5f95d6484e86",
+                "quote": "Her symptoms are unchanged since the prior study. There are no new deficits and the examination is stable.",
+                "role": "contradicting"
+              }
+            ],
+            "explanation": "A prior lumbar MRI dated 05/12/2026 falls within the 12-month window preceding the 09/08/2026 encounter, and the same treating physician's contemporaneous examination affirmatively documents that symptoms and exam findings are unchanged, so no interval clinical change is present to justify repeat imaging.",
+            "detail": "",
+            "failure_kind": "NONE",
+            "rejected_payload": null
+          }
+        ],
+        "prompts": [
+          {
+            "prompt_version": "extraction/1.2.0",
+            "criterion_ids": [
+              "C1",
+              "C2",
+              "C3",
+              "C4",
+              "C5"
+            ],
+            "system_chars": 6313,
+            "criteria_chars": 12193,
+            "record_chars": 3907
+          }
+        ],
+        "attempts": [
+          {
+            "index": 1,
+            "seconds": 26.011,
+            "input_tokens": 7701,
+            "output_tokens": 2906,
+            "error": "",
+            "parse_error": "",
+            "retryable": true,
+            "stop_reason": "end_turn",
+            "raw_text": "{\n  \"results\": [\n    {\n      \"criterion_id\": \"C1\",\n      \"clinical_status\": \"MET\",\n      \"reason_codes\": [],\n      \"evidence\": [\n        {\n          \"document_id\": \"doc_5f95d6484e86\",\n          \"quote\": \"Low back pain, non-radicular.\",\n          \"role\": \"supporting\"\n        },\n        {\n          \"document_id\": \"doc_4bf829152c37\",\n          \"quote\": \"INDICATION: Low back pain, non-radicular. Repeat study requested by patient.\",\n          \"role\": \"supporting\"\n        }\n      ],\n      \"explanation\": \"Low back pain, non-radicular, is documented in both the clinic note assessment and the imaging order indication.\"\n    },\n    {\n      \"criterion_id\": \"C2\",\n      \"clinical_status\": \"AMBIGUOUS\",\n      \"reason_codes\": [\"VAGUE_DURATION\"],\n      \"evidence\": [\n        {\n          \"document_id\": \"doc_5f95d6484e86\",\n          \"quote\": \"She reports the current flare has been going on for approximately 5 weeks.\",\n          \"role\": \"supporting\"\n        },\n        {\n          \"document_id\": \"doc_5f95d6484e86\",\n          \"quote\": \"the same pain she has had on and off for years rather than anything new in character.\",\n          \"role\": \"supporting\"\n        }\n      ],\n      \"explanation\": \"The current flare is explicitly stated as approximately 5 weeks, below the 6-week threshold, but the note also indicates the pain is part of a longstanding 'on and off for years' pattern without a countable duration, so the overall duration cannot be resolved from the record.\"\n    },\n    {\n      \"criterion_id\": \"C3\",\n      \"clinical_status\": \"MET\",\n      \"reason_codes\": [],\n      \"evidence\": [\n        {\n          \"document_id\": \"doc_5f95d6484e86\",\n          \"quote\": \"She stopped her volunteer shifts at the charity shop, which involve a good deal of standing and reaching to the high rails, and she has been keeping to seated work at the till instead. She has kept that up for the last month or so and says it has made no real difference to the pain, which disappointed her because it worked the last time.\",\n          \"role\": \"supporting\"\n        }\n      ],\n      \"explanation\": \"Activity modification (stopping standing/reaching volunteer work for seated work) was attempted for about a month and documented as producing no real improvement, satisfying both the attempt and failed-outcome elements of this criterion.\"\n    },\n    {\n      \"criterion_id\": \"C4\",\n      \"clinical_status\": \"AMBIGUOUS\",\n      \"reason_codes\": [\"MISSING_EVIDENCE\"],\n      \"evidence\": [],\n      \"explanation\": \"No passage in the record names or addresses cauda equina syndrome, progressive neurologic deficit, suspected malignancy, suspected spinal infection, or significant trauma, so none of the five red-flag categories are addressed.\"\n    },\n    {\n      \"criterion_id\": \"C5\",\n      \"clinical_status\": \"NOT_MET\",\n      \"reason_codes\": [],\n      \"evidence\": [\n        {\n          \"document_id\": \"doc_2fb3497f6ea8\",\n          \"quote\": \"EXAM DATE: 05/12/2026\",\n          \"role\": \"contradicting\"\n        },\n        {\n          \"document_id\": \"doc_5f95d6484e86\",\n          \"quote\": \"Her symptoms are unchanged since the prior study. There are no new deficits and the examination is stable.\",\n          \"role\": \"contradicting\"\n        }\n      ],\n      \"explanation\": \"A prior lumbar MRI dated 05/12/2026 falls within the 12-month window preceding the 09/08/2026 encounter, and the same treating physician's contemporaneous examination affirmatively documents that symptoms and exam findings are unchanged, so no interval clinical change is present to justify repeat imaging.\"\n    }\n  ]\n}"
+          }
+        ]
+      },
+      "verification": {
+        "case_id": "MRI-006",
+        "configuration": "A",
+        "processing_status": "COMPLETE",
+        "returned_spans": 7,
+        "verified_spans": 7,
+        "citation_validity": 1.0,
+        "downgraded": 0,
+        "support_outcomes": {
+          "SUPPORTED": 4,
+          "UNSUPPORTED": 0,
+          "INCONCLUSIVE": 0,
+          "SKIPPED": 1,
+          "FAILED": 0
+        },
+        "seconds": 13.63,
+        "results": [
+          {
+            "criterion_id": "C1",
+            "clinical_status": "MET",
+            "processing_status": "COMPLETE",
+            "reason_codes": [],
+            "evidence": [
+              {
+                "document_id": "doc_5f95d6484e86",
+                "quote": "Low back pain, non-radicular.",
+                "role": "supporting",
+                "verified": true,
+                "span": {
+                  "document_id": "doc_5f95d6484e86",
+                  "content_sha256": "8d818e38133f9710556a142104dd02dd2d1322ee26084cb8440323c7401821f8",
+                  "start": 1037,
+                  "end": 1066
+                },
+                "detail": "",
+                "ambiguous_locations": 0
+              },
+              {
+                "document_id": "doc_4bf829152c37",
+                "quote": "INDICATION: Low back pain, non-radicular. Repeat study requested by patient.",
+                "role": "supporting",
+                "verified": true,
+                "span": {
+                  "document_id": "doc_4bf829152c37",
+                  "content_sha256": "57a48bb6cd1e3be30f007277ef76ca6e2fb1b7bf44fa56f62a720ef64e7924c8",
+                  "start": 246,
+                  "end": 322
+                },
+                "detail": "",
+                "ambiguous_locations": 0
+              }
+            ],
+            "explanation": "Low back pain, non-radicular, is documented in both the clinic note assessment and the imaging order indication.",
+            "detail": "",
+            "failure_kind": "NONE",
+            "extracted_status": "MET",
+            "downgraded": false,
+            "downgrade_reason": "",
+            "verification": {
+              "quote_check": {
+                "returned": 2,
+                "verified": 2,
+                "rejected": 0
+              },
+              "support_check": {
+                "ran": true,
+                "outcome": "SUPPORTED",
+                "detail": "Both passages explicitly document low back pain (non-radicular) in a clinical assessment and an imaging order indication, satisfying C1's alternative evidence requirement."
+              }
+            }
+          },
+          {
+            "criterion_id": "C2",
+            "clinical_status": "AMBIGUOUS",
+            "processing_status": "COMPLETE",
+            "reason_codes": [
+              "VAGUE_DURATION"
+            ],
+            "evidence": [
+              {
+                "document_id": "doc_5f95d6484e86",
+                "quote": "She reports the current flare has been going on for approximately 5 weeks.",
+                "role": "supporting",
+                "verified": true,
+                "span": {
+                  "document_id": "doc_5f95d6484e86",
+                  "content_sha256": "8d818e38133f9710556a142104dd02dd2d1322ee26084cb8440323c7401821f8",
+                  "start": 170,
+                  "end": 244
+                },
+                "detail": "",
+                "ambiguous_locations": 0
+              },
+              {
+                "document_id": "doc_5f95d6484e86",
+                "quote": "the same pain she has had on and off for years rather than anything new in character.",
+                "role": "supporting",
+                "verified": true,
+                "span": {
+                  "document_id": "doc_5f95d6484e86",
+                  "content_sha256": "8d818e38133f9710556a142104dd02dd2d1322ee26084cb8440323c7401821f8",
+                  "start": 327,
+                  "end": 412
+                },
+                "detail": "",
+                "ambiguous_locations": 0
+              }
+            ],
+            "explanation": "The current flare is explicitly stated as approximately 5 weeks, below the 6-week threshold, but the note also indicates the pain is part of a longstanding 'on and off for years' pattern without a countable duration, so the overall duration cannot be resolved from the record.",
+            "detail": "",
+            "failure_kind": "NONE",
+            "extracted_status": "AMBIGUOUS",
+            "downgraded": false,
+            "downgrade_reason": "",
+            "verification": {
+              "quote_check": {
+                "returned": 2,
+                "verified": 2,
+                "rejected": 0
+              },
+              "support_check": {
+                "ran": true,
+                "outcome": "SUPPORTED",
+                "detail": "The two passages together show an explicit sub-threshold duration (5 weeks) alongside a vague longstanding pattern ('on and off for years'), which per the note's exception means the stated duration is not the complete history and the overall duration is genuinely vague, matching the AMBIGUOUS/VAGUE_DURATION classification."
+              }
+            }
+          },
+          {
+            "criterion_id": "C3",
+            "clinical_status": "MET",
+            "processing_status": "COMPLETE",
+            "reason_codes": [],
+            "evidence": [
+              {
+                "document_id": "doc_5f95d6484e86",
+                "quote": "She stopped her volunteer shifts at the charity shop, which involve a good deal of standing and reaching to the high rails, and she has been keeping to seated work at the till instead. She has kept that up for the last month or so and says it has made no real difference to the pain, which disappointed her because it worked the last time.",
+                "role": "supporting",
+                "verified": true,
+                "span": {
+                  "document_id": "doc_5f95d6484e86",
+                  "content_sha256": "8d818e38133f9710556a142104dd02dd2d1322ee26084cb8440323c7401821f8",
+                  "start": 413,
+                  "end": 752
+                },
+                "detail": "",
+                "ambiguous_locations": 0
+              }
+            ],
+            "explanation": "Activity modification (stopping standing/reaching volunteer work for seated work) was attempted for about a month and documented as producing no real improvement, satisfying both the attempt and failed-outcome elements of this criterion.",
+            "detail": "",
+            "failure_kind": "NONE",
+            "extracted_status": "MET",
+            "downgraded": false,
+            "downgrade_reason": "",
+            "verification": {
+              "quote_check": {
+                "returned": 1,
+                "verified": 1,
+                "rejected": 0
+              },
+              "support_check": {
+                "ran": true,
+                "outcome": "SUPPORTED",
+                "detail": "The passage documents activity modification (switching from standing/reaching work to seated work) attempted for about a month with a documented outcome of no real improvement, satisfying both the attempt and failed-outcome requirements."
+              }
+            }
+          },
+          {
+            "criterion_id": "C4",
+            "clinical_status": "AMBIGUOUS",
+            "processing_status": "COMPLETE",
+            "reason_codes": [
+              "MISSING_EVIDENCE"
+            ],
+            "evidence": [],
+            "explanation": "No passage in the record names or addresses cauda equina syndrome, progressive neurologic deficit, suspected malignancy, suspected spinal infection, or significant trauma, so none of the five red-flag categories are addressed.",
+            "detail": "",
+            "failure_kind": "NONE",
+            "extracted_status": "AMBIGUOUS",
+            "downgraded": false,
+            "downgrade_reason": "",
+            "verification": {
+              "quote_check": {
+                "returned": 0,
+                "verified": 0,
+                "rejected": 0
+              },
+              "support_check": {
+                "ran": false,
+                "outcome": "SKIPPED",
+                "detail": "no affirmative claim resting on verified evidence; nothing for the verifier to check"
+              }
+            }
+          },
+          {
+            "criterion_id": "C5",
+            "clinical_status": "NOT_MET",
+            "processing_status": "COMPLETE",
+            "reason_codes": [],
+            "evidence": [
+              {
+                "document_id": "doc_2fb3497f6ea8",
+                "quote": "EXAM DATE: 05/12/2026",
+                "role": "contradicting",
+                "verified": true,
+                "span": {
+                  "document_id": "doc_2fb3497f6ea8",
+                  "content_sha256": "4e37f10272c961018584936456098effcf14d8c237e7aefdfd9aa5b104f4278f",
+                  "start": 95,
+                  "end": 116
+                },
+                "detail": "",
+                "ambiguous_locations": 0
+              },
+              {
+                "document_id": "doc_5f95d6484e86",
+                "quote": "Her symptoms are unchanged since the prior study. There are no new deficits and the examination is stable.",
+                "role": "contradicting",
+                "verified": true,
+                "span": {
+                  "document_id": "doc_5f95d6484e86",
+                  "content_sha256": "8d818e38133f9710556a142104dd02dd2d1322ee26084cb8440323c7401821f8",
+                  "start": 1067,
+                  "end": 1173
+                },
+                "detail": "",
+                "ambiguous_locations": 0
+              }
+            ],
+            "explanation": "A prior lumbar MRI dated 05/12/2026 falls within the 12-month window preceding the 09/08/2026 encounter, and the same treating physician's contemporaneous examination affirmatively documents that symptoms and exam findings are unchanged, so no interval clinical change is present to justify repeat imaging.",
+            "detail": "",
+            "failure_kind": "NONE",
+            "extracted_status": "NOT_MET",
+            "downgraded": false,
+            "downgrade_reason": "",
+            "verification": {
+              "quote_check": {
+                "returned": 2,
+                "verified": 2,
+                "rejected": 0
+              },
+              "support_check": {
+                "ran": true,
+                "outcome": "SUPPORTED",
+                "detail": "The passages establish a prior lumbar MRI dated 05/12/2026 within the 12-month window and explicitly document that symptoms/exam are unchanged with no new deficits, supporting NOT_MET since no interval clinical change justifies repeat imaging."
+              }
+            }
+          }
+        ],
+        "support_attempts": [
+          {
+            "index": 1,
+            "seconds": 1.672,
+            "input_tokens": 1075,
+            "output_tokens": 77,
+            "error": "",
+            "parse_error": "",
+            "retryable": true,
+            "stop_reason": "end_turn",
+            "raw_text": "{\"outcome\": \"SUPPORTED\", \"detail\": \"Both passages explicitly document low back pain (non-radicular) in a clinical assessment and an imaging order indication, satisfying C1's alternative evidence requirement.\"}"
+          },
+          {
+            "index": 1,
+            "seconds": 8.83,
+            "input_tokens": 1282,
+            "output_tokens": 821,
+            "error": "",
+            "parse_error": "",
+            "retryable": true,
+            "stop_reason": "end_turn",
+            "raw_text": "{\"outcome\": \"SUPPORTED\", \"detail\": \"The two passages together show an explicit sub-threshold duration (5 weeks) alongside a vague longstanding pattern ('on and off for years'), which per the note's exception means the stated duration is not the complete history and the overall duration is genuinely vague, matching the AMBIGUOUS/VAGUE_DURATION classification.\"}"
+          },
+          {
+            "index": 1,
+            "seconds": 1.553,
+            "input_tokens": 1248,
+            "output_tokens": 89,
+            "error": "",
+            "parse_error": "",
+            "retryable": true,
+            "stop_reason": "end_turn",
+            "raw_text": "{\"outcome\": \"SUPPORTED\", \"detail\": \"The passage documents activity modification (switching from standing/reaching work to seated work) attempted for about a month with a documented outcome of no real improvement, satisfying both the attempt and failed-outcome requirements.\"}"
+          },
+          {
+            "index": 1,
+            "seconds": 1.575,
+            "input_tokens": 1313,
+            "output_tokens": 108,
+            "error": "",
+            "parse_error": "",
+            "retryable": true,
+            "stop_reason": "end_turn",
+            "raw_text": "{\"outcome\": \"SUPPORTED\", \"detail\": \"The passages establish a prior lumbar MRI dated 05/12/2026 within the 12-month window and explicitly document that symptoms/exam are unchanged with no new deficits, supporting NOT_MET since no interval clinical change justifies repeat imaging.\"}"
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "MRI-007",
+      "extraction": {
+        "case_id": "MRI-007",
+        "configuration": "A",
+        "model": "claude-sonnet-5",
+        "prompt_version": "extraction/1.2.0",
+        "processing_status": "FAILED",
+        "calls": 1,
+        "input_tokens": 8640,
+        "output_tokens": 16000,
+        "seconds": 119.156,
+        "failures": {
+          "CONTRACT_REJECTION": 0,
+          "NO_RESPONSE": 5,
+          "NOT_ATTEMPTED": 0
+        },
+        "results": [
+          {
+            "criterion_id": "C1",
+            "clinical_status": null,
+            "processing_status": "FAILED",
+            "reason_codes": [
+              "PROCESSING_ERROR"
+            ],
+            "evidence": [],
+            "explanation": "",
+            "detail": "1 attempt(s) failed; last: response truncated at the 16000 output-token limit (stop_reason max_tokens); raise max_tokens rather than retrying",
+            "failure_kind": "NO_RESPONSE",
+            "rejected_payload": null
+          },
+          {
+            "criterion_id": "C2",
+            "clinical_status": null,
+            "processing_status": "FAILED",
+            "reason_codes": [
+              "PROCESSING_ERROR"
+            ],
+            "evidence": [],
+            "explanation": "",
+            "detail": "1 attempt(s) failed; last: response truncated at the 16000 output-token limit (stop_reason max_tokens); raise max_tokens rather than retrying",
+            "failure_kind": "NO_RESPONSE",
+            "rejected_payload": null
+          },
+          {
+            "criterion_id": "C3",
+            "clinical_status": null,
+            "processing_status": "FAILED",
+            "reason_codes": [
+              "PROCESSING_ERROR"
+            ],
+            "evidence": [],
+            "explanation": "",
+            "detail": "1 attempt(s) failed; last: response truncated at the 16000 output-token limit (stop_reason max_tokens); raise max_tokens rather than retrying",
+            "failure_kind": "NO_RESPONSE",
+            "rejected_payload": null
+          },
+          {
+            "criterion_id": "C4",
+            "clinical_status": null,
+            "processing_status": "FAILED",
+            "reason_codes": [
+              "PROCESSING_ERROR"
+            ],
+            "evidence": [],
+            "explanation": "",
+            "detail": "1 attempt(s) failed; last: response truncated at the 16000 output-token limit (stop_reason max_tokens); raise max_tokens rather than retrying",
+            "failure_kind": "NO_RESPONSE",
+            "rejected_payload": null
+          },
+          {
+            "criterion_id": "C5",
+            "clinical_status": null,
+            "processing_status": "FAILED",
+            "reason_codes": [
+              "PROCESSING_ERROR"
+            ],
+            "evidence": [],
+            "explanation": "",
+            "detail": "1 attempt(s) failed; last: response truncated at the 16000 output-token limit (stop_reason max_tokens); raise max_tokens rather than retrying",
+            "failure_kind": "NO_RESPONSE",
+            "rejected_payload": null
+          }
+        ],
+        "prompts": [
+          {
+            "prompt_version": "extraction/1.2.0",
+            "criterion_ids": [
+              "C1",
+              "C2",
+              "C3",
+              "C4",
+              "C5"
+            ],
+            "system_chars": 6313,
+            "criteria_chars": 12193,
+            "record_chars": 6936
+          }
+        ],
+        "attempts": [
+          {
+            "index": 1,
+            "seconds": 119.156,
+            "input_tokens": 8640,
+            "output_tokens": 16000,
+            "error": "",
+            "parse_error": "response truncated at the 16000 output-token limit (stop_reason max_tokens); raise max_tokens rather than retrying",
+            "retryable": false,
+            "stop_reason": "max_tokens",
+            "raw_text": ""
+          }
+        ]
+      },
+      "verification": {
+        "case_id": "MRI-007",
+        "configuration": "A",
+        "processing_status": "FAILED",
+        "returned_spans": 0,
+        "verified_spans": 0,
+        "citation_validity": null,
+        "downgraded": 0,
+        "support_outcomes": {
+          "SUPPORTED": 0,
+          "UNSUPPORTED": 0,
+          "INCONCLUSIVE": 0,
+          "SKIPPED": 5,
+          "FAILED": 0
+        },
+        "seconds": 0.0,
+        "results": [
+          {
+            "criterion_id": "C1",
+            "clinical_status": null,
+            "processing_status": "FAILED",
+            "reason_codes": [
+              "PROCESSING_ERROR"
+            ],
+            "evidence": [],
+            "explanation": "",
+            "detail": "1 attempt(s) failed; last: response truncated at the 16000 output-token limit (stop_reason max_tokens); raise max_tokens rather than retrying",
+            "failure_kind": "NO_RESPONSE",
+            "extracted_status": null,
+            "downgraded": false,
+            "downgrade_reason": "",
+            "verification": {
+              "quote_check": {
+                "returned": 0,
+                "verified": 0,
+                "rejected": 0
+              },
+              "support_check": {
+                "ran": false,
+                "outcome": "SKIPPED",
+                "detail": "no affirmative claim resting on verified evidence; nothing for the verifier to check"
+              }
+            }
+          },
+          {
+            "criterion_id": "C2",
+            "clinical_status": null,
+            "processing_status": "FAILED",
+            "reason_codes": [
+              "PROCESSING_ERROR"
+            ],
+            "evidence": [],
+            "explanation": "",
+            "detail": "1 attempt(s) failed; last: response truncated at the 16000 output-token limit (stop_reason max_tokens); raise max_tokens rather than retrying",
+            "failure_kind": "NO_RESPONSE",
+            "extracted_status": null,
+            "downgraded": false,
+            "downgrade_reason": "",
+            "verification": {
+              "quote_check": {
+                "returned": 0,
+                "verified": 0,
+                "rejected": 0
+              },
+              "support_check": {
+                "ran": false,
+                "outcome": "SKIPPED",
+                "detail": "no affirmative claim resting on verified evidence; nothing for the verifier to check"
+              }
+            }
+          },
+          {
+            "criterion_id": "C3",
+            "clinical_status": null,
+            "processing_status": "FAILED",
+            "reason_codes": [
+              "PROCESSING_ERROR"
+            ],
+            "evidence": [],
+            "explanation": "",
+            "detail": "1 attempt(s) failed; last: response truncated at the 16000 output-token limit (stop_reason max_tokens); raise max_tokens rather than retrying",
+            "failure_kind": "NO_RESPONSE",
+            "extracted_status": null,
+            "downgraded": false,
+            "downgrade_reason": "",
+            "verification": {
+              "quote_check": {
+                "returned": 0,
+                "verified": 0,
+                "rejected": 0
+              },
+              "support_check": {
+                "ran": false,
+                "outcome": "SKIPPED",
+                "detail": "no affirmative claim resting on verified evidence; nothing for the verifier to check"
+              }
+            }
+          },
+          {
+            "criterion_id": "C4",
+            "clinical_status": null,
+            "processing_status": "FAILED",
+            "reason_codes": [
+              "PROCESSING_ERROR"
+            ],
+            "evidence": [],
+            "explanation": "",
+            "detail": "1 attempt(s) failed; last: response truncated at the 16000 output-token limit (stop_reason max_tokens); raise max_tokens rather than retrying",
+            "failure_kind": "NO_RESPONSE",
+            "extracted_status": null,
+            "downgraded": false,
+            "downgrade_reason": "",
+            "verification": {
+              "quote_check": {
+                "returned": 0,
+                "verified": 0,
+                "rejected": 0
+              },
+              "support_check": {
+                "ran": false,
+                "outcome": "SKIPPED",
+                "detail": "no affirmative claim resting on verified evidence; nothing for the verifier to check"
+              }
+            }
+          },
+          {
+            "criterion_id": "C5",
+            "clinical_status": null,
+            "processing_status": "FAILED",
+            "reason_codes": [
+              "PROCESSING_ERROR"
+            ],
+            "evidence": [],
+            "explanation": "",
+            "detail": "1 attempt(s) failed; last: response truncated at the 16000 output-token limit (stop_reason max_tokens); raise max_tokens rather than retrying",
+            "failure_kind": "NO_RESPONSE",
+            "extracted_status": null,
+            "downgraded": false,
+            "downgrade_reason": "",
+            "verification": {
+              "quote_check": {
+                "returned": 0,
+                "verified": 0,
+                "rejected": 0
+              },
+              "support_check": {
+                "ran": false,
+                "outcome": "SKIPPED",
+                "detail": "no affirmative claim resting on verified evidence; nothing for the verifier to check"
+              }
+            }
+          }
+        ],
+        "support_attempts": []
+      }
+    },
+    {
+      "case_id": "MRI-008",
+      "extraction": {
+        "case_id": "MRI-008",
+        "configuration": "A",
+        "model": "claude-sonnet-5",
+        "prompt_version": "extraction/1.2.0",
+        "processing_status": "COMPLETE",
+        "calls": 1,
+        "input_tokens": 7662,
+        "output_tokens": 8286,
+        "seconds": 79.58,
+        "failures": {
+          "CONTRACT_REJECTION": 0,
+          "NO_RESPONSE": 0,
+          "NOT_ATTEMPTED": 0
+        },
+        "results": [
+          {
+            "criterion_id": "C1",
+            "clinical_status": "AMBIGUOUS",
+            "processing_status": "COMPLETE",
+            "reason_codes": [
+              "INSUFFICIENT_CONTEXT"
+            ],
+            "evidence": [
+              {
+                "document_id": "doc_7eb0860323c9",
+                "quote": "Widespread pain of over two years, non-anatomical distribution, assessed by rheumatology with normal inflammatory markers and negative serology.",
+                "role": "supporting"
+              },
+              {
+                "document_id": "doc_5ad40457ac4f",
+                "quote": "Specifically she has asked for her back to be scanned, because her aunt had a scan of her back and something was found.",
+                "role": "supporting"
+              }
+            ],
+            "explanation": "The documented complaint throughout the record is widespread, non-anatomical pain rather than a specific low back pain complaint; the only mention of the back is the patient's request for a scan modeled on a relative's experience, not a documented low back pain symptom, so it is unclear whether low back pain specifically is documented.",
+            "detail": "",
+            "failure_kind": "NONE",
+            "rejected_payload": null
+          },
+          {
+            "criterion_id": "C2",
+            "clinical_status": "MET",
+            "processing_status": "COMPLETE",
+            "reason_codes": [],
+            "evidence": [
+              {
+                "document_id": "doc_f68354a02bef",
+                "quote": "It has been present for over two years and she can date the start to the winter her mother died",
+                "role": "supporting"
+              }
+            ],
+            "explanation": "The pain symptoms are explicitly stated to have persisted for over two years, well beyond the 6-week threshold.",
+            "detail": "",
+            "failure_kind": "NONE",
+            "rejected_payload": null
+          },
+          {
+            "criterion_id": "C3",
+            "clinical_status": "AMBIGUOUS",
+            "processing_status": "COMPLETE",
+            "reason_codes": [
+              "INSUFFICIENT_CONTEXT"
+            ],
+            "evidence": [
+              {
+                "document_id": "doc_f68354a02bef",
+                "quote": "Nothing else has been tried.",
+                "role": "supporting"
+              }
+            ],
+            "explanation": "The only statement bearing on conservative treatment is a patient-reported negative that no treatment besides amitriptyline (which is not PT, an NSAID trial, or activity modification) has been attempted; this is an uncorroborated single-source history statement and does not establish, per the completeness routes, that any of the three listed modalities was attempted and failed, nor does it definitively foreclose one having been tried.",
+            "detail": "",
+            "failure_kind": "NONE",
+            "rejected_payload": null
+          },
+          {
+            "criterion_id": "C4",
+            "clinical_status": "AMBIGUOUS",
+            "processing_status": "COMPLETE",
+            "reason_codes": [
+              "MISSING_EVIDENCE"
+            ],
+            "evidence": [],
+            "explanation": "No passage in the record names or addresses cauda equina syndrome, progressive neurologic deficit, malignancy, spinal infection, or significant trauma; the statement that a neurological exam was not performed does not name any of these categories.",
+            "detail": "",
+            "failure_kind": "NONE",
+            "rejected_payload": null
+          },
+          {
+            "criterion_id": "C5",
+            "clinical_status": "MET",
+            "processing_status": "COMPLETE",
+            "reason_codes": [],
+            "evidence": [
+              {
+                "document_id": "doc_f68354a02bef",
+                "quote": "She has had no imaging of the spine at any point, which she confirmed and which matches the regional record.",
+                "role": "supporting"
+              }
+            ],
+            "explanation": "The record contains an explicit statement that no prior spinal imaging exists at any point, which satisfies the requirement of no prior lumbar MRI within the preceding 12 months.",
+            "detail": "",
+            "failure_kind": "NONE",
+            "rejected_payload": null
+          }
+        ],
+        "prompts": [
+          {
+            "prompt_version": "extraction/1.2.0",
+            "criterion_ids": [
+              "C1",
+              "C2",
+              "C3",
+              "C4",
+              "C5"
+            ],
+            "system_chars": 6313,
+            "criteria_chars": 12193,
+            "record_chars": 4594
+          }
+        ],
+        "attempts": [
+          {
+            "index": 1,
+            "seconds": 79.579,
+            "input_tokens": 7662,
+            "output_tokens": 8286,
+            "error": "",
+            "parse_error": "",
+            "retryable": true,
+            "stop_reason": "end_turn",
+            "raw_text": "{\n  \"results\": [\n    {\n      \"criterion_id\": \"C1\",\n      \"clinical_status\": \"AMBIGUOUS\",\n      \"reason_codes\": [\"INSUFFICIENT_CONTEXT\"],\n      \"evidence\": [\n        {\n          \"document_id\": \"doc_7eb0860323c9\",\n          \"quote\": \"Widespread pain of over two years, non-anatomical distribution, assessed by rheumatology with normal inflammatory markers and negative serology.\",\n          \"role\": \"supporting\"\n        },\n        {\n          \"document_id\": \"doc_5ad40457ac4f\",\n          \"quote\": \"Specifically she has asked for her back to be scanned, because her aunt had a scan of her back and something was found.\",\n          \"role\": \"supporting\"\n        }\n      ],\n      \"explanation\": \"The documented complaint throughout the record is widespread, non-anatomical pain rather than a specific low back pain complaint; the only mention of the back is the patient's request for a scan modeled on a relative's experience, not a documented low back pain symptom, so it is unclear whether low back pain specifically is documented.\"\n    },\n    {\n      \"criterion_id\": \"C2\",\n      \"clinical_status\": \"MET\",\n      \"reason_codes\": [],\n      \"evidence\": [\n        {\n          \"document_id\": \"doc_f68354a02bef\",\n          \"quote\": \"It has been present for over two years and she can date the start to the winter her mother died\",\n          \"role\": \"supporting\"\n        }\n      ],\n      \"explanation\": \"The pain symptoms are explicitly stated to have persisted for over two years, well beyond the 6-week threshold.\"\n    },\n    {\n      \"criterion_id\": \"C3\",\n      \"clinical_status\": \"AMBIGUOUS\",\n      \"reason_codes\": [\"INSUFFICIENT_CONTEXT\"],\n      \"evidence\": [\n        {\n          \"document_id\": \"doc_f68354a02bef\",\n          \"quote\": \"Nothing else has been tried.\",\n          \"role\": \"supporting\"\n        }\n      ],\n      \"explanation\": \"The only statement bearing on conservative treatment is a patient-reported negative that no treatment besides amitriptyline (which is not PT, an NSAID trial, or activity modification) has been attempted; this is an uncorroborated single-source history statement and does not establish, per the completeness routes, that any of the three listed modalities was attempted and failed, nor does it definitively foreclose one having been tried.\"\n    },\n    {\n      \"criterion_id\": \"C4\",\n      \"clinical_status\": \"AMBIGUOUS\",\n      \"reason_codes\": [\"MISSING_EVIDENCE\"],\n      \"evidence\": [],\n      \"explanation\": \"No passage in the record names or addresses cauda equina syndrome, progressive neurologic deficit, malignancy, spinal infection, or significant trauma; the statement that a neurological exam was not performed does not name any of these categories.\"\n    },\n    {\n      \"criterion_id\": \"C5\",\n      \"clinical_status\": \"MET\",\n      \"reason_codes\": [],\n      \"evidence\": [\n        {\n          \"document_id\": \"doc_f68354a02bef\",\n          \"quote\": \"She has had no imaging of the spine at any point, which she confirmed and which matches the regional record.\",\n          \"role\": \"supporting\"\n        }\n      ],\n      \"explanation\": \"The record contains an explicit statement that no prior spinal imaging exists at any point, which satisfies the requirement of no prior lumbar MRI within the preceding 12 months.\"\n    }\n  ]\n}"
+          }
+        ]
+      },
+      "verification": {
+        "case_id": "MRI-008",
+        "configuration": "A",
+        "processing_status": "COMPLETE",
+        "returned_spans": 5,
+        "verified_spans": 5,
+        "citation_validity": 1.0,
+        "downgraded": 0,
+        "support_outcomes": {
+          "SUPPORTED": 4,
+          "UNSUPPORTED": 0,
+          "INCONCLUSIVE": 0,
+          "SKIPPED": 1,
+          "FAILED": 0
+        },
+        "seconds": 6.922,
+        "results": [
+          {
+            "criterion_id": "C1",
+            "clinical_status": "AMBIGUOUS",
+            "processing_status": "COMPLETE",
+            "reason_codes": [
+              "INSUFFICIENT_CONTEXT"
+            ],
+            "evidence": [
+              {
+                "document_id": "doc_7eb0860323c9",
+                "quote": "Widespread pain of over two years, non-anatomical distribution, assessed by rheumatology with normal inflammatory markers and negative serology.",
+                "role": "supporting",
+                "verified": true,
+                "span": {
+                  "document_id": "doc_7eb0860323c9",
+                  "content_sha256": "eb2f446cd321ba3d04362176820d5f3720ba439757695d2f0be76aff82454599",
+                  "start": 273,
+                  "end": 417
+                },
+                "detail": "",
+                "ambiguous_locations": 0
+              },
+              {
+                "document_id": "doc_5ad40457ac4f",
+                "quote": "Specifically she has asked for her back to be scanned, because her aunt had a scan of her back and something was found.",
+                "role": "supporting",
+                "verified": true,
+                "span": {
+                  "document_id": "doc_5ad40457ac4f",
+                  "content_sha256": "98d5d176e87bd598c39260ec90c347e38d1db1b63aaaa7447838b61a124caa09",
+                  "start": 837,
+                  "end": 956
+                },
+                "detail": "",
+                "ambiguous_locations": 0
+              }
+            ],
+            "explanation": "The documented complaint throughout the record is widespread, non-anatomical pain rather than a specific low back pain complaint; the only mention of the back is the patient's request for a scan modeled on a relative's experience, not a documented low back pain symptom, so it is unclear whether low back pain specifically is documented.",
+            "detail": "",
+            "failure_kind": "NONE",
+            "extracted_status": "AMBIGUOUS",
+            "downgraded": false,
+            "downgrade_reason": "",
+            "verification": {
+              "quote_check": {
+                "returned": 2,
+                "verified": 2,
+                "rejected": 0
+              },
+              "support_check": {
+                "ran": true,
+                "outcome": "SUPPORTED",
+                "detail": "The passages show widespread non-anatomical pain and a patient request to scan the back rather than a clear documentation of low back pain, so the evidence bears on but doesn't settle C1, supporting AMBIGUOUS/INSUFFICIENT_CONTEXT."
+              }
+            }
+          },
+          {
+            "criterion_id": "C2",
+            "clinical_status": "MET",
+            "processing_status": "COMPLETE",
+            "reason_codes": [],
+            "evidence": [
+              {
+                "document_id": "doc_f68354a02bef",
+                "quote": "It has been present for over two years and she can date the start to the winter her mother died",
+                "role": "supporting",
+                "verified": true,
+                "span": {
+                  "document_id": "doc_f68354a02bef",
+                  "content_sha256": "2d173e828f8aed6cbe5ddfe40e6c36255ef2d7591ea874fc7f94d19ce2dd65c7",
+                  "start": 530,
+                  "end": 625
+                },
+                "detail": "",
+                "ambiguous_locations": 0
+              }
+            ],
+            "explanation": "The pain symptoms are explicitly stated to have persisted for over two years, well beyond the 6-week threshold.",
+            "detail": "",
+            "failure_kind": "NONE",
+            "extracted_status": "MET",
+            "downgraded": false,
+            "downgrade_reason": "",
+            "verification": {
+              "quote_check": {
+                "returned": 1,
+                "verified": 1,
+                "rejected": 0
+              },
+              "support_check": {
+                "ran": true,
+                "outcome": "SUPPORTED",
+                "detail": "The passage explicitly states the symptom duration as over two years, which is a clear countable duration exceeding the 6-week threshold, satisfying C2 with a single passage."
+              }
+            }
+          },
+          {
+            "criterion_id": "C3",
+            "clinical_status": "AMBIGUOUS",
+            "processing_status": "COMPLETE",
+            "reason_codes": [
+              "INSUFFICIENT_CONTEXT"
+            ],
+            "evidence": [
+              {
+                "document_id": "doc_f68354a02bef",
+                "quote": "Nothing else has been tried.",
+                "role": "supporting",
+                "verified": true,
+                "span": {
+                  "document_id": "doc_f68354a02bef",
+                  "content_sha256": "2d173e828f8aed6cbe5ddfe40e6c36255ef2d7591ea874fc7f94d19ce2dd65c7",
+                  "start": 991,
+                  "end": 1019
+                },
+                "detail": "",
+                "ambiguous_locations": 0
+              }
+            ],
+            "explanation": "The only statement bearing on conservative treatment is a patient-reported negative that no treatment besides amitriptyline (which is not PT, an NSAID trial, or activity modification) has been attempted; this is an uncorroborated single-source history statement and does not establish, per the completeness routes, that any of the three listed modalities was attempted and failed, nor does it definitively foreclose one having been tried.",
+            "detail": "",
+            "failure_kind": "NONE",
+            "extracted_status": "AMBIGUOUS",
+            "downgraded": false,
+            "downgrade_reason": "",
+            "verification": {
+              "quote_check": {
+                "returned": 1,
+                "verified": 1,
+                "rejected": 0
+              },
+              "support_check": {
+                "ran": true,
+                "outcome": "SUPPORTED",
+                "detail": "The single vague patient-report passage neither confirms nor rules out attempting one of the three modalities with a failed outcome, leaving the criterion genuinely underdetermined rather than clearly unmet."
+              }
+            }
+          },
+          {
+            "criterion_id": "C4",
+            "clinical_status": "AMBIGUOUS",
+            "processing_status": "COMPLETE",
+            "reason_codes": [
+              "MISSING_EVIDENCE"
+            ],
+            "evidence": [],
+            "explanation": "No passage in the record names or addresses cauda equina syndrome, progressive neurologic deficit, malignancy, spinal infection, or significant trauma; the statement that a neurological exam was not performed does not name any of these categories.",
+            "detail": "",
+            "failure_kind": "NONE",
+            "extracted_status": "AMBIGUOUS",
+            "downgraded": false,
+            "downgrade_reason": "",
+            "verification": {
+              "quote_check": {
+                "returned": 0,
+                "verified": 0,
+                "rejected": 0
+              },
+              "support_check": {
+                "ran": false,
+                "outcome": "SKIPPED",
+                "detail": "no affirmative claim resting on verified evidence; nothing for the verifier to check"
+              }
+            }
+          },
+          {
+            "criterion_id": "C5",
+            "clinical_status": "MET",
+            "processing_status": "COMPLETE",
+            "reason_codes": [],
+            "evidence": [
+              {
+                "document_id": "doc_f68354a02bef",
+                "quote": "She has had no imaging of the spine at any point, which she confirmed and which matches the regional record.",
+                "role": "supporting",
+                "verified": true,
+                "span": {
+                  "document_id": "doc_f68354a02bef",
+                  "content_sha256": "2d173e828f8aed6cbe5ddfe40e6c36255ef2d7591ea874fc7f94d19ce2dd65c7",
+                  "start": 1664,
+                  "end": 1772
+                },
+                "detail": "",
+                "ambiguous_locations": 0
+              }
+            ],
+            "explanation": "The record contains an explicit statement that no prior spinal imaging exists at any point, which satisfies the requirement of no prior lumbar MRI within the preceding 12 months.",
+            "detail": "",
+            "failure_kind": "NONE",
+            "extracted_status": "MET",
+            "downgraded": false,
+            "downgrade_reason": "",
+            "verification": {
+              "quote_check": {
+                "returned": 1,
+                "verified": 1,
+                "rejected": 0
+              },
+              "support_check": {
+                "ran": true,
+                "outcome": "SUPPORTED",
+                "detail": "The passage explicitly states no prior spinal imaging exists at all, which entails no prior lumbar MRI within the preceding 12 months, satisfying C5."
+              }
+            }
+          }
+        ],
+        "support_attempts": [
+          {
+            "index": 1,
+            "seconds": 2.019,
+            "input_tokens": 1202,
+            "output_tokens": 111,
+            "error": "",
+            "parse_error": "",
+            "retryable": true,
+            "stop_reason": "end_turn",
+            "raw_text": "{\"outcome\": \"SUPPORTED\", \"detail\": \"The passages show widespread non-anatomical pain and a patient request to scan the back rather than a clear documentation of low back pain, so the evidence bears on but doesn't settle C1, supporting AMBIGUOUS/INSUFFICIENT_CONTEXT.\"}"
+          },
+          {
+            "index": 1,
+            "seconds": 1.596,
+            "input_tokens": 1186,
+            "output_tokens": 77,
+            "error": "",
+            "parse_error": "",
+            "retryable": true,
+            "stop_reason": "end_turn",
+            "raw_text": "{\"outcome\": \"SUPPORTED\", \"detail\": \"The passage explicitly states the symptom duration as over two years, which is a clear countable duration exceeding the 6-week threshold, satisfying C2 with a single passage.\"}"
+          },
+          {
+            "index": 1,
+            "seconds": 1.758,
+            "input_tokens": 1245,
+            "output_tokens": 87,
+            "error": "",
+            "parse_error": "",
+            "retryable": true,
+            "stop_reason": "end_turn",
+            "raw_text": "{\"outcome\": \"SUPPORTED\", \"detail\": \"The single vague patient-report passage neither confirms nor rules out attempting one of the three modalities with a failed outcome, leaving the criterion genuinely underdetermined rather than clearly unmet.\"}"
+          },
+          {
+            "index": 1,
+            "seconds": 1.548,
+            "input_tokens": 1232,
+            "output_tokens": 75,
+            "error": "",
+            "parse_error": "",
+            "retryable": true,
+            "stop_reason": "end_turn",
+            "raw_text": "{\"outcome\": \"SUPPORTED\", \"detail\": \"The passage explicitly states no prior spinal imaging exists at all, which entails no prior lumbar MRI within the preceding 12 months, satisfying C5.\"}"
+          }
+        ]
+      }
+    }
+  ]
+}

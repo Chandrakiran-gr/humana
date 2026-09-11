@@ -1,0 +1,25 @@
+RIVERBEND HEALTH
+DIAGNOSTIC IMAGING ORDER
+
+Order #:            IMG-2026-118447
+Ordered:            08/17/2026 17:40
+Ordering provider:  D. Okafor, MD
+Patient:            Alvarez, Rosa M.   MRN 4471902   DOB 03/22/1961
+
+EXAM REQUESTED:     MRI LUMBAR SPINE WITHOUT CONTRAST
+CPT:                72148
+Priority:           Routine
+
+INDICATION:
+Low back pain, right paraspinal, across the belt line, with intermittent right
+posterior thigh heaviness. Not improved on medication trial. Evaluate for
+structural cause.
+
+SCREENING
+Pacemaker / implanted device:  No
+Metal fragment history:        No
+Claustrophobia:                No
+Weight within table limit:     Yes
+eGFR on file:                  >60 (08/2026)
+
+Scheduling: patient prefers mornings. Contact 555-0173.

@@ -1,0 +1,31 @@
+CALDER VALE HEALTH
+DIAGNOSTIC IMAGING ORDER
+
+Order:      CVH-2026-772014
+Placed:     09/01/2026 15:47
+Provider:   B. Nakagawa, MD, Calder Vale Spine Service
+Patient:    Rasmussen, Ottoline   MRN 3317742   DOB 11/26/1979
+
+EXAM:       MRI LUMBAR SPINE WITHOUT CONTRAST
+CPT:        72148
+Priority:   Routine
+
+INDICATION:
+Left L5 radiculopathy. Assess the L4-5 and L5-S1 foramina and the extraforaminal
+zone. Include far lateral coverage on the axial sequences; the clinical pattern
+is sitting-aggravated and standing-relieved.
+
+SAFETY SCREENING
+Cardiac device or neurostimulator     No
+Aneurysm clip or coil                 No
+Cochlear implant                      No
+Metal fragment in eye                 No
+Occupational metalwork                No, violin teacher
+Pregnancy                             Not applicable, patient reports
+                                      hysterectomy 2021
+Claustrophobia                        No
+Contrast requested                    No
+
+SCHEDULING
+Teaches Monday to Thursday afternoons and evenings. Mornings or Friday.
+Report to the ordering clinician.

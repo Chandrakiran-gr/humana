@@ -1,0 +1,38 @@
+# Cite — interface configuration.
+#
+# The theme is pinned, not left to the viewer.
+#
+# Without this file Streamlit follows the browser's `prefers-color-scheme`,
+# so an interface whose colours were chosen against a light paper background
+# renders on a dark one for anyone whose machine is set that way. Every
+# foreground colour in `app.py` is picked for contrast against #FBFAF8, and
+# on a dark background those same colours become the low-contrast grey text
+# that made the criterion titles and quotes hard to read. Pinning `base` is
+# the fix; restyling the text was treating the symptom.
+#
+# It also matters for a demonstration: the person presenting cannot know what
+# the display they are plugged into is set to, and finding out in the room is
+# too late.
+#
+# The palette below is the one in the UI reference, taken from its CSS
+# variables rather than approximated.
+
+[theme]
+base = "light"
+
+primaryColor = "#1C2B45"             # --navy, chrome only, never a status
+backgroundColor = "#FBFAF8"          # --paper
+secondaryBackgroundColor = "#FFFFFF" # --panel: sidebar, cards, rows
+textColor = "#1A1A18"                # --ink
+borderColor = "#E4E1DB"              # --rule
+linkColor = "#1C2B45"
+
+font = "sans-serif"
+codeFont = "monospace"
+baseRadius = "0.35rem"
+
+[server]
+headless = true
+
+[browser]
+gatherUsageStats = false

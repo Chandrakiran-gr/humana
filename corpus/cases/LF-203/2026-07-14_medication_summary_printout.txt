@@ -1,0 +1,32 @@
+FENWAY LANE PRACTICE
+Repeat Medication Summary  ·  System printout
+
+Patient .................. Achebe-Sorrentino, Delphine
+Practice ref ............. FLP-77213
+Printed .................. 14 Jul 2026 09:14
+Printed by ............... Reception, at patient request for hospital
+                           appointment
+
+CURRENT REPEAT ITEMS
+  Gabapentin 300 mg capsules          three times daily     since 02 Nov 2025
+  Levothyroxine 100 microgram tablets once daily            since 2014
+  Cetirizine 10 mg tablets            once daily as needed  since 2019
+
+PAST ITEMS, DISCONTINUED
+  Amoxicillin 500 mg capsules         course completed      Nov 2024
+       Issued for a chest infection. Course finished, no further issue.
+  Ferrous fumarate 210 mg tablets     discontinued          Mar 2023
+
+ANNOTATIONS ON THE GABAPENTIN
+  02 Nov 2025  Started at 100 mg three times daily by Dr Villanueva-Oduya for
+               back and leg pain. Titrated.
+  18 Feb 2026  Increased to 300 mg three times daily. Patient reports partial
+               benefit to the leg symptoms, none to the back.
+  09 Jun 2026  Continued at current dose. Patient reports no change since the
+               increase and would rather not go higher because of drowsiness.
+
+ALLERGIES AND SENSITIVITIES
+  None recorded.
+
+This printout lists repeat items only. Acute issues and hospital-supplied
+medication do not appear.

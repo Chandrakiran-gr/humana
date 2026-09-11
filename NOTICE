@@ -1,0 +1,50 @@
+NOTICE
+
+Copyright (c) 2026 Chandrakiran G R. All rights reserved.
+
+This repository is a prototype. It is not production software, and no license
+to use, copy, modify, or distribute it is granted.
+
+SYNTHETIC DEMONSTRATION MATERIAL
+--------------------------------
+
+All medical necessity criteria in this repository are synthetic demonstration
+criteria, modeled on publicly available Medicare coverage determination patterns
+and published payer medical coverage policies. They are representative rather
+than verbatim reproductions of any current national coverage determination,
+local coverage determination, or plan policy.
+
+They are NOT Humana coverage policies, and they are not the coverage policies of
+any other payer. Listed procedure codes identify supported demonstration
+scenarios; they do not indicate validated production applicability.
+
+No proprietary clinical criteria products are reproduced here. MCG and InterQual
+are licensed products and are not included, paraphrased, or derived from.
+
+All clinical records in this repository are synthetic and were authored for
+evaluation. No real or de-identified patient data is used, and no protected
+health information is present.
+
+NO COVERAGE DETERMINATION
+-------------------------
+
+This software produces no coverage determination, recommendation, or aggregate
+score. Its output vocabulary is evidence status only. It locates passages in a
+submitted record, cites them, and reports whether the located evidence supports,
+contradicts, or leaves unresolved each requirement.
+
+A licensed physician must be involved before a Medicare Advantage plan denies
+coverage, and some states require medical necessity determinations to come from
+a licensed professional rather than software. Nothing produced by this prototype
+is a medical necessity determination, and nothing in it should be used as one.
+
+Reviewer time savings, nursing productivity, and clinical outcomes have not been
+measured. Demonstrated technical results on synthetic cases are distinct from
+all three.
+
+THIRD-PARTY NAMES
+-----------------
+
+Humana, MCG, and InterQual are the marks of their respective owners. Their use
+here is descriptive only and does not imply affiliation, sponsorship, or
+endorsement.

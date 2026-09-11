@@ -1,0 +1,38 @@
+FENWORTH ORTHOPAEDICS
+MEDICATION RECONCILIATION
+
+Patient: Achterberg, Rosalind   MRN 6640931
+Reconciled: 06/22/2026 by S. Oduya, RN
+Source: patient, repeat prescription slip, community pharmacy printout
+
+CURRENT
+Atorvastatin 20 mg                oral    nightly
+Amlodipine 5 mg                   oral    once daily
+Colecalciferol 800 IU             oral    once daily
+Mebeverine 135 mg                 oral    three times daily before meals
+Carmellose eye drops              both eyes, as needed
+Emollient ointment                topical, as needed
+
+STOPPED TODAY
+Naproxen 500 mg                   oral    twice daily. Commenced 01/19/2026,
+                                          taken as directed throughout, no
+                                          benefit. Stopped on the surgeon's
+                                          instruction at today's visit.
+Omeprazole 20 mg                  oral    once daily, gastric cover for the
+                                          naproxen, stopped alongside it.
+
+ALLERGIES AND INTOLERANCES
+No known drug allergies. Reports that codeine makes her sick; recorded as an
+intolerance.
+
+ADHERENCE
+Uses a repeat prescription service with weekly delivery. Daughter checks the box
+when home. No missed doses identified.
+
+NOTES
+Patient asked whether the mebeverine could be taken with food rather than before
+it, as she keeps forgetting. Advised to take it before meals where she can and
+that missing the timing occasionally will not undo it.
+
+She also asked to be reminded which of these is for her blood pressure, and I
+have written it on the slip for her.

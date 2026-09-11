@@ -1,0 +1,536 @@
+{
+  "case_id": "MRI-004",
+  "split": "development",
+  "parent_case_id": null,
+  "criteria_set_version": "1.1.0",
+  "preflight": {
+    "model": "claude-sonnet-5",
+    "prompt_version": "extraction/1.1.0",
+    "criteria_set_version": "1.1.0"
+  },
+  "packet": {
+    "case_id": "MRI-004",
+    "processing_status": "COMPLETE",
+    "document_count": 5,
+    "usable_documents": 5,
+    "estimated_tokens": 1951,
+    "token_limit": 150000,
+    "manifest_check": {
+      "status": "match",
+      "documents_checked": 5
+    },
+    "documents": [
+      {
+        "document_id": "doc_505d29aa4abc",
+        "filename": "2026-08-20_pt_progress_note.txt",
+        "content_sha256": "665672f4f262016c2e9b4a40d47214d8aea95e6fb0240413d8e9bea4c90f1bb2",
+        "byte_size": 1295,
+        "outcome": "OK",
+        "detail": "",
+        "canonical_length": 1286,
+        "estimated_tokens": 429,
+        "page_count": null
+      },
+      {
+        "document_id": "doc_d8f094b63226",
+        "filename": "2026-08-24_patient_intake_form.txt",
+        "content_sha256": "a7fbc93c87403d37a195b32ec242fad447f7be5777a6f4bdbd66a6366c86e270",
+        "byte_size": 1157,
+        "outcome": "OK",
+        "detail": "",
+        "canonical_length": 1112,
+        "estimated_tokens": 371,
+        "page_count": null
+      },
+      {
+        "document_id": "doc_e14e2cfdeefb",
+        "filename": "2026-08-26_imaging_requisition_72148.txt",
+        "content_sha256": "dfb5ac96e06df15a79d39d86d4837d422ab81e373b1aeb03b6b4b0e70f8d8eca",
+        "byte_size": 970,
+        "outcome": "OK",
+        "detail": "",
+        "canonical_length": 794,
+        "estimated_tokens": 265,
+        "page_count": null
+      },
+      {
+        "document_id": "doc_645df6611de1",
+        "filename": "2026-08-26_physician_note.txt",
+        "content_sha256": "7b3eeb5b3f8c68deb722fef593bb6aec2ca614dfbb3458eecf6350756a97ef02",
+        "byte_size": 1502,
+        "outcome": "OK",
+        "detail": "",
+        "canonical_length": 1458,
+        "estimated_tokens": 486,
+        "page_count": null
+      },
+      {
+        "document_id": "doc_ef50c98cfb38",
+        "filename": "2026-08-27_authorization_coversheet.txt",
+        "content_sha256": "352933e77467d8560b7807a700ebfdb030b226f221c81c23bed99f756501f09e",
+        "byte_size": 1279,
+        "outcome": "OK",
+        "detail": "",
+        "canonical_length": 1198,
+        "estimated_tokens": 400,
+        "page_count": null
+      }
+    ]
+  },
+  "settings": {
+    "model": "claude-sonnet-5",
+    "configuration": "A",
+    "max_attempts": 3,
+    "timeout_seconds": 120.0
+  },
+  "extraction": {
+    "case_id": "MRI-004",
+    "configuration": "A",
+    "model": "claude-sonnet-5",
+    "prompt_version": "extraction/1.1.0",
+    "processing_status": "COMPLETE",
+    "calls": 1,
+    "input_tokens": 7579,
+    "output_tokens": 2954,
+    "seconds": 26.157,
+    "failures": {
+      "CONTRACT_REJECTION": 0,
+      "NO_RESPONSE": 0,
+      "NOT_ATTEMPTED": 0
+    },
+    "results": [
+      {
+        "criterion_id": "C1",
+        "clinical_status": "MET",
+        "processing_status": "COMPLETE",
+        "reason_codes": [],
+        "evidence": [
+          {
+            "document_id": "doc_645df6611de1",
+            "quote": "Ms. Delacroix returns with an 8-week history of low back pain.",
+            "role": "supporting"
+          },
+          {
+            "document_id": "doc_e14e2cfdeefb",
+            "quote": "Bilateral low back pain, mechanical pattern, no radicular features.",
+            "role": "supporting"
+          }
+        ],
+        "explanation": "Multiple clinical documents (physician note and imaging requisition) document low back pain, satisfying this requirement.",
+        "detail": "",
+        "failure_kind": "NONE",
+        "rejected_payload": null
+      },
+      {
+        "criterion_id": "C2",
+        "clinical_status": "AMBIGUOUS",
+        "processing_status": "COMPLETE",
+        "reason_codes": [
+          "CONFLICTING_EVIDENCE"
+        ],
+        "evidence": [
+          {
+            "document_id": "doc_645df6611de1",
+            "quote": "Ms. Delacroix returns with an 8-week history of low back pain.",
+            "role": "supporting"
+          },
+          {
+            "document_id": "doc_d8f094b63226",
+            "quote": "Started bothering me about 3 weeks ago. Comes and goes but mostly it is there.",
+            "role": "contradicting"
+          },
+          {
+            "document_id": "doc_d8f094b63226",
+            "quote": "[X] 1 to 4 weeks",
+            "role": "contradicting"
+          }
+        ],
+        "explanation": "The physician note dated two days after the patient intake form states an 8-week duration, while the patient's own intake form from the same encounter window reports onset about 3 weeks prior and checks the '1 to 4 weeks' box; these two contemporaneous sources directly conflict on duration, so the 6-week threshold cannot be reliably established.",
+        "detail": "",
+        "failure_kind": "NONE",
+        "rejected_payload": null
+      },
+      {
+        "criterion_id": "C3",
+        "clinical_status": "AMBIGUOUS",
+        "processing_status": "COMPLETE",
+        "reason_codes": [
+          "CONFLICTING_EVIDENCE"
+        ],
+        "evidence": [
+          {
+            "document_id": "doc_505d29aa4abc",
+            "quote": "6 sessions completed to date. Attendance good, one rescheduled by the clinic.",
+            "role": "supporting"
+          },
+          {
+            "document_id": "doc_505d29aa4abc",
+            "quote": "Pain report is essentially where it started.",
+            "role": "supporting"
+          },
+          {
+            "document_id": "doc_645df6611de1",
+            "quote": "She has not yet started physical therapy and is going to look into scheduling once her rota settles down.",
+            "role": "contradicting"
+          }
+        ],
+        "explanation": "A physiotherapy progress note dated 08/20/2026 documents 6 completed PT sessions with an unresolved outcome, which would support a failed PT trial; however the physician's office note dated 08/26/2026 states the patient 'has not yet started physical therapy,' directly conflicting with the PT record as to whether therapy occurred at all.",
+        "detail": "",
+        "failure_kind": "NONE",
+        "rejected_payload": null
+      },
+      {
+        "criterion_id": "C4",
+        "clinical_status": "AMBIGUOUS",
+        "processing_status": "COMPLETE",
+        "reason_codes": [
+          "MISSING_EVIDENCE"
+        ],
+        "evidence": [],
+        "explanation": "No passage in the record names or addresses cauda equina syndrome, progressive neurologic deficit, malignancy, spinal infection, or significant trauma; the record is silent on all five red-flag categories.",
+        "detail": "",
+        "failure_kind": "NONE",
+        "rejected_payload": null
+      },
+      {
+        "criterion_id": "C5",
+        "clinical_status": "AMBIGUOUS",
+        "processing_status": "COMPLETE",
+        "reason_codes": [
+          "MISSING_EVIDENCE"
+        ],
+        "evidence": [],
+        "explanation": "The record does not mention any prior lumbar MRI or address whether one occurred within the preceding 12 months, so prior imaging status cannot be determined.",
+        "detail": "",
+        "failure_kind": "NONE",
+        "rejected_payload": null
+      }
+    ],
+    "prompts": [
+      {
+        "prompt_version": "extraction/1.1.0",
+        "criterion_ids": [
+          "C1",
+          "C2",
+          "C3",
+          "C4",
+          "C5"
+        ],
+        "system_chars": 5914,
+        "criteria_chars": 9398,
+        "record_chars": 6329
+      }
+    ],
+    "attempts": [
+      {
+        "index": 1,
+        "seconds": 26.157,
+        "input_tokens": 7579,
+        "output_tokens": 2954,
+        "error": "",
+        "parse_error": "",
+        "retryable": true,
+        "raw_text": "{\n  \"results\": [\n    {\n      \"criterion_id\": \"C1\",\n      \"clinical_status\": \"MET\",\n      \"reason_codes\": [],\n      \"evidence\": [\n        {\n          \"document_id\": \"doc_645df6611de1\",\n          \"quote\": \"Ms. Delacroix returns with an 8-week history of low back pain.\",\n          \"role\": \"supporting\"\n        },\n        {\n          \"document_id\": \"doc_e14e2cfdeefb\",\n          \"quote\": \"Bilateral low back pain, mechanical pattern, no radicular features.\",\n          \"role\": \"supporting\"\n        }\n      ],\n      \"explanation\": \"Multiple clinical documents (physician note and imaging requisition) document low back pain, satisfying this requirement.\"\n    },\n    {\n      \"criterion_id\": \"C2\",\n      \"clinical_status\": \"AMBIGUOUS\",\n      \"reason_codes\": [\"CONFLICTING_EVIDENCE\"],\n      \"evidence\": [\n        {\n          \"document_id\": \"doc_645df6611de1\",\n          \"quote\": \"Ms. Delacroix returns with an 8-week history of low back pain.\",\n          \"role\": \"supporting\"\n        },\n        {\n          \"document_id\": \"doc_d8f094b63226\",\n          \"quote\": \"Started bothering me about 3 weeks ago. Comes and goes but mostly it is there.\",\n          \"role\": \"contradicting\"\n        },\n        {\n          \"document_id\": \"doc_d8f094b63226\",\n          \"quote\": \"[X] 1 to 4 weeks\",\n          \"role\": \"contradicting\"\n        }\n      ],\n      \"explanation\": \"The physician note dated two days after the patient intake form states an 8-week duration, while the patient's own intake form from the same encounter window reports onset about 3 weeks prior and checks the '1 to 4 weeks' box; these two contemporaneous sources directly conflict on duration, so the 6-week threshold cannot be reliably established.\"\n    },\n    {\n      \"criterion_id\": \"C3\",\n      \"clinical_status\": \"AMBIGUOUS\",\n      \"reason_codes\": [\"CONFLICTING_EVIDENCE\"],\n      \"evidence\": [\n        {\n          \"document_id\": \"doc_505d29aa4abc\",\n          \"quote\": \"6 sessions completed to date. Attendance good, one rescheduled by the clinic.\",\n          \"role\": \"supporting\"\n        },\n        {\n          \"document_id\": \"doc_505d29aa4abc\",\n          \"quote\": \"Pain report is essentially where it started.\",\n          \"role\": \"supporting\"\n        },\n        {\n          \"document_id\": \"doc_645df6611de1\",\n          \"quote\": \"She has not yet started physical therapy and is going to look into scheduling once her rota settles down.\",\n          \"role\": \"contradicting\"\n        }\n      ],\n      \"explanation\": \"A physiotherapy progress note dated 08/20/2026 documents 6 completed PT sessions with an unresolved outcome, which would support a failed PT trial; however the physician's office note dated 08/26/2026 states the patient 'has not yet started physical therapy,' directly conflicting with the PT record as to whether therapy occurred at all.\"\n    },\n    {\n      \"criterion_id\": \"C4\",\n      \"clinical_status\": \"AMBIGUOUS\",\n      \"reason_codes\": [\"MISSING_EVIDENCE\"],\n      \"evidence\": [],\n      \"explanation\": \"No passage in the record names or addresses cauda equina syndrome, progressive neurologic deficit, malignancy, spinal infection, or significant trauma; the record is silent on all five red-flag categories.\"\n    },\n    {\n      \"criterion_id\": \"C5\",\n      \"clinical_status\": \"AMBIGUOUS\",\n      \"reason_codes\": [\"MISSING_EVIDENCE\"],\n      \"evidence\": [],\n      \"explanation\": \"The record does not mention any prior lumbar MRI or address whether one occurred within the preceding 12 months, so prior imaging status cannot be determined.\"\n    }\n  ]\n}"
+      }
+    ]
+  },
+  "verification": {
+    "case_id": "MRI-004",
+    "configuration": "A",
+    "processing_status": "COMPLETE",
+    "returned_spans": 8,
+    "verified_spans": 8,
+    "citation_validity": 1.0,
+    "downgraded": 0,
+    "support_outcomes": {
+      "SUPPORTED": 3,
+      "UNSUPPORTED": 0,
+      "INCONCLUSIVE": 0,
+      "SKIPPED": 2,
+      "FAILED": 0
+    },
+    "seconds": 4.763,
+    "results": [
+      {
+        "criterion_id": "C1",
+        "clinical_status": "MET",
+        "processing_status": "COMPLETE",
+        "reason_codes": [],
+        "evidence": [
+          {
+            "document_id": "doc_645df6611de1",
+            "quote": "Ms. Delacroix returns with an 8-week history of low back pain.",
+            "role": "supporting",
+            "verified": true,
+            "span": {
+              "document_id": "doc_645df6611de1",
+              "content_sha256": "7b3eeb5b3f8c68deb722fef593bb6aec2ca614dfbb3458eecf6350756a97ef02",
+              "start": 138,
+              "end": 200
+            },
+            "detail": "",
+            "ambiguous_locations": 0
+          },
+          {
+            "document_id": "doc_e14e2cfdeefb",
+            "quote": "Bilateral low back pain, mechanical pattern, no radicular features.",
+            "role": "supporting",
+            "verified": true,
+            "span": {
+              "document_id": "doc_e14e2cfdeefb",
+              "content_sha256": "dfb5ac96e06df15a79d39d86d4837d422ab81e373b1aeb03b6b4b0e70f8d8eca",
+              "start": 289,
+              "end": 356
+            },
+            "detail": "",
+            "ambiguous_locations": 0
+          }
+        ],
+        "explanation": "Multiple clinical documents (physician note and imaging requisition) document low back pain, satisfying this requirement.",
+        "detail": "",
+        "failure_kind": "NONE",
+        "extracted_status": "MET",
+        "downgraded": false,
+        "downgrade_reason": "",
+        "verification": {
+          "quote_check": {
+            "returned": 2,
+            "verified": 2,
+            "rejected": 0
+          },
+          "support_check": {
+            "ran": true,
+            "outcome": "SUPPORTED",
+            "detail": "Both passages explicitly document low back pain, satisfying the alternative evidence requirement for C1."
+          }
+        }
+      },
+      {
+        "criterion_id": "C2",
+        "clinical_status": "AMBIGUOUS",
+        "processing_status": "COMPLETE",
+        "reason_codes": [
+          "CONFLICTING_EVIDENCE"
+        ],
+        "evidence": [
+          {
+            "document_id": "doc_645df6611de1",
+            "quote": "Ms. Delacroix returns with an 8-week history of low back pain.",
+            "role": "supporting",
+            "verified": true,
+            "span": {
+              "document_id": "doc_645df6611de1",
+              "content_sha256": "7b3eeb5b3f8c68deb722fef593bb6aec2ca614dfbb3458eecf6350756a97ef02",
+              "start": 138,
+              "end": 200
+            },
+            "detail": "",
+            "ambiguous_locations": 0
+          },
+          {
+            "document_id": "doc_d8f094b63226",
+            "quote": "Started bothering me about 3 weeks ago. Comes and goes but mostly it is there.",
+            "role": "contradicting",
+            "verified": true,
+            "span": {
+              "document_id": "doc_d8f094b63226",
+              "content_sha256": "a7fbc93c87403d37a195b32ec242fad447f7be5777a6f4bdbd66a6366c86e270",
+              "start": 243,
+              "end": 321
+            },
+            "detail": "",
+            "ambiguous_locations": 0
+          },
+          {
+            "document_id": "doc_d8f094b63226",
+            "quote": "[X] 1 to 4 weeks",
+            "role": "contradicting",
+            "verified": true,
+            "span": {
+              "document_id": "doc_d8f094b63226",
+              "content_sha256": "a7fbc93c87403d37a195b32ec242fad447f7be5777a6f4bdbd66a6366c86e270",
+              "start": 390,
+              "end": 406
+            },
+            "detail": "",
+            "ambiguous_locations": 0
+          }
+        ],
+        "explanation": "The physician note dated two days after the patient intake form states an 8-week duration, while the patient's own intake form from the same encounter window reports onset about 3 weeks prior and checks the '1 to 4 weeks' box; these two contemporaneous sources directly conflict on duration, so the 6-week threshold cannot be reliably established.",
+        "detail": "",
+        "failure_kind": "NONE",
+        "extracted_status": "AMBIGUOUS",
+        "downgraded": false,
+        "downgrade_reason": "",
+        "verification": {
+          "quote_check": {
+            "returned": 3,
+            "verified": 3,
+            "rejected": 0
+          },
+          "support_check": {
+            "ran": true,
+            "outcome": "SUPPORTED",
+            "detail": "The passages show conflicting duration reports (8 weeks vs. 3 weeks/1-4 weeks) from the same encounter window, genuinely conflicting on whether the 6-week threshold is met."
+          }
+        }
+      },
+      {
+        "criterion_id": "C3",
+        "clinical_status": "AMBIGUOUS",
+        "processing_status": "COMPLETE",
+        "reason_codes": [
+          "CONFLICTING_EVIDENCE"
+        ],
+        "evidence": [
+          {
+            "document_id": "doc_505d29aa4abc",
+            "quote": "6 sessions completed to date. Attendance good, one rescheduled by the clinic.",
+            "role": "supporting",
+            "verified": true,
+            "span": {
+              "document_id": "doc_505d29aa4abc",
+              "content_sha256": "665672f4f262016c2e9b4a40d47214d8aea95e6fb0240413d8e9bea4c90f1bb2",
+              "start": 217,
+              "end": 294
+            },
+            "detail": "",
+            "ambiguous_locations": 0
+          },
+          {
+            "document_id": "doc_505d29aa4abc",
+            "quote": "Pain report is essentially where it started.",
+            "role": "supporting",
+            "verified": true,
+            "span": {
+              "document_id": "doc_505d29aa4abc",
+              "content_sha256": "665672f4f262016c2e9b4a40d47214d8aea95e6fb0240413d8e9bea4c90f1bb2",
+              "start": 871,
+              "end": 915
+            },
+            "detail": "",
+            "ambiguous_locations": 0
+          },
+          {
+            "document_id": "doc_645df6611de1",
+            "quote": "She has not yet started physical therapy and is going to look into scheduling once her rota settles down.",
+            "role": "contradicting",
+            "verified": true,
+            "span": {
+              "document_id": "doc_645df6611de1",
+              "content_sha256": "7b3eeb5b3f8c68deb722fef593bb6aec2ca614dfbb3458eecf6350756a97ef02",
+              "start": 932,
+              "end": 1037
+            },
+            "detail": "",
+            "ambiguous_locations": 0
+          }
+        ],
+        "explanation": "A physiotherapy progress note dated 08/20/2026 documents 6 completed PT sessions with an unresolved outcome, which would support a failed PT trial; however the physician's office note dated 08/26/2026 states the patient 'has not yet started physical therapy,' directly conflicting with the PT record as to whether therapy occurred at all.",
+        "detail": "",
+        "failure_kind": "NONE",
+        "extracted_status": "AMBIGUOUS",
+        "downgraded": false,
+        "downgrade_reason": "",
+        "verification": {
+          "quote_check": {
+            "returned": 3,
+            "verified": 3,
+            "rejected": 0
+          },
+          "support_check": {
+            "ran": true,
+            "outcome": "SUPPORTED",
+            "detail": "The passages show one record documenting completed but unresolved PT sessions while another states PT has not started, a genuine conflict on both sides as claimed."
+          }
+        }
+      },
+      {
+        "criterion_id": "C4",
+        "clinical_status": "AMBIGUOUS",
+        "processing_status": "COMPLETE",
+        "reason_codes": [
+          "MISSING_EVIDENCE"
+        ],
+        "evidence": [],
+        "explanation": "No passage in the record names or addresses cauda equina syndrome, progressive neurologic deficit, malignancy, spinal infection, or significant trauma; the record is silent on all five red-flag categories.",
+        "detail": "",
+        "failure_kind": "NONE",
+        "extracted_status": "AMBIGUOUS",
+        "downgraded": false,
+        "downgrade_reason": "",
+        "verification": {
+          "quote_check": {
+            "returned": 0,
+            "verified": 0,
+            "rejected": 0
+          },
+          "support_check": {
+            "ran": false,
+            "outcome": "SKIPPED",
+            "detail": "no affirmative claim resting on verified evidence; nothing for the verifier to check"
+          }
+        }
+      },
+      {
+        "criterion_id": "C5",
+        "clinical_status": "AMBIGUOUS",
+        "processing_status": "COMPLETE",
+        "reason_codes": [
+          "MISSING_EVIDENCE"
+        ],
+        "evidence": [],
+        "explanation": "The record does not mention any prior lumbar MRI or address whether one occurred within the preceding 12 months, so prior imaging status cannot be determined.",
+        "detail": "",
+        "failure_kind": "NONE",
+        "extracted_status": "AMBIGUOUS",
+        "downgraded": false,
+        "downgrade_reason": "",
+        "verification": {
+          "quote_check": {
+            "returned": 0,
+            "verified": 0,
+            "rejected": 0
+          },
+          "support_check": {
+            "ran": false,
+            "outcome": "SKIPPED",
+            "detail": "no affirmative claim resting on verified evidence; nothing for the verifier to check"
+          }
+        }
+      }
+    ],
+    "support_attempts": [
+      {
+        "index": 1,
+        "seconds": 1.355,
+        "input_tokens": 1084,
+        "output_tokens": 55,
+        "error": "",
+        "parse_error": "",
+        "retryable": true,
+        "raw_text": "{\"outcome\": \"SUPPORTED\", \"detail\": \"Both passages explicitly document low back pain, satisfying the alternative evidence requirement for C1.\"}"
+      },
+      {
+        "index": 1,
+        "seconds": 1.692,
+        "input_tokens": 1345,
+        "output_tokens": 89,
+        "error": "",
+        "parse_error": "",
+        "retryable": true,
+        "raw_text": "{\"outcome\": \"SUPPORTED\", \"detail\": \"The passages show conflicting duration reports (8 weeks vs. 3 weeks/1-4 weeks) from the same encounter window, genuinely conflicting on whether the 6-week threshold is met.\"}"
+      },
+      {
+        "index": 1,
+        "seconds": 1.715,
+        "input_tokens": 1307,
+        "output_tokens": 69,
+        "error": "",
+        "parse_error": "",
+        "retryable": true,
+        "raw_text": "{\"outcome\": \"SUPPORTED\", \"detail\": \"The passages show one record documenting completed but unresolved PT sessions while another states PT has not started, a genuine conflict on both sides as claimed.\"}"
+      }
+    ]
+  }
+}

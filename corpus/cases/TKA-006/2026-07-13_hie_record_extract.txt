@@ -1,0 +1,42 @@
+NORTHERN REGIONAL HEALTH INFORMATION EXCHANGE
+PARTICIPANT RECORD EXTRACT
+
+Extract reference:  HIE-2026-114772
+Generated:          07/13/2026 06:02, automated overnight batch
+Requested by:       R. Okonjo, Rossmore Orthopaedics, under care-coordination access
+Subject:            Fontaine-Adebayo, Miriam
+Date of birth:      08/30/1959
+Regional ID:        redacted for demonstration
+
+COVERAGE OF THIS EXTRACT
+This extract lists every encounter recorded against this subject by any
+participating organisation, for the period 01/01/2019 to the generation date.
+Ninety-one organisations participate in this exchange, including all acute
+trusts, all general practices, and all commissioned musculoskeletal and therapy
+services in the region.
+
+Not covered: care delivered outside the region; care delivered by providers who
+do not participate; and any encounter a participating organisation has not yet
+uploaded. Upload latency is up to seventy-two hours.
+
+ENCOUNTERS, MUSCULOSKELETAL AND THERAPY SERVICES
+  05/18/2026  Rossmore Orthopaedics          New patient, knee
+  06/02/2026  Rossmore Therapy Services      Physiotherapy, initial
+  06/09/2026  Rossmore Therapy Services      Physiotherapy
+  06/16/2026  Rossmore Therapy Services      Physiotherapy
+  06/23/2026  Rossmore Therapy Services      Physiotherapy
+  06/30/2026  Rossmore Therapy Services      Physiotherapy
+  07/06/2026  Rossmore Orthopaedics          Review, knee
+
+  No musculoskeletal or therapy encounter is recorded against this subject at
+  any participating organisation before 05/18/2026.
+
+ENCOUNTERS, OTHER SPECIALTIES
+  11/04/2021  Rossmore Endoscopy             Diagnostic gastroscopy
+  03/22/2023  Ashfield Eye Unit              Cataract, right
+  09/14/2024  Rossmore Dermatology           Lesion excision, benign
+  01/30/2026  Rossmore Radiology             Mammography, routine screening
+  05/11/2026  Rossmore Imaging               Radiograph, knee
+
+END OF EXTRACT.  Twelve encounters returned.
+Queries to the exchange helpdesk quoting the extract reference.

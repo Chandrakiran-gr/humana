@@ -1,0 +1,30 @@
+ASHFORD PARK MEDICAL PRACTICE
+IMAGING REQUEST
+
+Request:      APM-2026-33418
+Date:         08/26/2026
+Requested by: C. Vandermeer, MD
+Patient:      Sowande-Kristiansen, Petra   MRN 6620884   DOB 09/03/1971
+
+EXAM:         MRI LUMBAR SPINE WITHOUT CONTRAST
+CPT:          72148
+Priority:     Routine
+
+CLINICAL INFORMATION:
+Widespread pain of over two years, non-anatomical distribution, assessed by
+rheumatology with normal inflammatory markers and negative serology. Requested at
+the patient's request. The requesting clinician has recorded that there is no
+specific clinical question this study is intended to answer.
+
+SAFETY SCREENING
+Cardiac device or neurostimulator     No
+Aneurysm clip or coil                 No
+Cochlear implant                      No
+Metal fragment in eye                 No
+Occupational metalwork                No
+Claustrophobia                        No
+Contrast requested                    No
+
+SCHEDULING
+Works school hours term time. School holidays or after 16:00.
+Report to the requesting clinician.

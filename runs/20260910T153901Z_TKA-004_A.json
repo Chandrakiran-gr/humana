@@ -1,0 +1,290 @@
+{
+  "case_id": "TKA-004",
+  "split": "development",
+  "parent_case_id": null,
+  "criteria_set_version": "1.1.0",
+  "preflight": {
+    "model": "claude-sonnet-5",
+    "prompt_version": "extraction/1.1.0",
+    "criteria_set_version": "1.1.0"
+  },
+  "packet": {
+    "case_id": "TKA-004",
+    "processing_status": "COMPLETE",
+    "document_count": 6,
+    "usable_documents": 6,
+    "estimated_tokens": 3387,
+    "token_limit": 150000,
+    "manifest_check": {
+      "status": "match",
+      "documents_checked": 6
+    },
+    "documents": [
+      {
+        "document_id": "doc_66be9fcda36d",
+        "filename": "2026-01-28_radiology_right_knee.txt",
+        "content_sha256": "1bad2253f830a6b73c94c222d66803fe4f5e369fa751826a6cbfef6277db2aa9",
+        "byte_size": 1773,
+        "outcome": "OK",
+        "detail": "",
+        "canonical_length": 1722,
+        "estimated_tokens": 574,
+        "page_count": null
+      },
+      {
+        "document_id": "doc_2e641b75ada4",
+        "filename": "2026-02-10_pt_initial_evaluation.txt",
+        "content_sha256": "d4032b15faf02d91efb6f8a1e04a82766e9042eb2b642b4da15d8b930b35398f",
+        "byte_size": 2223,
+        "outcome": "OK",
+        "detail": "",
+        "canonical_length": 2106,
+        "estimated_tokens": 702,
+        "page_count": null
+      },
+      {
+        "document_id": "doc_dcdc3e166008",
+        "filename": "2026-03-05_nutrition_consult.txt",
+        "content_sha256": "6f5cece5efa0924d7d96d11336d5e4b659686de33950d9c96040218b693e0e7c",
+        "byte_size": 1577,
+        "outcome": "OK",
+        "detail": "",
+        "canonical_length": 1562,
+        "estimated_tokens": 521,
+        "page_count": null
+      },
+      {
+        "document_id": "doc_e263061158f2",
+        "filename": "2026-04-16_procedure_note_injection.txt",
+        "content_sha256": "975b45f9ccd4a864ad47b996dd7a33916d5485dfb81adadfff6872d62180202d",
+        "byte_size": 1404,
+        "outcome": "OK",
+        "detail": "",
+        "canonical_length": 1391,
+        "estimated_tokens": 464,
+        "page_count": null
+      },
+      {
+        "document_id": "doc_e12c76914b24",
+        "filename": "2026-06-24_pt_discharge_summary.txt",
+        "content_sha256": "81c5a0184651e02680c036522f21649246a4bf675fca68e38fd2e929f252c08b",
+        "byte_size": 1720,
+        "outcome": "OK",
+        "detail": "",
+        "canonical_length": 1620,
+        "estimated_tokens": 540,
+        "page_count": null
+      },
+      {
+        "document_id": "doc_fa07059ccc9b",
+        "filename": "2026-07-08_orthopedic_note.txt",
+        "content_sha256": "f8ebacf8d648605079b756d7ba87e9271793a60d790a95ec796d80bb13e9cea5",
+        "byte_size": 1769,
+        "outcome": "OK",
+        "detail": "",
+        "canonical_length": 1758,
+        "estimated_tokens": 586,
+        "page_count": null
+      }
+    ]
+  },
+  "settings": {
+    "model": "claude-sonnet-5",
+    "configuration": "A",
+    "max_attempts": 3,
+    "timeout_seconds": 120.0
+  },
+  "extraction": {
+    "case_id": "TKA-004",
+    "configuration": "A",
+    "model": "claude-sonnet-5",
+    "prompt_version": "extraction/1.1.0",
+    "processing_status": "COMPLETE",
+    "calls": 1,
+    "input_tokens": 9650,
+    "output_tokens": 3451,
+    "seconds": 30.098,
+    "failures": {
+      "CONTRACT_REJECTION": 0,
+      "NO_RESPONSE": 0,
+      "NOT_ATTEMPTED": 0
+    },
+    "results": [
+      {
+        "criterion_id": "C1",
+        "clinical_status": "MET",
+        "processing_status": "COMPLETE",
+        "reason_codes": [],
+        "evidence": [
+          {
+            "document_id": "doc_66be9fcda36d",
+            "quote": "there is severe medial femorotibial compartment joint space narrowing with bone-on-bone apposition, subchondral sclerosis, and marginal osteophyte formation at the medial femoral condyle and medial tibial plateau",
+            "role": "supporting"
+          },
+          {
+            "document_id": "doc_66be9fcda36d",
+            "quote": "ADDENDUM IMPRESSION: Severe medial compartment and moderate patellofemoral degenerative change, right knee.",
+            "role": "supporting"
+          }
+        ],
+        "explanation": "The radiology addendum, which corrects and extends the original impression, describes severe joint space narrowing, subchondral sclerosis, and osteophyte formation in the right knee, meeting the requirement for advanced degenerative disease.",
+        "detail": "",
+        "failure_kind": "NONE",
+        "rejected_payload": null
+      },
+      {
+        "criterion_id": "C2",
+        "clinical_status": "MET",
+        "processing_status": "COMPLETE",
+        "reason_codes": [],
+        "evidence": [
+          {
+            "document_id": "doc_2e641b75ada4",
+            "quote": "Get back to walking the dog. Right now he cannot get past the driveway before he has to turn around and come back.",
+            "role": "supporting"
+          },
+          {
+            "document_id": "doc_2e641b75ada4",
+            "quote": "Sleep through the night without waking when he rolls over.",
+            "role": "supporting"
+          },
+          {
+            "document_id": "doc_2e641b75ada4",
+            "quote": "Reports pain with stairs and with prolonged standing.",
+            "role": "supporting"
+          }
+        ],
+        "explanation": "The PT initial evaluation documents specific functional impacts of the knee pain, including difficulty with stairs, a reduced ambulation distance goal, and night waking, satisfying the requirement for a documented functional impact.",
+        "detail": "",
+        "failure_kind": "NONE",
+        "rejected_payload": null
+      },
+      {
+        "criterion_id": "C3",
+        "clinical_status": "MET",
+        "processing_status": "COMPLETE",
+        "reason_codes": [],
+        "evidence": [
+          {
+            "document_id": "doc_2e641b75ada4",
+            "quote": "Date of Evaluation: 02/10/2026",
+            "role": "supporting"
+          },
+          {
+            "document_id": "doc_e12c76914b24",
+            "quote": "Date of Discharge: 06/24/2026",
+            "role": "supporting"
+          }
+        ],
+        "explanation": "Physical therapy conservative management is dated from the initial evaluation on 02/10/2026 through discharge on 06/24/2026, a span exceeding 3 months, satisfying the duration requirement.",
+        "detail": "",
+        "failure_kind": "NONE",
+        "rejected_payload": null
+      },
+      {
+        "criterion_id": "C4",
+        "clinical_status": "MET",
+        "processing_status": "COMPLETE",
+        "reason_codes": [],
+        "evidence": [
+          {
+            "document_id": "doc_e12c76914b24",
+            "quote": "Pt made measurable gains in strength and modest gains in range of motion. Symptom burden and weightbearing tolerance have not changed proportionally.",
+            "role": "supporting"
+          },
+          {
+            "document_id": "doc_e263061158f2",
+            "quote": "Patient reported diminished pain within ten minutes, consistent with the local anesthetic rather than the steroid.",
+            "role": "supporting"
+          },
+          {
+            "document_id": "doc_fa07059ccc9b",
+            "quote": "The injection in April helped for a stretch he puts at five or six weeks and then wore off, which is roughly what I told him to expect at the time.",
+            "role": "supporting"
+          }
+        ],
+        "explanation": "Physical therapy was completed with a documented outcome (plateau/partial gains) and the intra-articular injection was performed with a documented outcome (temporary relief then wearing off), together satisfying two distinct modalities with outcomes; weight reduction counseling lacked a documented outcome and NSAIDs/analgesics and activity modification were not documented as attempted.",
+        "detail": "",
+        "failure_kind": "NONE",
+        "rejected_payload": null
+      },
+      {
+        "criterion_id": "C5",
+        "clinical_status": "MET",
+        "processing_status": "COMPLETE",
+        "reason_codes": [],
+        "evidence": [
+          {
+            "document_id": "doc_2e641b75ada4",
+            "quote": "Antalgic gait pattern, decreased stance time on R, shortened step length on L.",
+            "role": "supporting"
+          },
+          {
+            "document_id": "doc_2e641b75ada4",
+            "quote": "Active extension -8 deg (lacks 8 deg terminal extension)",
+            "role": "supporting"
+          }
+        ],
+        "explanation": "The PT initial evaluation documents an antalgic gait and a measured extension deficit in the right knee, both functional limitations on physical examination.",
+        "detail": "",
+        "failure_kind": "NONE",
+        "rejected_payload": null
+      },
+      {
+        "criterion_id": "C6",
+        "clinical_status": "AMBIGUOUS",
+        "processing_status": "COMPLETE",
+        "reason_codes": [
+          "MISSING_EVIDENCE"
+        ],
+        "evidence": [],
+        "explanation": "No document in the record contains an explicit statement or examination/investigation addressing the presence or absence of active local or systemic infection.",
+        "detail": "",
+        "failure_kind": "NONE",
+        "rejected_payload": null
+      },
+      {
+        "criterion_id": "C7",
+        "clinical_status": "AMBIGUOUS",
+        "processing_status": "COMPLETE",
+        "reason_codes": [
+          "MISSING_EVIDENCE"
+        ],
+        "evidence": [],
+        "explanation": "The orthopedic note discusses risks and benefits of surgery (shared decision making) and states a plan to 'submit for authorization,' but no preoperative assessment or explicit clinician statement concluding the absence of an absolute contraindication is present in the record.",
+        "detail": "",
+        "failure_kind": "NONE",
+        "rejected_payload": null
+      }
+    ],
+    "prompts": [
+      {
+        "prompt_version": "extraction/1.1.0",
+        "criterion_ids": [
+          "C1",
+          "C2",
+          "C3",
+          "C4",
+          "C5",
+          "C6",
+          "C7"
+        ],
+        "system_chars": 5914,
+        "criteria_chars": 10724,
+        "record_chars": 10732
+      }
+    ],
+    "attempts": [
+      {
+        "index": 1,
+        "seconds": 30.098,
+        "input_tokens": 9650,
+        "output_tokens": 3451,
+        "error": "",
+        "parse_error": "",
+        "retryable": true,
+        "raw_text": "{\n  \"results\": [\n    {\n      \"criterion_id\": \"C1\",\n      \"clinical_status\": \"MET\",\n      \"reason_codes\": [],\n      \"evidence\": [\n        {\n          \"document_id\": \"doc_66be9fcda36d\",\n          \"quote\": \"there is severe medial femorotibial compartment joint space narrowing with bone-on-bone apposition, subchondral sclerosis, and marginal osteophyte formation at the medial femoral condyle and medial tibial plateau\",\n          \"role\": \"supporting\"\n        },\n        {\n          \"document_id\": \"doc_66be9fcda36d\",\n          \"quote\": \"ADDENDUM IMPRESSION: Severe medial compartment and moderate patellofemoral degenerative change, right knee.\",\n          \"role\": \"supporting\"\n        }\n      ],\n      \"explanation\": \"The radiology addendum, which corrects and extends the original impression, describes severe joint space narrowing, subchondral sclerosis, and osteophyte formation in the right knee, meeting the requirement for advanced degenerative disease.\"\n    },\n    {\n      \"criterion_id\": \"C2\",\n      \"clinical_status\": \"MET\",\n      \"reason_codes\": [],\n      \"evidence\": [\n        {\n          \"document_id\": \"doc_2e641b75ada4\",\n          \"quote\": \"Get back to walking the dog. Right now he cannot get past the driveway before he has to turn around and come back.\",\n          \"role\": \"supporting\"\n        },\n        {\n          \"document_id\": \"doc_2e641b75ada4\",\n          \"quote\": \"Sleep through the night without waking when he rolls over.\",\n          \"role\": \"supporting\"\n        },\n        {\n          \"document_id\": \"doc_2e641b75ada4\",\n          \"quote\": \"Reports pain with stairs and with prolonged standing.\",\n          \"role\": \"supporting\"\n        }\n      ],\n      \"explanation\": \"The PT initial evaluation documents specific functional impacts of the knee pain, including difficulty with stairs, a reduced ambulation distance goal, and night waking, satisfying the requirement for a documented functional impact.\"\n    },\n    {\n      \"criterion_id\": \"C3\",\n      \"clinical_status\": \"MET\",\n      \"reason_codes\": [],\n      \"evidence\": [\n        {\n          \"document_id\": \"doc_2e641b75ada4\",\n          \"quote\": \"Date of Evaluation: 02/10/2026\",\n          \"role\": \"supporting\"\n        },\n        {\n          \"document_id\": \"doc_e12c76914b24\",\n          \"quote\": \"Date of Discharge: 06/24/2026\",\n          \"role\": \"supporting\"\n        }\n      ],\n      \"explanation\": \"Physical therapy conservative management is dated from the initial evaluation on 02/10/2026 through discharge on 06/24/2026, a span exceeding 3 months, satisfying the duration requirement.\"\n    },\n    {\n      \"criterion_id\": \"C4\",\n      \"clinical_status\": \"MET\",\n      \"reason_codes\": [],\n      \"evidence\": [\n        {\n          \"document_id\": \"doc_e12c76914b24\",\n          \"quote\": \"Pt made measurable gains in strength and modest gains in range of motion. Symptom burden and weightbearing tolerance have not changed proportionally.\",\n          \"role\": \"supporting\"\n        },\n        {\n          \"document_id\": \"doc_e263061158f2\",\n          \"quote\": \"Patient reported diminished pain within ten minutes, consistent with the local anesthetic rather than the steroid.\",\n          \"role\": \"supporting\"\n        },\n        {\n          \"document_id\": \"doc_fa07059ccc9b\",\n          \"quote\": \"The injection in April helped for a stretch he puts at five or six weeks and then wore off, which is roughly what I told him to expect at the time.\",\n          \"role\": \"supporting\"\n        }\n      ],\n      \"explanation\": \"Physical therapy was completed with a documented outcome (plateau/partial gains) and the intra-articular injection was performed with a documented outcome (temporary relief then wearing off), together satisfying two distinct modalities with outcomes; weight reduction counseling lacked a documented outcome and NSAIDs/analgesics and activity modification were not documented as attempted.\"\n    },\n    {\n      \"criterion_id\": \"C5\",\n      \"clinical_status\": \"MET\",\n      \"reason_codes\": [],\n      \"evidence\": [\n        {\n          \"document_id\": \"doc_2e641b75ada4\",\n          \"quote\": \"Antalgic gait pattern, decreased stance time on R, shortened step length on L.\",\n          \"role\": \"supporting\"\n        },\n        {\n          \"document_id\": \"doc_2e641b75ada4\",\n          \"quote\": \"Active extension -8 deg (lacks 8 deg terminal extension)\",\n          \"role\": \"supporting\"\n        }\n      ],\n      \"explanation\": \"The PT initial evaluation documents an antalgic gait and a measured extension deficit in the right knee, both functional limitations on physical examination.\"\n    },\n    {\n      \"criterion_id\": \"C6\",\n      \"clinical_status\": \"AMBIGUOUS\",\n      \"reason_codes\": [\"MISSING_EVIDENCE\"],\n      \"evidence\": [],\n      \"explanation\": \"No document in the record contains an explicit statement or examination/investigation addressing the presence or absence of active local or systemic infection.\"\n    },\n    {\n      \"criterion_id\": \"C7\",\n      \"clinical_status\": \"AMBIGUOUS\",\n      \"reason_codes\": [\"MISSING_EVIDENCE\"],\n      \"evidence\": [],\n      \"explanation\": \"The orthopedic note discusses risks and benefits of surgery (shared decision making) and states a plan to 'submit for authorization,' but no preoperative assessment or explicit clinician statement concluding the absence of an absolute contraindication is present in the record.\"\n    }\n  ]\n}"
+      }
+    ]
+  }
+}

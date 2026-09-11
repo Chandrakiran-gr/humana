@@ -1,0 +1,28 @@
+ST AUGUSTINE HEALTH
+DIAGNOSTIC IMAGING ORDER
+
+Order:      SAH-2026-664021
+Placed:     09/04/2026 16:05
+Provider:   N. Achterberg, MD, Medical Oncology
+Patient:    Rasheed, Yolanda F.   MRN 5591027   DOB 07/13/1962
+
+EXAM:       MRI LUMBAR SPINE WITHOUT CONTRAST
+CPT:        72148
+PRIORITY:   Expedite. Suspected metastatic disease.
+
+INDICATION:
+New focal thoracolumbar pain with night pain in a patient with a history of node
+positive breast carcinoma. Focal percussion tenderness at a single level.
+Evaluate for metastatic deposit.
+
+SAFETY SCREENING
+Cardiac device                 No
+Aneurysm clip or coil          No
+Tissue expander or port        Port removed 2022, no residual hardware
+Metal fragment in eye          No
+Claustrophobia                 No
+Contrast requested             No
+
+BOOKING INSTRUCTION
+Unit to contact the patient directly. Do not route through central booking.
+Report to the ordering consultant and copy to the breast unit coordinator.

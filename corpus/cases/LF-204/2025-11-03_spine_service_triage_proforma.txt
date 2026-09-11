@@ -1,0 +1,32 @@
+Meridale Regional Spine Network
+New Referral Triage  ·  Proforma TR-1
+
+Subject .................. Tanaka-Okonkwo, Reuben
+Hospital No. ............. MRS 0518-2264
+Triage Date .............. 03 Nov 2025
+Triaging clinician ....... A. Sowande-Pryce, Advanced Practice Physiotherapist
+
+Presenting problem ....... Low back pain with left leg symptoms
+
+Conservative management commencing this date. Each element below is opened on
+the network treatment log and closed when the episode ends.
+
+  Supervised physiotherapy
+      Opened ............. Yes, this date
+      Provider ........... Meridale MSK Physiotherapy
+  Oral anti-inflammatory
+      Opened ............. Yes, this date
+      Agent .............. Naproxen 500 mg twice daily with gastric cover
+  Interventional referral
+      Opened ............. Pain service, for consideration of epidural
+                           steroid injection
+
+Baseline fields
+  Occupation ............. Secondary school caretaker
+  Smoking status ......... Never smoked
+  Living situation ....... House, stairs to bathroom
+  Oswestry Disability Index 48%
+
+Onward pathway ........... Spine surgery clinic once the conservative episode
+                           closes, or sooner on clinical grounds
+Verified by .............. A. Sowande-Pryce, 03 Nov 2025

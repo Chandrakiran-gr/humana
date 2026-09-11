@@ -1,0 +1,22 @@
+RIVERBEND FAMILY MEDICINE
+MEDICATION RECONCILIATION
+Patient: Alvarez, Rosa M.   MRN 4471902
+Reconciled: 08/17/2026 by K. Trinh, RN
+
+ACTIVE
+Metformin HCl 1000 mg        oral   BID with meals      continued
+Atorvastatin 20 mg           oral   nightly             continued
+Lisinopril 10 mg             oral   daily               continued
+Cholecalciferol 2000 IU      oral   daily               patient supplied
+
+DISCONTINUED / COMPLETED THIS PERIOD
+Meloxicam 15 mg              oral   daily               trial completed, no relief
+Cyclobenzaprine 5 mg         oral   nightly prn         not started, patient declined
+
+ALLERGIES
+Sulfa - rash
+
+NOTES
+Patient brought in a bag of bottles. Cyclobenzaprine was dispensed but she never
+took it; bottle returned unopened. Meloxicam bottle empty, she reports finishing
+it as directed and says it made no difference to the back.

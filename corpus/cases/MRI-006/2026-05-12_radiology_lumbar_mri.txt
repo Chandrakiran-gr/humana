@@ -1,0 +1,38 @@
+TIDEWATER REGIONAL IMAGING
+MRI REPORT
+
+PATIENT:    OYELARAN, BEATRICE
+MRN:        2214778
+DOB:        09/27/1957
+EXAM DATE:  05/12/2026
+ACCESSION:  TRI-26-114302
+REFERRING:  C. Mbeki, MD
+
+EXAMINATION: MRI LUMBAR SPINE WITHOUT CONTRAST
+
+TECHNIQUE: Multiplanar multisequence imaging of the lumbar spine was performed
+without intravenous contrast. Sagittal T1, sagittal T2, sagittal STIR, and axial
+T2 sequences were obtained.
+
+COMPARISON: None.
+
+FINDINGS:
+Alignment: Normal lumbar lordosis. No spondylolisthesis.
+Vertebral bodies: Normal height and marrow signal throughout.
+Conus medullaris: Terminates at L1. Normal signal.
+Paraspinal soft tissues: Unremarkable.
+
+L1-L2: Unremarkable.
+L2-L3: Mild disc desiccation. No stenosis.
+L3-L4: Mild disc bulge. Mild bilateral facet arthropathy. No neural compromise.
+L4-L5: Disc desiccation with a broad-based bulge. Moderate bilateral facet
+  arthropathy and ligamentum flavum thickening. Mild bilateral foraminal
+  narrowing. No high-grade central stenosis.
+L5-S1: Mild disc bulge. Foramina patent.
+
+IMPRESSION:
+1. Multilevel degenerative change, most pronounced at L4-L5 with mild bilateral
+   foraminal narrowing.
+2. No high-grade stenosis. No nerve root compression.
+
+Electronically signed: F. Aurelio, MD, 05/12/2026 16:03

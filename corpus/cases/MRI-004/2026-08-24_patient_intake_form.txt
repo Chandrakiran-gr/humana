@@ -1,0 +1,43 @@
+HARBORVIEW ORTHOPAEDIC GROUP
+PATIENT UPDATE FORM - COMPLETED BY PATIENT
+
+Date: 08/24/2026
+Name: Delacroix, Maureen
+Date of birth: 02/14/1970
+Occupation: dental hygienist
+
+Please describe the problem that brings you here today:
+  Lower back hurts. Started bothering me about 3 weeks ago. Comes and goes but
+  mostly it is there.
+
+How long have you had this problem? (tick one)
+  [ ] Less than 1 week
+  [X] 1 to 4 weeks
+  [ ] 1 to 3 months
+  [ ] 3 to 6 months
+  [ ] More than 6 months
+
+Where is the pain? Mark on the diagram.
+  Patient marked: lower back, both sides, slightly worse on the left.
+
+Does the pain travel anywhere?   No
+
+What makes it worse?   Standing at work. Leaning over patients.
+What makes it better?  Sitting down. Sometimes nothing.
+
+Have you had surgery on your back?   No
+
+Has anything about your general health changed since your last visit?
+  No
+
+Please list any other medical conditions:
+  Underactive thyroid. Migraines, maybe twice a year.
+
+Please list medications:
+  Levothyroxine. Sumatriptan when I get a migraine.
+
+Allergies:   None that I know of
+
+Preferred pharmacy: Callaghan's on Wexford Street
+
+Patient signature on file.

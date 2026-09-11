@@ -1,0 +1,202 @@
+{
+  "case_id": "MRI-005",
+  "split": "development",
+  "parent_case_id": null,
+  "criteria_set_version": "1.1.0",
+  "preflight": {
+    "model": "claude-sonnet-5",
+    "prompt_version": "extraction/1.0.0",
+    "criteria_set_version": "1.1.0"
+  },
+  "packet": {
+    "case_id": "MRI-005",
+    "processing_status": "COMPLETE",
+    "document_count": 4,
+    "usable_documents": 4,
+    "estimated_tokens": 1721,
+    "token_limit": 150000,
+    "manifest_check": {
+      "status": "match",
+      "documents_checked": 4
+    },
+    "documents": [
+      {
+        "document_id": "doc_5979ccf72940",
+        "filename": "2026-06-15_office_note.txt",
+        "content_sha256": "39923b3f000ed05d64414606aea1b6e7067f71b5525108d6f17edfc2674380b1",
+        "byte_size": 1959,
+        "outcome": "OK",
+        "detail": "",
+        "canonical_length": 1906,
+        "estimated_tokens": 636,
+        "page_count": null
+      },
+      {
+        "document_id": "doc_66bcac155c58",
+        "filename": "2026-08-17_imaging_order_72148.txt",
+        "content_sha256": "4b397dcbadcf7cf25c10c190cf9cfad14892ddd60b88f38bdd41d87c1de90f7b",
+        "byte_size": 761,
+        "outcome": "OK",
+        "detail": "",
+        "canonical_length": 644,
+        "estimated_tokens": 215,
+        "page_count": null
+      },
+      {
+        "document_id": "doc_4dfd8c4ef30a",
+        "filename": "2026-08-17_medication_reconciliation.txt",
+        "content_sha256": "f34a96d28be960ac40aefaebb66fb4a99a4925680e5bebad24afb3b783e5b27f",
+        "byte_size": 869,
+        "outcome": "OK",
+        "detail": "",
+        "canonical_length": 728,
+        "estimated_tokens": 243,
+        "page_count": null
+      },
+      {
+        "document_id": "doc_1a532ad73480",
+        "filename": "2026-08-17_office_note.txt",
+        "content_sha256": "90c50a47d49cc675cfcfd6ba87f66b92ff9bc24fc7f5776b5aacf3572b7a62ce",
+        "byte_size": 1925,
+        "outcome": "OK",
+        "detail": "",
+        "canonical_length": 1881,
+        "estimated_tokens": 627,
+        "page_count": null
+      }
+    ]
+  },
+  "settings": {
+    "model": "claude-sonnet-5",
+    "configuration": "A",
+    "max_attempts": 3,
+    "timeout_seconds": 120.0
+  },
+  "extraction": {
+    "case_id": "MRI-005",
+    "configuration": "A",
+    "model": "claude-sonnet-5",
+    "prompt_version": "extraction/1.0.0",
+    "processing_status": "COMPLETE",
+    "calls": 1,
+    "input_tokens": 7141,
+    "output_tokens": 1586,
+    "seconds": 13.433,
+    "results": [
+      {
+        "criterion_id": "C1",
+        "clinical_status": "MET",
+        "processing_status": "COMPLETE",
+        "reason_codes": [],
+        "evidence": [
+          {
+            "document_id": "doc_5979ccf72940",
+            "quote": "She also brings up low back pain, right side, low, sort of across the belt line.",
+            "role": "supporting"
+          },
+          {
+            "document_id": "doc_1a532ad73480",
+            "quote": "Same right low back pain across the belt line that she brought up at her last visit.",
+            "role": "supporting"
+          }
+        ],
+        "explanation": "Low back pain with an associated right thigh heaviness (radicular-type symptom) is explicitly documented at both encounters.",
+        "detail": ""
+      },
+      {
+        "criterion_id": "C2",
+        "clinical_status": "MET",
+        "processing_status": "COMPLETE",
+        "reason_codes": [],
+        "evidence": [
+          {
+            "document_id": "doc_5979ccf72940",
+            "quote": "Date of Visit: 06/15/2026",
+            "role": "supporting"
+          },
+          {
+            "document_id": "doc_1a532ad73480",
+            "quote": "Date of Visit: 08/17/2026",
+            "role": "supporting"
+          },
+          {
+            "document_id": "doc_1a532ad73480",
+            "quote": "Same right low back pain across the belt line that she brought up at her last visit.",
+            "role": "supporting"
+          }
+        ],
+        "explanation": "The same low back pain symptom is documented at two encounters dated 06/15/2026 and 08/17/2026, more than six weeks apart, satisfying the duration requirement via two dated encounters.",
+        "detail": ""
+      },
+      {
+        "criterion_id": "C3",
+        "clinical_status": "MET",
+        "processing_status": "COMPLETE",
+        "reason_codes": [],
+        "evidence": [
+          {
+            "document_id": "doc_4dfd8c4ef30a",
+            "quote": "Meloxicam 15 mg oral daily trial completed, no relief",
+            "role": "supporting"
+          },
+          {
+            "document_id": "doc_4dfd8c4ef30a",
+            "quote": "Meloxicam bottle empty, she reports finishing it as directed and says it made no difference to the back.",
+            "role": "supporting"
+          }
+        ],
+        "explanation": "An NSAID (meloxicam) trial was completed as directed and documented as providing no relief, satisfying both the attempt and failed-outcome elements.",
+        "detail": ""
+      },
+      {
+        "criterion_id": "C4",
+        "clinical_status": "AMBIGUOUS",
+        "processing_status": "COMPLETE",
+        "reason_codes": [
+          "MISSING_EVIDENCE"
+        ],
+        "evidence": [],
+        "explanation": "No passage in the record names or addresses any of the five red flag categories (cauda equina, progressive neurologic deficit, malignancy, infection, significant trauma), so no basis exists to determine presence or absence.",
+        "detail": ""
+      },
+      {
+        "criterion_id": "C5",
+        "clinical_status": "AMBIGUOUS",
+        "processing_status": "COMPLETE",
+        "reason_codes": [
+          "MISSING_EVIDENCE"
+        ],
+        "evidence": [],
+        "explanation": "The record contains no statement about a prior lumbar MRI, whether within or outside the preceding 12 months, so prior imaging status cannot be determined.",
+        "detail": ""
+      }
+    ],
+    "prompts": [
+      {
+        "prompt_version": "extraction/1.0.0",
+        "criterion_ids": [
+          "C1",
+          "C2",
+          "C3",
+          "C4",
+          "C5"
+        ],
+        "system_chars": 5220,
+        "criteria_chars": 9398,
+        "record_chars": 5535
+      }
+    ],
+    "attempts": [
+      {
+        "index": 1,
+        "seconds": 13.433,
+        "input_tokens": 7141,
+        "output_tokens": 1586,
+        "error": "",
+        "parse_error": "",
+        "retryable": true,
+        "raw_text": "{\n  \"results\": [\n    {\n      \"criterion_id\": \"C1\",\n      \"clinical_status\": \"MET\",\n      \"reason_codes\": [],\n      \"evidence\": [\n        {\n          \"document_id\": \"doc_5979ccf72940\",\n          \"quote\": \"She also brings up low back pain, right side, low, sort of across the belt line.\",\n          \"role\": \"supporting\"\n        },\n        {\n          \"document_id\": \"doc_1a532ad73480\",\n          \"quote\": \"Same right low back pain across the belt line that she brought up at her last visit.\",\n          \"role\": \"supporting\"\n        }\n      ],\n      \"explanation\": \"Low back pain with an associated right thigh heaviness (radicular-type symptom) is explicitly documented at both encounters.\"\n    },\n    {\n      \"criterion_id\": \"C2\",\n      \"clinical_status\": \"MET\",\n      \"reason_codes\": [],\n      \"evidence\": [\n        {\n          \"document_id\": \"doc_5979ccf72940\",\n          \"quote\": \"Date of Visit: 06/15/2026\",\n          \"role\": \"supporting\"\n        },\n        {\n          \"document_id\": \"doc_1a532ad73480\",\n          \"quote\": \"Date of Visit: 08/17/2026\",\n          \"role\": \"supporting\"\n        },\n        {\n          \"document_id\": \"doc_1a532ad73480\",\n          \"quote\": \"Same right low back pain across the belt line that she brought up at her last visit.\",\n          \"role\": \"supporting\"\n        }\n      ],\n      \"explanation\": \"The same low back pain symptom is documented at two encounters dated 06/15/2026 and 08/17/2026, more than six weeks apart, satisfying the duration requirement via two dated encounters.\"\n    },\n    {\n      \"criterion_id\": \"C3\",\n      \"clinical_status\": \"MET\",\n      \"reason_codes\": [],\n      \"evidence\": [\n        {\n          \"document_id\": \"doc_4dfd8c4ef30a\",\n          \"quote\": \"Meloxicam 15 mg oral daily trial completed, no relief\",\n          \"role\": \"supporting\"\n        },\n        {\n          \"document_id\": \"doc_4dfd8c4ef30a\",\n          \"quote\": \"Meloxicam bottle empty, she reports finishing it as directed and says it made no difference to the back.\",\n          \"role\": \"supporting\"\n        }\n      ],\n      \"explanation\": \"An NSAID (meloxicam) trial was completed as directed and documented as providing no relief, satisfying both the attempt and failed-outcome elements.\"\n    },\n    {\n      \"criterion_id\": \"C4\",\n      \"clinical_status\": \"AMBIGUOUS\",\n      \"reason_codes\": [\"MISSING_EVIDENCE\"],\n      \"evidence\": [],\n      \"explanation\": \"No passage in the record names or addresses any of the five red flag categories (cauda equina, progressive neurologic deficit, malignancy, infection, significant trauma), so no basis exists to determine presence or absence.\"\n    },\n    {\n      \"criterion_id\": \"C5\",\n      \"clinical_status\": \"AMBIGUOUS\",\n      \"reason_codes\": [\"MISSING_EVIDENCE\"],\n      \"evidence\": [],\n      \"explanation\": \"The record contains no statement about a prior lumbar MRI, whether within or outside the preceding 12 months, so prior imaging status cannot be determined.\"\n    }\n  ]\n}"
+      }
+    ]
+  }
+}

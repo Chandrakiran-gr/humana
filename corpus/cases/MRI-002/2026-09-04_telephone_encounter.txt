@@ -1,0 +1,27 @@
+GREENFIELD COMMUNITY HEALTH
+TELEPHONE ENCOUNTER
+
+Patient: Nowak, Stefan J.   MRN 3390617
+Taken by: L. Bergstrom, MA
+Date/time: 09/04/2026 10:12
+
+CALLER: patient
+
+REASON FOR CALL
+Calling about the letter for his employer. Says the letter he was given at
+checkout has his name spelled wrong, Steven instead of Stefan, and his
+supervisor will not accept it.
+
+ACTION
+Confirmed spelling against the chart. Chart is correct; the letter template
+pulled a nickname field. Reprinted the letter with the correct name and left it
+at the front desk for pickup. Patient will collect Friday.
+
+Also asked whether the imaging had been scheduled yet. Advised that the
+requisition went out on 09/02 and that scheduling would contact him directly. He
+asked to be called at the mobile number rather than the home number. Updated
+preferred contact in the chart.
+
+No clinical concerns raised on this call. No symptoms discussed.
+
+L. Bergstrom, MA

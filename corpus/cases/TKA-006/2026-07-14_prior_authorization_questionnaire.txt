@@ -1,0 +1,60 @@
+ROSSMORE ORTHOPAEDICS
+PRIOR AUTHORIZATION QUESTIONNAIRE, LOWER LIMB ARTHROPLASTY
+Complete every field. Do not leave blank. Enter NONE where nothing applies.
+
+Patient:        Fontaine-Adebayo, Miriam
+MRN:            9928106
+Date completed: 07/14/2026
+Completed by:   R. Okonjo, Authorization Coordinator, from the clinical record
+Verified by:    T. Halloway, MD
+
+SECTION 1  PROCEDURE REQUESTED
+  Procedure ................................ Total knee arthroplasty, left
+  CPT ...................................... 27447
+
+SECTION 2  CONSERVATIVE MANAGEMENT UNDERTAKEN AT THIS PRACTICE
+  Date conservative management commenced ... 05/18/2026
+  Date conservative management concluded ... 07/06/2026
+  Still ongoing at date of this form ....... NO
+
+  2a  Physical therapy
+      Undertaken ........................... YES
+      Number of sessions ................... 9
+      Outcome .............................. No improvement in pain or function
+  2b  NSAID or analgesic
+      Undertaken ........................... YES
+      Agent and dose ....................... Naproxen 500 mg twice daily
+      Outcome .............................. No benefit, discontinued 07/06/2026
+  2c  Intra-articular injection
+      Undertaken ........................... NOT RECORDED
+  2d  Weight reduction programme
+      Undertaken ........................... NOT RECORDED
+  2e  Activity modification
+      Undertaken ........................... NOT RECORDED
+      Note on 2c to 2e ..................... These fields are populated from the
+                                             treatment log. NOT RECORDED means
+                                             the log holds no entry, which is
+                                             not the same as the treatment not
+                                             having happened.
+
+SECTION 3  CONSERVATIVE MANAGEMENT RECEIVED ELSEWHERE
+  Has the patient received any conservative management for this joint at any
+  other practice, hospital, or provider, at any time?
+                                             NONE
+  Source for this answer ................... Regional health information exchange
+                                             extract, attached. See that document
+                                             for its coverage and its limits.
+  Records requested from elsewhere ......... None outstanding
+
+SECTION 4  IMAGING
+  Study .................................... Left knee radiograph 05/11/2026
+  Discrepancy review on file ............... YES, dated 05/28/2026
+  Repeat imaging performed ................. NO
+
+SECTION 5  SOURCES
+  Sections 2 and 4 populated from the practice treatment log, automated extract,
+  no manual entry.
+  Section 3 populated from the attached regional health information exchange
+  extract, reference HIE-2026-114772, which is filed with this form.
+  Signed .................................. R. Okonjo
+  Countersigned ........................... T. Halloway, MD

@@ -1,0 +1,1266 @@
+{
+  "_meta": {
+    "purpose": "Dataset manifest for the synthetic UM evidence corpus. Task 1.4.",
+    "generated_by": "scripts/build_manifest.py",
+    "regenerate": "python3 scripts/build_manifest.py",
+    "note": "Generated from corpus/labels.json and the packets on disk. Do not hand-edit; rebuild instead. Document hashes are sha256 of file bytes. The label hash is sha256 of the label entry serialised with sorted keys, so it is insensitive to key order and formatting but not to content.",
+    "reference_version": "1.0",
+    "criteria_set_version": "1.3.0",
+    "totals": {
+      "cases": 29,
+      "documents": 121,
+      "criterion_instances": 189,
+      "scorable_instances": 183
+    },
+    "by_split": {
+      "development": {
+        "cases": 15,
+        "independent_cases": 14,
+        "documents": 61,
+        "criterion_instances": 89,
+        "scorable_instances": 87,
+        "locked": false
+      },
+      "held_out_test": {
+        "cases": 9,
+        "independent_cases": 8,
+        "documents": 37,
+        "criterion_instances": 55,
+        "scorable_instances": 53,
+        "locked": true
+      },
+      "transfer": {
+        "cases": 5,
+        "independent_cases": 5,
+        "documents": 23,
+        "criterion_instances": 45,
+        "scorable_instances": 43,
+        "locked": true
+      }
+    }
+  },
+  "cases": [
+    {
+      "case_id": "MRI-001",
+      "parent_case_id": null,
+      "procedure_id": "lumbar_mri",
+      "procedure_name": "MRI Lumbar Spine without contrast",
+      "cpt": "72148",
+      "split": "development",
+      "scenario_tags": [
+        "clean_baseline",
+        "explicit_duration",
+        "affirmative_negative_exclusion"
+      ],
+      "reference_version": "1.0",
+      "criteria_set_version": "1.3.0",
+      "criterion_instances": 5,
+      "scorable_instances": 5,
+      "document_count": 4,
+      "documents": [
+        {
+          "filename": "2026-07-24_pcp_referral_letter.txt",
+          "sha256": "d523e0ee2cfe8fc4f403e6a7f1d29a6e784d121b9e6a3ea24657d1e57ec42db0",
+          "bytes": 1100
+        },
+        {
+          "filename": "2026-08-07_pt_discharge_summary.txt",
+          "sha256": "abd14cce8244e0b0e36d349bf50e9ed6cbaf73638f5f2e5a6f684ca979ee86f1",
+          "bytes": 1335
+        },
+        {
+          "filename": "2026-08-20_imaging_order_72148.txt",
+          "sha256": "3a0706588b4db64888826e775748b3176e6f53d46df3b9a6e927b7c808c0c0ca",
+          "bytes": 1143
+        },
+        {
+          "filename": "2026-08-20_spine_clinic_consultation.txt",
+          "sha256": "28b59eacf7eebff4cfa832b0bc92df54b006d6c7cdf00d5f6d3864c5793d8582",
+          "bytes": 3357
+        }
+      ],
+      "label_sha256": "bda530127628c7d4d0be57d50ed3a4c45da1c0d84c5c2e9e8cbb6c3729420932"
+    },
+    {
+      "case_id": "MRI-002",
+      "parent_case_id": null,
+      "procedure_id": "lumbar_mri",
+      "procedure_name": "MRI Lumbar Spine without contrast",
+      "cpt": "72148",
+      "split": "development",
+      "scenario_tags": [
+        "vague_duration",
+        "silent_absence"
+      ],
+      "reference_version": "1.0",
+      "criteria_set_version": "1.3.0",
+      "criterion_instances": 5,
+      "scorable_instances": 5,
+      "document_count": 3,
+      "documents": [
+        {
+          "filename": "2026-09-02_imaging_order_72148.txt",
+          "sha256": "42c4a8cd947e2b77174d496b4881508e0d4fd20bafaea140a0692924828ca0c9",
+          "bytes": 638
+        },
+        {
+          "filename": "2026-09-02_office_note.txt",
+          "sha256": "04bd3f9acebe300396b878f73da8e831a6704ddc08e7fd7e4c3bf7a1a90aa7dc",
+          "bytes": 1368
+        },
+        {
+          "filename": "2026-09-04_telephone_encounter.txt",
+          "sha256": "6c30c6143437108ac46ab070d98305def662426cd050958d1769706e3330ae37",
+          "bytes": 925
+        }
+      ],
+      "label_sha256": "46868d097d10d6d11a25560a5341b8e17bbc1637bc1fd41261bdbdabe6c88bac"
+    },
+    {
+      "case_id": "MRI-003",
+      "parent_case_id": null,
+      "procedure_id": "lumbar_mri",
+      "procedure_name": "MRI Lumbar Spine without contrast",
+      "cpt": "72148",
+      "split": "development",
+      "scenario_tags": [
+        "exception_pathway",
+        "nothing_prescribed_trap",
+        "cross_document_reasoning"
+      ],
+      "reference_version": "1.0",
+      "criteria_set_version": "1.3.0",
+      "criterion_instances": 5,
+      "scorable_instances": 3,
+      "document_count": 4,
+      "documents": [
+        {
+          "filename": "2026-08-19_discharge_instructions.txt",
+          "sha256": "585d0b63b0e7ab1f43ea12c8f8466b15a0a0e17df094fc4efbdbddd0945df88b",
+          "bytes": 1166
+        },
+        {
+          "filename": "2026-08-19_urgent_care_note.txt",
+          "sha256": "2329c599f97606cd1cd11a6aed47177c3f34296294dafd00fb3c6017153b9dd7",
+          "bytes": 1759
+        },
+        {
+          "filename": "2026-09-02_imaging_order_72148.txt",
+          "sha256": "a6b1a944e36092c0ad12f7fe3c2a2fb26fbeea2b1b06f062c5fcb15f076646bb",
+          "bytes": 822
+        },
+        {
+          "filename": "2026-09-02_neurosurgery_clinic_note.txt",
+          "sha256": "6b111ad6098bc636927117de53d8159a95567a3dce7990b8a2a388eb34976dd7",
+          "bytes": 2240
+        }
+      ],
+      "label_sha256": "bd34d24c0dd85d4e1fd5cf8132ebd50708ef211e485660e5acdc9d06f2e440b5"
+    },
+    {
+      "case_id": "MRI-004",
+      "parent_case_id": null,
+      "procedure_id": "lumbar_mri",
+      "procedure_name": "MRI Lumbar Spine without contrast",
+      "cpt": "72148",
+      "split": "development",
+      "scenario_tags": [
+        "contradiction",
+        "copy_forward",
+        "near_threshold_duration",
+        "mixed_date_convention"
+      ],
+      "reference_version": "1.0",
+      "criteria_set_version": "1.3.0",
+      "criterion_instances": 5,
+      "scorable_instances": 5,
+      "document_count": 5,
+      "documents": [
+        {
+          "filename": "2026-08-20_pt_progress_note.txt",
+          "sha256": "665672f4f262016c2e9b4a40d47214d8aea95e6fb0240413d8e9bea4c90f1bb2",
+          "bytes": 1295
+        },
+        {
+          "filename": "2026-08-24_patient_intake_form.txt",
+          "sha256": "a7fbc93c87403d37a195b32ec242fad447f7be5777a6f4bdbd66a6366c86e270",
+          "bytes": 1157
+        },
+        {
+          "filename": "2026-08-26_imaging_requisition_72148.txt",
+          "sha256": "dfb5ac96e06df15a79d39d86d4837d422ab81e373b1aeb03b6b4b0e70f8d8eca",
+          "bytes": 970
+        },
+        {
+          "filename": "2026-08-26_physician_note.txt",
+          "sha256": "7b3eeb5b3f8c68deb722fef593bb6aec2ca614dfbb3458eecf6350756a97ef02",
+          "bytes": 1502
+        },
+        {
+          "filename": "2026-08-27_authorization_coversheet.txt",
+          "sha256": "352933e77467d8560b7807a700ebfdb030b226f221c81c23bed99f756501f09e",
+          "bytes": 1279
+        }
+      ],
+      "label_sha256": "45853cf609e64b7544c8adf89f878b8323717744ac5fd8967a565c5d23d7baf7"
+    },
+    {
+      "case_id": "MRI-005",
+      "parent_case_id": null,
+      "procedure_id": "lumbar_mri",
+      "procedure_name": "MRI Lumbar Spine without contrast",
+      "cpt": "72148",
+      "split": "development",
+      "scenario_tags": [
+        "buried_evidence",
+        "unrelated_section",
+        "semantic_interpretation",
+        "derived_evidence",
+        "cross_document_reasoning"
+      ],
+      "reference_version": "1.0",
+      "criteria_set_version": "1.3.0",
+      "criterion_instances": 5,
+      "scorable_instances": 5,
+      "document_count": 4,
+      "documents": [
+        {
+          "filename": "2026-06-15_office_note.txt",
+          "sha256": "39923b3f000ed05d64414606aea1b6e7067f71b5525108d6f17edfc2674380b1",
+          "bytes": 1959
+        },
+        {
+          "filename": "2026-08-17_imaging_order_72148.txt",
+          "sha256": "4b397dcbadcf7cf25c10c190cf9cfad14892ddd60b88f38bdd41d87c1de90f7b",
+          "bytes": 761
+        },
+        {
+          "filename": "2026-08-17_medication_reconciliation.txt",
+          "sha256": "f34a96d28be960ac40aefaebb66fb4a99a4925680e5bebad24afb3b783e5b27f",
+          "bytes": 869
+        },
+        {
+          "filename": "2026-08-17_office_note.txt",
+          "sha256": "90c50a47d49cc675cfcfd6ba87f66b92ff9bc24fc7f5776b5aacf3572b7a62ce",
+          "bytes": 1925
+        }
+      ],
+      "label_sha256": "736b7adaf2dcf66597f890cf65a0a70a43642690692942bd82167d092b2468c8"
+    },
+    {
+      "case_id": "MRI-006",
+      "parent_case_id": null,
+      "procedure_id": "lumbar_mri",
+      "procedure_name": "MRI Lumbar Spine without contrast",
+      "cpt": "72148",
+      "split": "development",
+      "scenario_tags": [
+        "near_threshold_duration",
+        "affirmative_contradiction",
+        "prior_imaging_conflict"
+      ],
+      "reference_version": "1.0",
+      "criteria_set_version": "1.3.0",
+      "criterion_instances": 5,
+      "scorable_instances": 5,
+      "document_count": 3,
+      "documents": [
+        {
+          "filename": "2026-05-12_radiology_lumbar_mri.txt",
+          "sha256": "4e37f10272c961018584936456098effcf14d8c237e7aefdfd9aa5b104f4278f",
+          "bytes": 1270
+        },
+        {
+          "filename": "2026-09-08_clinic_note.txt",
+          "sha256": "8d818e38133f9710556a142104dd02dd2d1322ee26084cb8440323c7401821f8",
+          "bytes": 1845
+        },
+        {
+          "filename": "2026-09-08_imaging_order_72148.txt",
+          "sha256": "57a48bb6cd1e3be30f007277ef76ca6e2fb1b7bf44fa56f62a720ef64e7924c8",
+          "bytes": 700
+        }
+      ],
+      "label_sha256": "b97de1d0c033ed6f3d729f5f5fd15d16e70efa0fd2cd4360af2687cd5607eeda"
+    },
+    {
+      "case_id": "MRI-007",
+      "parent_case_id": null,
+      "procedure_id": "lumbar_mri",
+      "procedure_name": "MRI Lumbar Spine without contrast",
+      "cpt": "72148",
+      "split": "development",
+      "scenario_tags": [
+        "affirmative_contradiction",
+        "affirmative_negative_exclusion",
+        "baseline_breaker"
+      ],
+      "reference_version": "1.0",
+      "criteria_set_version": "1.3.0",
+      "criterion_instances": 5,
+      "scorable_instances": 5,
+      "document_count": 4,
+      "documents": [
+        {
+          "filename": "2026-06-30_gp_note.txt",
+          "sha256": "e3b59d40b78269e833d9a398c171cbdc2d4837f37221407e89cd104dd20ecc67",
+          "bytes": 1147
+        },
+        {
+          "filename": "2026-09-01_imaging_order_72148.txt",
+          "sha256": "adf3a80008cd4222663cde2e34654fb4b98c7611d5752f84d852c9efdac3b3b8",
+          "bytes": 1089
+        },
+        {
+          "filename": "2026-09-01_red_flag_screening_proforma.txt",
+          "sha256": "40053494afd528e90259b902d011b5592ef2b92ae24b9fb2f8e4610cba43ea47",
+          "bytes": 2375
+        },
+        {
+          "filename": "2026-09-01_spine_clinic_consultation.txt",
+          "sha256": "3c20af3f4755dcb0f6b7cb0ace268da7315088b11b7ce7237ff3bb5c87a72d2b",
+          "bytes": 2396
+        }
+      ],
+      "label_sha256": "0f6019d5a93851c0769c2ef30d2fdcfdf562456549a7ac4ed0895947e74ba524"
+    },
+    {
+      "case_id": "MRI-008",
+      "parent_case_id": null,
+      "procedure_id": "lumbar_mri",
+      "procedure_name": "MRI Lumbar Spine without contrast",
+      "cpt": "72148",
+      "split": "development",
+      "scenario_tags": [
+        "generic_symptom_trap",
+        "near_miss_modality",
+        "baseline_breaker"
+      ],
+      "reference_version": "1.0",
+      "criteria_set_version": "1.3.0",
+      "criterion_instances": 5,
+      "scorable_instances": 5,
+      "document_count": 3,
+      "documents": [
+        {
+          "filename": "2026-08-12_rheumatology_letter.txt",
+          "sha256": "2d173e828f8aed6cbe5ddfe40e6c36255ef2d7591ea874fc7f94d19ce2dd65c7",
+          "bytes": 1857
+        },
+        {
+          "filename": "2026-08-26_gp_note.txt",
+          "sha256": "98d5d176e87bd598c39260ec90c347e38d1db1b63aaaa7447838b61a124caa09",
+          "bytes": 1612
+        },
+        {
+          "filename": "2026-08-26_imaging_request_72148.txt",
+          "sha256": "eb2f446cd321ba3d04362176820d5f3720ba439757695d2f0be76aff82454599",
+          "bytes": 1031
+        }
+      ],
+      "label_sha256": "66a238583972f4cfe51e3f4d2dc822c8459bc75f4f67e6306b57d24c40fa5fa4"
+    },
+    {
+      "case_id": "TKA-001",
+      "parent_case_id": null,
+      "procedure_id": "total_knee_arthroplasty",
+      "procedure_name": "Total Knee Arthroplasty",
+      "cpt": "27447",
+      "split": "development",
+      "scenario_tags": [
+        "near_threshold_duration",
+        "secondhand_history",
+        "incomplete_outside_records"
+      ],
+      "reference_version": "1.0",
+      "criteria_set_version": "1.3.0",
+      "criterion_instances": 7,
+      "scorable_instances": 7,
+      "document_count": 5,
+      "documents": [
+        {
+          "filename": "2026-03-18_radiology_right_knee.txt",
+          "sha256": "f69757f318792e0a4f06ce65ee4376388977cfc06c414ff527a330e2802fce1d",
+          "bytes": 999
+        },
+        {
+          "filename": "2026-03-25_orthopedic_consultation.txt",
+          "sha256": "f624b6ba527d8e4e472be7bb0389618aaeff468d919df3c80e0fda6242b3c782",
+          "bytes": 2283
+        },
+        {
+          "filename": "2026-05-18_pt_discharge_summary.txt",
+          "sha256": "380372b695d04cfa6f3d5ccda16dcd1daf692d121fd20dd52fe9f04bacda9997",
+          "bytes": 1315
+        },
+        {
+          "filename": "2026-05-26_medication_list.txt",
+          "sha256": "119dc196d39be290fba312f849b69ecc1fb619e4436d9fa41f0a2929efed93ac",
+          "bytes": 873
+        },
+        {
+          "filename": "2026-05-28_preoperative_medical_clearance.txt",
+          "sha256": "085cad457d241da792dafd3749e1b4896aa5fad743199bee8e1d2446adfc2fbb",
+          "bytes": 1796
+        }
+      ],
+      "label_sha256": "8bbf3addc03b6c2fd86bde90cb56949baeebe17bd0439194e90e072a6087a6f3"
+    },
+    {
+      "case_id": "TKA-002",
+      "parent_case_id": null,
+      "procedure_id": "total_knee_arthroplasty",
+      "procedure_name": "Total Knee Arthroplasty",
+      "cpt": "27447",
+      "split": "development",
+      "scenario_tags": [
+        "silent_absence",
+        "generic_symptom_trap"
+      ],
+      "reference_version": "1.0",
+      "criteria_set_version": "1.3.0",
+      "criterion_instances": 7,
+      "scorable_instances": 7,
+      "document_count": 3,
+      "documents": [
+        {
+          "filename": "2026-08-11_radiology_bilateral_knees.txt",
+          "sha256": "1f87694638af72346611f651daa4da874365c77d263a505e95248c28bc5e355e",
+          "bytes": 876
+        },
+        {
+          "filename": "2026-08-19_office_note.txt",
+          "sha256": "a5c7771d4dd4fe4a8de48685c0e58debe53777fbf826236998ecb6060f343790",
+          "bytes": 639
+        },
+        {
+          "filename": "2026-08-21_fax_transmittal.txt",
+          "sha256": "f15e889711b80b7ff2f14bd6913dc5d47369a58fafe654af087d89d62548287b",
+          "bytes": 814
+        }
+      ],
+      "label_sha256": "b472ed472fe93bbab33311e09893dbb212ecb61e5919192ec58dd2dc22cf39bd"
+    },
+    {
+      "case_id": "TKA-003",
+      "parent_case_id": null,
+      "procedure_id": "total_knee_arthroplasty",
+      "procedure_name": "Total Knee Arthroplasty",
+      "cpt": "27447",
+      "split": "development",
+      "scenario_tags": [
+        "contradiction",
+        "affirmative_contradiction",
+        "cross_document_reasoning"
+      ],
+      "reference_version": "1.0",
+      "criteria_set_version": "1.3.0",
+      "criterion_instances": 7,
+      "scorable_instances": 7,
+      "document_count": 5,
+      "documents": [
+        {
+          "filename": "2026-08-04_radiology_right_knee.txt",
+          "sha256": "776d305fcc1acedb073674991393cfae628f80130817f01c7b265dbec4253539",
+          "bytes": 874
+        },
+        {
+          "filename": "2026-08-06_procedure_note_injection.txt",
+          "sha256": "2075ec180dbcd7f513064581f1aa812cba6d1fb3ad758901ecd496f8f76e5367",
+          "bytes": 959
+        },
+        {
+          "filename": "2026-08-18_primary_care_note.txt",
+          "sha256": "79e05540ba8cc293d52461ca3e8f8cc469873fb9f79466dc9467dc0ac1e6ff7d",
+          "bytes": 1339
+        },
+        {
+          "filename": "2026-08-25_letter_of_medical_necessity.txt",
+          "sha256": "db0cde1c08b84bd4f5c68ee015e2cb78125cfaa4e8f787d9169593d534608480",
+          "bytes": 1336
+        },
+        {
+          "filename": "2026-08-28_clinic_note.txt",
+          "sha256": "d1a82c167eafc61a8c3f4600946cc6ae4dfe76203f76b4765b9ea282f9c95ff1",
+          "bytes": 1977
+        }
+      ],
+      "label_sha256": "3a3f7ac7bb9b614704988c4f7294a35d6090d6c2f2664f1ff212b183ec64105c"
+    },
+    {
+      "case_id": "TKA-004",
+      "parent_case_id": null,
+      "procedure_id": "total_knee_arthroplasty",
+      "procedure_name": "Total Knee Arthroplasty",
+      "cpt": "27447",
+      "split": "development",
+      "scenario_tags": [
+        "buried_evidence",
+        "unrelated_section",
+        "semantic_interpretation",
+        "derived_evidence",
+        "superseded_impression",
+        "cross_document_reasoning"
+      ],
+      "reference_version": "1.0",
+      "criteria_set_version": "1.3.0",
+      "criterion_instances": 7,
+      "scorable_instances": 7,
+      "document_count": 6,
+      "documents": [
+        {
+          "filename": "2026-01-28_radiology_right_knee.txt",
+          "sha256": "1bad2253f830a6b73c94c222d66803fe4f5e369fa751826a6cbfef6277db2aa9",
+          "bytes": 1773
+        },
+        {
+          "filename": "2026-02-10_pt_initial_evaluation.txt",
+          "sha256": "d4032b15faf02d91efb6f8a1e04a82766e9042eb2b642b4da15d8b930b35398f",
+          "bytes": 2223
+        },
+        {
+          "filename": "2026-03-05_nutrition_consult.txt",
+          "sha256": "6f5cece5efa0924d7d96d11336d5e4b659686de33950d9c96040218b693e0e7c",
+          "bytes": 1577
+        },
+        {
+          "filename": "2026-04-16_procedure_note_injection.txt",
+          "sha256": "975b45f9ccd4a864ad47b996dd7a33916d5485dfb81adadfff6872d62180202d",
+          "bytes": 1404
+        },
+        {
+          "filename": "2026-06-24_pt_discharge_summary.txt",
+          "sha256": "81c5a0184651e02680c036522f21649246a4bf675fca68e38fd2e929f252c08b",
+          "bytes": 1720
+        },
+        {
+          "filename": "2026-07-08_orthopedic_note.txt",
+          "sha256": "f8ebacf8d648605079b756d7ba87e9271793a60d790a95ec796d80bb13e9cea5",
+          "bytes": 1769
+        }
+      ],
+      "label_sha256": "0b72e9942652c3c1a0628f4db203debd43c2082dcb7acc401189d97775913be9"
+    },
+    {
+      "case_id": "TKA-005",
+      "parent_case_id": null,
+      "procedure_id": "total_knee_arthroplasty",
+      "procedure_name": "Total Knee Arthroplasty",
+      "cpt": "27447",
+      "split": "development",
+      "scenario_tags": [
+        "density_pair",
+        "concise_variant",
+        "vague_duration"
+      ],
+      "reference_version": "1.0",
+      "criteria_set_version": "1.3.0",
+      "criterion_instances": 7,
+      "scorable_instances": 7,
+      "document_count": 2,
+      "documents": [
+        {
+          "filename": "2026-07-29_radiograph_report.txt",
+          "sha256": "a8c149bbcab5a5391d7f86b47fb1373275115e3adb3130fa57f1bc071e59d7ae",
+          "bytes": 1051
+        },
+        {
+          "filename": "2026-08-06_orthopedic_note.txt",
+          "sha256": "aca0dfe668bd4f47ef780293b0b2ef883d97c54a74e80bf3fff86998418ec75f",
+          "bytes": 1567
+        }
+      ],
+      "label_sha256": "b4775e72e87b243869bfaff5d00f40590fe24d2d2e222d816af8a979730e2380"
+    },
+    {
+      "case_id": "TKA-005V",
+      "parent_case_id": "TKA-005",
+      "procedure_id": "total_knee_arthroplasty",
+      "procedure_name": "Total Knee Arthroplasty",
+      "cpt": "27447",
+      "split": "development",
+      "scenario_tags": [
+        "density_pair",
+        "verbose_variant",
+        "vague_duration",
+        "copy_forward"
+      ],
+      "reference_version": "1.0",
+      "criteria_set_version": "1.3.0",
+      "criterion_instances": 7,
+      "scorable_instances": 7,
+      "document_count": 4,
+      "documents": [
+        {
+          "filename": "2026-07-29_radiology_report.txt",
+          "sha256": "43a8715462b5e5d3d44c497ae902ebc28894918815d7d76e81383537e5b0982b",
+          "bytes": 3281
+        },
+        {
+          "filename": "2026-08-06_medication_list.txt",
+          "sha256": "15c9204004948e9f4b1207609b2745a85fac5b3cab2467d108ddd2f473965731",
+          "bytes": 1545
+        },
+        {
+          "filename": "2026-08-06_orthopedic_note.txt",
+          "sha256": "72940a29713153d485305657245ca1357ef98505c245f86a3158f0070a2ef32f",
+          "bytes": 4947
+        },
+        {
+          "filename": "2026-08-20_followup_note.txt",
+          "sha256": "06f3945985b1678afc57cbd90128c916c446790775b1b3b4b0639c2b5cd69bd2",
+          "bytes": 1248
+        }
+      ],
+      "label_sha256": "e8802d5cce52deab55c6dd374c1ecb710d4b8bc6f7cd9f9e25bd79d69ce81700"
+    },
+    {
+      "case_id": "TKA-006",
+      "parent_case_id": null,
+      "procedure_id": "total_knee_arthroplasty",
+      "procedure_name": "Total Knee Arthroplasty",
+      "cpt": "27447",
+      "split": "development",
+      "scenario_tags": [
+        "contradiction",
+        "generic_symptom_trap",
+        "near_threshold_duration",
+        "structured_form_completeness",
+        "baseline_breaker"
+      ],
+      "reference_version": "1.0",
+      "criteria_set_version": "1.3.0",
+      "criterion_instances": 7,
+      "scorable_instances": 7,
+      "document_count": 6,
+      "documents": [
+        {
+          "filename": "2026-05-11_radiology_left_knee.txt",
+          "sha256": "e8a05f50fde16c5be5949058422f3790f92373ab2959e3e42a1159c0f778a1c7",
+          "bytes": 852
+        },
+        {
+          "filename": "2026-05-28_radiology_discrepancy_review.txt",
+          "sha256": "6ac3407c9261d6cdc72b2307c1d73ed113b3fc9bf260fddc43f48402b5850a34",
+          "bytes": 1604
+        },
+        {
+          "filename": "2026-07-06_orthopedic_note.txt",
+          "sha256": "6cea48ad15de7ad82923e65ad60f99fc9cc7f2d53d37f4cbf4081c5f5c8646a7",
+          "bytes": 1574
+        },
+        {
+          "filename": "2026-07-13_hie_record_extract.txt",
+          "sha256": "5720c5bf87cabe1c3cb8e5406e32431e46d96197de5835ab1b00fcd7d6df125a",
+          "bytes": 2033
+        },
+        {
+          "filename": "2026-07-14_prior_authorization_questionnaire.txt",
+          "sha256": "61348a8a53117b769602f17bb15a80a948fa22d703ac462a494b15a4fa544226",
+          "bytes": 2949
+        },
+        {
+          "filename": "2026-07-21_anaesthetic_review.txt",
+          "sha256": "e6f77ca40748978077bdca58b5ec5577dfd975572c22e5d170da9e699fe35b97",
+          "bytes": 1598
+        }
+      ],
+      "label_sha256": "feea94f357a0c5464cf80a0a040f36652f68b23d30764dc64ef98c589534b740"
+    },
+    {
+      "case_id": "MRI-101",
+      "parent_case_id": null,
+      "procedure_id": "lumbar_mri",
+      "procedure_name": "MRI Lumbar Spine without contrast",
+      "cpt": "72148",
+      "split": "held_out_test",
+      "scenario_tags": [
+        "buried_evidence",
+        "unrelated_section",
+        "semantic_interpretation",
+        "derived_evidence",
+        "affirmative_contradiction",
+        "prior_imaging_conflict"
+      ],
+      "reference_version": "1.0",
+      "criteria_set_version": "1.3.0",
+      "criterion_instances": 5,
+      "scorable_instances": 5,
+      "document_count": 4,
+      "documents": [
+        {
+          "filename": "2026-04-08_radiology_lumbar_mri.txt",
+          "sha256": "734ca6d7625c89808dc117446f3aa2cea433bf0008a5b5e3dea7a94bca28db09",
+          "bytes": 1340
+        },
+        {
+          "filename": "2026-06-01_office_note.txt",
+          "sha256": "38fe1202bf559a9213b3e8cf06c6d3f2c9d8a70beb7f80d9d05bafd24f327561",
+          "bytes": 1576
+        },
+        {
+          "filename": "2026-06-01_physiotherapy_referral_form.txt",
+          "sha256": "8df1abb4e61b1c1153e5acb8f0a531b8503a3155fa956915f091d544fd2c5a0f",
+          "bytes": 1056
+        },
+        {
+          "filename": "2026-08-17_office_note.txt",
+          "sha256": "71bbc4eb1d0c7f7655130de82525730bd6f5e2f125fc0a48d13c29e1f81475f1",
+          "bytes": 1972
+        }
+      ],
+      "label_sha256": "e546548771cbb4138e834c3c1fb85707dcc8d4783a5309da0cded4b49c184e57"
+    },
+    {
+      "case_id": "MRI-102",
+      "parent_case_id": null,
+      "procedure_id": "lumbar_mri",
+      "procedure_name": "MRI Lumbar Spine without contrast",
+      "cpt": "72148",
+      "split": "held_out_test",
+      "scenario_tags": [
+        "vague_duration",
+        "contradiction",
+        "administrative_date_inference"
+      ],
+      "reference_version": "1.0",
+      "criteria_set_version": "1.3.0",
+      "criterion_instances": 5,
+      "scorable_instances": 5,
+      "document_count": 4,
+      "documents": [
+        {
+          "filename": "2026-08-26_office_note.txt",
+          "sha256": "0e221f5ff09fb79ce942366048dc8bf32225e48facc5cfdacfaa8a52aa085c7a",
+          "bytes": 1536
+        },
+        {
+          "filename": "2026-08-28_care_coordination_note.txt",
+          "sha256": "5e9ce283d3d200abf719cb83539d6bc215e01da787bc25cbdb09af4dfe46066a",
+          "bytes": 1368
+        },
+        {
+          "filename": "2026-08-31_imaging_order_72148.txt",
+          "sha256": "836be9975f6c75eebaeb16db0ac536ea5c2c26051eee7855ef0187df984fe149",
+          "bytes": 964
+        },
+        {
+          "filename": "2026-08-31_referral_letter.txt",
+          "sha256": "a5d468d63e25337e89677a3a370cd73a724d8b7d33a4b85018caa5a71db0d1f5",
+          "bytes": 1075
+        }
+      ],
+      "label_sha256": "d34369b7372626581c9aa1dc433f4047101cb539c5949b05c2a7c07c37c03511"
+    },
+    {
+      "case_id": "MRI-103",
+      "parent_case_id": null,
+      "procedure_id": "lumbar_mri",
+      "procedure_name": "MRI Lumbar Spine without contrast",
+      "cpt": "72148",
+      "split": "held_out_test",
+      "scenario_tags": [
+        "exception_pathway",
+        "near_threshold_duration"
+      ],
+      "reference_version": "1.0",
+      "criteria_set_version": "1.3.0",
+      "criterion_instances": 5,
+      "scorable_instances": 3,
+      "document_count": 3,
+      "documents": [
+        {
+          "filename": "2026-09-01_nurse_telephone_note.txt",
+          "sha256": "e958663809e3d7ec38c32d8ab13b065141ee99c4e5d83f46b2a41975c064dd4e",
+          "bytes": 1162
+        },
+        {
+          "filename": "2026-09-04_imaging_order_72148.txt",
+          "sha256": "d183caeb39db84811785fbaa81a413e2af70f1ee21fbf42884696d77e7152059",
+          "bytes": 963
+        },
+        {
+          "filename": "2026-09-04_oncology_clinic_note.txt",
+          "sha256": "dd29fe460ebb08c1329f324ba5f74c7692117746e23b3a6d0b0d6ac53bd4d34d",
+          "bytes": 2344
+        }
+      ],
+      "label_sha256": "7cdf38fc2eba234e69031679e59091aa1bed188b74c8c415daf974bd666c3197"
+    },
+    {
+      "case_id": "MRI-104",
+      "parent_case_id": null,
+      "procedure_id": "lumbar_mri",
+      "procedure_name": "MRI Lumbar Spine without contrast",
+      "cpt": "72148",
+      "split": "held_out_test",
+      "scenario_tags": [
+        "silent_absence"
+      ],
+      "reference_version": "1.0",
+      "criteria_set_version": "1.3.0",
+      "criterion_instances": 5,
+      "scorable_instances": 5,
+      "document_count": 3,
+      "documents": [
+        {
+          "filename": "2026-09-05_imaging_request_72148.txt",
+          "sha256": "ad91e053063c650742badf030ecc6b13ae20529280d65ee7c6dba0ab6acf6252",
+          "bytes": 946
+        },
+        {
+          "filename": "2026-09-05_registration_form.txt",
+          "sha256": "de45509cfe6eb27ca99e13c91c9d90af825b085e93d1f22adfc0c0f5f68bc836",
+          "bytes": 892
+        },
+        {
+          "filename": "2026-09-05_urgent_care_note.txt",
+          "sha256": "31260a2caa5ee3324b949fb80214c5ac54e39a756ff03774aef5fb796d90d1e4",
+          "bytes": 977
+        }
+      ],
+      "label_sha256": "d878d0e2c7db015d9f3f2ad92788c7438949eccbab83d346dab5338516ea84f3"
+    },
+    {
+      "case_id": "TKA-101",
+      "parent_case_id": null,
+      "procedure_id": "total_knee_arthroplasty",
+      "procedure_name": "Total Knee Arthroplasty",
+      "cpt": "27447",
+      "split": "held_out_test",
+      "scenario_tags": [
+        "near_threshold_duration",
+        "incomplete_outside_records",
+        "silent_absence"
+      ],
+      "reference_version": "1.0",
+      "criteria_set_version": "1.3.0",
+      "criterion_instances": 7,
+      "scorable_instances": 7,
+      "document_count": 4,
+      "documents": [
+        {
+          "filename": "2026-05-19_radiology_left_knee.txt",
+          "sha256": "079c31c02501625eb59fb706ac0a80390c2249b7ccb7e506ae067f2287d4e16f",
+          "bytes": 919
+        },
+        {
+          "filename": "2026-06-02_orthopedic_note.txt",
+          "sha256": "8643ebb913a48ca9fab5d76ce18f3eb60b4ddb29f304003442e7f3d24f2d554b",
+          "bytes": 1533
+        },
+        {
+          "filename": "2026-08-25_pt_discharge_summary.txt",
+          "sha256": "d53dbc85f15f24854fbc95d539bcd9a00dbc7856d1d74524f6966ead4c72f611",
+          "bytes": 1479
+        },
+        {
+          "filename": "2026-08-28_medication_list.txt",
+          "sha256": "1107e4d35cdf898dade40ee35d8b384e4e24c1fa81e280283be6c04ac71b5c36",
+          "bytes": 973
+        }
+      ],
+      "label_sha256": "00153df22487aa515aafc14e00299a898806800e350b255e5c46eea7283d86b8"
+    },
+    {
+      "case_id": "TKA-102",
+      "parent_case_id": null,
+      "procedure_id": "total_knee_arthroplasty",
+      "procedure_name": "Total Knee Arthroplasty",
+      "cpt": "27447",
+      "split": "held_out_test",
+      "scenario_tags": [
+        "contradiction",
+        "copy_forward"
+      ],
+      "reference_version": "1.0",
+      "criteria_set_version": "1.3.0",
+      "criterion_instances": 7,
+      "scorable_instances": 7,
+      "document_count": 6,
+      "documents": [
+        {
+          "filename": "2026-05-20_pt_discharge_summary.txt",
+          "sha256": "36cbb460d335f99e28d41cea674d94fba57628f319f6cc22fcf9f1a76a58a3fd",
+          "bytes": 1086
+        },
+        {
+          "filename": "2026-07-02_radiology_right_knee.txt",
+          "sha256": "faa4a0caa9650f8e60bee35bc27a6c534d8d0084fd7f8d23ae484f42f58c515f",
+          "bytes": 742
+        },
+        {
+          "filename": "2026-07-23_radiology_right_knee.txt",
+          "sha256": "8bc381a193ff2c5b469d94d505c5de93a356c44b30158757f41b36ff2f96886d",
+          "bytes": 986
+        },
+        {
+          "filename": "2026-08-14_nursing_intake_note.txt",
+          "sha256": "aa768ac07b2a8949246bac705db9eaf2162b73f381b3459f0a26ed38ac16ad5b",
+          "bytes": 942
+        },
+        {
+          "filename": "2026-08-14_orthopedic_note.txt",
+          "sha256": "adfa9fb7549cf261e0c495130d36e8bb724243122147909f13651c1180db1dbb",
+          "bytes": 1669
+        },
+        {
+          "filename": "2026-08-27_preoperative_assessment.txt",
+          "sha256": "f4a42b044323dac3673336ff92f0fdc8a1f45a818076c691cbb5673661d31420",
+          "bytes": 1433
+        }
+      ],
+      "label_sha256": "5c70c610741f1d0da2752d47b77b33e4786221819ba70d07b99a9b83a5b87749"
+    },
+    {
+      "case_id": "TKA-103",
+      "parent_case_id": null,
+      "procedure_id": "total_knee_arthroplasty",
+      "procedure_name": "Total Knee Arthroplasty",
+      "cpt": "27447",
+      "split": "held_out_test",
+      "scenario_tags": [
+        "density_pair",
+        "concise_variant",
+        "composite_logic_trap",
+        "affirmative_contradiction"
+      ],
+      "reference_version": "1.0",
+      "criteria_set_version": "1.3.0",
+      "criterion_instances": 7,
+      "scorable_instances": 7,
+      "document_count": 3,
+      "documents": [
+        {
+          "filename": "2026-01-19_primary_care_note.txt",
+          "sha256": "8fc2a25a4da6fd90dd26b0f042a4fe4bb7755f9cbf37dcf284b84bf954640f87",
+          "bytes": 944
+        },
+        {
+          "filename": "2026-06-15_radiograph_report.txt",
+          "sha256": "f45c81a6998ac2cb7debdbbf973fc61b8bafcd70707e4fb39814a5589401ebe7",
+          "bytes": 672
+        },
+        {
+          "filename": "2026-06-22_orthopedic_note.txt",
+          "sha256": "07552fc3c8b37382a5b1987ff0b37a432139530e296d72824e8f3e14916454fb",
+          "bytes": 1213
+        }
+      ],
+      "label_sha256": "b9fbbbe737cd2948c9b65a094ae940fe4e466799b8c270cff53b952dbbabd52f"
+    },
+    {
+      "case_id": "TKA-103V",
+      "parent_case_id": "TKA-103",
+      "procedure_id": "total_knee_arthroplasty",
+      "procedure_name": "Total Knee Arthroplasty",
+      "cpt": "27447",
+      "split": "held_out_test",
+      "scenario_tags": [
+        "density_pair",
+        "verbose_variant",
+        "composite_logic_trap",
+        "affirmative_contradiction"
+      ],
+      "reference_version": "1.0",
+      "criteria_set_version": "1.3.0",
+      "criterion_instances": 7,
+      "scorable_instances": 7,
+      "document_count": 4,
+      "documents": [
+        {
+          "filename": "2026-01-19_primary_care_note.txt",
+          "sha256": "b45ef6b14ec1b6a3ec28303336b657df5f43b31ce54abeda904d48aa11ac18bb",
+          "bytes": 2607
+        },
+        {
+          "filename": "2026-06-15_radiology_report.txt",
+          "sha256": "6b6898b2fb990b8c36bf12855058b64768c3c26bfc11dda20c7853786d56c367",
+          "bytes": 2952
+        },
+        {
+          "filename": "2026-06-22_medication_list.txt",
+          "sha256": "0fcd91bbd2213326ff82d4b934abd638b06c88fe4dca67d6ffc08cfbf533b671",
+          "bytes": 1601
+        },
+        {
+          "filename": "2026-06-22_orthopedic_note.txt",
+          "sha256": "b21a30170a2e6fab9cf92a4ae7571fd8c9bc146ef805aab617540850e92d8428",
+          "bytes": 4125
+        }
+      ],
+      "label_sha256": "293b2815ec84256ebf3a5c41226119787df9a6dde288777c05a14aabb1cd4a94"
+    },
+    {
+      "case_id": "TKA-104",
+      "parent_case_id": null,
+      "procedure_id": "total_knee_arthroplasty",
+      "procedure_name": "Total Knee Arthroplasty",
+      "cpt": "27447",
+      "split": "held_out_test",
+      "scenario_tags": [
+        "affirmative_contradiction",
+        "apparent_completeness_trap",
+        "baseline_breaker"
+      ],
+      "reference_version": "1.0",
+      "criteria_set_version": "1.3.0",
+      "criterion_instances": 7,
+      "scorable_instances": 7,
+      "document_count": 6,
+      "documents": [
+        {
+          "filename": "2026-06-30_pt_discharge_summary.txt",
+          "sha256": "d954bb39038780ce8bcd8b6df03e7125d771c9d519d8b9495deba49a1eafb519",
+          "bytes": 1222
+        },
+        {
+          "filename": "2026-08-03_radiology_right_knee.txt",
+          "sha256": "6a454d7de54f2f017dbdd6601cd2d5b5190d0c3f296885bba2e16fe5d94de551",
+          "bytes": 907
+        },
+        {
+          "filename": "2026-08-18_pharmacy_dispensing_history.txt",
+          "sha256": "0493d1ca37c5ab86caa742e8e07c87c7a26a404eaeadaf33d557fd424117349c",
+          "bytes": 3294
+        },
+        {
+          "filename": "2026-08-19_orthopedic_note.txt",
+          "sha256": "f9e3df5b090fd5581b99d9ba85f4f571f191edcc7f0ab39c2761595556596e57",
+          "bytes": 1459
+        },
+        {
+          "filename": "2026-08-31_hospital_discharge_summary.txt",
+          "sha256": "f6bd92a3188ac48c87c30aa2a037b42e8e6e55cc9ca7a4147f920bffc9463648",
+          "bytes": 1612
+        },
+        {
+          "filename": "2026-09-03_preoperative_assessment.txt",
+          "sha256": "74c7a9f29c53cb6a6b3a10923665a7bf997670c137c51421f7386ce53b2b198b",
+          "bytes": 1754
+        }
+      ],
+      "label_sha256": "7bf13a51a9a6725cbb11f90d0f3eb6fddc03f78708c91d8c6375ae266d042239"
+    },
+    {
+      "case_id": "LF-201",
+      "parent_case_id": null,
+      "procedure_id": "lumbar_fusion",
+      "procedure_name": "Lumbar Spinal Fusion, single level",
+      "cpt": "22612",
+      "split": "transfer",
+      "scenario_tags": [
+        "near_miss_diagnosis",
+        "affirmative_contradiction",
+        "buried_evidence",
+        "unrelated_section"
+      ],
+      "reference_version": "1.0",
+      "criteria_set_version": "1.3.0",
+      "criterion_instances": 9,
+      "scorable_instances": 9,
+      "document_count": 5,
+      "documents": [
+        {
+          "filename": "2026-01-28_physiotherapy_outcome_measures.txt",
+          "sha256": "2f351d0f8f4e8eb70ffa061edd638e474b15736e061726d702e956c9f239e908",
+          "bytes": 1766
+        },
+        {
+          "filename": "2026-03-04_pain_service_procedure_record.txt",
+          "sha256": "c5177936d377c89902b9291a4035cdb8b88281ef7b685bfb1206e75609d00a38",
+          "bytes": 1843
+        },
+        {
+          "filename": "2026-04-22_mri_lumbar_structured_report.txt",
+          "sha256": "63f534f9df385d91062ef45c7536a2db5e5d35054ef479119cd3c00b59d5db57",
+          "bytes": 2512
+        },
+        {
+          "filename": "2026-05-06_flexion_extension_series.txt",
+          "sha256": "5bcf4b4752051fc213c2523caa8a88481c390f31368434381594009fbcb8483d",
+          "bytes": 2077
+        },
+        {
+          "filename": "2026-06-18_spine_service_summary_letter.txt",
+          "sha256": "ec2bc6812891fa17dba34836d5e2c26195a3290752ea3f064c7ddf8dcf3a9ac4",
+          "bytes": 1932
+        }
+      ],
+      "label_sha256": "fef55850d8583ae2f1ad479227132224555caddf92fafb986287705797e7694a"
+    },
+    {
+      "case_id": "LF-202",
+      "parent_case_id": null,
+      "procedure_id": "lumbar_fusion",
+      "procedure_name": "Lumbar Spinal Fusion, single level",
+      "cpt": "22612",
+      "split": "transfer",
+      "scenario_tags": [
+        "exception_pathway",
+        "composite_logic_trap",
+        "affirmative_contradiction",
+        "buried_evidence",
+        "unrelated_section"
+      ],
+      "reference_version": "1.0",
+      "criteria_set_version": "1.3.0",
+      "criterion_instances": 9,
+      "scorable_instances": 8,
+      "document_count": 5,
+      "documents": [
+        {
+          "filename": "2026-01-15_spine_service_triage_proforma.txt",
+          "sha256": "79838487d59cc14b703eb20a0c6ee2d494685c067f600ec5fb448ff0c521de8c",
+          "bytes": 1595
+        },
+        {
+          "filename": "2026-02-02_pain_service_procedure_record.txt",
+          "sha256": "c30903b01f60d942b6a2c9896c0cba2ecb8a409f39b2fa0e127fc1d763abe2f1",
+          "bytes": 1443
+        },
+        {
+          "filename": "2026-03-11_spine_service_review_proforma.txt",
+          "sha256": "3c1ea5a9bac61f05817c4ff652824d0b6b8da36c4c9414e0e8f31d14f44efccc",
+          "bytes": 1906
+        },
+        {
+          "filename": "2026-05-20_mdt_meeting_record.txt",
+          "sha256": "0e63e12120d2f997656b0486fdce3d78d23148cd75e1b9924ddedc730a2790a9",
+          "bytes": 2134
+        },
+        {
+          "filename": "2026-06-02_preoperative_screening_summary.txt",
+          "sha256": "b3384f5a2090bee4c12604f3f650b47a448179cc03a17a436fc00561c7b4a208",
+          "bytes": 1831
+        }
+      ],
+      "label_sha256": "e272122d61a7e22ec0b72b75e21665bf5d02fbdc928e2112a2ee1e1025d1e55a"
+    },
+    {
+      "case_id": "LF-203",
+      "parent_case_id": null,
+      "procedure_id": "lumbar_fusion",
+      "procedure_name": "Lumbar Spinal Fusion, single level",
+      "cpt": "22612",
+      "split": "transfer",
+      "scenario_tags": [
+        "contradiction",
+        "vague_duration"
+      ],
+      "reference_version": "1.0",
+      "criteria_set_version": "1.3.0",
+      "criterion_instances": 9,
+      "scorable_instances": 9,
+      "document_count": 4,
+      "documents": [
+        {
+          "filename": "2026-05-08_physiotherapy_discharge_record.txt",
+          "sha256": "d38062ad2006969667704e79ba815c30332dd1c194658d3f967d6b39a996d849",
+          "bytes": 1393
+        },
+        {
+          "filename": "2026-06-11_mri_lumbar_structured_report.txt",
+          "sha256": "27773311d5b93cca4c4c5e4c943baf476d99864ea47b668a91d624014dbeeda4",
+          "bytes": 1947
+        },
+        {
+          "filename": "2026-07-14_medication_summary_printout.txt",
+          "sha256": "41ad9973e677747362ae6bb852e9c73df5b79fdca1f025d630396ddd2eea211e",
+          "bytes": 1389
+        },
+        {
+          "filename": "2026-07-30_consultant_letter.txt",
+          "sha256": "2b70aaedfdd27b9d6990708754c362c2082950b978f28cb568a641d5d9721308",
+          "bytes": 1221
+        }
+      ],
+      "label_sha256": "572549ce4b771b341679d5a1553db7db7a9a98be9c8e0453d38f0a9bef0d72a6"
+    },
+    {
+      "case_id": "LF-204",
+      "parent_case_id": null,
+      "procedure_id": "lumbar_fusion",
+      "procedure_name": "Lumbar Spinal Fusion, single level",
+      "cpt": "22612",
+      "split": "transfer",
+      "scenario_tags": [
+        "clean_baseline",
+        "cross_document_reasoning"
+      ],
+      "reference_version": "1.0",
+      "criteria_set_version": "1.3.0",
+      "criterion_instances": 9,
+      "scorable_instances": 8,
+      "document_count": 6,
+      "documents": [
+        {
+          "filename": "2025-11-03_spine_service_triage_proforma.txt",
+          "sha256": "224ab5e8c2dcbfabc4e4dc412674a21a326d5f79751df07cba71121807a16f10",
+          "bytes": 1289
+        },
+        {
+          "filename": "2026-04-30_ct_lumbar_structured_report.txt",
+          "sha256": "006d1ccbff751d6190dc4a8b5aae5ec6eeeb134d6b2f2a3c68da74b1e01d15b0",
+          "bytes": 2021
+        },
+        {
+          "filename": "2026-06-19_conservative_episode_closure.txt",
+          "sha256": "7d7d767eb3c207c18967420e681384ba5dce40d8918da4bebdb0ffc138163912",
+          "bytes": 1709
+        },
+        {
+          "filename": "2026-07-08_spine_service_review_proforma.txt",
+          "sha256": "58f9e3958c0f1fc86fc544d00481ff7eca8c8d100a152a7c9062099524713113",
+          "bytes": 2081
+        },
+        {
+          "filename": "2026-07-22_health_psychology_assessment.txt",
+          "sha256": "d43c99628a4a860c7277f4fb7c45be404f90a9101889c767cebb87e8fb6c9127",
+          "bytes": 1725
+        },
+        {
+          "filename": "2026-07-29_preoperative_screening_summary.txt",
+          "sha256": "ff17e17fd188b9a12fab8f0b3e839da349605dbc68c016e8fec8e01c12709498",
+          "bytes": 1901
+        }
+      ],
+      "label_sha256": "f54af0585942b3a9365f5acecddcb4b9043f6d152a34811d80f2c9d2fc77c23a"
+    },
+    {
+      "case_id": "LF-205",
+      "parent_case_id": null,
+      "procedure_id": "lumbar_fusion",
+      "procedure_name": "Lumbar Spinal Fusion, single level",
+      "cpt": "22612",
+      "split": "transfer",
+      "scenario_tags": [
+        "silent_absence",
+        "near_threshold_duration"
+      ],
+      "reference_version": "1.0",
+      "criteria_set_version": "1.3.0",
+      "criterion_instances": 9,
+      "scorable_instances": 9,
+      "document_count": 3,
+      "documents": [
+        {
+          "filename": "2026-08-05_mri_lumbar_structured_report.txt",
+          "sha256": "13e9c1a3341ad3c0ea9f046716647dc7bbaaec0c4a4d2683e8f093fe38718554",
+          "bytes": 1838
+        },
+        {
+          "filename": "2026-09-02_funding_request_form.txt",
+          "sha256": "f755c5bd9847cca6be6b78ce6c652cfef194e63944de1919c971472b943bfbb1",
+          "bytes": 2310
+        },
+        {
+          "filename": "2026-09-02_records_transmittal.txt",
+          "sha256": "0aa99ec4a81f09cfe1b045348f49daad617a9da280e9bf31b54a9f2c02ab456c",
+          "bytes": 970
+        }
+      ],
+      "label_sha256": "0c461d6e752b93a2fc126907dd064d3395214152a2723fac5787f7b969d1a74a"
+    }
+  ]
+}

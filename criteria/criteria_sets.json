@@ -1,0 +1,271 @@
+{
+  "_meta": {
+    "purpose": "Structured medical necessity criteria for UM evidence mapping prototype",
+    "sourcing_note": "Criteria are modeled on publicly available Medicare coverage determination patterns and published payer medical coverage policies. They are representative rather than verbatim reproductions of any current LCD or plan policy. In production these would be loaded from the applicable NCD, LCD, or the plan's published coverage policy, which per CMS CY2024 MA rules must be publicly accessible.",
+    "complexity_gradient": "lumbar_mri (5 criteria, mostly explicit) -> total_knee_arthroplasty (7 criteria, duration and composite logic) -> lumbar_fusion (9 criteria, interacting conditions and exclusions)",
+    "criteria_set_version": "1.3.0",
+    "synthetic_notice": "SYNTHETIC DEMONSTRATION CRITERIA. Not Humana coverage policies. Modeled on published coverage determination patterns. Listed procedure codes identify supported demonstration scenarios, not validated production applicability.",
+    "audience_warning": "Every string in this file is sent to a model at runtime. It is read by something that has no access to the authors' intent, no reference labels, and no knowledge of how the corpus was built. Text that reads correctly only to someone who already knows what was meant is a defect. Do not write authoring guidance here; put it in corpus/labels.json or docs/.",
+    "not_met_bar": "NOT_MET means located evidence affirmatively conflicts with the criterion. All three of the following must hold, and each must be visible in the submitted documents. (1) The conflict is affirmative: a passage states something incompatible with the criterion, rather than the criterion merely falling short or going unmentioned. (2) The record is complete on that point. Completeness is established by one of exactly four routes and by nothing else. ROUTE A, PRIMARY DOCUMENT: the document itself is in the packet rather than merely referenced, such as a prior imaging report present in full. ROUTE B, FIRST-HAND CONTEMPORANEOUS RECORD: the author records what they themselves observed, examined, performed, or conducted, at the time. An examination they carried out. A procedure they performed. A treatment they offered at that encounter together with the patient's response to it, which the author witnessed. ROUTE C, INDEPENDENT CORROBORATION: two records, each present in the packet in its own right and made on separate occasions, agree about the same state of affairs. One citing the other does not make them derived, provided the earlier record is present and can be read on its own. INDEPENDENCE MEANS INDEPENDENT SOURCES AND NOT MERELY SEPARATE OCCASIONS. Two records corroborate only where the fact could have come out differently in one of them. A patient giving the same history at two visits produces two records of one source, and a single source cannot disagree with itself, so the second record is no more checkable than the first. The second record must have a different origin: an examination performed, a measurement taken, a procedure carried out, a document generated elsewhere. Two clinicians each writing down what the same patient told them is one source recorded twice. This is the same reasoning as the bar on assertions, applied to repetition: what cannot be checked is not made checkable by being said again. ROUTE D, BOUNDED SYSTEMATIC SEARCH: a search across a defined population, where the searching document states its own scope and its own limits, and where those stated limits do not plausibly cover the fact at issue. A regional exchange extract naming the organisations it covers, the period it covers, and what it does not reach is such a document. Both halves must be cited: the search result, and the statement of its limits. A reviewer shown only the conclusion has been handed an unqualified version of a qualified fact. Route D exists because a bounded search and an assertion are different objects: an assertion of completeness is forbidden because there is no way to check it, whereas a search declares what it looked at, so a reader can judge for themselves whether the gap matters. Where the stated limits could plausibly contain the fact at issue, Route D does not apply and the result is AMBIGUOUS. A search whose scope is not stated is an assertion, not a search. THE BOUNDARY BETWEEN B AND C: what the author witnessed at their own encounter is Route B; what the author reports about events at other times or with other clinicians is history, and history needs Route C. A clinician who offers a treatment at their own encounter and records the patient's response has Route B for that encounter. The same clinician recording that the patient refused a treatment at some earlier time, or with a different clinician, has history rather than observation, and needs that earlier record itself to be present in the packet. None of the following establishes completeness: a categorical statement taken as history from the patient at a single encounter; a clinician's assertion that the record is complete, however emphatic; silence. UNREMARKABLE NEGATIVE HISTORY, stated separately because it is where the first of those three is missed. A negative the patient reports does not establish completeness on its own, however routine the fact and however unlikely the patient is to be mistaken. It needs corroboration under Route C, or a Route D document whose declared scope covers the fact. That a patient has never had a particular operation is not checkable from the record, and neither is any other negative they supply. The reasoning is the same as for a completeness assertion: what cannot be checked cannot establish that the record is complete. Routine facts are where this slips, because a statement that reads as obviously true invites a reader to stop asking how it was established, which is the only question completeness turns on. Being probably right is not the standard; being checkable is. Where the documents reference a particular record held elsewhere that is not included, the record is not complete, and no other route repairs that. That clause is about a named absent document. It does not bar Route D, which establishes that no such record exists anywhere within a declared scope rather than pointing at one that is missing. (3) No exception pathway applies to this criterion. If any of the three is not established from the documents, the result is AMBIGUOUS. A value short of a threshold does not by itself establish NOT_MET. Absence of located evidence is never NOT_MET.",
+    "addresses_rule": "Several criteria are compound: a red flag criterion listing five categories, an exclusion with two limbs, a candidacy criterion. Choosing between MISSING_EVIDENCE and INSUFFICIENT_CONTEXT on these turns on whether the record ADDRESSES a category, and that word is defined here because it decides the answer and would otherwise be left to each reader to invent. A passage addresses a category only if all three of the following hold. (1) NAMED. The passage names the category, or names a condition or event that constitutes it. A review of systems line that asks after the category by name qualifies. A passage describing an adjacent body system, or a symptom that merely raises the topic, does not. (2) CAPABLE OF EXCLUDING. The passage must be capable of excluding the category, not merely consistent with its absence. A normal result on a test with poor sensitivity for the category does not address it. A routine observation recorded because observations are always recorded is consistent with the category being absent and cannot rule it out, so it does not address it. A descriptor of normal appearance on a single imaging sequence cannot exclude an infiltrative process. By contrast a targeted question, asked of this patient and answered, can exclude, and does address. This test is asymmetric by design: a finding may establish that a category is PRESENT even where its absence would not have excluded the category. (3) SUFFICIENT FOR THE WHOLE CATEGORY. Where a category is compound the passage must reach all of it, subject to one logical exception. A category of the form worsening X, or persistent X, requires both X and a trajectory, so a passage bearing on one symptom within X does not reach it. THE EXCEPTION: NEGATING A BASE CONDITION NEGATES ITS QUALIFIERS. Where a category is a qualified form of a base condition, a documented absence of the base condition forecloses every qualified form of it, because each qualifier presupposes the base. A complete examination of the relevant system finding nothing abnormal therefore reaches the whole category, and a second timepoint is not needed to exclude the progression of something that is absent. DECISION PROCEDURE, in order. FIRST: if any category is affirmatively POSITIVE, the criterion resolves on that alone, however many other categories are addressed. For a criterion asking whether something is PRESENT that is MET; for one asking whether something is ABSENT that is NOT_MET, subject to not_met_bar. OTHERWISE: no category addressed gives AMBIGUOUS with MISSING_EVIDENCE and zero units; some but not all addressed gives AMBIGUOUS with INSUFFICIENT_CONTEXT, citing the passages that do address; all addressed and all negative resolves the criterion, which for a PRESENT criterion is NOT_MET subject to not_met_bar and for an ABSENT criterion is MET. A passage that raises a question without answering it does address the category, and gives INSUFFICIENT_CONTEXT. A discussion of the risks and benefits of a proposed treatment with the patient is shared decision making; it does not address whether that treatment is contraindicated, and gives MISSING_EVIDENCE, because no determination about contraindication could be written from it. SCOPE WARNING. These tests were worked out on a single category and are applied by analogy to the others. Where a category's constituents are not written down in this file, you are supplying them yourself, and another reader may supply different ones. NOTE ON EXAMPLES. The illustrations above are deliberately schematic and are not quotations from any record. Do not pattern-match a document against them.",
+    "waiver_rule": "Where a criteria set defines an exception pathway and its trigger criterion is MET, the criteria it waives resolve to NOT_APPLICABLE. A waived criterion is out of scope for the request, not failed and not unresolved. It cannot be MET, NOT_MET, or AMBIGUOUS. It carries no reason code and no required evidence. Report it as NOT_APPLICABLE and stop; do not go on to assess what the documents would otherwise have supported.",
+    "evidence_requirement_note": "The evidence_requirement on each criterion below is the shape that criterion usually takes, not a rule binding every instance of it. Several criteria have a disjunctive satisfied_by where one path needs a single passage and another needs two: lumbar_mri C2, total_knee_arthroplasty C3, and lumbar_fusion C3. How many passages are required depends on which path the record in front of you actually takes. An explicit statement of a duration needs one passage. A span derived from two dated documents needs both. Decide from the record, not from this field.",
+    "version_history": [
+      {
+        "version": "1.0.0",
+        "date": "2026-09-09",
+        "note": "Initial set. Three procedures, 21 criteria."
+      },
+      {
+        "version": "1.1.0",
+        "date": "2026-09-09",
+        "note": "Criteria text audit following the Task 1.3 manual check and an independent blind adjudication of the twelve development packets. 18 defects corrected across all three sets, in seven classes: satisfied_by clauses that made silence satisfy an exclusion; satisfied_by text broader or narrower than the criterion it describes; authoring-facing language addressed to a reference label rather than to a runtime reader; an evidence_requirement tag contradicting a disjunctive satisfied_by; overloaded use of the phrase NOT met; contentless satisfier clauses; and a non-deterministic exception trigger. NOT_APPLICABLE added as a status for waived criteria. No criterion text was changed in a way that alters which evidence satisfies it, except lumbar_fusion C6 and C7 and total_knee_arthroplasty C1, C4, C5 and lumbar_mri C3, where satisfied_by had drifted from the criterion and was tightened to match. No run had been recorded against 1.0.0 at the time of this change."
+      },
+      {
+        "version": "1.2.0",
+        "date": "2026-09-10",
+        "note": "Adds ROUTE D, bounded systematic search, to not_met_bar. Prompted by TKA-006 C3, where completeness rests on a regional health information exchange extract that states its own coverage and its own gaps. Forcing that into Route A, B or C misdescribes it, and treating it as a clinician's assertion of completeness misses that an assertion cannot be checked while a bounded search can. Route D requires both the search result and its stated limits to be cited, so a reviewer sees the boundary of the claim and not only its conclusion. The clause barring completeness where records held elsewhere are referenced but absent is narrowed to named absent documents, which is what it was written for. No criterion text changed and no clinical label changed as a result of this revision."
+      },
+      {
+        "version": "1.2.1",
+        "date": "2026-09-10",
+        "note": "Names unremarkable negative history explicitly as insufficient for completeness. This restricts nothing that was permitted: 'a categorical statement taken as history from the patient at a single encounter' already covered it, and LF-201 C1 was labelled NOT_MET in violation of a clause that had been there since 1.0.0. The clause was missed because the fact in question, that a patient has never had spinal surgery, reads as obviously true. Stated separately so the failure mode is hard to walk past. Clarification rather than a rule change, hence a patch version."
+      },
+      {
+        "version": "1.3.0",
+        "date": "2026-09-10",
+        "note": "Route C narrowed: corroboration requires independent sources, not merely separate occasions. Both readings were live in the text, and the corpus had labels resting on each. A minor version rather than a patch because this genuinely narrows what establishes completeness and changes clinical labels: red flag categories can no longer be excluded by history alone, however many times the history is taken, and are reachable only through examination, measurement, or a document generated elsewhere. See evals/amendment_log.md for the instances affected and docs/DATA_CARD.md for what the corpus loses."
+      }
+    ]
+  },
+  "criteria_sets": [
+    {
+      "procedure_id": "lumbar_mri",
+      "procedure_name": "MRI Lumbar Spine without contrast",
+      "cpt": "72148",
+      "complexity_tier": "low",
+      "has_exception_pathway": true,
+      "exception_note": "If C4 is MET, then C2 and C3 are waived and resolve to NOT_APPLICABLE. No other criterion is affected. C4 itself is never waived.",
+      "criteria": [
+        {
+          "id": "C1",
+          "text": "Documented low back pain, with or without radicular symptoms",
+          "evidence_type": "explicit_finding",
+          "difficulty": "easy",
+          "satisfied_by": "Any clinical note or order documenting low back pain, with or without radicular symptoms. A described location is helpful but is not required.",
+          "evidence_requirement": "ALTERNATIVE"
+        },
+        {
+          "id": "C2",
+          "text": "Symptoms persisting for at least 6 weeks",
+          "evidence_type": "duration",
+          "difficulty": "medium",
+          "satisfied_by": "Either an explicit statement of a duration of at least 6 weeks, which needs one passage, or two dated encounters at least 6 weeks apart documenting the same symptoms, which needs both passages.",
+          "trap_note": "A duration asserted without dates or a countable quantity, such as chronic or longstanding, is AMBIGUOUS with VAGUE_DURATION. A stated duration shorter than 6 weeks is AMBIGUOUS with INSUFFICIENT_CONTEXT unless the documents establish that it is the complete symptom history.",
+          "evidence_requirement": "COMPOSITE"
+        },
+        {
+          "id": "C3",
+          "text": "Failed conservative management, including at least one of: physical therapy, NSAID trial, or activity modification",
+          "evidence_type": "composite",
+          "difficulty": "medium",
+          "satisfied_by": "Documentation that one of the three listed modalities was attempted, together with a documented outcome showing it did not resolve the symptoms. Both the attempt and the failed outcome are required.",
+          "trap_note": "A modality that is prescribed, offered, planned, or declined has not been attempted. A modality attempted with a successful outcome does not satisfy a criterion that requires failed management.",
+          "evidence_requirement": "ALTERNATIVE"
+        },
+        {
+          "id": "C4",
+          "text": "Red flag findings present, any of: suspected cauda equina syndrome, progressive neurologic deficit, suspected malignancy, suspected spinal infection, or significant trauma",
+          "evidence_type": "exception_trigger",
+          "difficulty": "medium",
+          "satisfied_by": "Explicit documentation in the record that at least one of the listed red flags is present or suspected.",
+          "trap_note": "This criterion functions as the trigger for the exception pathway. Where the documents say nothing about red flags, the result is AMBIGUOUS with MISSING_EVIDENCE. Where they address some but not all of the five listed categories, the result is AMBIGUOUS with INSUFFICIENT_CONTEXT. NOT_MET requires the documents to affirmatively exclude every listed category. See addresses_rule for what counts as addressing a category.",
+          "evidence_requirement": "ALTERNATIVE"
+        },
+        {
+          "id": "C5",
+          "text": "No prior lumbar MRI within the preceding 12 months without documented clinical change",
+          "evidence_type": "exclusion",
+          "difficulty": "hard",
+          "satisfied_by": "Either an explicit statement in the record that no prior lumbar MRI exists within the preceding 12 months, or documentation of a prior study within that window together with a documented interval clinical change justifying repeat imaging.",
+          "trap_note": "Silence does not satisfy this criterion. Where the documents do not address prior imaging at all, the result is AMBIGUOUS with MISSING_EVIDENCE, never MET and never NOT_MET. A prior study dated outside the 12-month window satisfies the criterion and requires reasoning about the date rather than only detecting that a prior study exists.",
+          "evidence_requirement": "ALTERNATIVE"
+        }
+      ],
+      "criteria_set_version": "1.3.0"
+    },
+    {
+      "procedure_id": "total_knee_arthroplasty",
+      "procedure_name": "Total Knee Arthroplasty",
+      "cpt": "27447",
+      "complexity_tier": "medium",
+      "has_exception_pathway": false,
+      "exception_note": "This criteria set defines no exception pathway. No criterion here can be waived, and no criterion here resolves to NOT_APPLICABLE.",
+      "criteria": [
+        {
+          "id": "C1",
+          "text": "Imaging evidence of advanced degenerative joint disease, demonstrating joint space narrowing, subchondral sclerosis, or osteophyte formation",
+          "evidence_type": "explicit_finding",
+          "difficulty": "easy",
+          "satisfied_by": "A radiology report describing advanced or severe degenerative change in the affected knee, demonstrated by at least one of joint space narrowing, subchondral sclerosis, or osteophyte formation.",
+          "trap_note": "Mild or early degenerative change does not satisfy a criterion that requires advanced disease. Read the whole report, including any addendum or amendment below the signature, which may correct or extend the original impression.",
+          "evidence_requirement": "ALTERNATIVE"
+        },
+        {
+          "id": "C2",
+          "text": "Documented pain interfering with activities of daily living",
+          "evidence_type": "explicit_finding",
+          "difficulty": "medium",
+          "satisfied_by": "A documented specific functional impact, such as difficulty with stairs, a stated limit on ambulation distance, night pain, or an activity the patient has given up. The impact may be recorded as a limitation or as an unmet goal.",
+          "trap_note": "Generic pain without a documented functional impact is AMBIGUOUS with INSUFFICIENT_CONTEXT. The criterion asks about the effect of the pain on daily activity, not its severity.",
+          "evidence_requirement": "ALTERNATIVE"
+        },
+        {
+          "id": "C3",
+          "text": "Failed conservative management for a minimum of 3 months",
+          "evidence_type": "duration",
+          "difficulty": "hard",
+          "satisfied_by": "Either an explicit statement of at least 3 months of conservative management, which needs one passage, or a dated start and a dated end of conservative therapy spanning at least 3 months, which needs both passages.",
+          "trap_note": "A documented span shorter than 3 months is AMBIGUOUS with INSUFFICIENT_CONTEXT unless the documents establish that the record is complete on the point, in which case it is NOT_MET. See the not_met_bar in this file for what completeness requires. Where the documents reference therapy delivered elsewhere whose records are not included, the record is not complete.",
+          "evidence_requirement": "COMPOSITE"
+        },
+        {
+          "id": "C4",
+          "text": "Conservative management included at least two of: physical therapy, NSAIDs or analgesics, intra-articular injection, weight reduction, or activity modification",
+          "evidence_type": "composite",
+          "difficulty": "hard",
+          "satisfied_by": "Two or more of the listed modalities, each documented as actually attempted and each with a documented outcome. Count distinct modalities, which may be recorded in different documents.",
+          "trap_note": "A medication appearing on a list without a trial period or an outcome has not been documented as attempted, and does not count toward the total even when the drug falls within a listed category. The same applies to a modality that was offered, planned, referred, or declined.",
+          "evidence_requirement": "COMPOSITE"
+        },
+        {
+          "id": "C5",
+          "text": "Documented functional limitation on physical examination, such as reduced range of motion, instability, or antalgic gait",
+          "evidence_type": "explicit_finding",
+          "difficulty": "medium",
+          "satisfied_by": "Physical examination findings recorded by any clinician that demonstrate a functional limitation of the affected knee, such as a measured range of motion deficit, demonstrated instability, or an abnormal gait pattern.",
+          "trap_note": "Vital signs and general observations are examination findings but are not functional limitations of the knee. The examination may appear in a therapy evaluation rather than a physician note.",
+          "evidence_requirement": "ALTERNATIVE"
+        },
+        {
+          "id": "C6",
+          "text": "No active local or systemic infection",
+          "evidence_type": "exclusion",
+          "difficulty": "hard",
+          "satisfied_by": "An explicit statement in the record that there is no active local or systemic infection, or a documented examination or investigation addressing infection status and finding none.",
+          "trap_note": "Silence does not satisfy this criterion. Where the documents do not address infection status at all, the result is AMBIGUOUS with MISSING_EVIDENCE, never MET and never NOT_MET. Documented active infection involving the intended operative site is NOT_MET.",
+          "evidence_requirement": "ALTERNATIVE"
+        },
+        {
+          "id": "C7",
+          "text": "Patient is a candidate for surgery with no absolute contraindication documented",
+          "evidence_type": "exclusion",
+          "difficulty": "medium",
+          "satisfied_by": "A preoperative assessment, or an explicit statement by a clinician, concluding that no absolute contraindication to the proposed procedure is present.",
+          "trap_note": "Silence does not satisfy this criterion, identically to C6. Where the documents are silent on candidacy, the result is AMBIGUOUS with MISSING_EVIDENCE, never MET and never NOT_MET. Where candidacy is raised but left open, such as a clearance recorded as pending or an unmet precondition for surgery, the result is AMBIGUOUS with INSUFFICIENT_CONTEXT. A discussion of the risks and benefits of surgery with the patient is shared decision making and is not a candidacy assessment.",
+          "evidence_requirement": "ALTERNATIVE"
+        }
+      ],
+      "criteria_set_version": "1.3.0"
+    },
+    {
+      "procedure_id": "lumbar_fusion",
+      "procedure_name": "Lumbar Spinal Fusion, single level",
+      "cpt": "22612",
+      "complexity_tier": "high",
+      "has_exception_pathway": true,
+      "exception_note": "If C6 is MET, then C3 is waived and resolves to NOT_APPLICABLE. No other criterion is affected. In particular C4, which governs which modalities the conservative course had to include, is not waived by this pathway. C6 itself is never waived.",
+      "criteria": [
+        {
+          "id": "C1",
+          "text": "Qualifying diagnosis documented, one of: spondylolisthesis, documented segmental instability, spinal stenosis with instability, or pseudarthrosis from prior fusion",
+          "evidence_type": "composite",
+          "difficulty": "medium",
+          "satisfied_by": "Documentation of at least one of the four named diagnoses.",
+          "trap_note": "Degenerative disc disease is not one of the four and does not satisfy this criterion on its own, however severe. Spinal stenosis satisfies it only where instability is also documented.",
+          "evidence_requirement": "ALTERNATIVE"
+        },
+        {
+          "id": "C2",
+          "text": "Imaging findings correlate with the clinical presentation and identify the specific level to be fused",
+          "evidence_type": "explicit_finding",
+          "difficulty": "hard",
+          "satisfied_by": "An imaging report identifying a specific spinal level, together with documented symptoms in a distribution matching that level. Both passages are required.",
+          "trap_note": "Requires reasoning across the imaging report and the clinical note. Imaging that identifies a level, paired with symptoms described without a level-specific or dermatomal distribution, does not establish correlation and is AMBIGUOUS with INSUFFICIENT_CONTEXT.",
+          "evidence_requirement": "COMPOSITE"
+        },
+        {
+          "id": "C3",
+          "text": "Failed conservative management for a minimum of 6 months",
+          "evidence_type": "duration",
+          "difficulty": "hard",
+          "satisfied_by": "Either an explicit statement of at least 6 months of conservative management, which needs one passage, or a dated start and a dated end spanning at least 6 months, which needs both passages.",
+          "trap_note": "A longer threshold than the knee criteria set uses. A documented span shorter than 6 months is AMBIGUOUS with INSUFFICIENT_CONTEXT unless the documents establish that the record is complete on the point, in which case it is NOT_MET. See the not_met_bar in this file. This is the only criterion in this set that the C6 exception pathway waives; where that pathway applies, this criterion is NOT_APPLICABLE and is not evaluated.",
+          "evidence_requirement": "COMPOSITE"
+        },
+        {
+          "id": "C4",
+          "text": "Conservative management included physical therapy and at least one of: NSAIDs, epidural steroid injection, or activity modification",
+          "evidence_type": "composite",
+          "difficulty": "hard",
+          "satisfied_by": "Physical therapy documented as actually attempted with an outcome, plus at least one of the three listed additional modalities, also documented as attempted with an outcome. Physical therapy is mandatory and cannot be substituted.",
+          "trap_note": "Two additional modalities do not compensate for absent physical therapy. Physical therapy that was referred, offered, or declined has not been attempted. A drug outside the three listed categories does not count as the additional modality, however reasonable it may be as treatment. This criterion is not waived by the C6 exception pathway.",
+          "evidence_requirement": "COMPOSITE"
+        },
+        {
+          "id": "C5",
+          "text": "Documented functional limitation affecting activities of daily living or occupational function",
+          "evidence_type": "explicit_finding",
+          "difficulty": "medium",
+          "satisfied_by": "A documented specific functional impact on daily activity or on the ability to work, such as a stated limit on sitting, standing, or lifting, or a documented reduction in working hours.",
+          "evidence_requirement": "ALTERNATIVE"
+        },
+        {
+          "id": "C6",
+          "text": "Progressive or persistent neurologic deficit documented on examination",
+          "evidence_type": "exception_trigger",
+          "difficulty": "medium",
+          "satisfied_by": "Either a deficit documented on examination at two or more timepoints showing progression, which needs both passages, or a deficit documented on examination as persisting, which needs one passage. Acceptable deficits are motor weakness, reflex change, or sensory loss.",
+          "trap_note": "A single examination recording a deficit, with nothing establishing that it is progressive or persistent, does not satisfy this criterion. This criterion functions as the trigger for the exception pathway that waives C3.",
+          "evidence_requirement": "ALTERNATIVE"
+        },
+        {
+          "id": "C7",
+          "text": "Tobacco cessation documented, or patient is a non-smoker",
+          "evidence_type": "explicit_finding",
+          "difficulty": "medium",
+          "satisfied_by": "Documentation that the patient has never smoked, or has stopped smoking, or is a current smoker who has received cessation counselling.",
+          "trap_note": "Smoking status recorded without more does not satisfy this criterion where the patient is a current smoker and no cessation counselling is documented. Frequently recorded in social history rather than in the assessment.",
+          "evidence_requirement": "ALTERNATIVE"
+        },
+        {
+          "id": "C8",
+          "text": "Psychosocial assessment completed, or absence of untreated psychiatric condition that would compromise outcome",
+          "evidence_type": "exclusion",
+          "difficulty": "hard",
+          "satisfied_by": "A documented psychosocial or behavioural health assessment, or an explicit statement that the patient has no untreated psychiatric condition that would compromise the surgical outcome.",
+          "trap_note": "Silence does not satisfy this criterion. Where the documents do not address it at all, the result is AMBIGUOUS with MISSING_EVIDENCE, never MET and never NOT_MET. Frequently absent from these packets entirely.",
+          "evidence_requirement": "ALTERNATIVE"
+        },
+        {
+          "id": "C9",
+          "text": "No active infection and no untreated osteoporosis that would compromise fusion",
+          "evidence_type": "exclusion",
+          "difficulty": "hard",
+          "satisfied_by": "Both limbs addressed: an explicit statement or documented finding of no active infection, and an explicit statement or documented finding of no untreated osteoporosis. Both passages are required.",
+          "trap_note": "Silence on either limb does not satisfy this criterion. Where neither limb is addressed, the result is AMBIGUOUS with MISSING_EVIDENCE. Where one limb is addressed and the other is not, or where an investigation has been ordered but its result is not in the packet, the result is AMBIGUOUS with INSUFFICIENT_CONTEXT and the addressed limb is the citable evidence.",
+          "evidence_requirement": "COMPOSITE"
+        }
+      ],
+      "criteria_set_version": "1.3.0"
+    }
+  ],
+  "status_definitions": {
+    "MET": "Located evidence satisfies the criterion. Display wording: Supporting evidence identified.",
+    "NOT_MET": "Located evidence affirmatively conflicts with the criterion, after relevant context and applicable exceptions are considered. See not_met_bar for the three conditions that must all hold. Display wording: Potential mismatch requiring review.",
+    "AMBIGUOUS": "Unresolved. Either evidence is present but insufficient, or evidence could not be located and absence cannot be confirmed. Display wording: Insufficient or conflicting evidence. Reason codes must be visible.",
+    "NOT_APPLICABLE": "The criterion is waived by an exception pathway whose trigger is MET, and is therefore out of scope for this request. It is not failed and not unresolved; it was not asked. Carries no reason code and no required evidence, and is excluded from evidence recall, evidence precision, and status performance denominators. Display wording: Not required, waived by exception.",
+    "_null_note": "clinical_status is null only where processing produced no valid clinical result. It is not interchangeable with AMBIGUOUS, and it is not interchangeable with NOT_APPLICABLE. AMBIGUOUS and NOT_APPLICABLE are clinical results; null is the absence of one.",
+    "_design_note": "The system must never convert absence of located evidence into NOT_MET."
+  }
+}

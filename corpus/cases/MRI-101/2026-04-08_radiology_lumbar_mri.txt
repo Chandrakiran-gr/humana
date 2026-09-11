@@ -1,0 +1,39 @@
+HALDANE REGIONAL IMAGING
+MRI REPORT
+
+PATIENT:    ASHWORTH, MARGUERITE
+MRN:        8871460
+DOB:        02/26/1964
+EXAM DATE:  04/08/2026
+ACCESSION:  HRI-26-208844
+REFERRING:  J. Okonjo-Bright, MD
+
+EXAMINATION: MRI LUMBAR SPINE WITHOUT CONTRAST
+
+TECHNIQUE: Sagittal T1, sagittal T2, sagittal STIR and axial T2 sequences of the
+lumbar spine. No intravenous contrast.
+
+COMPARISON: None.
+
+FINDINGS:
+Alignment: Preserved lordosis. No listhesis on the neutral sagittal images.
+Vertebral bodies: Normal height and marrow signal throughout.
+Conus: Terminates at the L1 level. Normal signal.
+Paraspinal soft tissues: Unremarkable.
+
+L1-L2: Unremarkable.
+L2-L3: Unremarkable.
+L3-L4: Minimal disc desiccation without bulge.
+L4-L5: Disc desiccation with a shallow broad-based posterior bulge. Facet
+  arthropathy, mild bilaterally. Foramina patent. No central canal stenosis.
+L5-S1: Shallow left posterolateral disc bulge abutting but not displacing the
+  descending left S1 nerve root. Mild left foraminal narrowing. Facet
+  arthropathy, mild.
+
+IMPRESSION:
+1. Shallow left posterolateral disc bulge at L5-S1 with mild left foraminal
+   narrowing, abutting the descending left S1 root.
+2. Minor multilevel degenerative change otherwise.
+3. No high-grade stenosis and no nerve root displacement.
+
+Electronically signed: V. Brannigan, MD, 04/08/2026 13:26

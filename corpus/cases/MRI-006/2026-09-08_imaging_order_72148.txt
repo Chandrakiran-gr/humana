@@ -1,0 +1,24 @@
+TIDEWATER REGIONAL HEALTH
+DIAGNOSTIC IMAGING ORDER
+
+Order:      TRH-2026-501662
+Placed:     09/08/2026 15:22
+Provider:   C. Mbeki, MD
+Patient:    Oyelaran, Beatrice   MRN 2214778   DOB 09/27/1957
+
+EXAM:       MRI LUMBAR SPINE WITHOUT CONTRAST
+CPT:        72148
+Priority:   Routine
+
+INDICATION:
+Low back pain, non-radicular. Repeat study requested by patient.
+
+SAFETY SCREENING
+Cardiac device               No
+Aneurysm clip                No
+Metal fragment history       No
+Claustrophobia               No, tolerated the previous study without difficulty
+Contrast                     Not requested
+
+ORDERING PROVIDER COMMENT
+Submitted at the patient's request. Please route the report to me directly.

@@ -1,0 +1,33 @@
+MERIDIAN HEALTH SYSTEM
+DIAGNOSTIC IMAGING ORDER
+
+Order number:       MHS-IMG-2026-90233
+Ordered:            08/20/2026 14:31
+Ordering provider:  S. Adeyemi, MD, Meridian Spine and Pain Center
+Patient:            Halloran, Denise K.   MRN 6612884   DOB 07/19/1972
+
+EXAM REQUESTED:     MRI LUMBAR SPINE WITHOUT CONTRAST
+CPT:                72148
+Laterality:         N/A
+Priority:           Routine
+
+INDICATION:
+Right L5 radiculopathy. Evaluate for disc herniation or foraminal stenosis at
+L4-L5 and L5-S1.
+
+PRIOR IMAGING:
+No prior lumbar imaging on file for this patient. No outside studies reported by
+the patient and none received. Radiology to advise if any comparison becomes
+available.
+
+MRI SAFETY SCREENING
+Cardiac device or neurostimulator:   No
+Aneurysm clip or vascular coil:      No
+Cochlear implant:                    No
+Metal fragment or shrapnel history:  No
+Occupational metalwork exposure:     No
+Pregnancy status:                    Not applicable, postmenopausal
+Claustrophobia:                      No
+Contrast:                            Not requested
+
+Scheduling notes: patient requests an appointment outside school hours.

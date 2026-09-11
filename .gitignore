@@ -1,0 +1,110 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[codz]
+*$py.class
+.DS_Store
+
+# Distribution / packaging
+.Python
+build/
+dist/
+downloads/
+eggs/
+.eggs/
+*.egg-info/
+*.egg
+MANIFEST
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+.pytest_cache/
+
+# Environments
+.env
+.venv
+env/
+venv/
+ENV/
+
+# Editors and local tool settings. `.local` means machine-specific: this file
+# carries absolute home-directory paths and a per-machine permission list, and
+# is of no use to anyone else.
+.claude/settings.local.json
+.idea/
+*.swp
+.vscode/*
+!.vscode/settings.json
+
+# Streamlit
+.streamlit/secrets.toml
+
+# Run artifacts. Every run writes case, split, hashes, criteria version, prompt
+# and model versions, settings, stage outcomes, tokens, timing, retries, and
+# final output.
+#
+# Most are intermediate or superseded and stay out. The runs that back a
+# reported number are tracked, for two reasons found by testing a clone
+# rather than assuming:
+#
+#   1. `tests/test_faults.py` replays a real truncation out of
+#      20260910T205411Z_eval_batch8_A.json. With `runs/` fully ignored the
+#      suite fails on a fresh clone.
+#   2. The interface reads `runs/*.json` and calls `st.stop()` when it finds
+#      none, so a clone with no artifacts cannot open recorded mode — the
+#      one mode that works without a key.
+#
+# Every run below the thinking fix of 2026-09-10 is invalidated and excluded;
+# see docs/DATA_CARD.md. `runs/live/` is a demonstration output, never an
+# evaluation input, and is not tracked.
+runs/*
+!runs/README.md
+
+# Three single-case runs. `tests/test_verify.py` replays their recorded
+# quotes against the packets to confirm every span still resolves, and globs
+# for `*<case>*.json`, which the batch artifacts do not match. Without these
+# that test skips silently on a clone, which is lost coverage wearing the
+# costume of a pass. They predate the extended-thinking fix and so are not
+# valid for any timing or quality number; they are used here only to check
+# that recorded spans still resolve, which that fix does not affect.
+!runs/20260910T034251Z_MRI-005_A.json
+!runs/20260910T153901Z_TKA-004_A.json
+!runs/20260910T154202Z_MRI-004_A.json
+
+# The truncation replayed by the fault injection control.
+!runs/20260910T205411Z_eval_batch8_A.json
+
+# Development, Baseline A and Candidate B.
+!runs/20260910T213858Z_eval_batch7_A.json
+!runs/20260910T213538Z_eval_batch8_A.json
+!runs/20260910T222444Z_eval_batch7_B.json
+!runs/20260910T221928Z_eval_batch8_B.json
+
+# Held-out test, both configurations. The adoption decision rests here.
+!runs/20260910T223110Z_eval_batch5_A.json
+!runs/20260910T223755Z_eval_batch4_A.json
+!runs/20260910T224634Z_eval_batch5_B.json
+!runs/20260910T225318Z_eval_batch4_B.json
+
+# Transfer, and the claim-verification set.
+!runs/20260910T230714Z_eval_transfer_A.json
+!runs/20260910T233307Z_claimset.json
+
+# Prompt injection challenge, both runs and both arms.
+!runs/20260911T001324Z_injection_challenge.json
+!runs/20260911T001751Z_injection_challenge_unfenced.json
+!runs/20260911T002810Z_injection_challenge.json
+!runs/20260911T002922Z_injection_challenge_unfenced.json
+
+*.log
+
+# Never commit. Spec Section 11: API keys are held outside source files and
+# saved run artifacts.
+*.key
+secrets.json
+corrections/
+.venv/

@@ -1,0 +1,40 @@
+HARBORVIEW ORTHOPAEDIC GROUP
+PRIOR AUTHORIZATION SUBMISSION COVERSHEET
+
+Submitted by:   D. Weathersby, Authorization Coordinator
+Date submitted: 08/27/2026
+Fax confirmation: 4 pages plus this cover
+
+PATIENT
+Name:            Delacroix, Maureen
+Date of birth:   02/14/1970
+Member ID:       redacted for demonstration
+Group:           redacted for demonstration
+MRN:             5528310
+
+REQUEST
+Service:         MRI Lumbar Spine without contrast
+CPT:             72148
+Diagnosis code:  M54.50
+Place of service: Outpatient imaging, Harborview Radiology, Fenwick site
+Requested date:  At earliest availability
+
+ORDERING PROVIDER
+B. Osterlund, MD
+NPI: redacted for demonstration
+Office contact: 555-0166, extension 240
+
+DOCUMENTS ATTACHED
+  1. Office visit note 08/26/2026
+  2. Patient update form 08/24/2026
+  3. Physiotherapy interim report 20/08/2026
+  4. Imaging requisition
+
+NOTES FOR REVIEWER
+Patient's employer scheme changed carriers on 01 July and this is our first
+submission under the new plan, so please advise if the format differs from what
+you require. Our previous coordinator retired in May and I am still working
+through the differences between the two portals.
+
+Please direct any request for additional records to the number above rather than
+to the clinical team.

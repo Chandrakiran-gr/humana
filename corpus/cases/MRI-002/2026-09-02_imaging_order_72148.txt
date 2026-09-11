@@ -1,0 +1,23 @@
+GREENFIELD COMMUNITY HEALTH
+IMAGING REQUISITION
+
+Req #:      GCH-R-2026-44120
+Date:       09/02/2026
+Provider:   T. Achebe, NP
+Patient:    Nowak, Stefan J.    MRN 3390617    DOB 01/30/1979
+
+EXAM:       MRI Lumbar Spine without contrast
+CPT:        72148
+Priority:   Routine
+
+INDICATION: Low back pain with left lower extremity radiation.
+
+SCREENING
+Implanted device        No
+Metal in eye            No
+Claustrophobia          No
+Weight limit            Within limit
+Renal function          Not applicable, no contrast
+
+Patient works nights. Requests afternoon appointments.
+Insurance: employer plan, prior authorization may be required.
