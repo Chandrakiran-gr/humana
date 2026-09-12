@@ -31,6 +31,15 @@ font = "sans-serif"
 codeFont = "monospace"
 baseRadius = "0.35rem"
 
+[client]
+# Removes the Deploy button and reduces the three-dot menu to viewer items.
+# These are development affordances; in a demonstration they invite a click
+# that does something nobody intended. The CSS in `app.py` hides what this
+# setting leaves behind, because `minimal` still renders the toolbar
+# container and its empty strip.
+toolbarMode = "minimal"
+showErrorDetails = "full"
+
 [server]
 headless = true
 

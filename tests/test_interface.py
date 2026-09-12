@@ -222,9 +222,9 @@ class ReadingOrderTests(unittest.TestCase):
         it was then measuring the distance to an unrelated widget.
         """
         code = code_only(APP)
-        loop = code[code.index("for result in verification['results']:"):]
+        loop = code[code.index("for index, result in enumerate"):]
         self.assertIn("lead = evidence[0]", loop)
-        self.assertIn("more passage", loop)
+        self.assertIn("further passage", loop)
         self.assertLess(loop.index("lead = evidence[0]"),
                         loop.index("st.expander"),
                         "the inline passage must precede the expanders")
@@ -233,11 +233,11 @@ class ReadingOrderTests(unittest.TestCase):
         """Nine passages used to mean nine collapsed bars stacked under one
         requirement, which is a wall whether or not it is collapsed."""
         code = code_only(APP)
-        loop = code[code.index("for result in verification['results']:"):]
+        loop = code[code.index("for index, result in enumerate"):]
         inner = loop[loop.index("for item in items:"):]
         self.assertNotIn("st.expander", inner.split("elif")[0],
                          "passages must not each open their own expander")
-        self.assertIn("passage{('s' if n > 1 else '')} and sources", loop)
+        self.assertIn("View all {n} passage", loop)
 
     def test_collapsed_rows_carry_a_quote_preview(self) -> None:
         """A row must show what it rests on without being opened.
@@ -253,14 +253,17 @@ class ReadingOrderTests(unittest.TestCase):
     def test_collapsed_rows_show_a_filename_not_an_id(self) -> None:
         code = code_only(APP)
         self.assertIn("filename_for(lead['document_id'])", code)
-        # The id stays available where the hash and offsets already are.
-        # Located by the sha256 caption rather than by position, because the
-        # first st.caption in the file is the page header.
-        detail = next(line for line in code.splitlines() if "sha256" in line)
-        i = code.index(detail)
-        window = code[max(0, i - 400):i + 200]
-        self.assertIn("item['document_id']", window,
-                      "the document id must remain in the expanded detail")
+        # The raw handle stays reachable in the passage card's provenance
+        # disclosure. Found through `render_calls`, which skips the
+        # stylesheet: indexing the source for "cite-prov" lands on the CSS
+        # rule that defines the class, which is not evidence that anything
+        # renders it. That mistake has now been made four times in this
+        # file, once per class name introduced.
+        calls = render_calls("cite-prov")
+        self.assertTrue(calls, "nothing renders the passage provenance")
+        for handle in ("doc.filename", "doc_id", "sha"):
+            self.assertIn(handle, calls[0],
+                          f"{handle} must remain in the passage provenance")
 
     def test_evidence_is_grouped_with_counts(self) -> None:
         code = code_only(APP)
@@ -464,7 +467,7 @@ class ChromeTests(unittest.TestCase):
         self.assertIn("Evidence mapping for utilization management", code)
         self.assertNotIn("UM Evidence Map", code)
 
-    def test_the_masthead_names_the_application_in_the_main_column(self) -> None:
+    def test_the_header_names_the_application_in_the_main_column(self) -> None:
         """A reviewer looking at a screenshot or a shared window should not
         have to find the sidebar to know what they are looking at.
 
@@ -473,28 +476,30 @@ class ChromeTests(unittest.TestCase):
         """
         code = code_only(APP)
         self.assertNotIn("st.title(", code)
-        calls = render_calls("cite-title")
-        self.assertTrue(calls,
-                        "cite-title appears only in the stylesheet; nothing "
-                        "renders the masthead")
-        self.assertIn("APP_NAME", calls[0])
-        self.assertIn("APP_SUBTITLE", " ".join(calls))
+        tree = ast.parse(APP.read_text())
+        fn = next((n for n in ast.walk(tree) if isinstance(n, ast.FunctionDef)
+                   and n.name == "header_bar"), None)
+        self.assertIsNotNone(fn, "no header_bar function")
+        body = ast.unparse(fn)
+        self.assertIn("APP_NAME", body)
+        self.assertIn("APP_SUBTITLE", body)
+        self.assertIn("cite-pill", body, "the mode belongs in the header")
         css = APP.read_text()
-        i = css.index(".cite-title {{")
+        i = css.index(".cite-brand-name {{")
         size = re.search(r"font-size:(\d+(?:\.\d+)?)px", css[i:i + 120])
         self.assertIsNotNone(size)
-        self.assertLessEqual(float(size.group(1)), 24,
-                             "the masthead must not dominate the rows")
-        self.assertGreaterEqual(float(size.group(1)), 20)
+        self.assertLessEqual(float(size.group(1)), 22,
+                             "the name must not dominate the rows")
 
     def test_the_name_is_rendered_once_not_in_both_columns(self) -> None:
         """The wordmark used to appear in the sidebar as well, so the name and
         tagline were on screen twice."""
-        calls = render_calls("APP_NAME")
-        self.assertEqual(len(calls), 1,
-                         f"APP_NAME is rendered {len(calls)} times; it belongs "
-                         f"in the masthead only")
         tree = ast.parse(APP.read_text())
+        uses = [n for n in ast.walk(tree) if isinstance(n, ast.Name)
+                and n.id == "APP_NAME" and isinstance(n.ctx, ast.Load)]
+        self.assertEqual(len(uses), 2,
+                         f"APP_NAME is used {len(uses)} times; expected the "
+                         f"page title and the header, and nothing else")
         sidebar = [ast.unparse(n) for n in ast.walk(tree)
                    if isinstance(n, ast.With)
                    and "st.sidebar" in ast.unparse(n.items[0])]
@@ -502,24 +507,25 @@ class ChromeTests(unittest.TestCase):
         self.assertNotIn("APP_NAME", sidebar[0])
         self.assertNotIn("cite-wordmark", sidebar[0])
 
-    def test_the_case_is_a_heading_not_a_metadata_string(self) -> None:
+    def test_the_case_is_labelled_fields_not_a_metadata_string(self) -> None:
         """The case and procedure are what the reviewer is looking at.
 
         Criteria version, configuration and document count read as debug
         output beside them, so they moved into the provenance expander.
         """
         code = code_only(APP)
-        heading = render_calls("cite-case")
-        self.assertTrue(heading, "the case heading is not rendered")
-        head = heading[0]
-        self.assertIn("case_id", head)
+        band = render_calls("cite-band")
+        self.assertTrue(band, "the case band is not rendered")
+        head = band[0]
+        for label in ("'Case'", "'Requested procedure'", "'Reviewing against'"):
+            self.assertIn(label, head, f"{label} must be a labelled field")
         self.assertIn("procedure_name", head,
                       "the procedure's proper name, not its id")
-        for provenance in ("criteria_set.version", "configuration",
-                           "documents read"):
+        for provenance in ("criteria_set.version", "criteria_set.cpt",
+                           "configuration"):
             self.assertNotIn(provenance, head,
-                             f"{provenance} belongs in the provenance "
-                             f"expander, not the case heading")
+                             f"{provenance} belongs behind run details, not "
+                             f"on the case band")
 
     def test_the_procedure_uses_its_proper_name_not_its_id(self) -> None:
         code = code_only(APP)
@@ -527,14 +533,29 @@ class ChromeTests(unittest.TestCase):
         self.assertNotIn("procedure_id.replace", code,
                          "derive nothing from the id; the set carries a name")
 
-    def test_the_masthead_is_the_first_thing_in_the_main_column(self) -> None:
-        """It must precede the mode bar, the tallies and the rows."""
+    def test_the_header_is_the_first_thing_in_the_main_column(self) -> None:
+        """It must precede the case band, the summary and the rows."""
+        # Positions are taken after the stylesheet, which mentions every
+        # class name and would otherwise "precede" everything.
         code = code_only(APP)
-        first = code.index("cite-title")
-        for later in ("cite-bar", "cite-tallies", "summary_strip",
-                      "for result in verification['results']:"):
-            self.assertLess(first, code.index(later),
-                            f"the masthead must come before {later}")
+        body = code[code.index("st.markdown(header_bar("):]
+        for later in ("cite-band", "summary_strip(verification",
+                      "for index, result in enumerate"):
+            self.assertIn(later, body,
+                          f"the header must come before {later}")
+
+    def test_no_full_width_mode_bar_remains(self) -> None:
+        """The mode is a pill in the header, not a band of its own."""
+        code = code_only(APP)
+        self.assertNotIn("cite-bar'><span>", code)
+        # Through the function that renders it. `assertIn("cite-pill", code)`
+        # passed on the stylesheet rule that defines the class, so the pill
+        # could have stopped rendering entirely and this would not have
+        # noticed.
+        tree = ast.parse(APP.read_text())
+        fn = next(n for n in ast.walk(tree) if isinstance(n, ast.FunctionDef)
+                  and n.name == "header_bar")
+        self.assertIn("cite-pill", ast.unparse(fn))
 
     def test_the_synthetic_notice_is_permanently_visible(self) -> None:
         """Spec Section 10 requires it on screen. Not on request.
@@ -548,8 +569,8 @@ class ChromeTests(unittest.TestCase):
         code = code_only(APP)
         self.assertIn("Synthetic demonstration", code)
         self.assertIn("not Humana coverage policies", code)
-        self.assertTrue(render_calls("cite-notice"),
-                        "nothing renders the short notice line")
+        self.assertTrue(render_calls("cite-strip"),
+                        "nothing renders the notice strip")
         footer = render_calls("cite-footer")
         self.assertTrue(footer, "nothing renders the footer")
         self.assertIn("FULL_NOTICE", footer[0],
@@ -564,33 +585,77 @@ class ChromeTests(unittest.TestCase):
                         "the footer must be at module scope, not nested in a "
                         "branch or a `with st.expander` block")
 
+    def test_every_early_exit_renders_the_notice_first(self) -> None:
+        """`st.stop()` ends the script, so every path that stops must render
+        the notice immediately before it.
+
+        Checked as the preceding sibling statement, not by line order. Two
+        earlier versions of this test were satisfied by any `notice_footer()`
+        call anywhere above the stop, which meant the first one vouched for
+        all three paths; and before that, by the stylesheet, because it
+        defines `.cite-footer` and is itself an `st.markdown` call. Being
+        earlier in the file is not being on the path.
+        """
+        tree = ast.parse(APP.read_text())
+
+        def is_stop(node):
+            return (isinstance(node, ast.Expr)
+                    and isinstance(node.value, ast.Call)
+                    and isinstance(node.value.func, ast.Attribute)
+                    and node.value.func.attr == "stop")
+
+        def is_notice(node):
+            return (isinstance(node, ast.Expr)
+                    and isinstance(node.value, ast.Call)
+                    and isinstance(node.value.func, ast.Name)
+                    and node.value.func.id == "notice_footer")
+
+        found = 0
+        for parent in ast.walk(tree):
+            body = getattr(parent, "body", None)
+            for block in (body, getattr(parent, "orelse", None)):
+                if not isinstance(block, list):
+                    continue
+                for i, node in enumerate(block):
+                    if not is_stop(node):
+                        continue
+                    found += 1
+                    self.assertTrue(
+                        i > 0 and is_notice(block[i - 1]),
+                        f"st.stop() at line {node.lineno} is not immediately "
+                        f"preceded by notice_footer(); that path exits with "
+                        f"no constraint notice on screen")
+        self.assertGreaterEqual(found, 3,
+                                f"expected at least 3 early exits, found "
+                                f"{found}; the scan is missing some")
+
     def test_the_notice_no_longer_occupies_the_top_of_the_column(self) -> None:
         """Six lines of legal text was the first thing a reviewer read, in
-        the most valuable space on the page. The short line stands in for it
-        there; the full text sits below the fold."""
+        the most valuable space on the page. A one-line strip stands in for
+        it; the full text sits in run details and in the footer."""
         code = code_only(APP)
-        self.assertLess(code.index("cite-title"), code.index("FULL_NOTICE"),
-                        "the masthead must precede the full notice")
+        self.assertLess(code.index("st.markdown(header_bar("),
+                        code.index("cite-strip'><span>"),
+                        "the header must precede the notice strip")
         # The full text must not be rendered above the evidence map.
         first_full = code.index("FULL_NOTICE =")
         rendered = [i for i in range(len(code))
                     if code.startswith("cite-footer", i)]
         self.assertTrue(rendered)
         self.assertGreater(rendered[-1],
-                           code.index("for result in verification['results']:"),
+                           code.index("for index, result in enumerate"),
                            "the full notice belongs below the rows")
 
-    def test_the_mode_bar_states_every_mode(self) -> None:
-        for kind in ("Recorded run · not live", "Live run · in progress",
-                     "Live run · complete"):
-            self.assertIn(kind, code_only(APP))
-
-    def test_the_mode_bar_is_one_line(self) -> None:
-        """It was a two-line block with a progress track beneath, which
-        pushed the rows down the page on every screen."""
+    def test_the_mode_pill_states_every_mode(self) -> None:
         code = code_only(APP)
-        self.assertIn("class='cite-bar'", code)
-        self.assertIn("justify-content:space-between", code)
+        for kind in ("Recorded run", "Live run · in progress", "Live run"):
+            self.assertIn(kind, code)
+
+    def test_the_header_is_one_line(self) -> None:
+        code = APP.read_text()
+        i = code.index(".cite-bar {{")
+        self.assertIn("justify-content:space-between", code[i:i + 260])
+        self.assertIn("align-items:center", code[i:i + 260])
 
     def test_the_mode_bar_is_not_green(self) -> None:
         """It is the largest block of colour on the page; a green one
@@ -604,13 +669,18 @@ class ChromeTests(unittest.TestCase):
         """
         import re
         code = APP.read_text()
-        i = code.index(".cite-bar {{")
-        # The bar's background is the NAVY constant, interpolated into the
-        # stylesheet, so both the constant and the rule are checked.
-        colours = re.findall(r"#[0-9a-fA-F]{6}", code[i:i + 220])
-        colours.append(re.search(r'NAVY = "(#[0-9a-fA-F]{6})"', code).group(1))
-        self.assertIn("{NAVY}", code[i:i + 220],
-                      "the bar must take its colour from the NAVY constant")
+        tree = ast.parse(code)
+        fn = next(n for n in ast.walk(tree) if isinstance(n, ast.FunctionDef)
+                  and n.name == "header_bar")
+        body = ast.unparse(fn)
+        self.assertIn("NAVY", body,
+                      "the recorded pill must take the chrome colour")
+        # The live pill uses the MET colour from the palette, which is a deep
+        # teal at hue 165 rather than a success green. That is the reference
+        # design's choice and it clears the green band below.
+        colours = [re.search(r'NAVY = "(#[0-9a-fA-F]{6})"', code).group(1),
+                   re.search(r'"MET": \([^)]*?"(#[0-9a-fA-F]{6})"',
+                             code).group(1)]
         self.assertTrue(colours, "no colours found; the test would be a no-op")
         judged = 0
         for colour in colours:
@@ -618,8 +688,14 @@ class ChromeTests(unittest.TestCase):
             if sat < 0.12:
                 continue
             judged += 1
-            self.assertFalse(75 <= hue <= 165,
-                             f"the mode bar uses {colour}, a green")
+            # One definition of the green band, shared with the status
+            # palette. Two copies is how the numbers drift: this one still
+            # read 75-165 after the palette narrowed it to 90-155, and
+            # rejected the reference design's own teal at hue 165.
+            low, high = StatusPaletteTests.GREEN_BAND
+            self.assertFalse(low <= hue <= high,
+                             f"the mode pill uses {colour} at hue {hue:.0f}, "
+                             f"inside the {low}-{high} green band")
         self.assertTrue(judged, "every bar colour was grey; nothing was checked")
 
     def test_the_live_bar_reports_progress(self) -> None:
@@ -628,21 +704,47 @@ class ChromeTests(unittest.TestCase):
         self.assertIn("progress=(done, len(state))", code,
                       "the live bar must show how far the run has got")
 
-    def test_a_summary_strip_precedes_the_rows(self) -> None:
+    def test_the_standing_summary_precedes_the_rows(self) -> None:
         code = code_only(APP)
         self.assertIn("def summary_strip", code)
-        self.assertLess(code.index("st.markdown(summary_strip"),
-                        code.index("for result in verification['results']:"),
-                        "the strip must come before the rows it summarises")
+        self.assertLess(code.index("summary_strip(verification"),
+                        code.index("for index, result in enumerate"),
+                        "the summary must come before the rows it summarises")
+
+    def test_the_standing_summary_is_labelled_and_counts_requirements(self) -> None:
+        """A row of numbers with no heading makes a reviewer guess what is
+        being counted."""
+        code = code_only(APP)
+        self.assertIn("Where the", code)
+        self.assertIn("requirement", code)
+
+    def test_the_summary_and_the_rows_use_the_same_wording(self) -> None:
+        """Short forms here and Section 4 wording on the chips left the two
+        describing one status in two vocabularies."""
+        code = code_only(APP)
+        self.assertNotIn("TALLY_LABEL", code,
+                         "the summary must use the Section 4 wording that "
+                         "the chips use")
+        tree = ast.parse(APP.read_text())
+        fn = next(n for n in ast.walk(tree) if isinstance(n, ast.FunctionDef)
+                  and n.name == "summary_strip")
+        self.assertIn("DISPLAY[key]", ast.unparse(fn))
 
     def test_the_summary_strip_shows_no_aggregate(self) -> None:
         """Counts by status, never a single number over a case. One number
         summarising a case is the score this system does not produce."""
-        code = code_only(APP)
-        block = code[code.index("def summary_strip"):]
-        block = block[:block.index("\nst.markdown")]
+        # Located through the AST. A string slice from one `def` to the next
+        # broke the moment a function was inserted between them, and swept a
+        # neighbour's parameter named `total` into the range.
+        tree = ast.parse(code_only(APP))
+        fn = next(n for n in ast.walk(tree) if isinstance(n, ast.FunctionDef)
+                  and n.name == "summary_strip")
+        block = ast.unparse(fn).lower()
         for banned in ("total", "sum(", "score", "overall"):
-            self.assertNotIn(banned, block.lower())
+            self.assertNotIn(banned, block,
+                             f"summary_strip computes {banned!r}; one number "
+                             f"over a case is the score this system does not "
+                             f"produce")
 
     def test_rows_still_running_are_dimmed_and_show_their_stage(self) -> None:
         """Checked on the progress board, which is where a row is genuinely
@@ -663,7 +765,7 @@ class ChromeTests(unittest.TestCase):
         self.assertIn("STAGE_DONE", body, "dimming must depend on the stage")
         # And the map must not pretend to have a running state.
         code = code_only(APP)
-        loop = code[code.index("for result in verification['results']:"):]
+        loop = code[code.index("for index, result in enumerate"):]
         self.assertNotIn("result.get('stage')", loop,
                          "the evidence map renders finished results only")
 
@@ -745,22 +847,27 @@ class ModeAndScopeTests(unittest.TestCase):
         announce themselves, so the assertion is on the branch structure.
         """
         tree = ast.parse(APP.read_text())
-        calls = [n for n in ast.walk(tree)
-                 if isinstance(n, ast.Call) and isinstance(n.func, ast.Name)
-                 and n.func.id == "mode_banner"]
-        self.assertGreaterEqual(len(calls), 2,
-                                "each mode must state itself")
-        in_live = live_only_ids(tree)
-        self.assertTrue(any(id(c) in in_live for c in calls),
-                        "the live path must declare itself")
-        self.assertTrue(any(id(c) not in in_live for c in calls),
-                        "the recorded path must declare itself")
-
-    def test_the_recorded_banner_says_it_is_not_live(self) -> None:
-        """The error this prevents is a recorded run read as a live one, in
-        front of people who cannot check."""
+        # The header is unconditional: rendered at module scope before the
+        # mode branch, so no path can produce a page without it. It used to
+        # render after the branch, which left live mode before a run — the
+        # first state a viewer sees after switching — with no application
+        # name and no mode anywhere on screen.
+        tree = ast.parse(APP.read_text())
+        top_level = [n for n in tree.body
+                     if isinstance(n, ast.Expr) and "header_bar(" in ast.unparse(n)]
+        self.assertEqual(len(top_level), 1,
+                         "the header must render exactly once, at module "
+                         "scope, outside every branch")
         code = code_only(APP)
-        self.assertIn("Recorded run · not live", code)
+        self.assertIn("'Live run' if live_mode else 'Recorded run'", code,
+                      "the header must state which mode it is in")
+
+    def test_recorded_mode_says_nothing_is_being_executed(self) -> None:
+        """The error this prevents is a recorded run read as a live one, in
+        front of people who cannot check. The pill names the mode; the run
+        note under `run details` says what that means."""
+        code = code_only(APP)
+        self.assertIn("Recorded run", code)
         self.assertIn("Nothing is being executed", code)
 
     def test_recorded_mode_touches_no_key_and_builds_no_client(self) -> None:
@@ -942,7 +1049,7 @@ class IdentifierLeakTests(unittest.TestCase):
     # `test_the_exemptions_are_actually_still_present`. An exemption nobody
     # checks is a hole.
     EXEMPT = (
-        "class='cite-bar'",   # mode bar: the artifact filename, quotable
+        "cite-brand-name",    # header: name, tagline, mode pill
         "sha256",             # passage detail: raw filename, id, offsets, hash
         "procedure id",       # run provenance expander
         "<mark",              # the source excerpt is document content
@@ -1011,23 +1118,32 @@ class IdentifierLeakTests(unittest.TestCase):
         blocks = [m.value for m in self.at.markdown if "<style>" not in m.value]
         captions = [c.value for c in self.at.caption]
 
-        bar = [b for b in blocks if "class='cite-bar'" in b]
-        self.assertTrue(bar, "no mode bar rendered")
-        self.assertRegex(" ".join(bar), r"\d{8}T\d{6}Z.*\.json",
-                         "the mode bar must still carry the artifact filename")
+        header = [b for b in blocks if "cite-brand-name" in b]
+        self.assertTrue(header, "no header rendered")
+        self.assertIn("cite-pill", header[0], "the header must state the mode")
 
-        detail = [c for c in captions if "sha256" in c]
+        # The artifact filename is an identifier a reviewer may need to
+        # quote, so it stays verbatim. It used to sit in a full-width mode
+        # bar; with the mode reduced to a pill it lives under run details,
+        # which is where the rest of the run's provenance is.
+        runs = [b for b in blocks if "procedure id" in b]
+        self.assertTrue(runs, "no run details block rendered")
+        self.assertRegex(" ".join(runs), r"\d{8}T\d{6}Z.*\.json",
+                         "run details must still carry the artifact filename "
+                         "verbatim")
+
+        # The passage detail is a card in markdown now, not a caption. It
+        # carries the raw filename, the document id and the hash behind a
+        # disclosure in its footer, and the character range beside them.
+        detail = [b for b in blocks + captions if "sha256" in b]
         self.assertTrue(detail, "no passage detail rendered")
         self.assertTrue(any(self.ISO_FILE.search(c) for c in detail),
                         "the passage detail must still carry the raw filename")
-        self.assertTrue(any("characters " in c for c in detail),
+        self.assertTrue(any("Characters " in c for c in detail),
                         "the passage detail must still carry the offsets")
 
-        prov = [b for b in blocks if "procedure id" in b]
-        self.assertTrue(prov, "no run provenance block rendered")
-        self.assertTrue(any(self.SNAKE.search(b) for b in prov),
-                        "the provenance expander must still carry the "
-                        "procedure id")
+        self.assertTrue(any(self.SNAKE.search(b) for b in runs),
+                        "run details must still carry the procedure id")
 
         self.assertTrue(self.model_prose(),
                         "no explanations found in any artifact; the "
@@ -1082,3 +1198,451 @@ class IdentifierLeakTests(unittest.TestCase):
             dupes = [n for n, c in Counter(names).items() if c > 1]
             self.assertEqual(dupes, [],
                              f"{case['case_id']} has colliding labels: {dupes}")
+
+
+class ClinicalLayoutTests(unittest.TestCase):
+    """The layout's organising principle: every value carries a label.
+
+    A reviewer should never have to infer what she is looking at. "LF-201" is
+    meaningless without "Case" above it, and a row of counts is meaningless
+    without "Where the 9 requirements stand".
+    """
+
+    def app_ns(self):
+        """The module's plain functions, without executing Streamlit calls."""
+        tree = ast.parse(APP.read_text())
+        ns = {}
+        for node in tree.body:
+            if isinstance(node, (ast.FunctionDef, ast.Assign, ast.Import)):
+                try:
+                    exec(compile(ast.Module(body=[node], type_ignores=[]),
+                                 "<app>", "exec"), ns)
+                except Exception:
+                    pass
+        return ns
+
+    def test_every_row_field_carries_a_label(self) -> None:
+        code = code_only(APP)
+        loop = code[code.index("for index, result in enumerate"):]
+        for label in ("Requirement {position} of", "'Result'",
+                      "Evidence located in the record"):
+            self.assertIn(label.strip("'"), loop,
+                          f"missing row label: {label}")
+
+    def test_the_why_heading_names_the_kind_of_problem(self) -> None:
+        """"Why this needs review" and "Why this is unresolved" are different
+        questions, and a processing failure is not a clinical question."""
+        code = code_only(APP)
+        for heading in ("Why this needs review", "Why this is unresolved",
+                        "What happened"):
+            self.assertIn(heading, code)
+
+    def test_the_position_counts_from_one(self) -> None:
+        """"Requirement 0 of 9" would be a bug a reviewer could not explain."""
+        code = code_only(APP)
+        self.assertIn("position = index + 1", code)
+
+    def test_a_processing_failure_says_it_was_not_assessed(self) -> None:
+        """Slate, off the clinical scale, and explicit that the requirement
+        carries no result rather than a poor one."""
+        code = code_only(APP)
+        self.assertIn("has not been assessed", code)
+        self.assertIn("No clinical result was", code)
+        display = display_map()
+        self.assertIn("No clinical result", display[None][0])
+
+    def test_the_source_line_is_prefixed_and_states_verification(self) -> None:
+        code = code_only(APP)
+        self.assertIn("Source: ", code)
+        self.assertIn("all verified against source", code)
+        self.assertIn("could not be verified against", code,
+                      "an unverified citation must say so in the same place")
+
+    def test_the_expander_offers_to_view_the_passages(self) -> None:
+        code = code_only(APP)
+        self.assertIn("View all {n} passage", code)
+        self.assertNotIn("and sources", code)
+
+    # --- the alert, both branches -----------------------------------------
+
+    def test_no_alert_when_every_document_was_read(self) -> None:
+        self.assertEqual(self.app_ns()["unreadable_notice"](5, 5), "")
+        self.assertEqual(self.app_ns()["unreadable_notice"](1, 1), "")
+
+    def test_an_alert_when_a_document_could_not_be_read(self) -> None:
+        notice = self.app_ns()["unreadable_notice"](5, 4)
+        self.assertIn("1 of 5 submitted document could not be read", notice)
+        self.assertIn("not a complete evidence review", notice)
+        self.assertIn("cite-alert", notice)
+
+    def test_the_alert_agrees_in_number(self) -> None:
+        ns = self.app_ns()
+        self.assertIn("2 of 5 submitted documents", ns["unreadable_notice"](5, 3))
+        self.assertIn("1 of 5 submitted document could", ns["unreadable_notice"](5, 4))
+
+    def test_the_alert_is_a_statement_not_a_count_in_a_metadata_line(self) -> None:
+        """The readable-document count used to sit in the case metadata
+        string, where it read as a number about the run rather than a warning
+        about the review. It is now only rendered when it is a problem."""
+        code = code_only(APP)
+        band = render_calls("cite-band")
+        self.assertTrue(band)
+        self.assertNotIn("documents read", band[0],
+                         "the document count belongs behind run details")
+        self.assertIn("if notice:", code,
+                      "the alert must be conditional")
+
+    def test_cpt_and_criteria_version_are_off_the_surface(self) -> None:
+        band = render_calls("cite-band")
+        self.assertTrue(band)
+        for hidden in ("cpt", "criteria_set.version"):
+            self.assertNotIn(hidden, band[0].lower().replace("criteria_set.version",
+                                                             "criteria_set.version"),
+                             f"{hidden} belongs behind run details")
+
+
+class StreamlitChromeTests(unittest.TestCase):
+    """Streamlit's own controls are development affordances.
+
+    The Deploy button and the three-dot menu invite a click that does
+    something nobody intended, in front of an audience. `toolbarMode` in
+    config.toml removes most of them; it still renders the toolbar
+    container, which leaves an empty strip across the top of the page, so
+    the CSS collapses that too.
+
+    Verified in a real browser as well as here: the rendered page was
+    measured with Playwright in all four states — recorded, recorded with an
+    injected fault, live before a run and live after one — and in every one
+    the header measured zero height, no toolbar, Deploy or menu element
+    existed, and the first line of text sat at y=88 with nothing above it.
+    """
+
+    CONFIG = PROJECT_ROOT / ".streamlit" / "config.toml"
+
+    def test_the_toolbar_mode_is_pinned(self) -> None:
+        text = self.CONFIG.read_text()
+        self.assertIn("[client]", text)
+        self.assertRegex(text, r'toolbarMode\s*=\s*"(minimal|viewer)"')
+
+    def test_the_development_chrome_is_hidden(self) -> None:
+        css = APP.read_text()
+        for testid in ("stToolbar", "stAppDeployButton", "stMainMenu",
+                       "stStatusWidget"):
+            self.assertIn(f"data-testid='{testid}'", css,
+                          f"{testid} is not hidden")
+        i = css.index("[data-testid='stToolbar']")
+        self.assertIn("display:none", css[i:i + 320])
+
+    def test_the_empty_toolbar_strip_is_collapsed(self) -> None:
+        """`toolbarMode` removes the buttons and leaves the container, which
+        renders as a blank band across the top of every screen."""
+        css = APP.read_text()
+        i = css.index("[data-testid='stHeader']")
+        rule = css[i:i + 260]
+        # Declarations, not substrings. `assertIn("height:0", ...)` matched
+        # the "height:0" inside `min-height:0`, so a mutation that deleted
+        # the actual height declaration and left the strip on screen passed.
+        # The block belonging to this selector: the first one after it, not
+        # the last in the window, which is a different rule entirely.
+        body = rule.split("{{", 1)[1].split("}}", 1)[0]
+        decls = {d.split(":", 1)[0].strip(): d.split(":", 1)[1].strip()
+                 for d in body.split(";") if ":" in d}
+        self.assertIn("height", decls,
+                      "the header keeps its default height; the empty "
+                      "toolbar strip will still show")
+        self.assertTrue(decls["height"].startswith("0"),
+                        f"header height is {decls['height']!r}, not zero")
+        self.assertIn("background", decls)
+        self.assertTrue(decls["background"].startswith("transparent"))
+
+    def test_the_sidebar_can_still_be_reopened(self) -> None:
+        """`stExpandSidebarButton` lives inside the header. Collapsing the
+        header without exempting it would leave a viewer who hides the
+        sidebar with no way to bring it back."""
+        css = APP.read_text()
+        self.assertIn("[data-testid='stExpandSidebarButton']", css,
+                      "the sidebar-expand button is not exempted from the "
+                      "collapsed header; a viewer who hides the sidebar "
+                      "could not bring it back")
+        i = css.index("[data-testid='stExpandSidebarButton']")
+        self.assertIn("display:flex", css[i:i + 120])
+        # The header must not blanket-hide its children.
+        self.assertNotIn("[data-testid='stHeader'] > * {{ display:none", css)
+
+    def test_the_top_padding_matches_whether_the_header_reserves_space(self) -> None:
+        """The invariant is the relationship, not a number.
+
+        The overlap this prevents: the opening line of live mode rendered
+        underneath the header and was cut off. A fixed minimum was the wrong
+        way to express it — once the header collapsed to zero height, a
+        3rem floor only reintroduced the gap above the masthead. What has to
+        hold is that the padding clears whatever the header actually
+        reserves.
+        """
+        css = APP.read_text()
+        i = css.index(".block-container {{")
+        m = re.search(r"padding-top:([0-9.]+)rem", css[i:i + 120])
+        self.assertIsNotNone(m, "no top padding set on the main container")
+        padding = float(m.group(1))
+        self.assertGreater(padding, 0, "content would touch the viewport edge")
+
+        j = css.index("[data-testid='stHeader']")
+        body = css[j:j + 260].split("{{", 1)[1].split("}}", 1)[0]
+        decls = {d.split(":", 1)[0].strip(): d.split(":", 1)[1].strip()
+                 for d in body.split(";") if ":" in d}
+        collapsed = decls.get("height", "").startswith("0")
+        if collapsed:
+            self.assertLessEqual(
+                padding, 2.0,
+                "the header reserves no space, so this padding is the gap "
+                "above the masthead rather than clearance")
+        else:
+            self.assertGreaterEqual(
+                padding, 6.0,
+                "the header reserves its default height; content will render "
+                "underneath it")
+
+    def test_the_sidebar_labels_are_not_doubled(self) -> None:
+        """Each sidebar group is named by its subheader. Streamlit's own
+        widget label then repeated it directly underneath."""
+        code = code_only(APP)
+        i = code.index("with st.sidebar:")
+        block = code[i:code.index("criteria_set = load_criteria")]
+        self.assertEqual(block.count("label_visibility='collapsed'"), 4,
+                         "every sidebar widget whose group already carries a "
+                         "heading must collapse its own label")
+
+
+class PassageCardTests(unittest.TestCase):
+    """The expanded passage view.
+
+    It was a monospace block under a header line that crammed the document
+    name, filename, document id, character range and hash into one string.
+    That reads as a log dump, and clinical prose set in monospace reads as
+    machine output rather than as a record someone wrote.
+
+    Each passage is now a card: the document as a heading, the excerpt in
+    proportional type with its surroundings dimmed, and the machine detail
+    in a footer behind a disclosure. Verified in Chrome as well as here —
+    thirteen cards rendered, the excerpt computed to a proportional family,
+    and the disclosure revealed filename, id and full hash.
+    """
+
+    def css(self):
+        return APP.read_text()
+
+    def rule_px(self, selector):
+        css = self.css()
+        i = css.index(selector)
+        m = re.search(r"font-size:\s*([0-9.]+)px", css[i:i + 200])
+        self.assertIsNotNone(m, f"no font-size for {selector}")
+        return float(m.group(1))
+
+    def test_no_monospace_on_clinical_prose(self) -> None:
+        """The excerpt is the patient's record, not a stack trace."""
+        code = code_only(APP)
+        loop = code[code.index("for index, result in enumerate"):]
+        self.assertNotIn("monospace", loop,
+                         "the passage excerpt must not be set in monospace")
+        css = self.css()
+        i = css.index(".cite-excerpt {{")
+        self.assertNotIn("monospace", css[i:i + 200])
+
+    def test_each_passage_is_a_card(self) -> None:
+        calls = render_calls("cite-doc-head")
+        self.assertTrue(calls, "nothing renders a passage card")
+        card = calls[0]
+        for part in ("cite-doc-name", "cite-doc-date", "cite-excerpt",
+                     "cite-doc-foot"):
+            self.assertIn(part, " ".join(render_calls(part)) or "",
+                          f"the card is missing {part}")
+
+    def test_the_document_name_is_a_heading_not_a_metadata_string(self) -> None:
+        """The name, the date and the machine detail are three different
+        things in three places, not one concatenated line."""
+        calls = " ".join(render_calls("cite-doc-head"))
+        self.assertIn("document_parts", code_only(APP))
+        self.assertIn("cite-doc-name", calls)
+        # The filename must not be in the card heading.
+        head = calls[calls.index("cite-doc-head"):calls.index("cite-excerpt")]
+        self.assertNotIn("doc.filename", head,
+                         "the raw filename belongs in the footer disclosure")
+
+    def test_repeated_documents_number_their_passages(self) -> None:
+        """Four cards all headed "Flexion extension series" tell a reviewer
+        nothing about which is which."""
+        code = code_only(APP)
+        self.assertIn("passage {seen[doc_id]} of {per_doc[doc_id]}", code)
+        self.assertIn("from this document", code)
+        self.assertIn("if per_doc[doc_id] > 1:", code,
+                      "a document contributing one passage must not be "
+                      "numbered")
+
+    def test_file_and_hash_sit_behind_a_disclosure_in_the_footer(self) -> None:
+        # Through `render_calls`, not `code.index`: the first "cite-doc-foot"
+        # in the file is the CSS rule that defines the class. That mistake
+        # has now been made five times in this file, once per class name
+        # introduced, which is why the helper exists.
+        calls = [c for c in render_calls("cite-doc-foot")
+                 if "details" in c]
+        self.assertTrue(calls, "nothing renders the footer disclosure")
+        foot = calls[0]
+        self.assertIn("<details><summary>file and hash", foot)
+        for handle in ("doc.filename", "doc_id", "sha"):
+            self.assertIn(handle, foot, f"{handle} must be in the disclosure")
+        self.assertIn("Characters ", foot, "the offsets stay on the footer")
+
+    def test_an_unverifiable_quote_shows_no_source_context(self) -> None:
+        """It resolved to no place in the document, so there is no context
+        to show. An excerpt would imply a location it does not have."""
+        # Bounded at the `continue` that ends the branch. A fixed character
+        # window overran into the verified branch below it, which does read
+        # `doc.canonical`, and the test failed on correct code.
+        code = code_only(APP)
+        i = code.index("if not item['verified']:")
+        block = code[i:code.index("continue", i)]
+        self.assertIn("No matching span in this document", block)
+        self.assertIn("could not be verified against source", block)
+        self.assertNotIn("doc.canonical", block,
+                         "an unverified quote must not render source context")
+
+    # --- the v3 type scale ------------------------------------------------
+
+    def test_the_type_scale_matches_the_reference(self) -> None:
+        for selector, expected in ((".cite-req {{", 17.0),
+                                   (".cite-quote {{", 16.5),
+                                   (".cite-excerpt {{", 15.5),
+                                   (".cite-doc-name {{", 15.0),
+                                   (".cite-label {{", 12.0)):
+            self.assertEqual(self.rule_px(selector), expected,
+                             f"{selector} is not the reference size")
+
+    def test_the_base_is_sixteen_pixels(self) -> None:
+        css = self.css()
+        i = css.index("section[data-testid='stMain'] {{")
+        m = re.search(r"font-size:\s*([0-9.]+)px", css[i:i + 120])
+        self.assertEqual(float(m.group(1)), 16.0)
+
+    def test_the_injected_stylesheet_does_not_occupy_space(self) -> None:
+        """Streamlit wraps the injected `<style>` in an element container
+        that contributes height and a flex gap. That was the whitespace
+        above the masthead: the padding was already small, but an invisible
+        element sat in front of it."""
+        css = self.css()
+        self.assertIn("stElementContainer']:has(", css)
+        i = css.index("stElementContainer']:has(")
+        self.assertIn("display:none", css[i:i + 320])
+
+
+class TestsAboutTheseTestsTests(unittest.TestCase):
+    """A check on this file, because one mistake keeps recurring in it.
+
+    Five times now a test has looked up a CSS class name in the whole source
+    and matched the stylesheet rule that *defines* the class rather than
+    anything that *renders* it. Every time, the test passed while the thing
+    it described was absent — deleting the masthead, dropping the notice out
+    of the footer, leaving the toolbar strip on screen, and twice more.
+
+    The failure is invisible by construction: the assertion is true, just
+    not about what the author meant. Attention has not stopped it, so this
+    check does.
+
+    **What counts as ambiguous.** A needle that is a bare class name, with
+    or without a leading dot, can match both a CSS rule and a render. Those
+    must go through `render_calls`, which skips the stylesheet, or search a
+    narrowed scope such as an unparsed function body. A needle carrying
+    markup (`cite-bar'><span>`) can only match a render, and one carrying
+    `{{` can only match a rule; both are unambiguous and are allowed.
+    """
+
+    # Names that hold the entire source of app.py.
+    WHOLE_FILE_NAMES = {"code", "css", "source", "src"}
+    BARE_CLASS = re.compile(r"^\.?cite-[a-z0-9_-]+$")
+    SEARCHES = {"index", "count", "find"}
+    ASSERTIONS = {"assertIn", "assertNotIn"}
+
+    def _is_whole_file(self, node) -> bool:
+        if isinstance(node, ast.Name) and node.id in self.WHOLE_FILE_NAMES:
+            return True
+        if isinstance(node, ast.Call):
+            f = node.func
+            if isinstance(f, ast.Name) and f.id == "code_only":
+                return True
+            if isinstance(f, ast.Attribute) and f.attr == "read_text":
+                return True
+        return False
+
+    def violations(self, tree) -> list:
+        out = []
+        for node in ast.walk(tree):
+            if not isinstance(node, ast.Call):
+                continue
+            f = node.func
+            if not isinstance(f, ast.Attribute):
+                continue
+            needle = haystack = None
+            if f.attr in self.SEARCHES and node.args:
+                needle, haystack = node.args[0], f.value
+            elif f.attr in self.ASSERTIONS and len(node.args) >= 2:
+                needle, haystack = node.args[0], node.args[1]
+            if needle is None:
+                continue
+            if not (isinstance(needle, ast.Constant)
+                    and isinstance(needle.value, str)):
+                continue
+            if not self.BARE_CLASS.match(needle.value.strip()):
+                continue
+            if self._is_whole_file(haystack):
+                out.append((node.lineno, f.attr, needle.value))
+        return out
+
+    def test_no_test_searches_the_whole_source_for_a_bare_class_name(self) -> None:
+        tree = ast.parse(Path(__file__).read_text())
+        found = self.violations(tree)
+        self.assertEqual(
+            found, [],
+            "these lookups will match the stylesheet rule that defines the "
+            "class, not the code that renders it — use render_calls() or "
+            "narrow the scope: "
+            + "; ".join(f"line {ln}: {call}({needle!r})"
+                        for ln, call, needle in found))
+
+    def test_the_check_catches_the_mistake_it_describes(self) -> None:
+        """The check must fail on a real instance of the defect.
+
+        Both shapes it has actually taken are exercised: an `assertIn`
+        against the whole source, and an `index` lookup used to slice a
+        window out of it.
+        """
+        bad = ast.parse(
+            "def t(self):\n"
+            "    code = code_only(APP)\n"
+            "    self.assertIn('cite-title', code)\n"
+            "    i = code.index('cite-doc-foot')\n"
+            "    css = APP.read_text()\n"
+            "    j = css.index('.cite-band')\n")
+        found = self.violations(bad)
+        self.assertEqual(len(found), 3,
+                         f"the check missed a known instance: {found}")
+
+    def test_the_check_permits_the_unambiguous_forms(self) -> None:
+        """It must not flag lookups that cannot hit the stylesheet, or CSS
+        rule lookups that are meant to. A check that forbids the correct
+        form too would just be turned off."""
+        fine = ast.parse(
+            "def t(self):\n"
+            "    code = code_only(APP)\n"
+            "    css = APP.read_text()\n"
+            "    self.assertNotIn(\"cite-bar'><span>\", code)\n"      # markup
+            "    i = css.index('.cite-req {{')\n"                     # a rule
+            "    calls = render_calls('cite-band')\n"                 # helper
+            "    self.assertIn('cite-pill', body)\n"                  # narrowed
+            "    self.assertIn('cite-chip', ast.unparse(fn))\n")      # narrowed
+        self.assertEqual(self.violations(fine), [])
+
+    def test_render_calls_still_skips_the_stylesheet(self) -> None:
+        """The helper this check points people to has to actually work."""
+        self.assertTrue(render_calls("cite-band"),
+                        "render_calls finds nothing; the advice is useless")
+        for call in render_calls("cite-band"):
+            self.assertNotIn("<style>", call)
