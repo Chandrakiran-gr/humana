@@ -50,22 +50,33 @@ class Fault(str, Enum):
     OUTPUT_TRUNCATION = "OUTPUT_TRUNCATION"
 
 
+# What a reviewer is told. Two things only: what was broken, and what that
+# did to the output. Everything else — the enum, the artifact the truncation
+# was replayed from, the date it was observed, the case it came from — is
+# provenance for someone auditing the demonstration, and belongs in run
+# details rather than in a banner over a clinical screen.
+#
+# Spec Section 13 requires these to be labelled as injected. That is why the
+# headline begins "Deliberate failure"; the requirement itself is not
+# something to cite at a reviewer, who has no way to look it up.
 LABELS = {
     Fault.UNVERIFIABLE_QUOTE: (
-        "Injected fault: unverifiable quote",
-        "One returned quote has been altered so it no longer matches its "
-        "source. Step 4 rejects that span, preserves the reason, and keeps "
-        "any independently valid spans. Where the conclusion loses its "
-        "support it is downgraded to unresolved.",
+        "Deliberate failure: quote that cannot be verified",
+        "One quote has been altered so it no longer matches its source. "
+        "That passage is rejected, and any requirement resting on it alone "
+        "becomes unresolved rather than supported.",
     ),
     Fault.OUTPUT_TRUNCATION: (
-        "Injected fault: model output truncated",
-        "A real truncated response is replayed. The model exhausted its "
-        "output budget and returned no parseable result, so every criterion "
-        "resolves to no clinical status with PROCESSING_ERROR. This is a "
-        "visible incomplete state, not a clinical finding.",
+        "Deliberate failure: model response cut off",
+        "Every requirement shows no result rather than a clinical answer.",
     ),
 }
+
+# The one sentence that must accompany any injected fault, wherever it is
+# shown. Spec Section 13: these demonstrate that handling works and are not
+# observed error rates.
+NOT_A_RATE = ("This shows that failure handling works. "
+              "It is not an observed error rate.")
 
 
 @dataclass(frozen=True)
@@ -115,7 +126,8 @@ def corrupt_first_quote(results: list[dict], packet: IngestedPacket
         injection = Injection(
             fault=Fault.UNVERIFIABLE_QUOTE,
             headline=LABELS[Fault.UNVERIFIABLE_QUOTE][0],
-            detail="This case returned no verified quote to corrupt.",
+            detail="This case has no verified quote to alter, so nothing "
+                   "was broken.",
             target="none available")
     return out, injection
 

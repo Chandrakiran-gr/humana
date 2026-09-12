@@ -141,24 +141,70 @@ class TruncationTests(unittest.TestCase):
 
 
 class LabellingTests(unittest.TestCase):
-    def test_both_controls_are_labelled_as_injected(self) -> None:
-        """Spec Section 13: fault injection is labeled as such. They
-        demonstrate handling and are not observed error rates."""
-        from um_evidence.faults import LABELS
+    def test_both_controls_are_labelled_as_deliberate(self) -> None:
+        """Spec Section 13: fault injection is labeled as such.
+
+        The wording is aimed at the reviewer rather than at the spec. It
+        used to read "Injected fault", which is the system's word for it;
+        "Deliberate failure" says the same thing to someone who has not read
+        the specification. What must not change is that the label states the
+        failure was caused on purpose.
+        """
+        from um_evidence.faults import LABELS, NOT_A_RATE
         for fault, (headline, detail) in LABELS.items():
-            self.assertIn("Injected fault", headline)
+            self.assertTrue(headline.startswith("Deliberate failure"),
+                            f"{fault} is not labelled as deliberate")
             self.assertTrue(detail.strip())
+        self.assertIn("not an observed error rate", NOT_A_RATE.lower())
+
+    def test_the_reviewer_wording_carries_no_internal_detail(self) -> None:
+        """The banner is over a clinical screen. An enum, a run artifact, an
+        observation date or a source case id tells a reviewer nothing and
+        makes the screen read as a developer tool."""
+        from um_evidence.faults import LABELS, OBSERVED_TRUNCATION_SOURCE
+        import re
+        for fault, (headline, detail) in LABELS.items():
+            text = f"{headline} {detail}"
+            self.assertNotRegex(text, r"\b[A-Z][A-Z_]{3,}\b",
+                                f"{fault} label contains an enum name")
+            self.assertNotIn(".json", text)
+            self.assertNotIn("2026", text)
+            self.assertNotIn("Step ", text)
+            for case in ("MRI-", "TKA-", "LF-"):
+                self.assertNotIn(case, text)
+        # The provenance still exists, for run details.
+        self.assertIn(".json", OBSERVED_TRUNCATION_SOURCE)
 
     def test_the_interface_labels_them_too(self) -> None:
         """The app renders the headline from LABELS rather than hardcoding
         it, so the check is that it surfaces the headline and carries the
-        disclaimer, not that the literal string appears."""
+        caveat, not that a literal string appears."""
         app = (PROJECT_ROOT / "app.py").read_text()
         self.assertIn("injection.headline", app,
                       "the injected-fault headline must reach the screen")
+        self.assertIn("NOT_A_RATE", app,
+                      "the banner must carry the standing caveat")
+        # Twice: once on the sidebar control, once on the active banner. The
+        # sidebar spells it out; the banner takes it from the constant.
         self.assertIn("not an observed error rate", app.lower())
-        # Twice: once on the control itself, once on the active banner.
-        self.assertGreaterEqual(app.lower().count("not an observed error rate"), 2)
+
+    def test_the_interface_does_not_cite_the_specification(self) -> None:
+        """A spec section number means nothing to a reviewer, who has no way
+        to look it up."""
+        import ast
+        import re
+        tree = ast.parse((PROJECT_ROOT / "app.py").read_text())
+        for node in ast.walk(tree):
+            if not (isinstance(node, ast.Constant)
+                    and isinstance(node.value, str)):
+                continue
+            if node.value.lstrip().startswith(("Reviewer interface",
+                                               "The display wording",
+                                               "Counts by status")):
+                continue          # module and function docstrings
+            self.assertNotRegex(
+                node.value, r"Spec Section \d+",
+                f"line {node.lineno} renders a specification reference")
 
 
 if __name__ == "__main__":

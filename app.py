@@ -53,7 +53,9 @@ from pathlib import Path
 import streamlit as st
 
 from um_evidence import corrections, ingest_case, load_criteria
-from um_evidence.faults import Fault, corrupt_first_quote, replay_truncation
+from um_evidence.faults import (
+    Fault, NOT_A_RATE, corrupt_first_quote, replay_truncation,
+)
 from um_evidence.live import (
     LIVE_RUNS, STAGE_DONE, STAGE_FAILED, STAGE_PENDING, STAGE_QUOTE_CHECK,
     STAGE_READING, STAGE_SUPPORT_CHECK, run_live,
@@ -455,6 +457,39 @@ def summary_strip(results: list[dict]) -> str:
             f"<div class='cite-tallies'>{''.join(cells)}</div></div>")
 
 
+def processing_sentence(result: dict) -> str:
+    """What a reviewer is told when a requirement produced no result.
+
+    The row used to print the pipeline's own `detail` string, which is
+    written for whoever is debugging the run:
+
+        1 attempt(s) failed; last: response truncated at the 16000
+        output-token limit (stop_reason max_tokens); raise max_tokens
+        rather than retrying
+
+    An attempt count, a token limit, a stop reason and a remediation
+    instruction. A reviewer acts on none of it, and the sentence that
+    followed ran into it with no separator. The raw string is still written
+    to the artifact and shown under run details, where someone diagnosing
+    the run will look for it.
+    """
+    kind = result.get("failure_kind") or ""
+    detail = (result.get("detail") or "").lower()
+    if kind == "NOT_ATTEMPTED":
+        # Already says everything; appending "not assessed" repeats itself.
+        return ("The record could not be read, so this requirement was "
+                "never assessed.")
+    if kind == "CONTRACT_REJECTION":
+        cause = ("The model's result failed an internal consistency check "
+                 "and was not used.")
+    if "truncated" in detail:
+        cause = ("The model's response was cut off before it produced a "
+                 "result.")
+    else:
+        cause = "The model did not return a usable result."
+    return f"{cause} This requirement was not assessed."
+
+
 def unreadable_notice(total: int, usable: int) -> str:
     """An alert when part of the packet could not be read, otherwise nothing.
 
@@ -573,19 +608,19 @@ with st.sidebar:
     # them so it does not read as part of the review workflow.
     st.markdown(
         f"<div style='margin-top:22px;padding-top:14px;border-top:1px solid "
-        f"{RULE}'><div class='cite-demo'>Demo control</div>"
-        f"<div class='cite-quiet' style='margin:3px 0 8px'>Injected faults "
-        f"show how failures are handled. Spec Section 13 requires them to be "
-        f"labelled as injected. <b>Not an observed error rate.</b></div></div>",
+        f"{RULE}'><div class='cite-demo'>Show a failure</div>"
+        f"<div class='cite-quiet' style='margin:3px 0 8px'>These deliberately "
+        f"break the system so you can see how failures are handled. They are "
+        f"<b>not an observed error rate.</b></div></div>",
         unsafe_allow_html=True)
     fault = st.radio(
         "Inject",
         [Fault.NONE, Fault.UNVERIFIABLE_QUOTE, Fault.OUTPUT_TRUNCATION],
         label_visibility="collapsed",
         format_func=lambda f: {
-            Fault.NONE: "No fault",
-            Fault.UNVERIFIABLE_QUOTE: "Unverifiable quote",
-            Fault.OUTPUT_TRUNCATION: "Model output truncated",
+            Fault.NONE: "Nothing broken",
+            Fault.UNVERIFIABLE_QUOTE: "Quote that cannot be verified",
+            Fault.OUTPUT_TRUNCATION: "Model response cut off",
         }[f],
         key="fault")
 
@@ -786,13 +821,12 @@ elif fault is Fault.OUTPUT_TRUNCATION:
     extraction = {**extraction, "processing_status": "FAILED"}
 
 if injection is not None:
-    st.error(
-        f"**{injection.headline}.** {injection.detail}\n\n"
-        f"Target: {injection.target}."
-        + (f" {injection.provenance}" if injection.provenance else "")
-        + "\n\nThis control demonstrates that failure handling works. "
-          "It is **not an observed error rate**.",
-        icon=":material/science:")
+    # Two lines. What broke and what it did, then the standing caveat.
+    # The enum, the artifact the truncation was replayed from, the date it
+    # was observed and the case it came from were all here; none of them is
+    # something a reviewer acts on, and they now sit in run details.
+    st.error(f"**{injection.headline}.** {injection.detail}\n\n"
+             f"{NOT_A_RATE}", icon=":material/science:")
 
 # criteria_set and packet are loaded above, before the mode branch, because a
 # live run needs both to draw its row list before any call is made.
@@ -837,7 +871,20 @@ with st.expander("run details"):
            if data.get("score", {}).get("split") else "")
         + f"<br>procedure id <code>{criteria_set.procedure_id}</code>"
         + f"</div>"
-        f"<div class='cite-quiet' style='margin-top:12px'>{FULL_NOTICE}</div>",
+        # The pipeline's own failure strings: attempt counts, token limits,
+        # stop reasons, remediation notes. Off the rows, kept here for
+        # whoever is diagnosing the run rather than reviewing the case.
+        + ("".join(
+            f"<div class='cite-quiet' style='margin-top:8px'>"
+            f"<b>{r['criterion_id']}</b> {r.get('failure_kind') or ''} · "
+            f"<code>{r.get('detail')}</code></div>"
+            for r in verification["results"]
+            if r.get("processing_status") != "COMPLETE" and r.get("detail")))
+        + (f"<div class='cite-quiet' style='margin-top:8px'>"
+           f"{injection.provenance or injection.detail} "
+           f"Target: {injection.target}.</div>"
+           if injection is not None else "")
+        + f"<div class='cite-quiet' style='margin-top:12px'>{FULL_NOTICE}</div>",
         unsafe_allow_html=True)
 
 # --- alert: only when documents failed to parse ---------------------------
@@ -905,13 +952,10 @@ for index, result in enumerate(verification["results"]):
         # not a clinical question at all.
         fg = DISPLAY.get(clinical, DISPLAY[None])[1]
         if processing != "COMPLETE":
-            detail = (result.get("detail") or "").strip()
             st.markdown(
                 f"<div class='cite-label'>What happened</div>"
                 f"<div class='cite-why' style='color:{DISPLAY[None][1]}'>"
-                f"Processing incomplete."
-                f"{' ' + detail if detail else ''} No clinical result was "
-                f"reached. This requirement has not been assessed.</div>",
+                f"{processing_sentence(result)}</div>",
                 unsafe_allow_html=True)
         elif result["reason_codes"] and clinical != "MET":
             heading = ("Why this needs review" if clinical == "NOT_MET"

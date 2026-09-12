@@ -101,7 +101,8 @@ class SeparationTests(unittest.TestCase):
         code = code_only(APP)
         self.assertIn("clinical = result['clinical_status']", code)
         self.assertIn("processing = result['processing_status']", code)
-        self.assertIn("Processing incomplete", code)
+        self.assertIn("What happened", code)
+        self.assertIn("processing_sentence(result)", code)
         # The chip renders the clinical field only. If `processing` were
         # ever passed to it, a system failure would acquire clinical wording.
         self.assertNotIn("status_chip(processing)", code)
@@ -114,11 +115,13 @@ class SeparationTests(unittest.TestCase):
         self.assertIn("if processing != 'COMPLETE':", code)
         i = code.index("if processing != 'COMPLETE':")
         window = code[i:i + 700]
-        self.assertIn("Processing incomplete", window)
-        self.assertIn("No clinical result was", window,
-                      "an incomplete run must say no clinical result was reached")
-        self.assertIn("result.get('detail')", window,
-                      "the reason for an incomplete state must be shown with it")
+        self.assertIn("What happened", window)
+        self.assertIn("processing_sentence(result)", window,
+                      "the row must say what happened, in words")
+        # The raw pipeline string must not be back on the row.
+        self.assertNotIn("result.get('detail')", window,
+                         "attempt counts, token limits, stop reasons and "
+                         "remediation notes belong under run details")
 
     def test_a_failed_run_still_gets_clinical_display_wording(self) -> None:
         """`None` has an entry in DISPLAY, so a failure renders as "no
@@ -1246,8 +1249,10 @@ class ClinicalLayoutTests(unittest.TestCase):
         """Slate, off the clinical scale, and explicit that the requirement
         carries no result rather than a poor one."""
         code = code_only(APP)
-        self.assertIn("has not been assessed", code)
-        self.assertIn("No clinical result was", code)
+        self.assertIn("was not assessed", code)
+        self.assertIn("never assessed", code,
+                      "an unread record must say the requirement was never "
+                      "assessed, not that a result was cut off")
         display = display_map()
         self.assertIn("No clinical result", display[None][0])
 
@@ -1646,3 +1651,192 @@ class TestsAboutTheseTestsTests(unittest.TestCase):
                         "render_calls finds nothing; the advice is useless")
         for call in render_calls("cite-band"):
             self.assertNotIn("<style>", call)
+
+
+class InternalDetailLeakTests(unittest.TestCase):
+    """No internal artefact reaches a field a reviewer reads.
+
+    Distinct from `IdentifierLeakTests`, which is about naming — filenames,
+    procedure ids, snake_case handles. This is about *provenance and
+    plumbing*: specification references, task numbers, raw exception text,
+    enum names, run artifacts, and remediation advice addressed to whoever
+    is debugging the pipeline.
+
+    All of it was on screen at once. The injected-fault banner cited a spec
+    section, named the artifact a truncation was replayed from, gave the
+    date it was observed and the case it came from. A failed row printed
+    the pipeline's own string: "1 attempt(s) failed; last: response
+    truncated at the 16000 output-token limit (stop_reason max_tokens);
+    raise max_tokens rather than retrying". A reviewer acts on none of it,
+    and a screen carrying it reads as a developer tool rather than a record
+    someone is accountable for.
+
+    None of this is deleted. It is in the run artifact, and under `run
+    details` where a technical reader will look.
+    """
+
+    SPEC = re.compile(r"Spec Section \d+|Section \d+ (?:requires|states)")
+    TASK = re.compile(r"\bTask \d+\.\d+\b")
+    ENUM = re.compile(r"\b[A-Z][A-Z_]{4,}\b")
+    EXCEPTION = re.compile(r"\b\w*Error\b|Error code:|Traceback|stop_reason")
+    REMEDIATION = re.compile(r"rather than retrying|raise max_tokens|"
+                             r"attempt\(s\) failed")
+    ARTIFACT = re.compile(r"\d{8}T\d{6}Z|\.json\b")
+
+    def reviewer_strings(self):
+        """String constants that reach a reviewer-facing field.
+
+        Docstrings and comments are excluded: they are for whoever reads the
+        source. Blocks that are deliberately technical — `run details`, the
+        passage provenance disclosure — are excluded by the same rule that
+        exempts them in `IdentifierLeakTests`, and are separately required
+        below to still carry what they were exempted for.
+        """
+        tree = ast.parse(code_only(APP))
+        out = []
+        for node in ast.walk(tree):
+            if not (isinstance(node, ast.Constant)
+                    and isinstance(node.value, str)):
+                continue
+            text = node.value
+            if "<style>" in text or "cite-quiet" in text:
+                continue                      # stylesheet, run details block
+            if "procedure id" in text or "sha256" in text:
+                continue                      # provenance, deliberately raw
+            if len(text) < 12:
+                continue                      # class names, format fragments
+            out.append((node.lineno, text))
+        return out
+
+    def test_the_scan_sees_something(self) -> None:
+        """Guard against every check below passing on an empty list."""
+        found = self.reviewer_strings()
+        self.assertGreater(len(found), 80,
+                           f"only {len(found)} strings scanned; the sweep is "
+                           f"looking at almost nothing")
+        self.assertTrue(any("Synthetic demonstration" in t for _, t in found))
+
+    def test_enum_names_are_covered_at_render_time(self) -> None:
+        """Enums are not checked here.
+
+        A DISPLAY key or a correction kind appears in this source as a dict
+        key without ever reaching a screen, so scanning constants for
+        UPPER_SNAKE would flag correct code. `IdentifierLeakTests` catches
+        enums in the *rendered* page instead, which is both stricter and
+        free of that false positive. This records the division so neither
+        check is later assumed to cover the other.
+        """
+        self.assertTrue(hasattr(IdentifierLeakTests,
+                                "test_no_snake_case_identifier_is_displayed"))
+        self.assertRegex("MISSING_EVIDENCE", IdentifierLeakTests.SNAKE)
+
+    def test_no_specification_reference_reaches_the_screen(self) -> None:
+        bad = [(l, t) for l, t in self.reviewer_strings() if self.SPEC.search(t)]
+        self.assertEqual(bad, [], f"specification cited to a reviewer: {bad}")
+
+    def test_no_task_number_reaches_the_screen(self) -> None:
+        bad = [(l, t) for l, t in self.reviewer_strings() if self.TASK.search(t)]
+        self.assertEqual(bad, [], f"task number on screen: {bad}")
+
+    def test_no_raw_exception_text_reaches_the_screen(self) -> None:
+        bad = [(l, t) for l, t in self.reviewer_strings()
+               if self.EXCEPTION.search(t)]
+        self.assertEqual(bad, [], f"exception text on screen: {bad}")
+
+    def test_no_remediation_advice_reaches_the_screen(self) -> None:
+        """"Raise max_tokens rather than retrying" is an instruction to an
+        engineer. A reviewer cannot act on it and should not be asked to."""
+        bad = [(l, t) for l, t in self.reviewer_strings()
+               if self.REMEDIATION.search(t)]
+        self.assertEqual(bad, [], f"remediation advice on screen: {bad}")
+
+    def test_no_run_artifact_is_named_outside_run_details(self) -> None:
+        bad = [(l, t) for l, t in self.reviewer_strings()
+               if self.ARTIFACT.search(t) and "runs/" not in t]
+        self.assertEqual(bad, [], f"run artifact named on screen: {bad}")
+
+    # --- the fault banner specifically ------------------------------------
+
+    def test_the_fault_banner_is_two_lines(self) -> None:
+        code = code_only(APP)
+        i = code.index("if injection is not None:")
+        block = code[i:i + 420]
+        self.assertIn("injection.headline", block)
+        self.assertIn("injection.detail", block)
+        self.assertIn("NOT_A_RATE", block)
+        for gone in ("injection.target", "injection.provenance"):
+            self.assertNotIn(gone, block,
+                             f"{gone} is provenance and belongs in run "
+                             f"details, not over a clinical screen")
+
+    def test_the_fault_labels_carry_no_internal_detail(self) -> None:
+        from um_evidence.faults import LABELS
+        for fault, (headline, detail) in LABELS.items():
+            text = f"{headline} {detail}"
+            for pattern, what in ((self.ENUM, "an enum"),
+                                  (self.ARTIFACT, "an artifact"),
+                                  (self.EXCEPTION, "exception text"),
+                                  (self.SPEC, "a spec reference")):
+                self.assertIsNone(pattern.search(text),
+                                  f"{fault} label contains {what}: {text!r}")
+
+    def test_the_technical_detail_is_kept_not_deleted(self) -> None:
+        """Every exemption above is only defensible because the detail is
+        still reachable. If run details stopped carrying it, the interface
+        would have lost information rather than tidied it."""
+        code = code_only(APP)
+        i = code.index("with st.expander('run details')")
+        block = code[i:code.index("unreadable_notice(", i)]
+        self.assertIn("failure_kind", block,
+                      "run details must carry the failure kind")
+        # The detail must be *rendered*, not merely tested for. Asserting the
+        # bare expression passed on the generator's own filter condition,
+        # `if ... and r.get("detail")`, so a mutation that dropped it from
+        # the output survived.
+        self.assertIn("<code>{r.get('detail')}</code>", block,
+                      "run details must render the raw pipeline string, not "
+                      "just test for its presence")
+        self.assertIn("injection.provenance", block,
+                      "run details must record that the fault replays a real "
+                      "observed failure")
+
+    def test_the_reviewer_sentence_covers_every_failure_kind(self) -> None:
+        """A kind with no sentence would fall through to wording that
+        asserts a cause the system did not observe."""
+        from um_evidence.results import FailureKind
+        tree = ast.parse(APP.read_text())
+        ns = {}
+        for node in tree.body:
+            if isinstance(node, (ast.FunctionDef, ast.Assign, ast.Import)):
+                try:
+                    exec(compile(ast.Module(body=[node], type_ignores=[]),
+                                 "<app>", "exec"), ns)
+                except Exception:
+                    pass
+        sentence = ns["processing_sentence"]
+        for kind in FailureKind:
+            text = sentence({"failure_kind": kind.value, "detail": ""})
+            self.assertTrue(text.endswith("."), f"{kind} has no sentence")
+            self.assertIsNone(self.ENUM.search(text),
+                              f"{kind} sentence leaks an enum: {text!r}")
+            self.assertNotIn("assessed. This requirement was not assessed",
+                             text, f"{kind} sentence repeats itself")
+
+    def test_the_truncation_sentence_is_the_agreed_wording(self) -> None:
+        tree = ast.parse(APP.read_text())
+        ns = {}
+        for node in tree.body:
+            if isinstance(node, (ast.FunctionDef, ast.Assign, ast.Import)):
+                try:
+                    exec(compile(ast.Module(body=[node], type_ignores=[]),
+                                 "<app>", "exec"), ns)
+                except Exception:
+                    pass
+        real = ("1 attempt(s) failed; last: response truncated at the 16000 "
+                "output-token limit (stop_reason max_tokens); raise "
+                "max_tokens rather than retrying")
+        self.assertEqual(
+            ns["processing_sentence"]({"failure_kind": "NO_RESPONSE",
+                                       "detail": real}),
+            "The model's response was cut off before it produced a result. "
+            "This requirement was not assessed.")
